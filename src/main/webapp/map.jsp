@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기 </title>
+    <title> 지도프로젝트 </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -457,7 +457,7 @@
             frameborder='0'
             scrolling='yes'
             style='width: 800px;'>
-        <!--            onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
 
     </iframe>
     <!--    <a href="#none" class="link_place" data-logevent="info_pannel,share">-->

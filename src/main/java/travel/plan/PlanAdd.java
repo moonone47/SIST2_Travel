@@ -54,7 +54,7 @@ public class PlanAdd extends HttpServlet {
 		// 맵에서 들어오는 req들을 PlanDTO > list 에 일정들을 임시 저장
 		// 일정번호
 		// 아이디
-		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
+
 //		ArrayList의 PlanDTO를
 		dto.setAddress_name(address_name);
 		dto.setCategory_group_code(category_group_code);
@@ -89,21 +89,35 @@ public class PlanAdd extends HttpServlet {
 
 		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
-		dao.getList(일정번호);
+//		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
+		ArrayList<PlanDTO> list = dao.getList(4); //where memberid == 4
+
+		if (list.size() != 0) {
+			resp.sendRedirect("/map.jsp");
+		} else {
+			System.out.println("list에 값이 들어있지 않습니다.");
+		}	
 
 //		list.add(dto); // DB에 넣지 않고 list에 add 가능한가요..?
 		//
 		/*
 		 * if(isDone != null && isDone.equals("y")){ dao.add(list); }
 		 */
-		req.setAttribute("dto", dto); // dto로 전달
+//		req.setAttribute("list", list);
+//		req.setAttribute("dto", dto); // dto로 전달
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
-		dispatcher.forward(req, resp);
+//		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
+		//todo: 기능 구현 후 아래 planadd.jsp
+//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+//		dispatcher.forward(req, resp);
+		
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
-		dispatcher.forward(req, resp);
+		doPost(req, resp);
+//		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
+		// todo: 기능 구현후 planadd.jsp로 이동
+		//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+//		dispatcher.forward(req, resp);
 	}
 }
