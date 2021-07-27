@@ -1,1 +1,14 @@
-/.metadata/
+.git/
+.idea/
+.metadata/
+.settings/
+.build/
+build/
+lib/
+Servers/
+.classpath
+/.classpath
+.project
+SIST2_Travel2.iml
+
+/bin/
