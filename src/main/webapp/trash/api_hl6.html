@@ -464,7 +464,7 @@
     <!--    </a>-->
 
     <div id="addplan" class="noshow">
-        <form method="POST" action="/planadd.do">
+        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
             <!--
 
                 보낼 데이터 :
@@ -516,7 +516,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b98db171cb4bc02433f272306db4edb2&libraries=services"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fba8341ea7a4ecd4e5c23c5533bdbe65&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#AD5').trigger("click");
@@ -682,7 +682,7 @@
                     $('#x').val(x);
                     $('#y').val(y);
                     // console.log('!!' + url); // <-- 얘가 undefined
-                    displayDetail(url);
+                    displayDetail(place_url);
                 }
             })(marker,
                 places[i].address_name,
