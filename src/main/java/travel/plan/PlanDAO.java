@@ -18,7 +18,7 @@ public class PlanDAO {
 
     public PlanDAO() {
         try {
-            conn = DBUtil.open();
+        	conn = DBUtil.open("183.100.233.88","sist2_travel","java1234");
         } catch (Exception e) {
             System.out.println("PlanDAO.PlanDAO()");
             e.printStackTrace();
@@ -27,10 +27,12 @@ public class PlanDAO {
 
     public int add(PlanDTO dto) {
         try {
-            String sql = "insert into tblPlan2 (planseq, address_name, category_group_code, category_group_name, category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid) values(planseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            
+        	String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
+                  "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
+                  "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+
             pstat = conn.prepareStatement(sql);
-            
             pstat.setString(1, dto.getAddress_name());
             pstat.setString(2, dto.getCategory_group_code());
             pstat.setString(3, dto.getCategory_group_name());
@@ -42,9 +44,31 @@ public class PlanDAO {
             pstat.setString(9, dto.getRoad_address_name());
             pstat.setString(10, dto.getX());
             pstat.setString(11, dto.getY());
-            pstat.setInt(12, 1);
+            pstat.setInt(12, 1);              //pstat.setInt(12, 1);
             pstat.setInt(13, 4);
-            
+            pstat.setString(14,"2021-07-27");
+
+
+//            String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
+//                    "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
+//                    "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//
+//            pstat = conn.prepareStatement(sql);
+//            pstat.setString(1, dto.getAddress_name());
+//            pstat.setString(2, dto.getCategory_group_code());
+//            pstat.setString(3, dto.getCategory_group_name());
+//            pstat.setString(4, dto.getCategory_name());
+//            pstat.setString(5, dto.getId());
+//            pstat.setString(6, dto.getPhone());
+//            pstat.setString(7, dto.getPlace_name());
+//            pstat.setString(8, dto.getPlace_url());
+//            pstat.setString(9, dto.getRoad_address_name());
+//            pstat.setString(10, dto.getX());
+//            pstat.setString(11, dto.getY());
+//            pstat.setInt(12, 1);
+//            pstat.setInt(13, 4);
+//            pstat.setString(14,"2021-07-27");
+
             return pstat.executeUpdate();
         } catch (Exception e) {
             System.out.println("PlanDAO.add()");

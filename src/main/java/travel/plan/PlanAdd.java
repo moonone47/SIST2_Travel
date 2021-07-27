@@ -2,7 +2,6 @@ package travel.plan;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,27 +12,25 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/plan/planadd.do")
 public class PlanAdd extends HttpServlet {
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
 		req.setCharacterEncoding("UTF-8");
-		
-		//PlanAdd.java
-//		address_name: "ÏÑúÏö∏ Ï§ëÍµ¨ ÏùÑÏßÄÎ°ú5Í∞Ä 275-3"
+
+		// PlanAdd.java
+//		address_name: "º≠øÔ ¡ﬂ±∏ ¿ª¡ˆ∑Œ5∞° 275-3"
 //		category_group_code: "AD5"
-//		category_group_name: "ÏàôÎ∞ï"
-//		category_name: "Ïó¨Ìñâ > ÏàôÎ∞ï > Ìò∏ÌÖî > ÌäπÍ∏âÌò∏ÌÖî > ÎùºÎßàÎã§Ìò∏ÌÖî"
+//		category_group_name: "º˜π⁄"
+//		category_name: "ø©«‡ > º˜π⁄ > »£≈⁄ > ∆Ø±ﬁ»£≈⁄ > ∂Û∏∂¥Ÿ»£≈⁄"
 //		id: "13111137"
 //		phone: "02-2276-3500"
-//		place_name: "ÎùºÎßàÎã§ ÏÑúÏö∏ÎèôÎåÄÎ¨∏"
+//		place_name: "∂Û∏∂¥Ÿ º≠øÔµø¥ÎπÆ"
 //		place_url: "http://place.map.kakao.com/13111137"
-//		road_address_name: "ÏÑúÏö∏ Ï§ëÍµ¨ ÎèôÌò∏Î°ú 354"
+//		road_address_name: "º≠øÔ ¡ﬂ±∏ µø»£∑Œ 354"
 //		x: "127.002698429626"
 //		y: "37.5658944720562"
-
-		String address_name =  req.getParameter("address_name");
+		
+		String address_name = req.getParameter("address_name");
 		String category_group_code = req.getParameter("category_group_code");
 		String category_group_name = req.getParameter("category_group_name");
 		String category_name = req.getParameter("category_name");
@@ -44,32 +41,21 @@ public class PlanAdd extends HttpServlet {
 		String road_address_name = req.getParameter("road_address_name");
 		String x = req.getParameter("x");
 		String y = req.getParameter("y");
-
 		String date = req.getParameter("date");
-
-
 		HttpSession session = req.getSession();
-
-
-
-//		todo: Íµ¨ÌòÑ
+//		todo: ±∏«ˆ
 //		String userId = (String) session.getAttribute("id");
 //		String userId = req.getParameter("userid");
 //		String planNum = req.getParameter("planNum");
-
 //		String isDone = req.getParameter("isDone");
-
 		PlanDAO dao = new PlanDAO();
 		PlanDTO dto = new PlanDTO();
-
 		//
-		//ÎßµÏóêÏÑú Îì§Ïñ¥Ïò§Îäî reqÎì§ÏùÑ PlanDTO > list Ïóê ÏùºÏ†ïÎì§ÏùÑ ÏûÑÏãú Ï†ÄÏû•
-
-		//ÏùºÏ†ïÎ≤àÌò∏
-		//ÏïÑÏù¥Îîî
-
+		// ∏ ø°º≠ µÈæÓø¿¥¬ reqµÈ¿ª PlanDTO > list ø° ¿œ¡§µÈ¿ª ¿”Ω√ ¿˙¿Â
+		// ¿œ¡§π¯»£
+		// æ∆¿Ãµ
 		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
-//		ArrayListÏùò PlanDTOÎ•º
+//		ArrayList¿« PlanDTO∏¶
 		dto.setAddress_name(address_name);
 		dto.setCategory_group_code(category_group_code);
 		dto.setCategory_group_name(category_group_name);
@@ -81,27 +67,30 @@ public class PlanAdd extends HttpServlet {
 		dto.setRoad_address_name(road_address_name);
 		dto.setX(x);
 		dto.setY(y);
-		
-			System.out.println(dto.getAddress_name());
-			System.out.println(dto.getCategory_group_code());
-			System.out.println(dto.getCategory_group_name());
-			System.out.println(dto.getCategory_name());
-			System.out.println(dto.getId());
-			System.out.println(dto.getPhone());
-			System.out.println(dto.getPlace_name());
-			System.out.println(dto.getPlace_url());
-			System.out.println(dto.getRoad_address_name());
-			System.out.println(dto.getX());
-			System.out.println(dto.getY());
 
-		dao.add(dto);
+		System.out.println(dto.getAddress_name());
+		System.out.println(dto.getCategory_group_code());
+		System.out.println(dto.getCategory_group_name());
+		System.out.println(dto.getCategory_name());
+		System.out.println(dto.getId());
+		System.out.println(dto.getPhone());
+		System.out.println(dto.getPlace_name());
+		System.out.println(dto.getPlace_url());
+		System.out.println(dto.getRoad_address_name());
+		System.out.println(dto.getX());
+		System.out.println(dto.getY());
+		int result = dao.add(dto);
 
-		/*if(isDone != null && isDone.equals("y")){
-			dao.add(list);
-		}*/
-		req.setAttribute("dto", dto); // dtoÎ°ú Ï†ÑÎã¨
-		
-		
+		if(result == 0){
+			System.out.println(result);
+		}
+//		list.add(dto); // DBø° ≥÷¡ˆ æ ∞Ì listø° add ∞°¥…«—∞°ø‰..?
+		//
+		/*
+		 * if(isDone != null && isDone.equals("y")){ dao.add(list); }
+		 */
+		req.setAttribute("dto", dto); // dto∑Œ ¿¸¥ﬁ
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
 	}
