@@ -12,46 +12,41 @@ public class PlanDTO {
     private String road_address_name;
     private String x;
     private String y;
-    private String rdate;
-    private String memberid;
+
     private String seq;
+    private String member_id;
+    private String rdate;
     private String planseq;
     
     
-    
-    public String getPlanseq() {
-		return planseq;
-	}
+    public String getSeq() {
+        return seq;
+    }
 
-	public void setPlanseq(String planseq) {
-		this.planseq = planseq;
-	}
+    public void setSeq(String seq) {
+        this.seq = seq;
+    }
 
-	public String getMemberid() {
-		return memberid;
-	}
+    public String getMember_id() {
+        return member_id;
+    }
 
-	public void setMemberid(String memberid) {
-		this.memberid = memberid;
-	}
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
+    }
 
-	public String getSeq() {
-		return seq;
-	}
+    public String getRdate() {
+        return rdate;
+    }
 
-	public void setSeq(String seq) {
-		this.seq = seq;
-	}
+    public void setRdate(String rdate) {
+        this.rdate = rdate;
+    }
 
-	public String getRdate() {
-		return rdate;
-	}
 
-	public void setRdate(String rdate) {
-		this.rdate = rdate;
-	}
 
-	public String getAddress_name() {
+
+    public String getAddress_name() {
         return address_name;
     }
 
@@ -137,5 +132,13 @@ public class PlanDTO {
 
     public void setY(String y) {
         this.y = y;
+    }
+
+    public String getPlanseq() {
+        return planseq;
+    }
+
+    public void setPlanseq(String planseq) {
+        this.planseq = planseq;
     }
 }
