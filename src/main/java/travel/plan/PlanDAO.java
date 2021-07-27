@@ -18,7 +18,11 @@ public class PlanDAO {
 
     public PlanDAO() {
         try {
+<<<<<<< HEAD
         	conn = DBUtil.open("183.100.233.88","sist2_travel","java1234");
+=======
+        	  conn = DBUtil.open("183.100.233.88","sist2_travel","java1234");
+>>>>>>> 792f49cc7ffdf026741111f158ff8b28bc618aca
         } catch (Exception e) {
             System.out.println("PlanDAO.PlanDAO()");
             e.printStackTrace();
@@ -27,11 +31,18 @@ public class PlanDAO {
 
     public int add(PlanDTO dto) {
         try {
+<<<<<<< HEAD
         	String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
                   "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
                   "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 
+=======
+            String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
+                    "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
+                    "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
+>>>>>>> 792f49cc7ffdf026741111f158ff8b28bc618aca
             pstat = conn.prepareStatement(sql);
             pstat.setString(1, dto.getAddress_name());
             pstat.setString(2, dto.getCategory_group_code());
@@ -44,6 +55,7 @@ public class PlanDAO {
             pstat.setString(9, dto.getRoad_address_name());
             pstat.setString(10, dto.getX());
             pstat.setString(11, dto.getY());
+<<<<<<< HEAD
             pstat.setInt(12, 1);              //pstat.setInt(12, 1);
             pstat.setInt(13, 4);
             pstat.setString(14,"2021-07-27");
@@ -69,6 +81,12 @@ public class PlanDAO {
 //            pstat.setInt(13, 4);
 //            pstat.setString(14,"2021-07-27");
 
+=======
+            pstat.setInt(12, 1);              
+            pstat.setInt(13, 4);
+            pstat.setString(14,"2021-07-27");
+
+>>>>>>> 792f49cc7ffdf026741111f158ff8b28bc618aca
             return pstat.executeUpdate();
         } catch (Exception e) {
             System.out.println("PlanDAO.add()");
