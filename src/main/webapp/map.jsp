@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기 </title>
+    <title> 지도프로젝트 </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -530,7 +530,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fba8341ea7a4ecd4e5c23c5533bdbe65&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#AD5').trigger("click");

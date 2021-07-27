@@ -202,7 +202,7 @@ public class PlanDAO {
                 dto.setPlace_url(rs.getString("place_url"));
                 dto.setPlace_name(rs.getString("place_name"));
                 dto.setPhone(rs.getString("phone"));
-                dto.setMember_id(rs.getString("memeber_id"));
+                dto.setMember_id(rs.getString("member_id"));
                 dto.setPlanseq(rs.getString("tplanseq"));
                 dto.setCategory_group_code(rs.getString("categoty_category_group_code"));
                 dto.setCategory_group_name(rs.getString("category_group_name"));

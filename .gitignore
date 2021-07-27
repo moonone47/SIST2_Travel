@@ -4,7 +4,7 @@
 .build/
 .lib/
 lib/
-
+.metadata/
 .classpath
 /.classpath
 .project
@@ -19,3 +19,6 @@ Servers/
 
 SIST2_Travel2.iml
 /bin/
+bin/
+.bin/
+
