@@ -91,12 +91,13 @@ public class PlanAdd extends HttpServlet {
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
 		ArrayList<PlanDTO> list = dao.getList(4); //where memberid == 4
-
-		if (list.size() != 0) {
-			resp.sendRedirect("/map.jsp");
-		} else {
-			System.out.println("list에 값이 들어있지 않습니다.");
-		}	
+		req.setAttribute("list", list);
+		
+//		if (list.size() != 0) {
+//			resp.sendRedirect("/map.jsp");
+//		} else {
+//			System.out.println("list에 값이 들어있지 않습니다.");
+//		}	
 
 //		list.add(dto); // DB에 넣지 않고 list에 add 가능한가요..?
 		//
@@ -106,10 +107,10 @@ public class PlanAdd extends HttpServlet {
 //		req.setAttribute("list", list);
 //		req.setAttribute("dto", dto); // dto로 전달
 
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plan.jsp");
 		//todo: 기능 구현 후 아래 planadd.jsp
 //		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
-//		dispatcher.forward(req, resp);
+		dispatcher.forward(req, resp);
 		
 	}
 
