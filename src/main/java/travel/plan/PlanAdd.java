@@ -17,16 +17,16 @@ public class PlanAdd extends HttpServlet {
 
 		req.setCharacterEncoding("UTF-8");
 
-		// PlanAdd.java
-//		address_name: "¼­¿ï Áß±¸ À»Áö·Î5°¡ 275-3"
+	// PlanAdd.java
+//		address_name: "ì„œìš¸ ì¤‘êµ¬ ì„ì§€ë¡œ5ê°€ 275-3"
 //		category_group_code: "AD5"
-//		category_group_name: "¼÷¹Ú"
-//		category_name: "¿©Çà > ¼÷¹Ú > È£ÅÚ > Æ¯±ÞÈ£ÅÚ > ¶ó¸¶´ÙÈ£ÅÚ"
+//		category_group_name: "ìˆ™ë°•"
+//		category_name: "ì—¬í–‰ > ìˆ™ë°• > í˜¸í…” > íŠ¹ê¸‰í˜¸í…” > ë¼ë§ˆë‹¤í˜¸í…”"
 //		id: "13111137"
 //		phone: "02-2276-3500"
-//		place_name: "¶ó¸¶´Ù ¼­¿ïµ¿´ë¹®"
+//		place_name: "ë¼ë§ˆë‹¤ ì„œìš¸ë™ëŒ€ë¬¸"
 //		place_url: "http://place.map.kakao.com/13111137"
-//		road_address_name: "¼­¿ï Áß±¸ µ¿È£·Î 354"
+//		road_address_name: "ì„œìš¸ ì¤‘êµ¬ ë™í˜¸ë¡œ 354"
 //		x: "127.002698429626"
 //		y: "37.5658944720562"
 		
@@ -43,19 +43,13 @@ public class PlanAdd extends HttpServlet {
 		String y = req.getParameter("y");
 		String date = req.getParameter("date");
 		HttpSession session = req.getSession();
-//		todo: ±¸Çö
-//		String userId = (String) session.getAttribute("id");
-//		String userId = req.getParameter("userid");
-//		String planNum = req.getParameter("planNum");
-//		String isDone = req.getParameter("isDone");
+
+		
 		PlanDAO dao = new PlanDAO();
 		PlanDTO dto = new PlanDTO();
-		//
-		// ¸Ê¿¡¼­ µé¾î¿À´Â reqµéÀ» PlanDTO > list ¿¡ ÀÏÁ¤µéÀ» ÀÓ½Ã ÀúÀå
-		// ÀÏÁ¤¹øÈ£
-		// ¾ÆÀÌµð
-		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
-//		ArrayListÀÇ PlanDTO¸¦
+
+		
+
 		dto.setAddress_name(address_name);
 		dto.setCategory_group_code(category_group_code);
 		dto.setCategory_group_name(category_group_name);
@@ -68,35 +62,26 @@ public class PlanAdd extends HttpServlet {
 		dto.setX(x);
 		dto.setY(y);
 
-		System.out.println(dto.getAddress_name());
-		System.out.println(dto.getCategory_group_code());
-		System.out.println(dto.getCategory_group_name());
-		System.out.println(dto.getCategory_name());
-		System.out.println(dto.getId());
-		System.out.println(dto.getPhone());
-		System.out.println(dto.getPlace_name());
-		System.out.println(dto.getPlace_url());
-		System.out.println(dto.getRoad_address_name());
-		System.out.println(dto.getX());
-		System.out.println(dto.getY());
+		
 		int result = dao.add(dto);
 
-		if(result == 0){
-			System.out.println(result);
-		}
-//		list.add(dto); // DB¿¡ ³ÖÁö ¾Ê°í list¿¡ add °¡´ÉÇÑ°¡¿ä..?
-		//
-		/*
-		 * if(isDone != null && isDone.equals("y")){ dao.add(list); }
-		 */
-		req.setAttribute("dto", dto); // dto·Î Àü´Þ
+		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		ArrayList<PlanDTO> list =  dao.getlist(4);
+
+		if(list.size() == 0){
+			System.out.println("listê°€ nullìž…ë‹ˆë‹¤.");
+		}
+		req.setAttribute("list", list);
+
+//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
