@@ -68,18 +68,29 @@ public class PlanAdd extends HttpServlet {
 		dto.setX(x);
 		dto.setY(y);
 
-		System.out.println(dto.getAddress_name());
-		System.out.println(dto.getCategory_group_code());
-		System.out.println(dto.getCategory_group_name());
-		System.out.println(dto.getCategory_name());
-		System.out.println(dto.getId());
-		System.out.println(dto.getPhone());
-		System.out.println(dto.getPlace_name());
-		System.out.println(dto.getPlace_url());
-		System.out.println(dto.getRoad_address_name());
-		System.out.println(dto.getX());
-		System.out.println(dto.getY());
-		dao.add(dto);
+//		System.out.println(dto.getAddress_name());
+//		System.out.println(dto.getCategory_group_code());
+//		System.out.println(dto.getCategory_group_name());
+//		System.out.println(dto.getCategory_name());
+//		System.out.println(dto.getId());
+//		System.out.println(dto.getPhone());
+//		System.out.println(dto.getPlace_name());
+//		System.out.println(dto.getPlace_url());
+//		System.out.println(dto.getRoad_address_name());
+//		System.out.println(dto.getX());
+//		System.out.println(dto.getY());
+		int result = dao.add(dto);
+
+		if(result == 0){
+			System.out.println(result);
+		}
+		//todo: 일정 삭제시 할 기능 구현
+
+
+		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
+		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
+		dao.getList(일정번호);
+
 //		list.add(dto); // DB에 넣지 않고 list에 add 가능한가요..?
 		//
 		/*

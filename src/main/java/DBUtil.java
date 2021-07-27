@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -7,8 +8,8 @@ public class DBUtil {
 
 		Connection conn = null;
 
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "hr";
+		String url = "jdbc:oracle:thin:@183.100.233.88:1521:XE";
+		String id = "sist2_travel";
 		String pw = "java1234";
 
 		try {
@@ -47,7 +48,6 @@ public class DBUtil {
 	}
 
 }
-
 
 
 
