@@ -92,11 +92,13 @@ public class PlanAdd extends HttpServlet {
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
 		ArrayList<PlanDTO> list = dao.getList(4); //where memberid == 4
 
-		if (list.size() != 0) {
-			resp.sendRedirect("/SIST2_Travel/map.jsp");
-		} else {
-			System.out.println("list에 값이 들어있지 않습니다.");
-		}	
+
+//		req.setAttribute("list", list);
+//		if (list.size() != 0) {
+//			resp.sendRedirect("/SIST2_Travel/map.jsp");
+//		} else {
+//			System.out.println("list에 값이 들어있지 않습니다.");
+//		}
 
 //		list.add(dto); // DB에 넣지 않고 list에 add 가능한가요..?
 		//
@@ -106,10 +108,14 @@ public class PlanAdd extends HttpServlet {
 //		req.setAttribute("list", list);
 //		req.setAttribute("dto", dto); // dto로 전달
 
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
-		//todo: 기능 구현 후 아래 planadd.jsp
+		if(list.size() == 0){
+			System.out.println("list가 null입니다.");
+		}
+		req.setAttribute("list", list);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
+//		todo: 기능 구현 후 아래 planadd.jsp
 //		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
-//		dispatcher.forward(req, resp);
+		dispatcher.forward(req, resp);
 		
 	}
 
