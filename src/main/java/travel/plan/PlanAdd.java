@@ -93,7 +93,7 @@ public class PlanAdd extends HttpServlet {
 		ArrayList<PlanDTO> list = dao.getList(4); //where memberid == 4
 
 		if (list.size() != 0) {
-			resp.sendRedirect("/map.jsp");
+			resp.sendRedirect("/SIST2_Travel/map.jsp");
 		} else {
 			System.out.println("list에 값이 들어있지 않습니다.");
 		}	
