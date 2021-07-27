@@ -5,9 +5,9 @@
     <title>카테고리별 장소 검색하기</title>
     <style>
         .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-        .map_wrap {position:relative;width:100%;height:350px;}
+        .map_wrap {position:relative;width:100%;height:1000px;}
         #category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
-        #category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+        #category li {float:left;list-style: none;width:50px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
         #category li.on {background: #eee;}
         #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
         #category li:last-child{margin-right:0;border-right:0;}
@@ -39,50 +39,55 @@
     </em>
 </p>
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100%;position:relative;"></div>
     <ul id="category">
-        <li id="BK9" data-order="0">
+        <li id="AT4" data-order="0">
             <span class="category_bg bank"></span>
-            은행
+            관광명소
         </li>
-        <li id="MT1" data-order="1">
+        <li id="AD5" data-order="1">
             <span class="category_bg mart"></span>
-            마트
+            숙박
         </li>
-        <li id="PM9" data-order="2">
+        <li id="FD6" data-order="2">
             <span class="category_bg pharmacy"></span>
-            약국
+            음식점
         </li>
-        <li id="OL7" data-order="3">
-            <span class="category_bg oil"></span>
-            주유소
-        </li>
-        <li id="CE7" data-order="4">
-            <span class="category_bg cafe"></span>
-            카페
-        </li>
-        <li id="CS2" data-order="5">
-            <span class="category_bg store"></span>
-            편의점
-        </li>
+        <!--         <li id="OL7" data-order="3">
+                    <span class="category_bg oil"></span>
+                    주유소
+                </li>
+                <li id="CE7" data-order="4">
+                    <span class="category_bg cafe"></span>
+                    카페
+                </li>
+                <li id="CS2" data-order="5">
+                    <span class="category_bg store"></span>
+                    편의점
+                </li>     -->
     </ul>
 </div>
+<p id="info">
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 사용하세요&libraries=services"></script>
+</p>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b98db171cb4bc02433f272306db4edb2&libraries=services"></script>
 <script>
+    var selec = document.getElementsById('info');
+
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
-        contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+        contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
         markers = [], // 마커를 담을 배열입니다
         currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
 
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
             level: 5 // 지도의 확대 레벨
         };
 
-    // 지도를 생성합니다    
+    // 지도를 생성합니다
     var map = new kakao.maps.Map(mapContainer, mapOption);
 
     // 장소 검색 객체를 생성합니다
@@ -91,11 +96,11 @@
     // 지도에 idle 이벤트를 등록합니다
     kakao.maps.event.addListener(map, 'idle', searchPlaces);
 
-    // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
+    // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다
     contentNode.className = 'placeinfo_wrap';
 
     // 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
-    // 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다 
+    // 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다
     addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
     addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
 
@@ -120,13 +125,15 @@
             return;
         }
 
-        // 커스텀 오버레이를 숨깁니다 
+        // 커스텀 오버레이를 숨깁니다
         placeOverlay.setMap(null);
 
         // 지도에 표시되고 있는 마커를 제거합니다
         removeMarker();
 
-        ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true});
+        var res = ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true});
+
+
     }
 
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -135,6 +142,8 @@
 
             // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
             displayPlaces(data);
+            console.log(data);
+            $('selec').innerHtml = data;
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
             // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
 
@@ -216,6 +225,7 @@
         contentNode.innerHTML = content;
         placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
         placeOverlay.setMap(map);
+
     }
 
 
