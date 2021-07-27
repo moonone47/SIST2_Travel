@@ -27,11 +27,10 @@ public class PlanDAO {
 
     public int add(PlanDTO dto) {
         try {
-            String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
-                    "category_name, id, phone, place_name, place_url, road_address_name, x, y)" +
-                    "values (planseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into tblPlan2 (planseq, address_name, category_group_code, category_group_name, category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid) values(planseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?)";
             
             pstat = conn.prepareStatement(sql);
+            
             pstat.setString(1, dto.getAddress_name());
             pstat.setString(2, dto.getCategory_group_code());
             pstat.setString(3, dto.getCategory_group_name());
@@ -43,7 +42,9 @@ public class PlanDAO {
             pstat.setString(9, dto.getRoad_address_name());
             pstat.setString(10, dto.getX());
             pstat.setString(11, dto.getY());
-
+            pstat.setInt(12, 1);
+            pstat.setInt(13, 4);
+            
             return pstat.executeUpdate();
         } catch (Exception e) {
             System.out.println("PlanDAO.add()");
