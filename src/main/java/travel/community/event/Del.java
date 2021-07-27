@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/community/event/del.do")
+@WebServlet("/community/del.do")
 public class Del extends HttpServlet {
 
 	@Override
@@ -17,7 +17,7 @@ public class Del extends HttpServlet {
 
 		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/event/del.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/del.jsp");
 		dispatcher.forward(req, resp);
 
 	}

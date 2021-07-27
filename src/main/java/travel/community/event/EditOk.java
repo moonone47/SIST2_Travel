@@ -17,7 +17,7 @@ public class EditOk extends HttpServlet {
 
 		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/edit.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/editok.jsp");
 		dispatcher.forward(req, resp);
 
 	}

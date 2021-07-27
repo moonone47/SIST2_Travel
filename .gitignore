@@ -1,14 +1,24 @@
 .git/
 .idea/
-.metadata/
 .settings/
 .build/
-build/
+.lib/
 lib/
-Servers/
+.metadata/
 .classpath
 /.classpath
 .project
-SIST2_Travel2.iml
+build/
+Servers/
 
+# Eclipse Core      
+.project
+
+# JDT-specific (Eclipse Java Development Tools)     
+.classpath
+
+SIST2_Travel2.iml
 /bin/
+bin/
+.bin/
+

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/community/event/edit.do")
+@WebServlet("/community/edit.do")
 public class Edit extends HttpServlet {
 
 	@Override
@@ -17,7 +17,7 @@ public class Edit extends HttpServlet {
 
 		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/event/edit.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/edit.jsp");
 		dispatcher.forward(req, resp);
 
 	}
