@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기 </title>
+    <title> </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -351,8 +354,8 @@
 
         #detail {
             position: absolute;
-            top: 0;
-            left: 280px;
+            top: 0px;
+            left: 580px;
             bottom: 0;
             width: 500px;
             height: 900px;
@@ -397,32 +400,40 @@
             /*border: 1px solid red;*/
         }
 
-        #addwish {
+        #planlist {
             position: absolute;
-            top: 365px;
-            left: 986px;
+            top: 26px;
+            left: 253px;
             bottom: 0;
-            width: 100px;
-            height: 100px;
+            width: 300px;
+            height: 463px;
             margin: 10px 0 30px 10px;
             padding: 5px;
             overflow-y: auto;
             background: rgba(255, 255, 255, 0.7);
             z-index: 1;
             font-size: 12px;
-            /*border: 1px solid red;*/
+            /* border: 1px solid red; */
         }
+
+
+
+
 
     </style>
 
 
 </head>
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
     </em>
 </p>
+
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
@@ -455,7 +466,7 @@
             frameborder='0'
             scrolling='yes'
             style='width: 800px;'>
-        <!--            onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
 
     </iframe>
     <!--    <a href="#none" class="link_place" data-logevent="info_pannel,share">-->
@@ -464,7 +475,7 @@
     <!--    </a>-->
 
     <div id="addplan" class="noshow">
-        <form method="POST" action="/planadd.do">
+        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
             <!--
 
                 보낼 데이터 :
@@ -509,14 +520,72 @@
             <div>찜 추가</div>
         </a>
     </div>
+</div>12343
+<%--req.setAttribute("dto", dto); // dto로 전달--%>
+
+<%--https://getbootstrap.kr/docs/5.0/components/list-group/#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A7%80%EC%A0%95-%EC%BD%98%ED%85%90%EC%B8%A0--%>
+<%--<div class="list-group">--%>
+<%--    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small>3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small>And some small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--</div>--%>
+<%--
+todo:
+리스트 출력
+순서 드래그앤 드랍
+날짜 정하기
+마커끼리 선으로 연결
+
+ --%>
+<div class="plan sortable" id="planlist"  >
+	
+	<c:forEach items="${list}" var="dto">
+<%--
+        이름
+        주소
+        카테고리
+        이미지 -> url들어가서 사진 한장 데려오는 작업을...?
+--%>
+        <div class="list-group" >
+            <div   class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${dto.place_name}</h5>
+                    <small class="text-muted">${dto.category_group_name}</small>
+                </div>
+                <p class="mb-1">${dto.address_name}</p>
+
+                <%-- <small class="text-muted">And some muted small print.</small>--%>
+            </div>
+        </div>
+
+    </c:forEach>
+	
 </div>
-<div>
-    <i class="bi bi-check-lg"></i>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script> -->
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b98db171cb4bc02433f272306db4edb2&libraries=services"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#AD5').trigger("click");
@@ -675,14 +744,14 @@
                     $('#category_group_name').val(category_group_name);
                     $('#category_name').val(category_name);
                     $('#id').val(id);
-                    $('#phone').val(phone);
+                    $('#phone').val(콜);
                     $('#place_name').val(title);
                     $('#place_url').val(place_url);
                     $('#road_address_name').val(road_address_name);
                     $('#x').val(x);
                     $('#y').val(y);
                     // console.log('!!' + url); // <-- 얘가 undefined
-                    displayDetail(url);
+                    displayDetail(place_url);
                 }
             })(marker,
                 places[i].address_name,
@@ -868,6 +937,15 @@
             el.className = 'on';
         }
     }
+   
+
+    $( function() {
+        $( '.sortable' ).sortable();
+        $( '.sortable' ).disableSelection();
+      } );
+
 </script>
+
+
 </body>
 </html>

@@ -1,9 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기 </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title> </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         .map_wrap, .map_wrap * {
             margin: 0;
@@ -34,7 +38,6 @@
             float: left;
             list-style: none;
             width: 50px;
-            px;
             border-right: 1px solid #acacac;
             padding: 6px 0;
             text-align: center;
@@ -351,8 +354,8 @@
 
         #detail {
             position: absolute;
-            top: 0;
-            left: 280px;
+            top: 0px;
+            left: 580px;
             bottom: 0;
             width: 500px;
             height: 900px;
@@ -397,27 +400,34 @@
             /*border: 1px solid red;*/
         }
 
-        #addwish {
+        #planlist {
             position: absolute;
-            top: 365px;
-            left: 986px;
+            top: 26px;
+            left: 253px;
             bottom: 0;
-            width: 100px;
-            height: 100px;
+            width: 300px;
+            height: 463px;
             margin: 10px 0 30px 10px;
             padding: 5px;
             overflow-y: auto;
             background: rgba(255, 255, 255, 0.7);
             z-index: 1;
             font-size: 12px;
-            /*border: 1px solid red;*/
+            /* border: 1px solid red; */
         }
+
+
+
+
 
     </style>
 
 
 </head>
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
@@ -455,40 +465,126 @@
             frameborder='0'
             scrolling='yes'
             style='width: 800px;'>
-        <!--            onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
 
     </iframe>
-<!--    <a href="#none" class="link_place" data-logevent="info_pannel,share">-->
-<!--        <span class="ico_comm ico_share"></span>-->
-<!--        공유하기-->
-<!--    </a>-->
+    <!--    <a href="#none" class="link_place" data-logevent="info_pannel,share">-->
+    <!--        <span class="ico_comm ico_share"></span>-->
+    <!--        공유하기-->
+    <!--    </a>-->
 
     <div id="addplan" class="noshow">
-        <a href="!#">
-        <span><img src=""></span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-        </svg>
-        <div>일정추가</div>
-        </a>
+        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+            <!--
+
+                보낼 데이터 :
+                address_name: "서울 중구 을지로5가 275-3"
+                category_group_code: "AD5"
+                category_group_name: "숙박"
+                category_name: "여행 > 숙박 > 호텔 > 특급호텔 > 라마다호텔"
+                id: "13111137"
+                phone: "02-2276-3500"
+                place_name: "라마다 서울동대문"
+                place_url: "http://place.map.kakao.com/13111137"
+                road_address_name: "서울 중구 동호로 354"
+                x: "127.002698429626"
+                y: "37.5658944720562"
+            -->
+                <span><img src=""></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                </svg>
+                <input type="hidden" id="address_name"name="address_name" value="">
+                <input type="hidden" id="category_group_code" name="category_group_code" value="">
+                <input type="hidden" id="category_group_name" name="category_group_name" value="">
+                <input type="hidden" id="category_name" name="category_name" value="">
+                <input type="hidden" id="id" name="id" value="">
+                <input type="hidden" id="phone" name="phone" value="">
+                <input type="hidden" id="place_name" name="place_name" value="">
+                <input type="hidden" id="place_url" name="place_url" value="">
+                <input type="hidden" id="road_address_name" name="road_address_name" value="">
+                <input type="hidden" id="x" name="x" value="">
+                <input type="hidden" id="y" name="y" value="">
+                <input type="submit" value="일정추가">
+        </form>
     </div>
     <div id="addwish" class="noshow">
         <a href="!#">
-        <span><img src=""></span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-        </svg>
-        <div>찜 추가</div>
+            <span><img src=""></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                 viewBox="0 0 16 16">
+                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+            </svg>
+            <div>찜 추가</div>
         </a>
     </div>
+</div>12343
+<%--req.setAttribute("dto", dto); // dto로 전달--%>
+
+<%--https://getbootstrap.kr/docs/5.0/components/list-group/#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A7%80%EC%A0%95-%EC%BD%98%ED%85%90%EC%B8%A0--%>
+<%--<div class="list-group">--%>
+<%--    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small>3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small>And some small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--</div>--%>
+<%--
+todo:
+리스트 출력
+순서 드래그앤 드랍
+날짜 정하기
+마커끼리 선으로 연결
+
+ --%>
+<div class="plan sortable" id="planlist"  >
+	
+	<c:forEach items="${list}" var="dto">
+<%--
+        이름
+        주소
+        카테고리
+        이미지 -> url들어가서 사진 한장 데려오는 작업을...?
+--%>
+        <div class="list-group" >
+            <div   class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${dto.place_name}</h5>
+                    <small class="text-muted">${dto.category_group_name}</small>
+                </div>
+                <p class="mb-1">${dto.address_name}</p>
+
+                <%-- <small class="text-muted">And some muted small print.</small>--%>
+            </div>
+        </div>
+
+    </c:forEach>
+	
 </div>
-<div>
-<i class="bi bi-check-lg"></i>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script> -->
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b98db171cb4bc02433f272306db4edb2&libraries=services"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#AD5').trigger("click");
@@ -609,8 +705,18 @@
 
 
             bounds.extend(placePosition);
-
-            (function (marker, title, url) {
+            (function (marker,
+                       address_name,
+                       category_group_code,
+                       category_group_name,
+                       category_name,
+                       id,
+                       phone,
+                       title,
+                       place_url,
+                       road_address_name,
+                       x,
+                       y) {
                 kakao.maps.event.addListener(marker, 'mouseover', function () {
                     displayInfowindow(marker, title);
                 });
@@ -631,11 +737,34 @@
                     // console.log(places[i].place_url);
                     //얘가 안돼요.. Uncaught TypeError: Cannot read property 'place_url' of undefined at HTMLLIElement.itemEl.onclick
 
-
+                    //여기에서 바꿀까요?
+                    $('#address_name').val(address_name);
+                    $('#category_group_code').val(category_group_code);
+                    $('#category_group_name').val(category_group_name);
+                    $('#category_name').val(category_name);
+                    $('#id').val(id);
+                    $('#phone').val(phone);
+                    $('#place_name').val(title);
+                    $('#place_url').val(place_url);
+                    $('#road_address_name').val(road_address_name);
+                    $('#x').val(x);
+                    $('#y').val(y);
                     // console.log('!!' + url); // <-- 얘가 undefined
-                    displayDetail(url);
+                    displayDetail(place_url);
                 }
-            })(marker, places[i].place_name, places[i].place_url);
+            })(marker,
+                places[i].address_name,
+                places[i].category_group_code,
+                places[i].category_group_name,
+                places[i].category_name,
+                places[i].id,
+                places[i].phone,
+                places[i].place_name,
+                places[i].place_url,
+                places[i].road_address_name,
+                places[i].x,
+                places[i].y
+            );
 
             fragment.appendChild(itemEl);
 
@@ -807,6 +936,15 @@
             el.className = 'on';
         }
     }
+   
+
+    $( function() {
+        $( '.sortable' ).sortable();
+        $( '.sortable' ).disableSelection();
+      } );
+
 </script>
+
+
 </body>
 </html>

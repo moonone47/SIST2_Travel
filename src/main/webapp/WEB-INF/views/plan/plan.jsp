@@ -16,7 +16,19 @@
    <div class="container">
       
       <h1 class="page-header"></h1>
-      
+      <c:forEach items="${list}" var="dto">
+     	${dto.address_name}
+	    ${dto.category_group_code}
+	    ${dto.category_group_name}
+	    ${dto.category_name}
+	    ${dto.id}
+	    ${dto.phone}
+	    ${dto.place_name}
+	    ${dto.place_url}
+	    ${dto.road_address_name}
+	    ${dto.x}
+	    ${dto.y}
+    </c:forEach>
    </div>
 
    <script>

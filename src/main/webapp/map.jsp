@@ -375,24 +375,8 @@
 
         #addplan {
             position: absolute;
-            top: 565px;
-            left: 310px;
-            bottom: 0;
-            width: 100px;
-            height: 100px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /*border: 1px solid red;*/
-        }
-
-        #addWish {
-            position: absolute;
-            top: 565px;
-            left: 510px;
+            top: 365px;
+            left: 910px;
             bottom: 0;
             width: 100px;
             height: 100px;
@@ -420,22 +404,6 @@
             font-size: 12px;
             /* border: 1px solid red; */
         }
-        #schedule {
-            position: absolute;
-            top: 26px;
-            left: 553px;
-            bottom: 0;
-            width: 300px;
-            height: 463px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
-
 
 
 
@@ -512,7 +480,7 @@
             <input type="submit" value="일정추가">
         </form>
     </div>
-    <div id="addWish" class="noshow">
+    <div id="addwish" class="noshow">
         <a href="!#">
             <span><img src=""></span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
@@ -529,18 +497,17 @@ todo:
 리스트 출력
 순서 드래그앤 드랍
 날짜 정하기
-
 마커끼리 선으로 연결
 
  --%>
 <div class="plan sortable" id="planlist"  >
 
-    <c:forEach items="${list}" var="dto" varStatus="status">
+    <c:forEach items="${list}" var="dto">
 
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  ${status.index}</h5>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${dto.place_name}</h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
@@ -551,31 +518,6 @@ todo:
 
     </c:forEach>
 
-</div>
-
-
-<div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
-    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-        <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day1</strong>
-            <small>08.01</small>
-        </div>
-        <div class="col-10 mb-1 small">부산</div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-        <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day2</strong>
-            <small>08.02</small>
-        </div>
-        <div class="col-10 mb-1 small">부산</div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-        <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day3</strong>
-            <small>08.03</small>
-        </div>
-        <div class="col-10 mb-1 small">부산</div>
-    </a>
 </div>
 
 <script type="text/javascript"
@@ -914,25 +856,10 @@ todo:
     }
 
 
-    // $( function() {
-    //     $( '.sortable' ).sortable();
-    //     $( '.sortable' ).disableSelection();
-    // } );
-
-    $('.sortable').sortable({
-        start: function(e, ui) {
-            // creates a temporary attribute on the element with the old index
-            $(this).attr('data-previndex', ui.item.index());
-        },
-        update: function(e, ui) {
-            // gets the new and old index then removes the temporary attribute
-            var newIndex = ui.item.index();
-            var oldIndex = $(this).attr('data-previndex');
-            $(this).removeAttr('data-previndex');
-            console.log(ui.item.index());
-
-        }
-    });
+    $( function() {
+        $( '.sortable' ).sortable();
+        $( '.sortable' ).disableSelection();
+    } );
 
 </script>
 
