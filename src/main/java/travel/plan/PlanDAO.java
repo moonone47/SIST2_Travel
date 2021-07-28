@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PlanDAO {
 
@@ -202,7 +203,7 @@ public class PlanDAO {
                 dto.setPlace_url(rs.getString("place_url"));
                 dto.setPlace_name(rs.getString("place_name"));
                 dto.setPhone(rs.getString("phone"));
-                dto.setMemberid(rs.getString("memberid"));
+                dto.setMember_id(rs.getString("memberid"));
                 dto.setSeq(rs.getString("seq"));
                 dto.setCategory_group_code(rs.getString("category_group_code"));
                 dto.setCategory_group_name(rs.getString("category_group_name"));
@@ -223,14 +224,13 @@ public class PlanDAO {
         }
         return null;
     }
-    
-    
-    	public int addseq(ArrayList<HashMap<String, String>> seqlist) {
+
+	public int addseq(ArrayList<HashMap<String, String>> seqlist) {
 
 		try {
 			
 			while(rs.next()) {
-				rs.get
+				//rs.get
 			}
 			
 		} catch (Exception e) {
@@ -239,8 +239,6 @@ public class PlanDAO {
 		
 		return 0;
 	}
-	
-	
 }
 
 
