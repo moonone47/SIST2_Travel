@@ -113,6 +113,12 @@ public class PlanAdd extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 //		todo: 기능 구현 후 아래 planadd.jsp
 //		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		if(list.size() == 0){
+			System.out.println("list가 null입니다.");
+		}
+		req.setAttribute("list", list);
+		//RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
+//		todo: 기능 구현 후 아래 planadd.jsp
 		dispatcher.forward(req, resp);
 
 	}
@@ -123,6 +129,9 @@ public class PlanAdd extends HttpServlet {
 		// todo: 기능 구현후 planadd.jsp로 이동
 		// RequestDispatcher dispatcher =
 		// req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+	//RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
+		// todo: 기능 구현후 planadd.jsp로 이동
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 //		dispatcher.forward(req, resp);
 	}
 }
