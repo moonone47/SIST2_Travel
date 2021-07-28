@@ -108,6 +108,32 @@ public class PlanAdd extends HttpServlet {
 //		req.setAttribute("list", list);
 //		req.setAttribute("dto", dto); // dto로 전달
 
+			
+		String[] planseq = req.getParameterValues("planseq");
+		String[] seq = req.getParameterValues("seq");
+		
+		ArrayList<HashMap<String,String>> seqlist = new ArrayList<HashMap<String,String>>();
+		
+		
+		for(int i=0; i<planseq.length; i++) {
+			
+			HashMap<String,String> temp = new HashMap<String,String>();
+			
+			temp.put(planseq[i], seq[i]);
+			seqlist.add(temp);
+		}
+		
+		int r = dao.addseq(seqlist);
+		
+		if(r == planseq.length) {
+			// 완료 페이지로 이동
+			
+		} else {
+			// 실패 -> 페이지 유지
+		}
+		
+
+
 		if(list.size() == 0){
 			System.out.println("list가 null입니다.");
 		}

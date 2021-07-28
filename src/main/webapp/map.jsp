@@ -533,25 +533,32 @@ todo:
 마커끼리 선으로 연결
 
  --%>
+<form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
 
     <c:forEach items="${list}" var="dto" varStatus="status">
 
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
+                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span>${status.index}</span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
+            <input type="hidden" name="planseq" value="${dto.planseq}">
+            <input type="hidden" name="seq" value="">
         </div>
-
     </c:forEach>
-
+	<input type="submit" value="일정 등록 완료">
 </div>
+</form>
+
+
+
+
 
 
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
@@ -628,14 +635,18 @@ todo:
                 // console.log($('*[data-seq=i]'));
             }
             var len = $("#seq").length;
-            console.log(${status.index});
+            <%--console.log(${status.index});--%>
 
 
         }
     });
 
     function reorder() {
-        $("#sortable li").each(function(i, box) {
+        $(".list-group span").each(function(i, box2) {
+            $(box2).val(i + 1);
+            console.log('hehe');
+        });
+        $(".list-group input").each(function(i, box) {
             $(box).val(i + 1);
         });
     }

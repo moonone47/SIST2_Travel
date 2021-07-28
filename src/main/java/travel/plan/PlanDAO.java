@@ -223,6 +223,24 @@ public class PlanDAO {
         }
         return null;
     }
+    
+    
+    	public int addseq(ArrayList<HashMap<String, String>> seqlist) {
+
+		try {
+			
+			while(rs.next()) {
+				rs.get
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return 0;
+	}
+	
+	
 }
 
 
