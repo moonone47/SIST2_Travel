@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PlanDAO {
 
@@ -223,6 +224,21 @@ public class PlanDAO {
         }
         return null;
     }
+
+	public int addseq(ArrayList<HashMap<String, String>> seqlist) {
+
+		try {
+			
+			while(rs.next()) {
+				//rs.get
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return 0;
+	}
 }
 
 

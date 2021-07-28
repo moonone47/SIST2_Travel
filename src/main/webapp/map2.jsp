@@ -751,7 +751,7 @@ todo:
                     $('#y').val(y);
                     // console.log('!!' + url); // <-- 얘가 undefined
                     displayDetail(place_url);
-                }
+//                 }
             })(marker,
                 places[i].address_name,
                 places[i].category_group_code,

@@ -405,6 +405,26 @@
             /*border: 1px solid red;*/
         }
 
+        #addWish {
+            position: absolute;
+            top: 565px;
+            left: 510px;
+        #planlist {
+            position: absolute;
+            top: 26px;
+            left: 253px;
+            bottom: 0;
+            width: 300px;
+            height: 463px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 12px;
+            /* border: 1px solid red; */
+        }
+
         #planlist {
             position: absolute;
             top: 26px;
@@ -533,7 +553,6 @@ todo:
 마커끼리 선으로 연결
 
  --%>
-<form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
 
     <c:forEach items="${list}" var="dto" varStatus="status">
@@ -541,24 +560,24 @@ todo:
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  <span>${status.index}</span></h5>
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
+    <c:forEach items="${list}" var="dto">
+
+        <div class="list-group" >
+            <div   class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
-            <input type="hidden" name="planseq" value="${dto.planseq}">
-            <input type="hidden" name="seq" value="">
         </div>
+
     </c:forEach>
-	<input type="submit" value="일정 등록 완료">
+
 </div>
-</form>
-
-
-
-
 
 
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
@@ -596,6 +615,7 @@ todo:
         start: function(e, ui) {
             // creates a temporary attribute on the element with the old index
             $(this).attr('data-previndex', ui.item.index());
+            console.log(ui.item.index());
             // console.log(ui.item.index());
         },
         update: function(e, ui) {
@@ -624,6 +644,12 @@ todo:
            // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
             // $('.seq').data('seq', newIndex);
 		    document.getElementById("seq").innerHTML=oldIndex;
+            console.log($(this).find("#seq").text());
+            //$(this).find("#seq").text(newIndex);
+            // console.log(oldIndex);
+            // console.log(newIndex);
+        }
+    });
             // console.log($(this).find("#seq").text());
             // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
             // console.log(oldIndex);
@@ -635,18 +661,14 @@ todo:
                 // console.log($('*[data-seq=i]'));
             }
             var len = $("#seq").length;
-            <%--console.log(${status.index});--%>
+            console.log(${status.index});
 
 
         }
     });
 
     function reorder() {
-        $(".list-group span").each(function(i, box2) {
-            $(box2).val(i + 1);
-            console.log('hehe');
-        });
-        $(".list-group input").each(function(i, box) {
+        $("#sortable li").each(function(i, box) {
             $(box).val(i + 1);
         });
     }
@@ -986,6 +1008,10 @@ todo:
     // } );
 
 
+    $( function() {
+        $( '.sortable' ).sortable();
+        $( '.sortable' ).disableSelection();
+    } );
 
 </script>
 
