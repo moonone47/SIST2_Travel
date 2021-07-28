@@ -375,8 +375,8 @@
 
         #addplan {
             position: absolute;
-            top: 365px;
-            left: 910px;
+            top: 565px;
+            left: 310px;
             bottom: 0;
             width: 100px;
             height: 100px;
@@ -387,6 +387,42 @@
             z-index: 1;
             font-size: 12px;
             /*border: 1px solid red;*/
+        }
+
+        #addWish {
+            position: absolute;
+            top: 565px;
+            left: 510px;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 12px;
+            /*border: 1px solid red;*/
+        }
+
+        #addWish {
+            position: absolute;
+            top: 565px;
+            left: 510px;
+        #planlist {
+            position: absolute;
+            top: 26px;
+            left: 253px;
+            bottom: 0;
+            width: 300px;
+            height: 463px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 12px;
+            /* border: 1px solid red; */
         }
 
         #planlist {
@@ -404,6 +440,22 @@
             font-size: 12px;
             /* border: 1px solid red; */
         }
+        #schedule {
+            position: absolute;
+            top: 26px;
+            left: 553px;
+            bottom: 0;
+            width: 300px;
+            height: 463px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 12px;
+            /* border: 1px solid red; */
+        }
+
 
 
 
@@ -480,7 +532,7 @@
             <input type="submit" value="일정추가">
         </form>
     </div>
-    <div id="addwish" class="noshow">
+    <div id="addWish" class="noshow">
         <a href="!#">
             <span><img src=""></span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
@@ -497,17 +549,24 @@ todo:
 리스트 출력
 순서 드래그앤 드랍
 날짜 정하기
+
 마커끼리 선으로 연결
 
  --%>
 <div class="plan sortable" id="planlist"  >
 
+    <c:forEach items="${list}" var="dto" varStatus="status">
+
+        <div class="list-group" >
+            <div   class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
     <c:forEach items="${list}" var="dto">
 
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">${dto.place_name}</h5>
+                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
@@ -520,11 +579,98 @@ todo:
 
 </div>
 
+
+<div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
+    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">Day1</strong>
+            <small>08.01</small>
+        </div>
+        <div class="col-10 mb-1 small">부산</div>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">Day2</strong>
+            <small>08.02</small>
+        </div>
+        <div class="col-10 mb-1 small">부산</div>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">Day3</strong>
+            <small>08.03</small>
+        </div>
+        <div class="col-10 mb-1 small">부산</div>
+    </a>
+</div>
+
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#all').trigger("click");
+    }
+
+    $('.sortable').sortable({
+        start: function(e, ui) {
+            // creates a temporary attribute on the element with the old index
+            $(this).attr('data-previndex', ui.item.index());
+            console.log(ui.item.index());
+            // console.log(ui.item.index());
+        },
+        update: function(e, ui) {
+            // gets the new and old index then removes the temporary attribute
+            var newIndex = ui.item.index();
+            var oldIndex = $(this).attr('data-previndex');
+            $(this).removeAttr('data-previndex');
+            // console.log(ui.item.index());
+            // console.log($(this));
+            // $('#seq').html=ui.item.index();
+            // newIndex < -> oldIndex의 seq  SWAP?
+            // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
+
+			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
+            // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
+            // 여기서 순서대로 정렬시킨 -> DB size(); order by
+
+            //1. n번 -> m번으로 이동하면
+            // ------------------ 이함수실행시 1번 시작
+
+            //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
+            // seq 기준???
+            //3. n번의 seq는 m이 된다.
+
+            // $('[data-input-type="test"')
+           // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
+            // $('.seq').data('seq', newIndex);
+		    document.getElementById("seq").innerHTML=oldIndex;
+            console.log($(this).find("#seq").text());
+            //$(this).find("#seq").text(newIndex);
+            // console.log(oldIndex);
+            // console.log(newIndex);
+        }
+    });
+            // console.log($(this).find("#seq").text());
+            // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
+            // console.log(oldIndex);
+            // console.log(newIndex);
+            console.log($(this).attr('data-previndex'));
+            for(let i=0; i<newIndex; i++){
+                $('*[data-seq=i]').find("#seq").text(i);
+                // console.log($('*[data-seq=i]').find("#seq").val());
+                // console.log($('*[data-seq=i]'));
+            }
+            var len = $("#seq").length;
+            console.log(${status.index});
+
+
+        }
+    });
+
+    function reorder() {
+        $("#sortable li").each(function(i, box) {
+            $(box).val(i + 1);
+        });
     }
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
@@ -854,6 +1000,12 @@ todo:
             el.className = 'on';
         }
     }
+
+
+    // $( function() {
+    //     $( '.sortable' ).sortable();
+    //     $( '.sortable' ).disableSelection();
+    // } );
 
 
     $( function() {
