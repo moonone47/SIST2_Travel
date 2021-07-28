@@ -511,7 +511,7 @@
             <div>찜 추가</div>
         </a>
     </div>
-</div>
+</div>12343
 <%--req.setAttribute("dto", dto); // dto로 전달--%>
 
 <%--https://getbootstrap.kr/docs/5.0/components/list-group/#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A7%80%EC%A0%95-%EC%BD%98%ED%85%90%EC%B8%A0--%>
@@ -573,7 +573,7 @@ todo:
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fba8341ea7a4ecd4e5c23c5533bdbe65&libraries=services"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#AD5').trigger("click");
