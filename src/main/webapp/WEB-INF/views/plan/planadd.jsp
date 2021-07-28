@@ -6,6 +6,8 @@
 <head>
 <meta charset="utf-8">
 <title>카테고리별 장소 검색하기</title>
+<link rel="icon" type="image/png" href="http://example.com/myicon.png"> 
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -426,10 +428,13 @@
 	/*border: 1px solid red;*/
 }
 </style>
+ 
 
 
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<p style="margin-top: -12px">
 		<em class="link"> <a href="/web/documentation/#CategoryCode"
 			target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
@@ -516,7 +521,7 @@
 	<div>
 		<i class="bi bi-check-lg"></i>
 	</div>
-	<div>
+	<div class="sortable">
 	
 		    ${dto.address_name}
 		    ${dto.category_group_code}
@@ -881,6 +886,14 @@
 				el.className = 'on';
 			}
 		}
+		
+		  $( function() {
+			    $( '.sortable' ).sortable();
+			    $( '.sortable' ).disableSelection();
+			  } );
 	</script>
+	
+	
+
 </body>
 </html>
