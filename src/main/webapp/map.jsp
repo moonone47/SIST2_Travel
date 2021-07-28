@@ -405,6 +405,26 @@
             /*border: 1px solid red;*/
         }
 
+        #addWish {
+            position: absolute;
+            top: 565px;
+            left: 510px;
+        #planlist {
+            position: absolute;
+            top: 26px;
+            left: 253px;
+            bottom: 0;
+            width: 300px;
+            height: 463px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 12px;
+            /* border: 1px solid red; */
+        }
+
         #planlist {
             position: absolute;
             top: 26px;
@@ -533,7 +553,6 @@ todo:
 마커끼리 선으로 연결
 
  --%>
-<form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
 
     <c:forEach items="${list}" var="dto" varStatus="status">
@@ -541,27 +560,24 @@ todo:
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1" id="place_name">${dto.place_name}  <span>${status.index}</span></h5>
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
+    <c:forEach items="${list}" var="dto">
+
+        <div class="list-group" >
+            <div   class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
-                <div id="x" style="visibility:hidden;">${dto.x }</div>
-                <div id="y" style="visibility:hidden;">${dto.y }</div>
-
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
-            <input type="hidden" name="planseq" value="${dto.planseq}">
-            <input type="hidden" name="seq" value="">
         </div>
+
     </c:forEach>
-	<input type="submit" value="일정 등록 완료">
+
 </div>
-</form>
-
-
-
-
 
 
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
@@ -599,6 +615,7 @@ todo:
         start: function(e, ui) {
             // creates a temporary attribute on the element with the old index
             $(this).attr('data-previndex', ui.item.index());
+            console.log(ui.item.index());
             // console.log(ui.item.index());
         },
         update: function(e, ui) {
@@ -627,6 +644,12 @@ todo:
            // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
             // $('.seq').data('seq', newIndex);
 		    document.getElementById("seq").innerHTML=oldIndex;
+            console.log($(this).find("#seq").text());
+            //$(this).find("#seq").text(newIndex);
+            // console.log(oldIndex);
+            // console.log(newIndex);
+        }
+    });
             // console.log($(this).find("#seq").text());
             // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
             // console.log(oldIndex);
@@ -638,18 +661,14 @@ todo:
                 // console.log($('*[data-seq=i]'));
             }
             var len = $("#seq").length;
-            <%--console.log(${status.index});--%>
+            console.log(${status.index});
 
 
         }
     });
 
     function reorder() {
-        $(".list-group span").each(function(i, box2) {
-            $(box2).val(i + 1);
-            console.log('hehe');
-        });
-        $(".list-group input").each(function(i, box) {
+        $("#sortable li").each(function(i, box) {
             $(box).val(i + 1);
         });
     }
@@ -667,10 +686,6 @@ todo:
 
     // 지도를 생성합니다
     var map = new kakao.maps.Map(mapContainer, mapOption);
-    
-    
-    
-    
 
     // 장소 검색 객체를 생성합니다
     var ps = new kakao.maps.services.Places(map);
@@ -991,78 +1006,12 @@ todo:
     //     $( '.sortable' ).sortable();
     //     $( '.sortable' ).disableSelection();
     // } );
-var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 
-    var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 
-    
-    var positions = [{
-    	title : "test",
-    	latlng : new daum.maps.Latlng(37.566826, 126.9786567)
-    },{
-    	title : "test2",
-    	latlng : new daum.maps.Latlng(37.566840, 126.9786590)
-    }
-    	
-    	
-    	
-    ];
-    var imageSrc2 = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-    
-    for(var i =0; i < positions.length; i++ ){
-    	
-    	var imageSize = new daum.maps.Size(24,35);
-    	
-    	var markerImage = new daum.maps.MarkerImage(imageSrc2,imageSize);
-    	
-    	var marker = new daum.maps.Marker({
-    		
-    	
-    	map : map,
-    	position : positions[i].latlng,
-    	title : positions[i].title,
-    	image = markerImage
-    	});
-    }
-    
-    var linePath;
-    
-    var lineLine = new daum.maps.Polyline();
-    var distance;
-    
-    for(var i =0; i < positions.length; i++ ){
-    	if(i!=0){
-    		linePath = [positions[i-1].latlng, positions[i].latlng]
-    	};
-    	lineLine.setPath(linePath);
-    	
-    
-    var drawLine = new daum.maps.Polyline({
-    	map: map,
-    	path : linePath,
-    	strokeWeight : 3,
-    	strokeColor : '#db4040',
-    	strokeOpacity : 1,
-    	strokeStyle : 'solid'
-    });
-    
-    distance = Math.round(lineLine.getLength());
-    displayCircleDot(positions[i].latlng,distance);
-    
-    }
-    
-    function displayCircleDot(position, distance) {
-    	if(distance > 0) {
-    		var distanceOverlay = new daum.maps.CustomOverlay ({
-    			content : '<div class = "dotOverlay">거리<span class="number">'
-    			+ distance + '</span>m</div>',
-    			position : position,
-    			yAnchor : 1,
-    			zIndex : 2
-    		});
-    		
-    		distanceOverlay.setMap(map);
-    	}
-    }
 
+
+    $( function() {
+        $( '.sortable' ).sortable();
+        $( '.sortable' ).disableSelection();
+    } );
 
 </script>
 
