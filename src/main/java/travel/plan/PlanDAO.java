@@ -212,7 +212,7 @@ public class PlanDAO {
                 dto.setRdate(rs.getString("rdate"));
                 dto.setX(rs.getString("x"));
                 dto.setY(rs.getString("y"));
-
+                dto.setAddress_name(rs.getString("address_name"));
                 list.add(dto);
             }//end while
 
