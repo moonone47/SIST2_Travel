@@ -627,7 +627,10 @@ todo:
                 // console.log($('*[data-seq=i]').find("#seq").val());
                 // console.log($('*[data-seq=i]'));
             }
-            console.log()
+            var len = $("#seq").length;
+            console.log(${status.index});
+
+
         }
     });
 

@@ -943,6 +943,9 @@ todo:
     });
  
      function reorder() {
+         $(".list-group #seq").each(function(i, box) {
+             $(box).val(i + 1);
+         });
     	  $(".list-group input").each(function(i, box) {
     	 	 $(box).val(i + 1);
     	  });
