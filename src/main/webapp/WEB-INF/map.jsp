@@ -373,26 +373,21 @@
             hieght: 500px;
         }
 
+        /*#addplan {*/
+        /*    position: relative;*/
+        /*    border-bottom: 1px solid #888;*/
+        /*    overflow: hidden;*/
+        /*    cursor: pointer;*/
+        /*    min-height: 65px;*/
+        /*    left: 1000px;*/
+        /*    top: 100px;*/
+        /*    z-index: -1;*/
+        /*}*/
+
         #addplan {
             position: absolute;
-            top: 565px;
-            left: 310px;
-            bottom: 0;
-            width: 100px;
-            height: 100px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /*border: 1px solid red;*/
-        }
-
-        #addWish {
-            position: absolute;
-            top: 565px;
-            left: 510px;
+            top: 365px;
+            left: 910px;
             bottom: 0;
             width: 100px;
             height: 100px;
@@ -420,22 +415,6 @@
             font-size: 12px;
             /* border: 1px solid red; */
         }
-        #schedule {
-            position: absolute;
-            top: 26px;
-            left: 553px;
-            bottom: 0;
-            width: 300px;
-            height: 463px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
-
 
 
 
@@ -448,12 +427,13 @@
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
     </em>
 </p>
+
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
@@ -489,30 +469,48 @@
         <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
 
     </iframe>
-
+    <!--    <a href="#none" class="link_place" data-logevent="info_pannel,share">-->
+    <!--        <span class="ico_comm ico_share"></span>-->
+    <!--        공유하기-->
+    <!--    </a>-->
 
     <div id="addplan" class="noshow">
         <form method="POST" action="/SIST2_Travel/plan/planadd.do">
-            <span><img src=""></span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                 class="bi bi-check-lg" viewBox="0 0 16 16">
-                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-            </svg>
-            <input type="hidden" id="address_name"name="address_name" value="">
-            <input type="hidden" id="category_group_code" name="category_group_code" value="">
-            <input type="hidden" id="category_group_name" name="category_group_name" value="">
-            <input type="hidden" id="category_name" name="category_name" value="">
-            <input type="hidden" id="id" name="id" value="">
-            <input type="hidden" id="phone" name="phone" value="">
-            <input type="hidden" id="place_name" name="place_name" value="">
-            <input type="hidden" id="place_url" name="place_url" value="">
-            <input type="hidden" id="road_address_name" name="road_address_name" value="">
-            <input type="hidden" id="x" name="x" value="">
-            <input type="hidden" id="y" name="y" value="">
-            <input type="submit" value="일정추가">
+            <!--
+
+                보낼 데이터 :
+                address_name: "서울 중구 을지로5가 275-3"
+                category_group_code: "AD5"
+                category_group_name: "숙박"
+                category_name: "여행 > 숙박 > 호텔 > 특급호텔 > 라마다호텔"
+                id: "13111137"
+                phone: "02-2276-3500"
+                place_name: "라마다 서울동대문"
+                place_url: "http://place.map.kakao.com/13111137"
+                road_address_name: "서울 중구 동호로 354"
+                x: "127.002698429626"
+                y: "37.5658944720562"
+            -->
+                <span><img src=""></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                </svg>
+                <input type="hidden" id="address_name"name="address_name" value="">
+                <input type="hidden" id="category_group_code" name="category_group_code" value="">
+                <input type="hidden" id="category_group_name" name="category_group_name" value="">
+                <input type="hidden" id="category_name" name="category_name" value="">
+                <input type="hidden" id="id" name="id" value="">
+                <input type="hidden" id="phone" name="phone" value="">
+                <input type="hidden" id="place_name" name="place_name" value="">
+                <input type="hidden" id="place_url" name="place_url" value="">
+                <input type="hidden" id="road_address_name" name="road_address_name" value="">
+                <input type="hidden" id="x" name="x" value="">
+                <input type="hidden" id="y" name="y" value="">
+                <input type="submit" value="일정추가">
         </form>
     </div>
-    <div id="addWish" class="noshow">
+    <div id="addwish" class="noshow">
         <a href="!#">
             <span><img src=""></span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
@@ -522,68 +520,75 @@
             <div>찜 추가</div>
         </a>
     </div>
-</div>
+</div>12343
+<%--req.setAttribute("dto", dto); // dto로 전달--%>
 
+<%--https://getbootstrap.kr/docs/5.0/components/list-group/#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A7%80%EC%A0%95-%EC%BD%98%ED%85%90%EC%B8%A0--%>
+<%--<div class="list-group">--%>
+<%--    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small>3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small>And some small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--</div>--%>
 <%--
 todo:
 리스트 출력
 순서 드래그앤 드랍
 날짜 정하기
-
 마커끼리 선으로 연결
 
  --%>
 <div class="plan sortable" id="planlist"  >
 	
-    <c:forEach items="${list}" var="dto" varStatus="status">
-
+	<c:forEach items="${list}" var="dto">
+<%--
+        이름
+        주소
+        카테고리
+        이미지 -> url들어가서 사진 한장 데려오는 작업을...?
+--%>
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  ${status.index}</h5>
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${dto.place_name}</h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
 
-                    <%-- <small class="text-muted">And some muted small print.</small>--%>
+                <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
-            <input type="hidden" value="">
         </div>
 
     </c:forEach>
-
+	
 </div>
-
-
-<div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
-    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-        <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day1</strong>
-            <small>08.01</small>
-        </div>
-        <div class="col-10 mb-1 small">부산</div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-        <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day2</strong>
-            <small>08.02</small>
-        </div>
-        <div class="col-10 mb-1 small">부산</div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-        <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day3</strong>
-            <small>08.03</small>
-        </div>
-        <div class="col-10 mb-1 small">부산</div>
-    </a>
-</div>
-
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script> -->
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
     window.onload = function () {
-        $('#all').trigger("click");
+        $('#AD5').trigger("click");
     }
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
@@ -647,7 +652,17 @@ todo:
         ps.categorySearch(currCategory, placesSearchCB, {useMapBounds: true});
     }
 
-
+    // function searchAll(){
+    //     // 커스텀 오버레이를 숨깁니다
+    //     placeOverlay.setMap(null);
+    //
+    //     // 지도에 표시되고 있는 마커를 제거합니다
+    //     removeMarker();
+    //
+    //     ps.categorySearch(['AD5', 'AT4', 'FD6'], placesSearchCB, {useMapBounds:true});
+    //     ps.categorySearch('AT4', placesSearchCB, {useMapBounds:true});
+    //     ps.categorySearch('FD6', placesSearchCB, {useMapBounds:true});
+    // }
 
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
     function placesSearchCB(data, status, pagination) {
@@ -729,7 +744,7 @@ todo:
                     $('#category_group_name').val(category_group_name);
                     $('#category_name').val(category_name);
                     $('#id').val(id);
-                    $('#phone').val(phone);
+                    $('#phone').val(콜);
                     $('#place_name').val(title);
                     $('#place_url').val(place_url);
                     $('#road_address_name').val(road_address_name);
@@ -768,7 +783,16 @@ todo:
 
     //리스트를 클릭했을때 하는 행동
     function displayDetail(url) {
-
+        // <iframe src="삽입할페이지주소"></iframe>
+        // "<iframe id='frame'
+        //         src=" + url +"
+        //         frameBorder='0'
+        //         scrolling='no'
+        //         style='width: 100%;'
+        //         onLoad=" +  "this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"+ "></iframe>"
+        // let str = "<iframe src=" + url + " width='900px' height='900px'></iframe>";
+        // $('#detail').html(str);
+        // console.log(str);
 
 
         $('#detail').attr('src', url); //iframe url을 넣어줌
@@ -913,77 +937,13 @@ todo:
             el.className = 'on';
         }
     }
+   
 
+    $( function() {
+        $( '.sortable' ).sortable();
+        $( '.sortable' ).disableSelection();
+      } );
 
-    // $( function() {
-    //     $( '.sortable' ).sortable();
-    //     $( '.sortable' ).disableSelection();
-    // } );
-
-     $('.sortable').sortable({
-        start: function(e, ui) {
-            // creates a temporary attribute on the element with the old index
-            $(this).attr('data-previndex', ui.item.index());
-            console.log(ui.item.index());
-        },
-        update: function(e, ui) {
-            // gets the new and old index then removes the temporary attribute
-            /* var result = $(this).sortable('toArray');
-            alert(result);
-            } */
-            var newIndex = ui.item.index();
-            var oldIndex = $(this).attr('data-previndex');
-            $(this).removeAttr('data-previndex');
-            console.log(ui.item.index());
-			console.log(ui.item.val());
-        },
-     	stop: function(e,ui){
-     		reorder();
-     	}
-    });
- 
-     function reorder() {
-    	  $(".list-group input").each(function(i, box) {
-    	 	 $(box).val(i + 1);
-    	  });
-    	}
-    
-
-   <%--  $('.sortable').sortable({
-        start: function(e, ui) {
-            // creates a temporary attribute on the element with the old index
-            $(this).attr('data-previndex', ui.item.index());
-            console.log(ui.item.index());
-        },
-        update: function(e, ui) {
-            // gets the new and old index then removes the temporary attribute
-            var newIndex = ui.item.index();
-            var oldIndex = $(this).attr('data-previndex');
-            $(this).removeAttr('data-previndex');
-            // console.log(ui.item.index());
-            // console.log($(this));
-            // $('#seq').html=ui.item.index();
-            // newIndex < -> oldIndex의 seq  SWAP?
-            // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
-
-			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
-            // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
-            // 여기서 순서대로 정렬시킨 -> DB size(); order by
-
-            //1. n번 -> m번으로 이동하면
-            // ------------------ 이함수실행시 1번 시작
-
-            //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
-            // seq 기준???
-            //3. n번의 seq는 m이 된다.
-
-            // $('[data-input-type="test"')
-           // <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-            // $('.seq').data('seq', newIndex);
-		document.getElementById("seq").innerHTML=ui.item.index();
-
-        }
-    }); --%>
 </script>
 
 
