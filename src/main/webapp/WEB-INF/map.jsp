@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기 </title>
+    <title> </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -457,7 +457,7 @@
             frameborder='0'
             scrolling='yes'
             style='width: 800px;'>
-        <!--            onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
 
     </iframe>
     <!--    <a href="#none" class="link_place" data-logevent="info_pannel,share">-->
@@ -466,7 +466,7 @@
     <!--    </a>-->
 
     <div id="addplan" class="noshow">
-        <form method="POST" action="/SIST2_Travel2/plan/planadd.do">
+        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
             <!--
 
                 보낼 데이터 :
@@ -513,19 +513,28 @@
     </div>
 </div>
 <%--req.setAttribute("dto", dto); // dto로 전달--%>
-	<c:forEach items="${list}" var="dto">
-     	${dto.address_name}
-	    ${dto.category_group_code}
-	    ${dto.category_group_name}
-	    ${dto.category_name}
-	    ${dto.id}
-	    ${dto.phone}
-	    ${dto.place_name}
-	    ${dto.place_url}
-	    ${dto.road_address_name}
-	    ${dto.x}
-	    ${dto.y}
+<div class="plan">
+   <c:forEach items="${list}" var="dto">
+<%--
+        이름
+        주소
+        카테고리
+        이미지 -> url들어가서 사진 한장 데려오는 작업을...?
+--%>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${dto.place_name}</h5>
+                    <small class="text-muted">${dto.category_group_name}</small>
+                </div>
+                <p class="mb-1">${dto.address_name}</p>             
+    
+    <%--<small class="text-muted">And some muted small print.</small>--%>
+            </a>
+        </div>
+
     </c:forEach>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
@@ -689,7 +698,7 @@
                     $('#category_group_name').val(category_group_name);
                     $('#category_name').val(category_name);
                     $('#id').val(id);
-                    $('#phone').val(phone);
+                    $('#phone').val(콜);
                     $('#place_name').val(title);
                     $('#place_url').val(place_url);
                     $('#road_address_name').val(road_address_name);
