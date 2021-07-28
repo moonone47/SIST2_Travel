@@ -539,8 +539,8 @@ todo:
 
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  <div id="seq"></div></h5>
+                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
@@ -589,16 +589,16 @@ todo:
         start: function(e, ui) {
             // creates a temporary attribute on the element with the old index
             $(this).attr('data-previndex', ui.item.index());
-            console.log(ui.item.index());
+            // console.log(ui.item.index());
         },
         update: function(e, ui) {
             // gets the new and old index then removes the temporary attribute
             var newIndex = ui.item.index();
             var oldIndex = $(this).attr('data-previndex');
             $(this).removeAttr('data-previndex');
-            console.log(ui.item.index());
-            console.log($(this));
-            document.getElementById("seq").innerHTML=ui.item.index();
+            // console.log(ui.item.index());
+            // console.log($(this));
+            // $('#seq').html=ui.item.index();
             // newIndex < -> oldIndex의 seq  SWAP?
             // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
 
@@ -614,14 +614,31 @@ todo:
             //3. n번의 seq는 m이 된다.
 
             // $('[data-input-type="test"')
-            <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
-            //$('[data-seq').html=ui.item.index();
-           
+           // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
+            // $('.seq').data('seq', newIndex);
+		    document.getElementById("seq").innerHTML=oldIndex;
+            // console.log($(this).find("#seq").text());
+            // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
+            // console.log(oldIndex);
+            // console.log(newIndex);
+            console.log($(this).attr('data-previndex'));
+            for(let i=0; i<newIndex; i++){
+                $('*[data-seq=i]').find("#seq").text(i);
+                // console.log($('*[data-seq=i]').find("#seq").val());
+                // console.log($('*[data-seq=i]'));
+            }
+            var len = $("#seq").length;
+            console.log(${status.index});
+
 
         }
-       
     });
-   
+
+    function reorder() {
+        $("#sortable li").each(function(i, box) {
+            $(box).val(i + 1);
+        });
+    }
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
         contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
@@ -630,7 +647,6 @@ todo:
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
-        	
             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
             level: 5 // 지도의 확대 레벨
         };
