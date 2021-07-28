@@ -2,6 +2,8 @@ package travel.plan;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +31,7 @@ public class PlanAdd extends HttpServlet {
 //		road_address_name: "서울 중구 동호로 354"
 //		x: "127.002698429626"
 //		y: "37.5658944720562"
-
+		
 		String address_name = req.getParameter("address_name");
 		String category_group_code = req.getParameter("category_group_code");
 		String category_group_name = req.getParameter("category_group_name");
@@ -55,7 +57,11 @@ public class PlanAdd extends HttpServlet {
 		// 일정번호
 		// 아이디
 
+		int result = -1;
+		
 //		ArrayList의 PlanDTO를
+		if(address_name !=null && place_name !=null && !x.equals("[object HTMLInputElement]") && !y.equals("[object HTMLInputElement]")) {
+			
 		dto.setAddress_name(address_name);
 		dto.setCategory_group_code(category_group_code);
 		dto.setCategory_group_name(category_group_name);
@@ -68,28 +74,21 @@ public class PlanAdd extends HttpServlet {
 		dto.setX(x);
 		dto.setY(y);
 
-//		System.out.println(dto.getAddress_name());
-//		System.out.println(dto.getCategory_group_code());
-//		System.out.println(dto.getCategory_group_name());
-//		System.out.println(dto.getCategory_name());
-//		System.out.println(dto.getId());
-//		System.out.println(dto.getPhone());
-//		System.out.println(dto.getPlace_name());
-//		System.out.println(dto.getPlace_url());
-//		System.out.println(dto.getRoad_address_name());
-//		System.out.println(dto.getX());
-//		System.out.println(dto.getY());
-		int result = dao.add(dto);
+		result = dao.add(dto);
 
-		if (result == 0) {
+		}
+		
+		if(result == 0){
 			System.out.println(result);
 		}
-		// todo: 일정 삭제시 할 기능 구현
+		//todo: 일정 삭제시 할 기능 구현
 
-		// todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
+
+		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
-		ArrayList<PlanDTO> list = dao.getList(4); // where memberid == 4
+		ArrayList<PlanDTO> list = dao.getList(4); //where memberid == 4
+
 
 //		req.setAttribute("list", list);
 //		if (list.size() != 0) {
@@ -106,29 +105,41 @@ public class PlanAdd extends HttpServlet {
 //		req.setAttribute("list", list);
 //		req.setAttribute("dto", dto); // dto로 전달
 
-		if (list.size() == 0) {
-			System.out.println("list가 null입니다.");
-		}
-		req.setAttribute("list", list);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
-//		todo: 기능 구현 후 아래 planadd.jsp
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		
+		/*
+		 * String[] planseq = req.getParameterValues("planseq"); String[] seq =
+		 * req.getParameterValues("seq");
+		 * 
+		 * ArrayList<HashMap<String,String>> seqlist = new
+		 * ArrayList<HashMap<String,String>>();
+		 * 
+		 * 
+		 * for(int i=0; i<planseq.length; i++) {
+		 * 
+		 * HashMap<String,String> temp = new HashMap<String,String>();
+		 * 
+		 * temp.put(planseq[i], seq[i]); seqlist.add(temp); }
+		 * 
+		 * int r = dao.addseq(seqlist);
+		 * 
+		 * if(r == planseq.length) { // 완료 페이지로 이동
+		 * 
+		 * } else { // 실패 -> 페이지 유지 }
+		 */
+		
 		if(list.size() == 0){
 			System.out.println("list가 null입니다.");
 		}
 		req.setAttribute("list", list);
 		//RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 //		todo: 기능 구현 후 아래 planadd.jsp
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
-
+		
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
-		// todo: 기능 구현후 planadd.jsp로 이동
-		// RequestDispatcher dispatcher =
-		// req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 	//RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 		// todo: 기능 구현후 planadd.jsp로 이동
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");

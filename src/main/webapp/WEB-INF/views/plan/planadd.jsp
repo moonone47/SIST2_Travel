@@ -535,11 +535,12 @@ todo:
  --%>
 <form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
-
+	
     <c:forEach items="${list}" var="dto" varStatus="status">
 
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
+            	<div id="seqname"></div>
                 <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
                     <h5 class="mb-1">${dto.place_name}  ${status.index}</h5>
                     <small class="text-muted">${dto.category_group_name}</small>
@@ -549,13 +550,12 @@ todo:
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
             <input type="hidden" name="planseq[]" value="${dto.planseq}">
-            <input type="hidden" name="seq" value="">
+            <input type="hidden" name="seq[]" value="">
         </div>
     </c:forEach>
 	<input type="submit" value="일정 등록 완료">
 </div>
 </form>
-
 
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
@@ -586,64 +586,6 @@ todo:
 <script>
     window.onload = function () {
         $('#all').trigger("click");
-    }
-
-    $('.sortable').sortable({
-        start: function(e, ui) {
-            // creates a temporary attribute on the element with the old index
-            $(this).attr('data-previndex', ui.item.index());
-            // console.log(ui.item.index());
-        },
-        update: function(e, ui) {
-            // gets the new and old index then removes the temporary attribute
-            var newIndex = ui.item.index();
-            var oldIndex = $(this).attr('data-previndex');
-            $(this).removeAttr('data-previndex');
-            // console.log(ui.item.index());
-            // console.log($(this));
-            // $('#seq').html=ui.item.index();
-            // newIndex < -> oldIndex의 seq  SWAP?
-            // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
-
-			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
-            // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
-            // 여기서 순서대로 정렬시킨 -> DB size(); order by
-
-            //1. n번 -> m번으로 이동하면
-            // ------------------ 이함수실행시 1번 시작
-
-            //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
-            // seq 기준???
-            //3. n번의 seq는 m이 된다.
-
-            // $('[data-input-type="test"')
-           // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
-            // $('.seq').data('seq', newIndex);
-		    document.getElementById("seq").innerHTML=oldIndex;
-            // console.log($(this).find("#seq").text());
-            // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
-            // console.log(oldIndex);
-            // console.log(newIndex);
-            console.log($(this).attr('data-previndex'));
-            for(let i=0; i<newIndex; i++){
-                $('*[data-seq=i]').find("#seq").text(i);
-                // console.log($('*[data-seq=i]').find("#seq").val());
-                // console.log($('*[data-seq=i]'));
-            }
-            var len = $("#seq").length;
-            console.log(${status.index});
-
-
-        }
-    });
-
-    function reorder() {
-        $(".list-group #seq").each(function(i, box) {
-            $(box).val(i + 1);
-        });
-        $(".list-group input").each(function(i, box) {
-            $(box).val(i + 1);
-        });
     }
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
@@ -930,6 +872,30 @@ todo:
         placeOverlay.setMap(map);
     }
 
+    var linePath = [
+		
+		<c:forEach items="${list}" var="dto" varStatus="status">
+		
+		 new kakao.maps.LatLng(${dto.y}, ${dto.x})
+		 <c:if test="${list.size()-1 > status.index}">
+			,
+		</c:if>
+		</c:forEach>
+
+	];
+    
+   
+	
+	var polyline = new kakao.maps.Polyline({
+	    path: linePath, // 선을 구성하는 좌표배열 입니다
+	    strokeWeight: 5, // 선의 두께 입니다
+	    strokeColor: '#FFAE00', // 선의 색깔입니다 #FFAE00
+	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	    strokeStyle: 'solid' // 선의 스타일입니다
+	});
+
+	// 지도에 선을 표시합니다 
+	polyline.setMap(map); 
 
     // 각 카테고리에 클릭 이벤트를 등록합니다
     function addCategoryClickEvent() {
@@ -980,8 +946,74 @@ todo:
     //     $( '.sortable' ).disableSelection();
     // } );
 
+     $('.sortable').sortable({
+        start: function(e, ui) {
+            // creates a temporary attribute on the element with the old index
+            $(this).attr('data-previndex', ui.item.index());
+            console.log(ui.item.index());
+        },
+        update: function(e, ui) {
+            // gets the new and old index then removes the temporary attribute
+            /* var result = $(this).sortable('toArray');
+            alert(result);
+            } */
+            var newIndex = ui.item.index();
+            var oldIndex = $(this).attr('data-previndex');
+            $(this).removeAttr('data-previndex');
+            console.log(ui.item.index());
+			console.log(ui.item.val());
+        },
+     	stop: function(e,ui){
+     		reorder();
+     	}
+    });
+ 
+     function reorder() {
+    	  $(".list-group input[name='seq']").each(function(i, box) {
+    	 	 $(box).val(i + 1);
+    	  });
+    	  
+    	}
+    
 
+     
+     
 
+   <%--  $('.sortable').sortable({
+        start: function(e, ui) {
+            // creates a temporary attribute on the element with the old index
+            $(this).attr('data-previndex', ui.item.index());
+            console.log(ui.item.index());
+        },
+        update: function(e, ui) {
+            // gets the new and old index then removes the temporary attribute
+            var newIndex = ui.item.index();
+            var oldIndex = $(this).attr('data-previndex');
+            $(this).removeAttr('data-previndex');
+            // console.log(ui.item.index());
+            // console.log($(this));
+            // $('#seq').html=ui.item.index();
+            // newIndex < -> oldIndex의 seq  SWAP?
+            // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
+
+			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
+            // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
+            // 여기서 순서대로 정렬시킨 -> DB size(); order by
+
+            //1. n번 -> m번으로 이동하면
+            // ------------------ 이함수실행시 1번 시작
+
+            //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
+            // seq 기준???
+            //3. n번의 seq는 m이 된다.
+
+            // $('[data-input-type="test"')
+           // <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+            // $('.seq').data('seq', newIndex);
+		document.getElementById("seq").innerHTML=ui.item.index();
+
+        }
+    }); --%>
 </script>
 
 
