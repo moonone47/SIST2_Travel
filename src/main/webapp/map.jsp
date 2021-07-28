@@ -393,6 +393,22 @@
             position: absolute;
             top: 565px;
             left: 510px;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 12px;
+            /*border: 1px solid red;*/
+        }
+
+        #addWish {
+            position: absolute;
+            top: 565px;
+            left: 510px;
         #planlist {
             position: absolute;
             top: 26px;
@@ -549,8 +565,8 @@ todo:
 
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">${dto.place_name}</h5>
+                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
@@ -600,6 +616,7 @@ todo:
             // creates a temporary attribute on the element with the old index
             $(this).attr('data-previndex', ui.item.index());
             console.log(ui.item.index());
+            // console.log(ui.item.index());
         },
         update: function(e, ui) {
             // gets the new and old index then removes the temporary attribute
@@ -633,6 +650,28 @@ todo:
             // console.log(newIndex);
         }
     });
+            // console.log($(this).find("#seq").text());
+            // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
+            // console.log(oldIndex);
+            // console.log(newIndex);
+            console.log($(this).attr('data-previndex'));
+            for(let i=0; i<newIndex; i++){
+                $('*[data-seq=i]').find("#seq").text(i);
+                // console.log($('*[data-seq=i]').find("#seq").val());
+                // console.log($('*[data-seq=i]'));
+            }
+            var len = $("#seq").length;
+            console.log(${status.index});
+
+
+        }
+    });
+
+    function reorder() {
+        $("#sortable li").each(function(i, box) {
+            $(box).val(i + 1);
+        });
+    }
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
         contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
