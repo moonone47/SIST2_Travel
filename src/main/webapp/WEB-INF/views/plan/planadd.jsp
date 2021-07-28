@@ -540,14 +540,14 @@ todo:
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  ${status.index}</h5>
+                    <h5 class="mb-1">${dto.place_name}  <span></span></h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
-            <input type="hidden" value="">
+            <input type="hidden" value="" id="hiddenval">
         </div>
 
     </c:forEach>
