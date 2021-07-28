@@ -415,6 +415,8 @@
             /*border: 1px solid red;*/
         }
 
+
+
     </style>
 
 
@@ -511,26 +513,69 @@
             <div>찜 추가</div>
         </a>
     </div>
-</div>
+</div>12343
 <%--req.setAttribute("dto", dto); // dto로 전달--%>
-	<c:forEach items="${list}" var="dto">
-     	${dto.address_name}
-	    ${dto.category_group_code}
-	    ${dto.category_group_name}
-	    ${dto.category_name}
-	    ${dto.id}
-	    ${dto.phone}
-	    ${dto.place_name}
-	    ${dto.place_url}
-	    ${dto.road_address_name}
-	    ${dto.x}
-	    ${dto.y}
-    </c:forEach>
 
+<%--https://getbootstrap.kr/docs/5.0/components/list-group/#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A7%80%EC%A0%95-%EC%BD%98%ED%85%90%EC%B8%A0--%>
+<%--<div class="list-group">--%>
+<%--    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small>3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small>And some small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--    <a href="#" class="list-group-item list-group-item-action">--%>
+<%--        <div class="d-flex w-100 justify-content-between">--%>
+<%--            <h5 class="mb-1">List group item heading</h5>--%>
+<%--            <small class="text-muted">3 days ago</small>--%>
+<%--        </div>--%>
+<%--        <p class="mb-1">Some placeholder content in a paragraph.</p>--%>
+<%--        <small class="text-muted">And some muted small print.</small>--%>
+<%--    </a>--%>
+<%--</div>--%>
+<%--
+todo:
+리스트 출력
+순서 드래그앤 드랍
+날짜 정하기
+마커끼리 선으로 연결
+
+ --%>
+<div class="plan" id="planlist">
+	<c:forEach items="${list}" var="dto">
+<%--
+        이름
+        주소
+        카테고리
+        이미지 -> url들어가서 사진 한장 데려오는 작업을...?
+--%>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${dto.place_name}</h5>
+                    <small class="text-muted">${dto.category_group_name}</small>
+                </div>
+                <p class="mb-1">${dto.address_name}</p>
+                    <%--                <small class="text-muted">And some muted small print.</small>--%>
+            </a>
+        </div>
+
+    </c:forEach>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fba8341ea7a4ecd4e5c23c5533bdbe65&libraries=services"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
     window.onload = function () {
         $('#AD5').trigger("click");

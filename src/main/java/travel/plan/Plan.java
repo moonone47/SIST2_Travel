@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/plan.do")
+@WebServlet("/plan/plan.do")
 public class Plan extends HttpServlet {
 
 	@Override
@@ -17,7 +17,7 @@ public class Plan extends HttpServlet {
 
 		//Plan.java
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plan.jsp");
 		dispatcher.forward(req, resp);
 	}
 

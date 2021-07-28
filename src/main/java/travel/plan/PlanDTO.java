@@ -14,7 +14,7 @@ public class PlanDTO {
     private String y;
 
     private String seq;
-    private String member_id;
+    private String memberid;
     private String rdate;
     private String planseq;
     
@@ -27,13 +27,7 @@ public class PlanDTO {
         this.seq = seq;
     }
 
-    public String getMember_id() {
-        return member_id;
-    }
-
-    public void setMember_id(String member_id) {
-        this.member_id = member_id;
-    }
+   
 
     public String getRdate() {
         return rdate;
@@ -141,4 +135,12 @@ public class PlanDTO {
     public void setPlanseq(String planseq) {
         this.planseq = planseq;
     }
+
+	public String getMemberid() {
+		return memberid;
+	}
+
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
 }
