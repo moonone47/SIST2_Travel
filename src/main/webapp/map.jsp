@@ -415,6 +415,8 @@
             /*border: 1px solid red;*/
         }
 
+
+
     </style>
 
 
@@ -549,7 +551,7 @@ todo:
 마커끼리 선으로 연결
 
  --%>
-<div class="plan">
+<div class="plan" id="planlist">
 	<c:forEach items="${list}" var="dto">
 <%--
         이름
