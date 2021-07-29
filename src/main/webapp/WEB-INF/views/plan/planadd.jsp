@@ -436,8 +436,34 @@
             /* border: 1px solid red; */
         }
 
+    /*도시선택*/
+        /* select with custom icons */
+        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item-wrapper {
+            padding: 0.5em 0 0.5em 3em;
+        }
+        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item .ui-icon {
+            height: 24px;
+            width: 24px;
+            top: 0.1em;
+        }
+        .ui-icon.video {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
+        .ui-icon.podcast {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
+        .ui-icon.rss {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
 
-
+        /* select with CSS avatar icons */
+        option.avatar {
+            background-repeat: no-repeat !important;
+            padding-left: 20px;
+        }
+        .avatar .ui-icon {
+            background-position: left top;
+        }
 
 
 
@@ -449,6 +475,15 @@
 <body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
+<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
+<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
+<link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
+
 <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
@@ -556,7 +591,6 @@ todo:
 	<input type="submit" value="일정 등록 완료">
 </div>
 </form>
-
 <%-----------------------------------------달력---------------------------------%>
 <script>
     $( function() {
@@ -623,8 +657,8 @@ todo:
             <h2>제목</h2>
             <fieldset>
                 <select style="width:200px;" name="city">
-                    <c:forEach items='${citylist}' var="city">
-                    <option value="${city.cityseq}">${city.name}</option>
+                    <c:forEach items='${citys}' var="citys">
+                    <option value="${citys.cityseq}">${citys.name}</option>
                     </c:forEach>
                 </select>
             </fieldset>
@@ -665,6 +699,7 @@ plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전�
         <div class="col-10 mb-1 small">부산</div>
     </a>
 </div>
+
 
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>

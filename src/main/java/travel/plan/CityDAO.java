@@ -17,6 +17,7 @@ public class CityDAO {
 
 
 
+
  	public CityDAO() {
         try {
 //            conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");
@@ -31,7 +32,7 @@ public class CityDAO {
         try {
             String sql = "select * from tblCity";
             stat = conn.createStatement();
-            rs = pstat.executeQuery(sql);
+            rs = stat.executeQuery(sql);
 
 
             ArrayList<CityDTO> citys = new ArrayList<CityDTO>();
@@ -55,6 +56,11 @@ public class CityDAO {
         return null;
     }
 }
+
+
+
+
+
 
 
 
