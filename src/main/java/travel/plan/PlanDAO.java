@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class PlanDAO {
 
     private Connection conn;
-    private Statement stat;
+    private Statement stat; 
     private PreparedStatement pstat;
     private ResultSet rs;
 
