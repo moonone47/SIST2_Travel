@@ -436,8 +436,34 @@
             /* border: 1px solid red; */
         }
 
+    /*도시선택*/
+        /* select with custom icons */
+        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item-wrapper {
+            padding: 0.5em 0 0.5em 3em;
+        }
+        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item .ui-icon {
+            height: 24px;
+            width: 24px;
+            top: 0.1em;
+        }
+        .ui-icon.video {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
+        .ui-icon.podcast {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
+        .ui-icon.rss {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
 
-
+        /* select with CSS avatar icons */
+        option.avatar {
+            background-repeat: no-repeat !important;
+            padding-left: 20px;
+        }
+        .avatar .ui-icon {
+            background-position: left top;
+        }
 
 
 
@@ -584,8 +610,40 @@ todo:
 
     //ui-datepicker-trigger
 
+
+</script>
+                <%------------------------도시선택----------------------------%>
+<script>
+    $( function() {
+        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {
+            _renderItem: function( ul, item ) {
+                var li = $( "<li>" ),
+                    wrapper = $( "<div>", { text: item.label } );
+
+                if ( item.disabled ) {
+                    li.addClass( "ui-state-disabled" );
+                }
+
+                $( "<span>", {
+                    style: item.element.attr( "data-style" ),
+                    "class": "ui-icon " + item.element.attr( "data-class" )
+                })
+                    .appendTo( wrapper );
+
+                return li.append( wrapper ).appendTo( ul );
+            }
+        });
+
+
+        $( "#city" )
+            .iconselectmenu()
+            .iconselectmenu( "menuWidget")
+            .addClass( "ui-menu-icons avatar" );
+    } );
 </script>
 <%--<p>Date: <input type="text" class="datepicker"></p>--%>
+
+
 <%-----------------------------------------달력---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planadd.do">
@@ -596,12 +654,28 @@ todo:
             <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
         </div>
         <div class="w-100 align-items-center justify-content-between">
-            <span>도시: <select name="selectedPlace"></select></span></div>
+            <h2>제목</h2>
+            <fieldset>
+                <select style="width:200px;" name="city">
+                    <c:forEach items='${citys}' var="citys">
+                    <option value="${citys.cityseq}">${citys.name}</option>
+                    </c:forEach>
+                </select>
+            </fieldset>
+<%--
+plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전달
+여기와서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표를 planadd.jsp에게 전달
+--%>
+        </div>
+
         <div class="col-10 mb-1 small">공유여부:
             <input type="checkbox" checked data-toggle="toggle" data-size="xs">
         </div>
+        <input type="submit" value="일정 설정 완료">
     </a>
     </form>
+
+
 
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
@@ -625,6 +699,7 @@ todo:
         <div class="col-10 mb-1 small">부산</div>
     </a>
 </div>
+
 
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>

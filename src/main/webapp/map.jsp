@@ -553,7 +553,7 @@ todo:
             <input type="hidden" name="seq" value="">
         </div>
     </c:forEach>
-   <input type="submit" value="일정 등록 완료">
+	<input type="submit" value="일정 등록 완료">
 </div>
 </form>
 
@@ -610,7 +610,7 @@ todo:
             // newIndex < -> oldIndex의 seq  SWAP?
             // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
 
-         // 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
+			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
             // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
             // 여기서 순서대로 정렬시킨 -> DB size(); order by
 
@@ -624,7 +624,7 @@ todo:
             // $('[data-input-type="test"')
            // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
             // $('.seq').data('seq', newIndex);
-          document.getElementById("seq").innerHTML=oldIndex;
+		    document.getElementById("seq").innerHTML=oldIndex;
             // console.log($(this).find("#seq").text());
             // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
             // console.log(oldIndex);
@@ -731,8 +731,8 @@ todo:
     }
     
    
-   
-   
+	
+	
 
     // 지도에 마커를 표출하는 함수입니다
     function displayPlaces(places) {
@@ -995,7 +995,7 @@ todo:
     //     $( '.sortable' ).disableSelection();
     // } );
     
-   
+	
     
     
 </script>
