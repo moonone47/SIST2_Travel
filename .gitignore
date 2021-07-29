@@ -10,6 +10,8 @@ lib/
 .project
 build/
 Servers/
+classes/
+web/WEB-INF/web.xml
 
 # Eclipse Core      
 .project
