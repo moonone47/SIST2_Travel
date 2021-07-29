@@ -561,6 +561,7 @@ todo:
             <div   class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
                     <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
+    </c:forEach>
     <c:forEach items="${list}" var="dto">
 
         <div class="list-group" >

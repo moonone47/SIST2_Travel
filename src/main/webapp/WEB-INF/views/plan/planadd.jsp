@@ -555,15 +555,39 @@ todo:
     </c:forEach>
 	<input type="submit" value="일정 등록 완료">
 </div>
-</form>
 
+<%-----------------------------------------달력---------------------------------%>
+<script>
+    $( function() {
+        $( ".datepicker" ).datepicker({
+            showOn: "button",
+            buttonImage: "https://cdn.iconscout.com/icon/free/png-256/calendar-3200778-2683078.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+        $('.ui-datepicker-trigger').width('30px');
+    } );
+    // $( "h1" ).css( "color", "green" );
+    // $( 'h1' ).width( '100px' );
+    // $('.ui-datepicker-trigger').css("width", "20px");
+
+    $('#datepicker').css(':20px');
+
+    //ui-datepicker-trigger
+
+
+</script>
+<p>Date: <input type="text" class="datepicker"></p>
+<%-----------------------------------------달력---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
+    <form>
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day1</strong>
-            <small>08.01</small>
+            <strong class="mb-1">전체 일정</strong>
+            <div>시작날짜 <p>Date: <input type="text" class="datepicker"></p> </div>
+            <div>종료날짜: </div>
         </div>
-        <div class="col-10 mb-1 small">부산</div>
+        <div class="col-10 mb-1 small">장소</div>
     </a>
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
