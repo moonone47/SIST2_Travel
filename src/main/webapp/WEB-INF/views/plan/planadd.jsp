@@ -449,6 +449,15 @@
 <body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
+<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
+<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
+<link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
+
 <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
@@ -556,8 +565,44 @@ todo:
 	<input type="submit" value="일정 등록 완료">
 </div>
 </form>
+<%-----------------------------------------달력---------------------------------%>
+<script>
+    $( function() {
+        $( ".datepicker" ).datepicker({
+            showOn: "button",
+            buttonImage: "https://cdn.iconscout.com/icon/free/png-256/calendar-3200778-2683078.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+        $('.ui-datepicker-trigger').width('30px');
+    } );
+    // $( "h1" ).css( "color", "green" );
+    // $( 'h1' ).width( '100px' );
+    // $('.ui-datepicker-trigger').css("width", "20px");
 
+    $('#datepicker').css(':20px');
+
+    //ui-datepicker-trigger
+
+</script>
+<%--<p>Date: <input type="text" class="datepicker"></p>--%>
+<%-----------------------------------------달력---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
+    <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <div class="w-100 align-items-center justify-content-between">
+            <strong class="mb-1">전체 일정</strong>
+            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>
+            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
+        </div>
+        <div class="w-100 align-items-center justify-content-between">
+            <span>도시: <select name="selectedPlace"></select></span></div>
+        <div class="col-10 mb-1 small">공유여부:
+            <input type="checkbox" checked data-toggle="toggle" data-size="xs">
+        </div>
+    </a>
+    </form>
+
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
             <strong class="mb-1">Day1</strong>

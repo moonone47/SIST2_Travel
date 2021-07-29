@@ -405,26 +405,6 @@
             /*border: 1px solid red;*/
         }
 
-        #addWish {
-            position: absolute;
-            top: 565px;
-            left: 510px;
-        #planlist {
-            position: absolute;
-            top: 26px;
-            left: 253px;
-            bottom: 0;
-            width: 300px;
-            height: 463px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
-
         #planlist {
             position: absolute;
             top: 26px;
@@ -530,6 +510,7 @@
             <input type="hidden" id="x" name="x" value="">
             <input type="hidden" id="y" name="y" value="">
             <input type="submit" value="일정추가">
+
         </form>
     </div>
     <div id="addWish" class="noshow">
@@ -553,6 +534,7 @@ todo:
 마커끼리 선으로 연결
 
  --%>
+<form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
 
     <c:forEach items="${list}" var="dto" varStatus="status">
@@ -560,24 +542,20 @@ todo:
         <div class="list-group" >
             <div   class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
-    <c:forEach items="${list}" var="dto">
-
-        <div class="list-group" >
-            <div   class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between seq" data-seq="${status.index}">
-                    <h5 class="mb-1">${dto.place_name}  <span id="seq">${status.index}</span></h5>
+                    <h5 class="mb-1">${dto.place_name}  ${status.index}</h5>
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
+            <input type="hidden" name="planseq[]" value="${dto.planseq}">
+            <input type="hidden" name="seq" value="">
         </div>
-
     </c:forEach>
-
+   <input type="submit" value="일정 등록 완료">
 </div>
+</form>
 
 
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
@@ -607,6 +585,10 @@ todo:
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>
+
+
+
+
     window.onload = function () {
         $('#all').trigger("click");
     }
@@ -615,7 +597,6 @@ todo:
         start: function(e, ui) {
             // creates a temporary attribute on the element with the old index
             $(this).attr('data-previndex', ui.item.index());
-            console.log(ui.item.index());
             // console.log(ui.item.index());
         },
         update: function(e, ui) {
@@ -629,7 +610,7 @@ todo:
             // newIndex < -> oldIndex의 seq  SWAP?
             // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
 
-			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
+         // 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
             // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
             // 여기서 순서대로 정렬시킨 -> DB size(); order by
 
@@ -643,13 +624,7 @@ todo:
             // $('[data-input-type="test"')
            // <%--<div class="d-flex w-100 justify-content-between" data-seq="${status.index}">--%>
             // $('.seq').data('seq', newIndex);
-		    document.getElementById("seq").innerHTML=oldIndex;
-            console.log($(this).find("#seq").text());
-            //$(this).find("#seq").text(newIndex);
-            // console.log(oldIndex);
-            // console.log(newIndex);
-        }
-    });
+          document.getElementById("seq").innerHTML=oldIndex;
             // console.log($(this).find("#seq").text());
             // $(this).find("#seq").text('ㄻㄴㅇㄻㄴㅇㄻ');
             // console.log(oldIndex);
@@ -668,7 +643,10 @@ todo:
     });
 
     function reorder() {
-        $("#sortable li").each(function(i, box) {
+        $(".list-group #seq").each(function(i, box) {
+            $(box).val(i + 1);
+        });
+        $(".list-group input").each(function(i, box) {
             $(box).val(i + 1);
         });
     }
@@ -751,6 +729,10 @@ todo:
 
         }
     }
+    
+   
+   
+   
 
     // 지도에 마커를 표출하는 함수입니다
     function displayPlaces(places) {
@@ -906,6 +888,8 @@ todo:
             el.removeChild(el.lastChild);
         }
     }
+    
+    
 
     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
     function addMarker(position, order) {
@@ -956,6 +940,10 @@ todo:
         placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
         placeOverlay.setMap(map);
     }
+    
+
+    
+    
 
 
     // 각 카테고리에 클릭 이벤트를 등록합니다
@@ -1006,13 +994,10 @@ todo:
     //     $( '.sortable' ).sortable();
     //     $( '.sortable' ).disableSelection();
     // } );
-
-
-    $( function() {
-        $( '.sortable' ).sortable();
-        $( '.sortable' ).disableSelection();
-    } );
-
+    
+   
+    
+    
 </script>
 
 
