@@ -16,7 +16,17 @@ public class CityDTO {
     private String explain;
     private String cityX;
     private String cityY ;
+	private String days;
+	
+	public String getDays() {
+        return days;
+    }
 
+    public void setDays(String days) {
+        this.days = days;
+    }
+	
+	
     public String getCityseq() {
         return cityseq;
     }
