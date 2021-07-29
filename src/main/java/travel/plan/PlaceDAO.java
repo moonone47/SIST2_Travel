@@ -1,6 +1,5 @@
 package travel.plan;
 
-
 import travel.DBUtil;
 
 import java.sql.Connection;
@@ -13,7 +12,7 @@ import java.util.HashMap;
 public class PlaceDAO {
 
     private Connection conn;
-    private Statement stat;
+    private Statement stat; 
     private PreparedStatement pstat;
     private ResultSet rs;
 
@@ -240,8 +239,6 @@ public class PlaceDAO {
 		return 0;
 	}
 }
-
-
 
 
 
