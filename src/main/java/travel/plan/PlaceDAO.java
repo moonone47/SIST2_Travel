@@ -27,7 +27,7 @@ public class PlaceDAO {
 
     public int add(PlaceDTO dto) {
         try {
-            String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
+            String sql = "insert into tblPlan2(plan2seq, address_name, category_group_code, category_group_name, " +
                     "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
                     "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -173,7 +173,7 @@ public class PlaceDAO {
     public ArrayList<PlaceDTO> getList(int id) {
         try {
 
-            String sql = "select * from tblPlan2 where plan2seq=?"; // todo:일정번호로 바꿔야함
+            String sql = "select * from tblPlan2 where memberid=?"; // todo:일정번호로 바꿔야함
 
             pstat = conn.prepareStatement(sql);
 
@@ -187,6 +187,7 @@ public class PlaceDAO {
                 PlaceDTO dto = new PlaceDTO();
 
                 dto.setPlan2seq(rs.getString("plan2seq"));
+
                 dto.setPlace_url(rs.getString("place_url"));
                 dto.setPlace_name(rs.getString("place_name"));
                 dto.setPhone(rs.getString("phone"));
@@ -230,7 +231,7 @@ public class PlaceDAO {
     public int del(String plan2seq) {
 		try {
             String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
-            
+            System.out.println(plan2seq);//null
             stat = conn.createStatement();
             return stat.executeUpdate(sql);
 

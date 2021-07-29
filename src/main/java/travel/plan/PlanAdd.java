@@ -51,6 +51,7 @@ public class PlanAdd extends HttpServlet {
 //		String isDone = req.getParameter("isDone");
 		PlaceDAO dao = new PlaceDAO();
 		PlaceDTO dto = new PlaceDTO();
+		int plan2seq = 0;
 		//
 		// 맵에서 들어오는 req들을 PlanDTO > list 에 일정들을 임시 저장
 		// 일정번호
@@ -77,11 +78,9 @@ public class PlanAdd extends HttpServlet {
 
 		}
 		
-		if(result == 0){
-			System.out.println(result);
-		}
-		//todo: 일정 삭제시 할 기능 구현
 
+		//todo: 일정 삭제시 할 기능 구현 
+		
 
 		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
@@ -105,7 +104,7 @@ public class PlanAdd extends HttpServlet {
 //		req.setAttribute("dto", dto); // dto로 전달
 
 		
-		/*
+		/* //일정 순서 저장 -> 마지막에 seq에 넣어줌...
 		 * String[] planseq = req.getParameterValues("planseq"); String[] seq =
 		 * req.getParameterValues("seq");
 		 * 
