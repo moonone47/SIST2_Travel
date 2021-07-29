@@ -436,8 +436,34 @@
             /* border: 1px solid red; */
         }
 
+    /*도시선택*/
+        /* select with custom icons */
+        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item-wrapper {
+            padding: 0.5em 0 0.5em 3em;
+        }
+        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item .ui-icon {
+            height: 24px;
+            width: 24px;
+            top: 0.1em;
+        }
+        .ui-icon.video {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
+        .ui-icon.podcast {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
+        .ui-icon.rss {
+            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
+        }
 
-
+        /* select with CSS avatar icons */
+        option.avatar {
+            background-repeat: no-repeat !important;
+            padding-left: 20px;
+        }
+        .avatar .ui-icon {
+            background-position: left top;
+        }
 
 
 
@@ -449,6 +475,15 @@
 <body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
+<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
+<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
+<link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
+
 <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
@@ -556,12 +591,10 @@ todo:
 	<input type="submit" value="일정 등록 완료">
 </div>
 </form>
-
-
 <%-----------------------------------------달력---------------------------------%>
 <script>
     $( function() {
-        $( "#datepicker" ).datepicker({
+        $( ".datepicker" ).datepicker({
             showOn: "button",
             buttonImage: "https://cdn.iconscout.com/icon/free/png-256/calendar-3200778-2683078.png",
             buttonImageOnly: true,
@@ -579,9 +612,39 @@ todo:
 
 
 </script>
-<p>Date: <input type="text" id="datepicker"></p>
-<%-----------------------------------------달력---------------------------------%>
+                <%------------------------도시선택----------------------------%>
+<script>
+    $( function() {
+        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {
+            _renderItem: function( ul, item ) {
+                var li = $( "<li>" ),
+                    wrapper = $( "<div>", { text: item.label } );
 
+                if ( item.disabled ) {
+                    li.addClass( "ui-state-disabled" );
+                }
+
+                $( "<span>", {
+                    style: item.element.attr( "data-style" ),
+                    "class": "ui-icon " + item.element.attr( "data-class" )
+                })
+                    .appendTo( wrapper );
+
+                return li.append( wrapper ).appendTo( ul );
+            }
+        });
+
+
+        $( "#city" )
+            .iconselectmenu()
+            .iconselectmenu( "menuWidget")
+            .addClass( "ui-menu-icons avatar" );
+    } );
+</script>
+<%--<p>Date: <input type="text" class="datepicker"></p>--%>
+
+
+<%-----------------------------------------달력---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planadd.do">
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
@@ -590,15 +653,30 @@ todo:
             <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>
             <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
         </div>
-        <div class="col-10 mb-1 small">장소선택:
-            <span><input type="text" class="" id="selectedPlace" name="selectedPlace"></span></div>
+        <div class="w-100 align-items-center justify-content-between">
+            <h2>제목</h2>
+            <fieldset>
+                <select style="width:200px;" name="city">
+                    <c:forEach items='${citys}' var="citys">
+                    <option value="${citys.cityseq}">${citys.name}</option>
+                    </c:forEach>
+                </select>
+            </fieldset>
+<%--
+plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전달
+여기와서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표를 planadd.jsp에게 전달
+--%>
+        </div>
+
         <div class="col-10 mb-1 small">공유여부:
             <input type="checkbox" checked data-toggle="toggle" data-size="xs">
         </div>
+        <input type="submit" value="일정 설정 완료">
     </a>
     </form>
-    
-    
+
+
+
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
             <strong class="mb-1">Day1</strong>
@@ -621,6 +699,7 @@ todo:
         <div class="col-10 mb-1 small">부산</div>
     </a>
 </div>
+
 
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
