@@ -50,8 +50,8 @@ public class PlanAdd extends HttpServlet {
 //		String userId = req.getParameter("userid");
 //		String planNum = req.getParameter("planNum");
 //		String isDone = req.getParameter("isDone");
-		PlanDAO dao = new PlanDAO();
-		PlanDTO dto = new PlanDTO();
+		PlaceDAO dao = new PlaceDAO();
+		PlaceDTO dto = new PlaceDTO();
 		//
 		// 맵에서 들어오는 req들을 PlanDTO > list 에 일정들을 임시 저장
 		// 일정번호
@@ -87,7 +87,7 @@ public class PlanAdd extends HttpServlet {
 		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
-		ArrayList<PlanDTO> list = dao.getList(4); //where memberid == 4
+		ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
 
 
 //		req.setAttribute("list", list);
