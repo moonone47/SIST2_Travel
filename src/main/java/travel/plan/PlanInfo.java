@@ -1,6 +1,8 @@
 package travel.plan;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +17,7 @@ public class PlanInfo extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		req.setCharacterEncoding("UTF-8");
 //		    <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
 //    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
 //        <div class="w-100 align-items-center justify-content-between">
@@ -88,38 +91,40 @@ public class PlanInfo extends HttpServlet {
 //		at travel.plan.PlanInfoDAO.add(PlanInfoDAO.java:65)
 //		at travel.plan.PlanInfo.doPost(PlanInfo.java:95)
 
-
 		System.out.println(req.getParameter("cityseq"));
 		System.out.println(req.getParameter("daystarttravel"));
 		System.out.println(req.getParameter("dayendtravel"));
 		System.out.println(req.getParameter("name"));
-		//System.out.println(req.getParameter("planseq"));
+		// System.out.println(req.getParameter("planseq"));
 		System.out.println(req.getParameter("willshare"));
 
-		1
-		2021-08-18
-		2021-08-26
-		title
-		y
-		y
-		PlanInfoDTO.add
-		java.sql.SQLSyntaxErrorException: ORA-01722: invalid number
-
+		/*
+		 * 1 2021-08-18 2021-08-26 title y y PlanInfoDTO.add
+		 * java.sql.SQLSyntaxErrorException: ORA-01722: invalid number
+		 */
 		dto.setCityseq(req.getParameter("cityseq"));
 		dto.setDaystarttravel(req.getParameter("daystarttravel"));
 		dto.setDayendtravel(req.getParameter("dayendtravel"));
 		dto.setId("1");
 		dto.setName(req.getParameter("name"));
-		//dto.setPlanseq(req.getParameter("planseq"));
+		// dto.setPlanseq(req.getParameter("planseq"));
 
 		System.out.println(req.getParameter("willshare"));
-		if(req.getParameter("willshare").equals("y") && req.getParameter("willshare") !=null){
-			dto.setWillshare(req.getParameter("willshare"));
-		} else {
+		if (req.getParameter("willshare") != null) {
+			if (req.getParameter("willshare").equals("y") && req.getParameter("willshare") != null
+					&& req.getParameter("willshare") != "") {
+				dto.setWillshare(req.getParameter("willshare"));
+			} else {
+				dto.setWillshare("n");
+			}
 			dto.setWillshare("n");
 		}
 
 		int result = dao.add(dto);
+
+	
+
+		  
 
 //		java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "javax.servlet.http.HttpServletRequest.getParameter(String)" is null
 //		travel.plan.PlanInfo.doPost(PlanInfo.java:84)
@@ -127,7 +132,6 @@ public class PlanInfo extends HttpServlet {
 //		javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
 //		org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
 //		비고 근본 원인(root cause)의 풀 스택 트레이스를, 서버 로그들에서 확인할 수 있습니다.
-
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
@@ -137,7 +141,6 @@ public class PlanInfo extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
-
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
