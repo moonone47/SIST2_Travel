@@ -71,21 +71,62 @@ public class PlanInfo extends HttpServlet {
 		PlanInfoDAO dao = new PlanInfoDAO();
 		PlanInfoDTO dto = new PlanInfoDTO();
 
+//		java.sql.SQLDataException: ORA-01830: date format picture ends before converting entire input string
+//
+//		at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
+//		at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+//		at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:837)
+//		at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
+//		at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
+//		at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:523)
+//		at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:207)
+//		at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1010)
+//		at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1315)
+//		at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3576)
+//		at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3657)
+//		at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1350)
+//		at travel.plan.PlanInfoDAO.add(PlanInfoDAO.java:65)
+//		at travel.plan.PlanInfo.doPost(PlanInfo.java:95)
 
 
+		System.out.println(req.getParameter("cityseq"));
+		System.out.println(req.getParameter("daystarttravel"));
+		System.out.println(req.getParameter("dayendtravel"));
+		System.out.println(req.getParameter("name"));
+		//System.out.println(req.getParameter("planseq"));
+		System.out.println(req.getParameter("willshare"));
+
+		1
+		2021-08-18
+		2021-08-26
+		title
+		y
+		y
+		PlanInfoDTO.add
+		java.sql.SQLSyntaxErrorException: ORA-01722: invalid number
 
 		dto.setCityseq(req.getParameter("cityseq"));
 		dto.setDaystarttravel(req.getParameter("daystarttravel"));
 		dto.setDayendtravel(req.getParameter("dayendtravel"));
 		dto.setId("1");
 		dto.setName(req.getParameter("name"));
-		dto.setPlanseq(req.getParameter("planseq"));
+		//dto.setPlanseq(req.getParameter("planseq"));
 
-		if(req.getParameter("willshare").equals("y")){
+		System.out.println(req.getParameter("willshare"));
+		if(req.getParameter("willshare").equals("y") && req.getParameter("willshare") !=null){
 			dto.setWillshare(req.getParameter("willshare"));
 		} else {
 			dto.setWillshare("n");
 		}
+
+		int result = dao.add(dto);
+
+//		java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "javax.servlet.http.HttpServletRequest.getParameter(String)" is null
+//		travel.plan.PlanInfo.doPost(PlanInfo.java:84)
+//		javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+//		javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+//		org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+//		비고 근본 원인(root cause)의 풀 스택 트레이스를, 서버 로그들에서 확인할 수 있습니다.
 
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");

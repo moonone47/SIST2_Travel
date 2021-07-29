@@ -601,14 +601,17 @@ todo:
 <%--        $('.ui-datepicker-trigger').width('100px');--%>
 <%--    } );--%>
 <%--</script>--%>
+
+
 <script>
     $( function() {
-        var dateFormat = "yy/mm/dd",
+        var dateFormat = "yy-mm-dd",
             from = $( "#from" )
                 .datepicker({
                     defaultDate: "+1w",
                     changeMonth: true,
-                    numberOfMonths: 1
+                    numberOfMonths: 1,
+                    dateFormat: 'yy-mm-dd'
                 })
                 .on( "change", function() {
                     to.datepicker( "option", "minDate", getDate( this ) );
@@ -616,7 +619,8 @@ todo:
             to = $( "#to" ).datepicker({
                 defaultDate: "+1w",
                 changeMonth: true,
-                numberOfMonths: 1
+                numberOfMonths: 1,
+                dateFormat: 'yy-mm-dd'
             })
                 .on( "change", function() {
                     from.datepicker( "option", "maxDate", getDate( this ) );
@@ -669,20 +673,6 @@ todo:
 <%-----------------------------------------달력---------------------------------%>
 <p>Date: <input type="text" id="datepicker"></p>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
-
-    //		create table TBLPLAN
-    //				(
-    //						PLANSEQ        NUMBER           not null primary key,
-    //		STATUS         VARCHAR2(50)     not null
-    //				NAME           VARCHAR2(200)    not null,
-    //				DAYSTARTTRAVEL DATE             not null,
-    //				DAYENDTRAVEL   DATE             not null,
-    //				WILLSHARE      VARCHAR2(20)     not null
-    //				WISH           NUMBER default 0 not null,
-    //				THEME          VARCHAR2(200),
-    //				ID             VARCHAR2(50)     not null
-    //		CITYSEQ        NUMBER
-    //)
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="w-100 align-items-center justify-content-between">
@@ -714,7 +704,8 @@ plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전�
         </div>
 
         <div class="col-10 mb-1 small">공유여부:
-            <input type="checkbox" checked data-toggle="toggle" data-size="xs" id="willshare" class="willshare" value="y">
+            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"
+            class="willshare" value="y">
         </div>
         <input type="submit" value="일정 설정 완료">
     </a>

@@ -20,6 +20,15 @@ public class PlanInfoDTO {
     private String theme;
     private String id;
     private String cityseq;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getPlanseq() {
         return planseq;
