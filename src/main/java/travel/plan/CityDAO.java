@@ -26,6 +26,7 @@ public class CityDAO {
             e.printStackTrace();
         }
     }
+    
 
     public ArrayList<CityDTO> list() {
         try {
@@ -53,6 +54,33 @@ public class CityDAO {
         }
 
         return null;
+    }
+
+    public CityDTO getCity(String cityseq) {
+        try{
+            String sql = "select * from tblCity where cityseq = ? ";
+            pstat = conn.prepareStatement(sql);
+
+			pstat.setString(1,cityseq);
+
+            rs = pstat.executeQuery();
+            CityDTO dto = new CityDTO();
+           if (rs.next()){
+
+                dto.setCityseq(rs.getString("Cityseq"));
+                dto.setName(rs.getString("name"));
+                dto.setExplain(rs.getString("Explain"));
+                dto.setCityX(rs.getString("cityX"));
+                dto.setCityY(rs.getString("cityY"));
+            }
+           return dto;
+
+        } catch (Exception e) {
+            System.out.println("CityDAO.getCity()");
+            e.printStackTrace();
+        }
+
+ 	    return null;
     }
 }
 

@@ -44,16 +44,17 @@ public class PlanInfoDAO {
 //    private String theme;
 //    private String id;
 //    private String cityseq;
-    public int add(PlanInfoDTO dto) {
-        try{
+    public int add(PlanInfoDTO dto) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
+
+       try{
             String sql = "insert into tblPlan (planseq, status, name, daystarttravel, dayendtravel, willshare," +
                     "wish, theme, id, cityseq) values (seqPlan.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pstat = conn.prepareStatement(sql);
 
-            //pstat.setString(1, dto.getPlanseq());
+            //pstat.setString(1, dto.getPlanseq()); //우리가 필요한
             pstat.setString(1, "0");//status
-            pstat.setString(2, dto.getName());//
+            pstat.setString(2, dto.getName());//거
             pstat.setString(3, dto.getDaystarttravel());
             pstat.setString(4, dto.getDayendtravel());
             pstat.setString(5, dto.getWillshare());//willshare
@@ -62,14 +63,31 @@ public class PlanInfoDAO {
             pstat.setString(8, "1");//id
             pstat.setString(9, dto.getCityseq());
 
-            return pstat.executeUpdate();
+            pstat.executeUpdate();
+            //정처기 로킹이게 걸릴거같은데 병행제어 -> 트랜잭션의 원자성을 보장한다.
 
-        }catch(Exception e){
+           sql = "select max(planseq) from tblPlan";
+            stat = conn.createStatement();
+            rs = stat.executeQuery(sql);
+			int planseq = -1;	
+			if(rs.next()){
+                planseq = rs.getInt("planseq");
+            } else{
+                System.out.println("planseq없음");
+                        
+            }
+			return planseq;
+			
+
+
+	       }catch(Exception e){
             System.out.println("PlanInfoDTO.add");
             e.printStackTrace();
         }
-        return 0;
+        return -1;
     }
+
+
 }
 
 

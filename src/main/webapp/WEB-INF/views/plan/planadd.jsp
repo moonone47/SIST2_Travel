@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title> </title>
+    <title> 플젝 </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -566,6 +566,7 @@ todo:
 마커끼리 선으로 연결
 
  --%>
+<&----------------------------- 추가된 일정 리스트 ----------------------------&>
 <form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
 	
@@ -579,6 +580,9 @@ todo:
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
@@ -638,7 +642,7 @@ todo:
         }
     } );
 </script>
-                <%------------------------도시선택----------------------------%>
+<%------------------------도시선택----------------------------%>
 <%--<script>--%>
 <%--    $( function() {--%>
 <%--        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {--%>
@@ -677,7 +681,7 @@ todo:
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="w-100 align-items-center justify-content-between">
             <strong class="mb-1">전체 일정</strong>
-            <div>일정 이름: <input type="text" id="name" name="name"></div>
+            <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off"></div>
 <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
 <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
 --%>
@@ -693,29 +697,51 @@ todo:
                 <select style="width:200px;" name="cityseq">
                     <c:forEach items='${citys}' var="citys">
                     <option value="${citys.cityseq}">${citys.name}</option>
-                       <&--<hidden name="cityseq" value="${citys.cityseq}"></hidden>--&>
                     </c:forEach>
                 </select>
             </fieldset>
 <%--
-plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전달
-여기와서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
+plan.java -> plan.jsp 에서 DB에있는 City정보를 plan.jsp에게 전달
+plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
 --%>
         </div>
 
         <div class="col-10 mb-1 small">공유여부:
-            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"
-            class="willshare" value="y">
+<%--            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"--%>
+<%--            class="willshare" value="y">--%>
+<%--            <input type="ra"--%>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    공유함
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    공유안함
+                </label>
+            </div>
         </div>
         <input type="submit" value="일정 설정 완료">
+<%--        <input type="hidden" value="${citys}" name="citys">--%>
     </a>
     </form>
 
+citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel"));
+<%--값 전달해서 보내주기--%>
+<%--<c:set var="num" value="1" />--%>
+<%--<c:set var="Day" value="Day"/>--%>
+<%--<c:forEach var="test" begin="1" end= "${citydto.dayendtravel - citydto.daystarttravel}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
+<%--<c:out value="${test}" /> --%>
+<%--</c:forEach>--%>
 
 
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Day1</strong>
+            <strong class="mb-1">${"Day"}${num}</strong>
             <small>08.01</small>
         </div>
         <div class="col-10 mb-1 small">부산</div>
