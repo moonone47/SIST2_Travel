@@ -18,6 +18,7 @@ public class PlanDel extends HttpServlet {
 
 		//PlanDel.java
 		String plan2seq = req.getParameter("plan2seq");
+		System.out.println("plandel.java" + plan2seq); //null
 
 
 
