@@ -580,7 +580,9 @@ todo:
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
-                <button type="button" class="close" aria-label="Close">
+                <button type="button" class="close" aria-label="Close"
+                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=${dto.plan2seq}';">
+<%--                    http://localhost:8090/SIST2_Travel/plan/plandel.do?pan2seq=78--%>
                     <span aria-hidden="true">&times;</span>
                 </button>
 

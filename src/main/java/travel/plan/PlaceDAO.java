@@ -27,7 +27,7 @@ public class PlaceDAO {
 
     public int add(PlaceDTO dto) {
         try {
-            String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
+            String sql = "insert into tblPlan2(plan2seq, address_name, category_group_code, category_group_name, " +
                     "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
                     "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -46,29 +46,17 @@ public class PlaceDAO {
             pstat.setInt(12, 1);              //pstat.setInt(12, 1);
             pstat.setInt(13, 4);
             pstat.setString(14, "2021-07-27");
-
-
-//            String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
-//                    "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
-//                    "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-//
-//            pstat = conn.prepareStatement(sql);
-//            pstat.setString(1, dto.getAddress_name());
-//            pstat.setString(2, dto.getCategory_group_code());
-//            pstat.setString(3, dto.getCategory_group_name());
-//            pstat.setString(4, dto.getCategory_name());
-//            pstat.setString(5, dto.getId());
-//            pstat.setString(6, dto.getPhone());
-//            pstat.setString(7, dto.getPlace_name());
-//            pstat.setString(8, dto.getPlace_url());
-//            pstat.setString(9, dto.getRoad_address_name());
-//            pstat.setString(10, dto.getX());
-//            pstat.setString(11, dto.getY());
-//            pstat.setInt(12, 1);
-//            pstat.setInt(13, 4);
-//            pstat.setString(14,"2021-07-27");
-
             return pstat.executeUpdate();
+
+//            sql = "select max(plan2seq) from tblPlan2";
+//
+//            stat = conn.createStatement();
+//            rs = stat.executeQuery(sql);
+//
+//            if(rs.next()){
+//                return rs.getInt("plan2seq");
+//            }
+//            return 0;
         } catch (Exception e) {
             System.out.println("PlanDAO.add()");
             e.printStackTrace();
@@ -198,7 +186,8 @@ public class PlaceDAO {
             while (rs.next()) {
                 PlaceDTO dto = new PlaceDTO();
 
-                dto.setPlanseq(rs.getString("planseq"));
+                dto.setPlan2seq(rs.getString("plan2seq"));
+
                 dto.setPlace_url(rs.getString("place_url"));
                 dto.setPlace_name(rs.getString("place_name"));
                 dto.setPhone(rs.getString("phone"));
@@ -238,6 +227,21 @@ public class PlaceDAO {
 		
 		return 0;
 	}
+
+    public int del(String plan2seq) {
+		try {
+            String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
+            System.out.println(plan2seq);//null
+            stat = conn.createStatement();
+            return stat.executeUpdate(sql);
+
+        }catch(Exception e)
+        {
+			System.out.println("PlanDAO.del()");
+			e.printStackTrace();
+        }
+        return 0;
+    }
 }
 
 
