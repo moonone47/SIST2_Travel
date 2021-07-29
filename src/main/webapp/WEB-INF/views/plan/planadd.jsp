@@ -557,7 +557,92 @@ todo:
 </div>
 </form>
 
+<%-----------------------------------------달력---------------------------------%>
+<script>
+    $( function() {
+        $( ".datepicker" ).datepicker({
+            showOn: "button",
+            buttonImage: "https://cdn.iconscout.com/icon/free/png-256/calendar-3200778-2683078.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+        $('.ui-datepicker-trigger').width('30px');
+    } );
+    // $( "h1" ).css( "color", "green" );
+    // $( 'h1' ).width( '100px' );
+    // $('.ui-datepicker-trigger').css("width", "20px");
+
+    $('#datepicker').css(':20px');
+
+    //ui-datepicker-trigger
+
+
+</script>
+                <%------------------------도시선택----------------------------%>
+<script>
+    $( function() {
+        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {
+            _renderItem: function( ul, item ) {
+                var li = $( "<li>" ),
+                    wrapper = $( "<div>", { text: item.label } );
+
+                if ( item.disabled ) {
+                    li.addClass( "ui-state-disabled" );
+                }
+
+                $( "<span>", {
+                    style: item.element.attr( "data-style" ),
+                    "class": "ui-icon " + item.element.attr( "data-class" )
+                })
+                    .appendTo( wrapper );
+
+                return li.append( wrapper ).appendTo( ul );
+            }
+        });
+
+
+        $( "#city" )
+            .iconselectmenu()
+            .iconselectmenu( "menuWidget")
+            .addClass( "ui-menu-icons avatar" );
+    } );
+</script>
+<%--<p>Date: <input type="text" class="datepicker"></p>--%>
+
+
+<%-----------------------------------------달력---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
+    <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <div class="w-100 align-items-center justify-content-between">
+            <strong class="mb-1">전체 일정</strong>
+            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>
+            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
+        </div>
+        <div class="w-100 align-items-center justify-content-between">
+            <h2>제목</h2>
+            <fieldset>
+                <select style="width:200px;" name="city">
+                    <c:forEach items='${citylist}' var="city">
+                    <option value="${city.cityseq}">${city.name}</option>
+                    </c:forEach>
+                </select>
+            </fieldset>
+<%--
+plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전달
+여기와서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표를 planadd.jsp에게 전달
+--%>
+        </div>
+
+        <div class="col-10 mb-1 small">공유여부:
+            <input type="checkbox" checked data-toggle="toggle" data-size="xs">
+        </div>
+        <input type="submit" value="일정 설정 완료">
+    </a>
+    </form>
+
+
+
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
             <strong class="mb-1">Day1</strong>
