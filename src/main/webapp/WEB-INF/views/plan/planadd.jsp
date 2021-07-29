@@ -566,6 +566,7 @@ todo:
 마커끼리 선으로 연결
 
  --%>
+<%----------------------------- 추가된 일정 리스트 ----------------------------%>
 <form method="POST" action="/SIST2_Travel/plan/planadd.do">
 <div class="plan sortable" id="planlist"  >
 	
@@ -579,6 +580,9 @@ todo:
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 
                     <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
@@ -725,6 +729,14 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
     </a>
     </form>
 
+citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel"));
+<%--값 전달해서 보내주기--%>
+<%--<c:set var="num" value="1" />--%>
+<%--<c:set var="Day" value="Day"/>--%>
+<%--<c:forEach var="test" begin="1" end= "${citydto.dayendtravel - citydto.daystarttravel}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
+<%--<c:out value="${test}" /> --%>
+<%--</c:forEach>--%>
 
 
 <%--<c:set var="num" value="1" />--%>
