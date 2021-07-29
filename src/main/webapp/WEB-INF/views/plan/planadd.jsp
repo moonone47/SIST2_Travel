@@ -477,9 +477,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
-<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
-<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
-<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
 
 <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
 <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
@@ -592,66 +590,96 @@ todo:
 </div>
 </form>
 <%-----------------------------------------달력---------------------------------%>
+<%--<script>--%>
+<%--    $( function() {--%>
+<%--        $( "#datepicker" ).datepicker({--%>
+<%--            showOn: "button",--%>
+<%--            buttonImage: "https://d29fhpw069ctt2.cloudfront.net/icon/image/38308/preview.svg",--%>
+<%--            buttonImageOnly: true,--%>
+<%--            buttonText: "Select date"--%>
+<%--        });--%>
+<%--        $('.ui-datepicker-trigger').width('100px');--%>
+<%--    } );--%>
+<%--</script>--%>
 <script>
     $( function() {
-        $( ".datepicker" ).datepicker({
-            showOn: "button",
-            buttonImage: "https://cdn.iconscout.com/icon/free/png-256/calendar-3200778-2683078.png",
-            buttonImageOnly: true,
-            buttonText: "Select date"
-        });
-        $('.ui-datepicker-trigger').width('30px');
+        var dateFormat = "mm/dd/yy",
+            from = $( "#from" )
+                .datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 3
+                })
+                .on( "change", function() {
+                    to.datepicker( "option", "minDate", getDate( this ) );
+                }),
+            to = $( "#to" ).datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 3
+            })
+                .on( "change", function() {
+                    from.datepicker( "option", "maxDate", getDate( this ) );
+                });
+
+        function getDate( element ) {
+            var date;
+            try {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+            } catch( error ) {
+                date = null;
+            }
+
+            return date;
+        }
     } );
-    // $( "h1" ).css( "color", "green" );
-    // $( 'h1' ).width( '100px' );
-    // $('.ui-datepicker-trigger').css("width", "20px");
-
-    $('#datepicker').css(':20px');
-
-    //ui-datepicker-trigger
-
-
 </script>
                 <%------------------------도시선택----------------------------%>
-<script>
-    $( function() {
-        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {
-            _renderItem: function( ul, item ) {
-                var li = $( "<li>" ),
-                    wrapper = $( "<div>", { text: item.label } );
+<%--<script>--%>
+<%--    $( function() {--%>
+<%--        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {--%>
+<%--            _renderItem: function( ul, item ) {--%>
+<%--                var li = $( "<li>" ),--%>
+<%--                    wrapper = $( "<div>", { text: item.label } );--%>
 
-                if ( item.disabled ) {
-                    li.addClass( "ui-state-disabled" );
-                }
+<%--                if ( item.disabled ) {--%>
+<%--                    li.addClass( "ui-state-disabled" );--%>
+<%--                }--%>
 
-                $( "<span>", {
-                    style: item.element.attr( "data-style" ),
-                    "class": "ui-icon " + item.element.attr( "data-class" )
-                })
-                    .appendTo( wrapper );
+<%--                $( "<span>", {--%>
+<%--                    style: item.element.attr( "data-style" ),--%>
+<%--                    "class": "ui-icon " + item.element.attr( "data-class" )--%>
+<%--                })--%>
+<%--                    .appendTo( wrapper );--%>
 
-                return li.append( wrapper ).appendTo( ul );
-            }
-        });
+<%--                return li.append( wrapper ).appendTo( ul );--%>
+<%--            }--%>
+<%--        });--%>
 
 
-        $( "#city" )
-            .iconselectmenu()
-            .iconselectmenu( "menuWidget")
-            .addClass( "ui-menu-icons avatar" );
-    } );
-</script>
+<%--        $( "#city" )--%>
+<%--            .iconselectmenu()--%>
+<%--            .iconselectmenu( "menuWidget")--%>
+<%--            .addClass( "ui-menu-icons avatar" );--%>
+<%--    } );--%>
+<%--</script>--%>
 <%--<p>Date: <input type="text" class="datepicker"></p>--%>
 
 
 <%-----------------------------------------달력---------------------------------%>
+<p>Date: <input type="text" id="datepicker"></p>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planadd.do">
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="w-100 align-items-center justify-content-between">
             <strong class="mb-1">전체 일정</strong>
-            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>
-            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
+<%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
+<%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
+--%>
+            <label for="from">From</label>
+            <input type="text" id="from" name="from">
+            <label for="to">to</label>
+            <input type="text" id="to" name="to">
         </div>
         <div class="w-100 align-items-center justify-content-between">
             <h2>제목</h2>

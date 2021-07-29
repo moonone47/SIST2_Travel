@@ -1,7 +1,5 @@
 package travel.plan;
 
-import travel.community.question.BoardDAO;
-import travel.community.question.BoardDTO;
 
 import java.io.IOException;
 import java.util.ArrayList;
