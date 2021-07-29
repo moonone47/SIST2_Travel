@@ -24,7 +24,7 @@ public class Plan extends HttpServlet {
 
 		req.setAttribute("citys",citys);
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plan.jsp");
 		dispatcher.forward(req, resp);
 	}
 
