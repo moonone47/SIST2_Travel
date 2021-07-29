@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/plandel.do")
+@WebServlet("/plan/plandel.do")
 public class PlanDel extends HttpServlet {
 
 	@Override
@@ -18,6 +18,7 @@ public class PlanDel extends HttpServlet {
 
 		//PlanDel.java
 		String plan2seq = req.getParameter("plan2seq");
+		System.out.println("plandel.java" + plan2seq); //null
 
 
 

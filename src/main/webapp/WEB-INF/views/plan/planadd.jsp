@@ -580,8 +580,9 @@ todo:
                     <small class="text-muted">${dto.category_group_name}</small>
                 </div>
                 <p class="mb-1">${dto.address_name}</p>
-                <button type="button" class="close" aria-label="Close" 
-                        onclick="location.href='/plan/plandel.do?plan2seq=${dto.plan2seq}';"> 
+                <button type="button" class="close" aria-label="Close"
+                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=${dto.plan2seq}';">
+<%--                    http://localhost:8090/SIST2_Travel/plan/plandel.do?pan2seq=78--%>
                     <span aria-hidden="true">&times;</span>
                 </button>
 
@@ -736,6 +737,13 @@ citydto.setDaystarttravel(req.getParameter("daystarttravel"));
 <%--<c:set var="num" value="1" />--%>
 <%--<c:set var="Day" value="Day"/>--%>
 <%--<c:forEach var="test" begin="1" end= "${citydto.dayendtravel - citydto.daystarttravel}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
+<%--<c:out value="${test}" /> --%>
+<%--</c:forEach>--%>
+
+
+<%--<c:set var="num" value="1" />--%>
+<%--<c:set var="Day" value="Day"/>--%>
+<%--<c:forEach var="test" begin="1" end= "${citydto.days}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
 <%--<c:out value="${test}" /> --%>
 <%--</c:forEach>--%>
 
