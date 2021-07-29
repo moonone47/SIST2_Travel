@@ -601,6 +601,8 @@ todo:
 <%--        $('.ui-datepicker-trigger').width('100px');--%>
 <%--    } );--%>
 <%--</script>--%>
+
+
 <script>
     $( function() {
         var dateFormat = "yy-mm-dd",
@@ -608,7 +610,8 @@ todo:
                 .datepicker({
                     defaultDate: "+1w",
                     changeMonth: true,
-                    numberOfMonths: 1
+                    numberOfMonths: 1,
+                    dateFormat: 'yy-mm-dd'
                 })
                 .on( "change", function() {
                     to.datepicker( "option", "minDate", getDate( this ) );
@@ -616,7 +619,8 @@ todo:
             to = $( "#to" ).datepicker({
                 defaultDate: "+1w",
                 changeMonth: true,
-                numberOfMonths: 1
+                numberOfMonths: 1,
+                dateFormat: 'yy-mm-dd'
             })
                 .on( "change", function() {
                     from.datepicker( "option", "maxDate", getDate( this ) );
@@ -669,35 +673,39 @@ todo:
 <%-----------------------------------------달력---------------------------------%>
 <p>Date: <input type="text" id="datepicker"></p>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
-    <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+    <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="w-100 align-items-center justify-content-between">
             <strong class="mb-1">전체 일정</strong>
+            <div>일정 이름: <input type="text" id="name" name="name"></div>
 <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
 <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
 --%>
             <label for="from">From</label>
-            <input type="text" id="from" name="from">
+            <input type="text" id="from" name="daystarttravel">
             <label for="to">to</label>
-            <input type="text" id="to" name="to">
+            <input type="text" id="to" name="dayendtravel">
+
         </div>
         <div class="w-100 align-items-center justify-content-between">
             <h2>제목</h2>
             <fieldset>
-                <select style="width:200px;" name="city">
+                <select style="width:200px;" name="cityseq">
                     <c:forEach items='${citys}' var="citys">
                     <option value="${citys.cityseq}">${citys.name}</option>
+                       <&--<hidden name="cityseq" value="${citys.cityseq}"></hidden>--&>
                     </c:forEach>
                 </select>
             </fieldset>
 <%--
 plan.java -> planadd.jsp 에서 DB에있는 City정보를 planadd.jsp에게 전달
-여기와서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표를 planadd.jsp에게 전달
+여기와서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
 --%>
         </div>
 
         <div class="col-10 mb-1 small">공유여부:
-            <input type="checkbox" checked data-toggle="toggle" data-size="xs">
+            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"
+            class="willshare" value="y">
         </div>
         <input type="submit" value="일정 설정 완료">
     </a>

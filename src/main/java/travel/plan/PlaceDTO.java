@@ -1,6 +1,6 @@
 package travel.plan;
 
-public class PlanDTO {
+public class PlaceDTO {
     private String address_name;
     private String category_group_code;
     private String category_group_name;
