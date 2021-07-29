@@ -96,7 +96,14 @@ public class PlanInfo extends HttpServlet {
 		//System.out.println(req.getParameter("planseq"));
 		System.out.println(req.getParameter("willshare"));
 
-
+		1
+		2021-08-18
+		2021-08-26
+		title
+		y
+		y
+		PlanInfoDTO.add
+		java.sql.SQLSyntaxErrorException: ORA-01722: invalid number
 
 		dto.setCityseq(req.getParameter("cityseq"));
 		dto.setDaystarttravel(req.getParameter("daystarttravel"));

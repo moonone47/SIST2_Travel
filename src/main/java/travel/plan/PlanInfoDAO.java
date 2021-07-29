@@ -57,8 +57,8 @@ public class PlanInfoDAO {
             pstat.setString(3, dto.getDaystarttravel());
             pstat.setString(4, dto.getDayendtravel());
             pstat.setString(5, dto.getWillshare());//willshare
-            pstat.setString(6, "default");//wish
-            pstat.setString(7, "NULL");//theme
+            pstat.setString(6, "0");//wish
+            pstat.setString(7, "");//theme
             pstat.setString(8, "1");//id
             pstat.setString(9, dto.getCityseq());
 
