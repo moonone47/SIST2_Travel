@@ -741,6 +741,13 @@ citydto.setDaystarttravel(req.getParameter("daystarttravel"));
 <%--</c:forEach>--%>
 
 
+<%--<c:set var="num" value="1" />--%>
+<%--<c:set var="Day" value="Day"/>--%>
+<%--<c:forEach var="test" begin="1" end= "${citydto.days}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
+<%--<c:out value="${test}" /> --%>
+<%--</c:forEach>--%>
+
+
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
             <strong class="mb-1">${"Day"}${num}</strong>
