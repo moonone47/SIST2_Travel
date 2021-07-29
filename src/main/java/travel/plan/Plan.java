@@ -19,9 +19,9 @@ public class Plan extends HttpServlet {
 
 		CityDAO dao = new CityDAO();
 		CityDTO dto = new CityDTO();
-		
+
 		ArrayList<CityDTO> citys = dao.list();
-		
+
 		req.setAttribute("citys",citys);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");

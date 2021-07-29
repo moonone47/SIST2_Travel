@@ -9,14 +9,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PlanDAO {
+public class PlaceDAO {
 
     private Connection conn;
     private Statement stat; 
     private PreparedStatement pstat;
     private ResultSet rs;
 
-    public PlanDAO() {
+    public PlaceDAO() {
         try {
             conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public class PlanDAO {
         }
     }
 
-    public int add(PlanDTO dto) {
+    public int add(PlaceDTO dto) {
         try {
             String sql = "insert into tblPlan2(planseq, address_name, category_group_code, category_group_name, " +
                     "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
@@ -182,7 +182,7 @@ public class PlanDAO {
 //
 //        return null;
 //    }
-    public ArrayList<PlanDTO> getList(int id) {
+    public ArrayList<PlaceDTO> getList(int id) {
         try {
 
             String sql = "select * from tblPlan2 where memberid=?"; // todo:일정번호로 바꿔야함
@@ -193,10 +193,10 @@ public class PlanDAO {
 
             rs = pstat.executeQuery(); //복붙
 
-            ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
+            ArrayList<PlaceDTO> list = new ArrayList<PlaceDTO>();
 
             while (rs.next()) {
-                PlanDTO dto = new PlanDTO();
+                PlaceDTO dto = new PlaceDTO();
 
                 dto.setPlanseq(rs.getString("planseq"));
                 dto.setPlace_url(rs.getString("place_url"));
