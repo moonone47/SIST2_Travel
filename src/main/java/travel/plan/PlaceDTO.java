@@ -1,6 +1,7 @@
 package travel.plan;
 
 public class PlaceDTO {
+    private String plan2seq;
     private String address_name;
     private String category_group_code;
     private String category_group_name;
@@ -17,8 +18,15 @@ public class PlaceDTO {
     private String memberid;
     private String rdate;
     private String planseq;
-    
-    
+
+    public String getPlan2seq() {
+        return plan2seq;
+    }
+
+    public void setPlan2seq(String plan2seq) {
+        this.plan2seq = plan2seq;
+    }
+
     public String getSeq() {
         return seq;
     }
