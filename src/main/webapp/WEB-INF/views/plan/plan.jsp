@@ -405,7 +405,7 @@
             /*border: 1px solid red;*/
         }
 
-       #planlist {
+        #planlist {
             position: absolute;
             top: 26px;
             left: 253px;
@@ -418,6 +418,7 @@
             background: rgba(255, 255, 255, 0.7);
             z-index: 1;
             font-size: 12px;
+            /* border: 1px solid red; */
             /* border: 1px solid red; */
         }
 
@@ -470,16 +471,32 @@
         .avatar .ui-icon {
             background-position: left top;
         }
-        
-        #schedule > form > a{
-            background-color: #529AD9;
-            border-color: #529AD9;
+        #schedule{
+            /*background-color: #7bbda4;*/
         }
-        
 
+        #schedule > form > a{
+            background-color:#529AD9;
+        }
+
+    /*    select*/
+        #schedule > form > a > select{
+            padding: .375rem 2.25rem .375rem .75rem;
+            -moz-padding-start: calc(0.75rem - 3px);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+    /*    end select*/
 
     </style>
-
+<%-- 하늘색 >>> 초록색
+.제주도-가파도의-아름다운-청보리밭이다.-1-hex { color: #4384D9; }
+.제주도-가파도의-아름다운-청보리밭이다.-2-hex { color: #529AD9; }
+.제주도-가파도의-아름다운-청보리밭이다.-3-hex { color: #A2D4F2; }
+.제주도-가파도의-아름다운-청보리밭이다.-4-hex { color: #658C11; }
+.제주도-가파도의-아름다운-청보리밭이다.-5-hex { color: #9AA641; }
+--%>
 
 </head>
 
@@ -523,61 +540,46 @@
             <div id="pagination"></div>
         </div>
     </div>
-
-
-    <%------------------------도시선택----------------------------%>
-    <%--<script>--%>
-    <%--    $( function() {--%>
-    <%--        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {--%>
-    <%--            _renderItem: function( ul, item ) {--%>
-    <%--                var li = $( "<li>" ),--%>
-    <%--                    wrapper = $( "<div>", { text: item.label } );--%>
-
-    <%--                if ( item.disabled ) {--%>
-    <%--                    li.addClass( "ui-state-disabled" );--%>
-    <%--                }--%>
-
-    <%--                $( "<span>", {--%>
-    <%--                    style: item.element.attr( "data-style" ),--%>
-    <%--                    "class": "ui-icon " + item.element.attr( "data-class" )--%>
-    <%--                })--%>
-    <%--                    .appendTo( wrapper );--%>
-
-    <%--                return li.append( wrapper ).appendTo( ul );--%>
-    <%--            }--%>
-    <%--        });--%>
-
-
-    <%--        $( "#city" )--%>
-    <%--            .iconselectmenu()--%>
-    <%--            .iconselectmenu( "menuWidget")--%>
-    <%--            .addClass( "ui-menu-icons avatar" );--%>
-    <%--    } );--%>
-    <%--</script>--%>
-    <%--<p>Date: <input type="text" class="datepicker"></p>--%>
+    
 
 
     <%-----------------------------------------달력---------------------------------%>
 
-    <div id="schedule" class="list-group list-group-flush border-bottom">
+    <div id="schedule" class="list-group list-group-info border-bottom" >
         <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
             <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
                 <div class="w-100 align-items-center justify-content-between">
                     <strong class="mb-1">전체 일정</strong>
-                    <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off"></div>
+                    <div>일정 이름: <input class="form-control" type="text" id="name" name="name" autocomplete="off" style="margin-bottom:10px;"></div>
                     <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
                     <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
                     --%>
-                    <label for="from">From</label>
-                    <input type="text" id="from" name="daystarttravel">
-                    <label for="to">to</label>
-                    <input type="text" id="to" name="dayendtravel">
-
+                    <div>
+                    <label for="from">시작 날짜</label>
+                    <input class="form-control" type="text" id="from" name="daystarttravel" style="margin-bottom:10px;">
+                    </div>
+                    <div>
+                    <label for="to">종료 날짜</label>
+                    <input class="form-control"type="text" id="to" name="dayendtravel" style="margin-bottom:10px;">
+                    </div>
                 </div>
-                <div class="w-100 align-items-center justify-content-between">
-                    <h2>제목</h2>
+                <div class="w-100 align-items-center justify-content-between" >
+                    <h2>도시를 선택하세요</h2>
                     <fieldset>
-                        <select style="width:200px;" name="cityseq" class="form-control" >
+<%--                        <div class="dropdown" style="width:200px; margin:20px auto;">--%>
+<%--                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">--%>
+<%--                                <ins>도시를 선택하세요</ins>--%>
+<%--                            </button>--%>
+<%--                            <div class="dropdown-menu radio">--%>
+<%--                                <label class="dropdown-item">--%>
+<%--                                    <input class="jRadioDropdown" type="radio" value="001" name="cityseq">--%>
+<%--                                    <c:forEach items='${citys}' var="citys">--%>
+<%--                                        <i value="${citys.cityseq}">${citys.name}</i>--%>
+<%--                                    </c:forEach>--%>
+<%--                                </label>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+                        <select style="width:200px;" name="cityseq" class="form-control form-select-lg mb-3" >
                             <c:forEach items='${citys}' var="citys">
                                 <option value="${citys.cityseq}">${citys.name}</option>
                             </c:forEach>
@@ -589,32 +591,74 @@
                     --%>
                 </div>
 
-                <div class="col-10 mb-1 small">공유여부:
-                    <%--            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"--%>
-                    <%--            class="willshare" value="y">--%>
-                    <%--            <input type="ra"--%>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
-                               checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            공유함
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            공유안함
-                        </label>
-                    </div>
+
+                <h2>공유여부:</h2>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" name="willshare"
+                     id="willshare" style="margin-bottom:10px;">
+                    <input type="radio" class="btn-check" name="willshare" id="btnradio1" autocomplete="off"
+                           value="y" checked>
+                    <label class="btn btn-outline-warning" for="btnradio1" style="margin-bottom:10px;">공유함</label>
+
+                    <input type="radio" class="btn-check" name="willshare" id="btnradio2" autocomplete="off" value="y">
+                    <label class="btn btn-outline-warning" for="btnradio2" style="margin-bottom:10px;">공유안함</label>
+
                 </div>
-                <input type="submit" value="일정 설정 완료">
+<%--                <div class="col-10 mb-1 small">공유여부:--%>
+<%--                    &lt;%&ndash;            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;            class="willshare" value="y">&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;            <input type="ra"&ndash;%&gt;--%>
+
+<%--                    <div class="form-check">--%>
+<%--                        <input class="form-check-input " type="radio" name="willshare" id="flexRadioDefault1" value="y"--%>
+<%--                               checked>--%>
+<%--                        <label class="form-check-label " for="flexRadioDefault1">--%>
+<%--                            공유함--%>
+<%--                        </label>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-check">--%>
+<%--                        <input class="form-check-input " type="radio" name="willshare" id="flexRadioDefault2" value="n">--%>
+<%--                        <label class="form-check-label" for="flexRadioDefault2">--%>
+<%--                            공유안함--%>
+<%--                        </label>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+                <input type="submit" class="form-control" value="일정 설정 완료">
                 <%--        <input type="hidden" value="${citys}" name="citys">--%>
             </a>
         </form>
 
-<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ본문끝ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
+
+
+<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ본문끝ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+        <script>
+            // Change the button text & add active class
+            $('.jRadioDropdown').change(function() {
+                var dropdown = $(this).closest('.dropdown');
+                var thislabel = $(this).closest('label');
+
+                dropdown.find('label').removeClass('active');
+                if( $(this).is(':checked') ) {
+                    thislabel.addClass('active');
+                    dropdown.find('ins').html( thislabel.text() );
+                }
+
+            });
+
+            //Add tabindex on labels
+            $('label.dropdown-item').each(function (index, value){
+                $(this).attr('tabindex', 0 );
+                $(this).find('input').attr('tabindex', -1 );
+            });
+
+            //Add keyboard navigation
+            $('label.dropdown-item').keypress(function(e){
+                if((e.keyCode ? e.keyCode : e.which) == 13){
+                    $(this).trigger('click');
+                }
+            });
+        </script>
         <script>
             $.datepicker.setDefaults({
                 dateFormat: 'yymmdd',
@@ -635,8 +679,6 @@
             });
 
         </script>
-
-
     <script>
         $(function () {
             var dateFormat = "yy-mm-dd",
@@ -672,7 +714,6 @@
             }
         });
     </script>
-    
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
     <script>
