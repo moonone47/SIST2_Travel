@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -25,9 +23,9 @@ public class EncodingFilter implements Filter {
 
     }
 
-	@Override
-	public void destroy() {
-		
-	}
+    @Override
+    public void destroy() {
+
+    }
 
 }

@@ -15,7 +15,7 @@ import java.util.LinkedList;
 public class PlaceDAO {
 
     private Connection conn;
-    private Statement stat; 
+    private Statement stat;
     private PreparedStatement pstat;
     private ResultSet rs;
 
@@ -215,23 +215,23 @@ public class PlaceDAO {
         return null;
     }
 
-	public int addseq(ArrayList<HashMap<String, String>> seqlist) {
+    public int addseq(ArrayList<HashMap<String, String>> seqlist) {
 
-		try {
-			
-			while(rs.next()) {
-				//rs.get
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		return 0;
-	}
+        try {
+
+            while(rs.next()) {
+                //rs.get
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        return 0;
+    }
 
     public int del(String plan2seq) {
-		try {
+        try {
             String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
             System.out.println(plan2seq);//null
             stat = conn.createStatement();
@@ -239,8 +239,8 @@ public class PlaceDAO {
 
         }catch(Exception e)
         {
-			System.out.println("PlanDAO.del()");
-			e.printStackTrace();
+            System.out.println("PlanDAO.del()");
+            e.printStackTrace();
         }
         return 0;
     }
