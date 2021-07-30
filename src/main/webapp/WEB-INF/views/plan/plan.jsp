@@ -490,7 +490,8 @@
     /*    end select*/
 
     </style>
-<%-- 하늘색 >>> 초록색
+    
+<%-- 하늘색 > 초록색
 .제주도-가파도의-아름다운-청보리밭이다.-1-hex { color: #4384D9; }
 .제주도-가파도의-아름다운-청보리밭이다.-2-hex { color: #529AD9; }
 .제주도-가파도의-아름다운-청보리밭이다.-3-hex { color: #A2D4F2; }
@@ -501,70 +502,69 @@
 </head>
 
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
 <body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
-
-
 <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
 <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
-<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ본문ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
 
-<div class="map_wrap ">
-    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
-    <div class="">
-        <ul id="category" class="">
-            <li id="all" data-order="1">
-                <span class="category_bg store"></span>
-                전체
-            </li>
-            <li id="AD5" data-order="2">
-                <span class="category_bg store"></span>
-                숙박시설
-            </li>
-            <li id="AT4" data-order="3">
-                <span class="category_bg store"></span>
-                관광명소
-            </li>
-            <li id="FD6" data-order="4">
-                <span class="category_bg store"></span>
-                음식점
-            </li>
-        </ul>
-        <div id="menu_wrap" class="bg_white invisible">
-            <div class="option"></div>
-            <hr>
-            <ul id="placesList"></ul>
-            <div id="pagination"></div>
-        </div>
-    </div>
+<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 본문 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+
+	
+	<!-- 카테고리 리스트 -->
+	<div class="map_wrap ">
+	    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
+	    <div class="">
+	        <ul id="category" class="">
+	            <li id="all" data-order="1">
+	                <span class="category_bg store"></span>
+	                전체
+	            </li>
+	            <li id="AD5" data-order="2">
+	                <span class="category_bg store"></span>
+	                숙박시설
+	            </li>
+	            <li id="AT4" data-order="3">
+	                <span class="category_bg store"></span>
+	                관광명소
+	            </li>
+	            <li id="FD6" data-order="4">
+	                <span class="category_bg store"></span>
+	                음식점
+	            </li>
+	        </ul>
+	        <div id="menu_wrap" class="bg_white invisible">
+	            <div class="option"></div>
+	            <hr>
+	            <ul id="placesList"></ul>
+	            <div id="pagination"></div>
+	        </div>
+    	</div>
     
-
-
-    <%-----------------------------------------달력---------------------------------%>
-
-    <div id="schedule" class="list-group list-group-info border-bottom" >
+    
+	<!-- 전체일정 선택 -->
+    <div id="schedule" class="list-group list-group-info border-bottom" >  
         <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
             <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
                 <div class="w-100 align-items-center justify-content-between">
                     <strong class="mb-1">전체 일정</strong>
                     <div>일정 이름: <input class="form-control" type="text" id="name" name="name" autocomplete="off" style="margin-bottom:10px;"></div>
-                    <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
-                    <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
-                    --%>
+                    <%--<div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
+                    <%--<div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>--%>
                     <div>
-                    <label for="from">시작 날짜</label>
-                    <input class="form-control" type="text" id="from" name="daystarttravel" style="margin-bottom:10px;">
+                    	<label for="from">시작 날짜</label>
+                    	<input class="form-control" type="text" id="from" name="daystarttravel" style="margin-bottom:10px;">
                     </div>
                     <div>
-                    <label for="to">종료 날짜</label>
-                    <input class="form-control"type="text" id="to" name="dayendtravel" style="margin-bottom:10px;">
+                    	<label for="to">종료 날짜</label>
+                    	<input class="form-control"type="text" id="to" name="dayendtravel" style="margin-bottom:10px;">
                     </div>
                 </div>
                 <div class="w-100 align-items-center justify-content-between" >
-                    <h2>도시를 선택하세요</h2>
+                <h2>도시를 선택하세요</h2>
                     <fieldset>
 <%--                        <div class="dropdown" style="width:200px; margin:20px auto;">--%>
 <%--                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">--%>
@@ -585,25 +585,23 @@
                             </c:forEach>
                         </select>
                     </fieldset>
-                    <%--
-                    plan.java -> plan.jsp 에서 DB에있는 City정보를 plan.jsp에게 전달
-                    plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
-                    --%>
                 </div>
+                
+<%--
+plan.java -> plan.jsp 에서 DB에있는 City정보를 plan.jsp에게 전달
+plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
+--%>
 
-
-
-                <h2>공유여부:</h2>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" name="willshare"
-                     id="willshare" style="margin-bottom:10px;">
-                    <input type="radio" class="btn-check" name="willshare" id="btnradio1" autocomplete="off"
-                           value="y" checked>
+                <h2>공유여부</h2>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" 
+                		name="willshare" id="willshare" style="margin-bottom:10px;">            		
+                    <input type="radio" class="btn-check" name="willshare" id="btnradio1" autocomplete="off" value="y" checked>
                     <label class="btn btn-outline-warning" for="btnradio1" style="margin-bottom:10px;">공유함</label>
 
                     <input type="radio" class="btn-check" name="willshare" id="btnradio2" autocomplete="off" value="y">
                     <label class="btn btn-outline-warning" for="btnradio2" style="margin-bottom:10px;">공유안함</label>
-
                 </div>
+                
 <%--                <div class="col-10 mb-1 small">공유여부:--%>
 <%--                    &lt;%&ndash;            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"&ndash;%&gt;--%>
 <%--                    &lt;%&ndash;            class="willshare" value="y">&ndash;%&gt;--%>
@@ -623,15 +621,14 @@
 <%--                        </label>--%>
 <%--                    </div>--%>
 <%--                </div>--%>
+
                 <input type="submit" class="form-control" value="일정 설정 완료">
-                <%--        <input type="hidden" value="${citys}" name="citys">--%>
+                <%--<input type="hidden" value="${citys}" name="citys">--%>
             </a>
         </form>
 
-
-
-
-<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ본문끝ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ본문 끝ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+       
         <script>
             // Change the button text & add active class
             $('.jRadioDropdown').change(function() {
@@ -643,7 +640,6 @@
                     thislabel.addClass('active');
                     dropdown.find('ins').html( thislabel.text() );
                 }
-
             });
 
             //Add tabindex on labels
@@ -659,7 +655,9 @@
                 }
             });
         </script>
+        
         <script>
+        	/* 전체일정 > 날짜선택 달력 */
             $.datepicker.setDefaults({
                 dateFormat: 'yymmdd',
                 prevText: '이전 달',
@@ -677,49 +675,52 @@
                 $("#from").datepicker();
                 $("#to").datepicker();
             });
-
         </script>
-    <script>
-        $(function () {
-            var dateFormat = "yy-mm-dd",
-                from = $("#from")
-                    .datepicker({
-                        defaultDate: "+1w",
-                        changeMonth: true,
-                        numberOfMonths: 1,
-                        dateFormat: 'yy-mm-dd'
-                    })
-                    .on("change", function () {
-                        to.datepicker("option", "minDate", getDate(this));
-                    }),
-                to = $("#to").datepicker({
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 1,
-                    dateFormat: 'yy-mm-dd'
-                })
-                    .on("change", function () {
-                        from.datepicker("option", "maxDate", getDate(this));
-                    });
-
-            function getDate(element) {
-                var date;
-                try {
-                    date = $.datepicker.parseDate(dateFormat, element.value);
-                } catch (error) {
-                    date = null;
-                }
-
-                return date;
-            }
-        });
-    </script>
+        
+	    <script>
+	        $(function () {
+	            var dateFormat = "yy-mm-dd",
+	                from = $("#from")
+	                    .datepicker({
+	                        defaultDate: "+1w",
+	                        changeMonth: true,
+	                        numberOfMonths: 1,
+	                        dateFormat: 'yy-mm-dd'
+	                    })
+	                    .on("change", function () {
+	                        to.datepicker("option", "minDate", getDate(this));
+	                    }),
+	                to = $("#to").datepicker({
+	                    defaultDate: "+1w",
+	                    changeMonth: true,
+	                    numberOfMonths: 1,
+	                    dateFormat: 'yy-mm-dd'
+	                })
+	                    .on("change", function () {
+	                        from.datepicker("option", "maxDate", getDate(this));
+	                    });
+	
+	            function getDate(element) {
+	                var date;
+	                try {
+	                    date = $.datepicker.parseDate(dateFormat, element.value);
+	                } catch (error) {
+	                    date = null;
+	                }
+	                return date;
+	            }
+	        });
+	    </script>
+	    
+<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 지도 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>	    
+	 
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
     <script>
         window.onload = function () {
             $('#all').trigger("click");
         }
+        
         // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
             contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
@@ -1003,6 +1004,7 @@
             placeOverlay.setMap(map);
         }
 
+        // 선택된 장소들을 지도상에서 선으로 이어주기
         var linePath = [
 
             <c:forEach items="${list}" var="dto" varStatus="status">
@@ -1014,7 +1016,6 @@
             </c:forEach>
 
         ];
-
 
         var polyline = new kakao.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
@@ -1070,7 +1071,6 @@
             }
         }
 
-
         // $( function() {
         //     $( '.sortable' ).sortable();
         //     $( '.sortable' ).disableSelection();
@@ -1102,7 +1102,6 @@
             $(".list-group input[name='seq']").each(function (i, box) {
                 $(box).val(i + 1);
             });
-
         }
 
 

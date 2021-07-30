@@ -29,19 +29,17 @@ public class PlanInfo extends HttpServlet {
 		System.out.println(req.getParameter("willshare"));
 
 
-
 		citydto.setCityseq(req.getParameter("cityseq")); //13번으로 고정정.됨
 		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
 		citydto.setDayendtravel(req.getParameter("dayendtravel"));
-		citydto.setId("1");
 		citydto.setName(req.getParameter("name"));
 		//dto.setPlanseq(req.getParameter("planseq"));
-
+		
 		System.out.println(req.getParameter("willshare"));
 
 		System.out.println(req.getParameter("citys"));
 
-
+		
 			if(req.getParameter("willshare") != null) {
 				if (req.getParameter("willshare").equals("y") && req.getParameter("willshare") != null && req.getParameter("willshare") != "") {
 					citydto.setWillshare(req.getParameter("willshare"));
@@ -56,6 +54,7 @@ public class PlanInfo extends HttpServlet {
 		int planseq = dao.add(citydto);
 
 
+		
 		HttpSession session = req.getSession();
 		
 		session.setAttribute("planseq", planseq);

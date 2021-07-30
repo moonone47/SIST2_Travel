@@ -44,6 +44,7 @@ public class PlanInfoDAO {
 //    private String theme;
 //    private String id;
 //    private String cityseq;
+    
     public int add(PlanInfoDTO dto) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
 
        try{
@@ -66,7 +67,7 @@ public class PlanInfoDAO {
             pstat.executeUpdate();
             //정처기 로킹이게 걸릴거같은데 병행제어 -> 트랜잭션의 원자성을 보장한다.
 
-           sql = "select max(planseq) from tblPlan";
+           sql = "select max(planseq) as planseq from tblPlan";
             stat = conn.createStatement();
             rs = stat.executeQuery(sql);
 			int planseq = -1;	
@@ -81,7 +82,7 @@ public class PlanInfoDAO {
 
 
 	       }catch(Exception e){
-            System.out.println("PlanInfoDTO.add");
+            System.out.println("PlanInfoDTO.add()");
             e.printStackTrace();
         }
         return -1;
