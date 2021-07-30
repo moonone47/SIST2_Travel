@@ -691,12 +691,14 @@ todo:
             <input type="text" id="from" name="daystarttravel">
             <label for="to">to</label>
             <input type="text" id="to" name="dayendtravel">
+            <div>${days}</div>
 <%--       날짜 계산--%>
             <script>
             // new Date("dateString") is browser-dependent and discouraged, so we'll write
             // a simple parse function for U.S. date format (which does no error checking)
             //2021-08-11
             function parseDate(str) {
+                console.log(str);
             var mdy = str.split('/');
             return new Date(mdy[2], mdy[0]-1, mdy[1]);
             }

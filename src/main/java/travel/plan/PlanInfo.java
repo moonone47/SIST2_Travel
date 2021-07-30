@@ -1,6 +1,9 @@
 package travel.plan;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,13 +24,14 @@ public class PlanInfo extends HttpServlet {
 		PlanInfoDAO dao = new PlanInfoDAO();
 		PlanInfoDTO citydto = new PlanInfoDTO();
 
-		System.out.println("cs :" + req.getParameter("cityseq"));
-		System.out.println(req.getParameter("daystarttravel"));
-		System.out.println(req.getParameter("dayendtravel"));
-		System.out.println(req.getParameter("name"));
+//		System.out.println("cs :" + req.getParameter("cityseq"));
+//		System.out.println(req.getParameter("daystarttravel"));
+//		System.out.println(req.getParameter("dayendtravel"));
+//		System.out.println(req.getParameter("name"));
 		//System.out.println(req.getParameter("planseq"));
 		System.out.println(req.getParameter("willshare"));
-
+		String startday = req.getParameter("daystarttravel");
+		String endday = req.getParameter("dayendtravel");
 
 		citydto.setCityseq(req.getParameter("cityseq")); //13번으로 고정정.됨
 		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
@@ -60,6 +64,39 @@ public class PlanInfo extends HttpServlet {
 		session.setAttribute("planseq", planseq);
 
 		//todo : daystrattravel , dayendtravel -> 날짜 계산
+//		System.out.println(startday);
+//		System.out.println(endday);
+//		20210714
+//20210722
+
+
+
+		 SimpleDateFormat format = new SimpleDateFormat("yyyymmdd");
+        // date1, date2 두 날짜를 parse()를 통해 Date형으로 변환.
+		Date FirstDate = null;
+		try {
+			FirstDate = format.parse(startday);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Date SecondDate = null;
+		try {
+			SecondDate = format.parse(endday);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		// Date로 변환된 두 날짜를 계산한 뒤 그 리턴값으로 long type 변수를 초기화 하고 있다.
+        // 연산결과 -950400000. long type 으로 return 된다.
+        long calDate = FirstDate.getTime() - SecondDate.getTime();
+
+        // Date.getTime() 은 해당날짜를 기준으로1970년 00:00:00 부터 몇 초가 흘렀는지를 반환해준다.
+        // 이제 24*60*60*1000(각 시간값에 따른 차이점) 을 나눠주면 일수가 나온다.
+        long calDateDays = calDate / ( 24*60*60*1000);
+
+        calDateDays = Math.abs(calDateDays);
+
+
 
 
 		//분류별로 저장
@@ -70,8 +107,11 @@ public class PlanInfo extends HttpServlet {
 
 		CityDTO city = cdao.getCity(citydto.getCityseq());
 
+
+
 		req.setAttribute("city",city); //도시 좌표
 		req.setAttribute("citydto",citydto); //일정에 채워 넣을 용
+		req.setAttribute("days", calDateDays); //전체 일정 날짜
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
@@ -81,10 +121,8 @@ public class PlanInfo extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req, resp);
 
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/plan/plan.do");
 		dispatcher.forward(req, resp);
 	}
 
