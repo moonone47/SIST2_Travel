@@ -697,6 +697,7 @@ todo:
             // a simple parse function for U.S. date format (which does no error checking)
             //2021-08-11
             function parseDate(str) {
+                console.log(str);
             var mdy = str.split('/');
             return new Date(mdy[2], mdy[0]-1, mdy[1]);
             }
