@@ -472,7 +472,56 @@
             background-position: left top;
         }
 
+        #schedulelist > a {
+            /*border: 3px solid black;*/
+            background-color: #203341;
+            /*border-bottom : 1px solid white;*/
+        }
 
+        #schedule > form > a {
+            background-color: #0e9a00;
+        }
+
+        #schedulelist > a > div.d-flex.w-100.align-items-center.justify-content-between > strong {
+            font-size: 18px;
+        }
+
+        #schedulelist > a > div.d-flex.w-100.align-items-center.justify-content-between > small {
+            font-size: 16px;
+        }
+
+        #schedulelist > a > div.col-10.mb-1.small {
+            font-size: 14px;
+        }
+
+        /*
+            <div id="schedulelist">
+            <a href="/SIST2_Travel/plan/planadd.do?rdate=
+        ${list}
+        " class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                        <strong class="mb-1">
+        ${"Day"}
+        ${status.count}
+        </strong>
+                        <small>
+        ${list}
+        </small>
+                    </div>
+                    <div class="col-10 mb-1 small">
+        ${city.name}
+        </div>
+                </a>
+            </div>
+            */
+
+        /*#schedulelist a strong { background-color: blue }*/
+        /* #schedulelist a strong:active { background-color: red } */
+        #schedulelist .active2 {
+            background-color: red
+        }
+
+        /*#schedulelist .active { background-color: red}*/
     </style>
 
 
@@ -488,11 +537,13 @@
 <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
 <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
 
-<p style="margin-top:-12px">
+<%-- <p style="margin-top:-12px">
     <em class="link">
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
     </em>
-</p>
+</p> --%>
+
+<%-------------------------------- 카테고리 -----------------------------------%>
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
@@ -526,10 +577,9 @@
             scrolling='yes'
             style='width: 800px;'>
         <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-
     </iframe>
 
-
+    <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
     <div id="addplan" class="noshow">
         <form method="POST" action="/SIST2_Travel/plan/planadd.do">
             <span><img src=""></span>
@@ -548,9 +598,36 @@
             <input type="hidden" id="road_address_name" name="road_address_name" value="">
             <input type="hidden" id="x" name="x" value="">
             <input type="hidden" id="y" name="y" value="">
+
+            <input type="hidden" id="rdateadd" name="rdate" value="">
+            <%-- rdate알아와서 같이 보내기 -> 업뎃된 리스트 select where rdate 날려야 해서 --%>
+            <%-- 서블릿에서 받은거 똑같이 돌려주기...
+            req.setAttribute("city",city); //도시 좌표
+            req.setAttribute("citydto",citydto); //일정에 채워 넣을
+            req.setAttribute("datelist", datelist);--%>
+
+            <input type="hidden" name="cityname" value="${city.name}">
+            <input type="hidden" name="cityX" value="${city.cityX}">
+            <input type="hidden" name="cityY" value="${city.cityY}">
+            <input type="hidden" name="Explain" value="${city.explain}">
+            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+
+
+            <input type="hidden" name="planname" value="${citydto.name}">
+            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+            <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+
+            <c:forEach items="${datelist}" var="list">
+                <input type="hidden" name="datelist" value="${list}">
+            </c:forEach>
+
             <input type="submit" value="일정추가">
         </form>
     </div>
+
+    <%-------------------------- 찜추가 ----------------------------%>
     <div id="addWish" class="noshow">
         <a href="!#">
             <span><img src=""></span>
@@ -563,17 +640,8 @@
     </div>
 </div>
 
-<%--
-todo:
-리스트 출력
-순서 드래그앤 드랍
-날짜 정하기
-
-마커끼리 선으로 연결
-
- --%>
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
-<form method="POST" action="/SIST2_Travel/plan/planadd.do">
+<form id="getlist" method="POST" action="/SIST2_Travel/plan/planadd.do">
     <div class="plan sortable" id="planlist">
 
         <c:forEach items="${list}" var="dto" varStatus="status">
@@ -586,11 +654,42 @@ todo:
                         <small class="text-muted">${dto.category_group_name}</small>
                     </div>
                     <p class="mb-1">${dto.address_name}</p>
+
+                        <%--일정 삭제 버튼을 form으로 바꿔서 rdate + 전체 일정 dto 추가--%>
                     <button type="button" class="close" aria-label="Close"
                             onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=${dto.plan2seq}';">
                             <%--                    http://localhost:8090/SIST2_Travel/plan/plandel.do?pan2seq=78--%>
                         <span aria-hidden="true">&times;</span>
                     </button>
+
+                    <form method="POST" action="/SIST2_Travel/plan/plandel.do">
+                        <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+                            <%--rdate알아와서 같이 보내기 -> 업뎃된 리스트 select where rdate 날려야 해서 --%>
+                            <%-- 서블릿에서 받은거 똑같이 돌려주기...
+                            req.setAttribute("city",city); //도시 좌표
+                            req.setAttribute("citydto",citydto); //일정에 채워 넣을
+                            req.setAttribute("datelist", datelist);--%>
+
+                        <input type="hidden" name="cityname" value="${city.name}">
+                        <input type="hidden" name="cityX" value="${city.cityX}">
+                        <input type="hidden" name="cityY" value="${city.cityY}">
+                        <input type="hidden" name="Explain" value="${city.explain}">
+                        <input type="hidden" name="Cityseq" value="${city.cityseq}">
+
+
+                        <input type="hidden" name="planname" value="${citydto.name}">
+                        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                        <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+
+                        <c:forEach items="${datelist}" var="list">
+                            <input type="hidden" name="datelist" value="${list}">
+                        </c:forEach>
+
+
+                        <input type="submit" class="close" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </form>
 
                         <%-- <small class="text-muted">And some muted small print.</small>--%>
                 </div>
@@ -601,6 +700,7 @@ todo:
         <input type="submit" value="일정 등록 완료">
     </div>
 </form>
+
 <%-----------------------------------------달력---------------------------------%>
 <%--<script>--%>
 <%--    $( function() {--%>
@@ -613,7 +713,6 @@ todo:
 <%--        $('.ui-datepicker-trigger').width('100px');--%>
 <%--    } );--%>
 <%--</script>--%>
-
 
 <script>
     $(function () {
@@ -682,51 +781,32 @@ todo:
 <%--<p>Date: <input type="text" class="datepicker"></p>--%>
 
 
-<%-----------------------------------------달력---------------------------------%>
-<p>Date: <input type="text" id="datepicker"></p>
+<%---------------------------------달력---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
         <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
             <div class="w-100 align-items-center justify-content-between">
                 <strong class="mb-1">전체 일정</strong>
                 <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off"></div>
-                <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
-                <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
+                <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start" value="${citydto.daystarttravel}"></span> </div><br>--%>
+                <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end" value="${citydto.dayendtravel}"></span> </div>
                 --%>
                 <label for="from">From</label>
                 <input type="text" id="from" name="daystarttravel">
+                <br>
                 <label for="to">to</label>
                 <input type="text" id="to" name="dayendtravel">
 
-                <%--       날짜 계산--%>
-                <script>
-                    // new Date("dateString") is browser-dependent and discouraged, so we'll write
-                    // a simple parse function for U.S. date format (which does no error checking)
-                    //2021-08-11
-                    function parseDate(str) {
-                        console.log(str);
-                        var mdy = str.split('/');
-                        return new Date(mdy[2], mdy[0] - 1, mdy[1]);
-                    }
+                <%-- 날짜 계산--%>
 
-                    function datediff(first, second) {
-                        // Take the difference between the dates and divide by milliseconds per day.
-                        // Round to nearest whole number to deal with DST.
-                        return Math.round((second - first) / (1000 * 60 * 60 * 24));
-                    }
 
-                    alert(datediff(parseDate($('#from').value), parseDate($('#to').value)));
-
-                </script>
-
-                <%--            날짜계산--%>
+                <%-- 날짜계산--%>
             </div>
             <div class="w-100 align-items-center justify-content-between">
-                <h2>제목</h2>
                 <fieldset>
                     <select style="width:200px;" name="cityseq">
                         <c:forEach items='${citys}' var="citys">
-                            <option value="${citys.cityseq}">${citys.name}</option>
+                            <option value="${city.name}">${citys.name}</option>
                         </c:forEach>
                     </select>
                 </fieldset>
@@ -760,19 +840,88 @@ todo:
         </a>
     </form>
 
-<%----------------------- 전체 일정 : 일정 날짜 --------------------%>
-    <c:forEach items="${datelist}" var="list" varStatus="status" >
-        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <strong class="mb-1">${"Day"} ${status.count}</strong>
-                <small>${list}</small>
-            </div>
-            <div class="col-10 mb-1 small">${city.name}</div>
-        </a>
+    <%----------------------- 전체 일정 : 일정 날짜 --------------------%>
+
+    <%--    <ul class="list-group">--%>
+    <%--        <li class="list-group-item active">Cras justo odio</li>--%>
+    <%--        <li class="list-group-item">Dapibus ac facilisis in</li>--%>
+    <%--        <li class="list-group-item">Morbi leo risus</li>--%>
+    <%--        <li class="list-group-item">Porta ac consectetur ac</li>--%>
+    <%--        <li class="list-group-item">Vestibulum at eros</li>--%>
+    <%--    </ul>--%>
+
+    <form method="POST" action="/plan/planscd.do">
+        <div id="schedulelist" class="list-group">
+            <c:forEach items="${datelist}" var="list" varStatus="status">
+            <a href="/SIST2_Travel/plan/planadd.do?rdate=${list }" class="list-group-item list-group-item-action active py-3 lh-tight"
+               aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">${"Day"} ${status.count}</strong>
+                    <small>${list}</small>
+                </div>
+                <div class="col-10 mb-1 small">${city.name}</div>
+            </a>
+            <input type="hidden"  name="city" value="${city}">
+
+            <input type="hidden" name="cityname" value="${city.name}">
+            <input type="hidden" name="cityX" value="${city.cityX}">
+            <input type="hidden" name="cityY" value="${city.cityY}">
+            <input type="hidden" name="Explain" value="${city.explain}">
+            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+
+
+
+            <input type="hidden" name="planname" value="${citydto.name}">
+            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+            <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+
+            <c:forEach items="${datelist}" var="list">
+                <input type="hidden" name="datelist" value="${list}">
+            </c:forEach>
+
+    </form>
     </c:forEach>
-
-
 </div>
+<%--
+    할일 -> 사용자가 선택한 날짜에 맞게 tblPlan2에서 where절 걸어서 리스트 가져오기
+    문제 : DTO 보내야 함
+    1. form으로 보낸다
+    2. a로 보내는데 -> 페이지에서 필요로 하는 dto들을 db에서 구해온다.
+    3. 또 다른방방 방법 있을까요..    --%>
+<%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+<script>
+    // $("#schedulelist > a").click(function(){
+    //     $("#schedulelist > a").not(this).each(function(){
+    //         $(this).removeClass("active2");
+    //     });
+    //     $(this.addClass("active2"));
+    // })
+    // // $(document).ready(function() {
+    // //     $("#schedulelist > a").click(function() {
+    // //         $(this).addClass('active');
+    // //     });
+    // //     $("#schedulelist > a").not(this).each(function(){
+    // //        $(this).removeClass('active');
+    // //     });
+    // // });
+</script>
+<%--<script>--%>
+<%--    $("#schedulelist > a:nth-child(1)").addClass("active");--%>
+<%--</script>--%>
+<%--<script>--%>
+<%--    const schedulelist = document.getElementById("schedulelist");--%>
+<%--    const items = schedulelist.querySelectorAll("a")--%>
+<%--    const activate = e => {--%>
+<%--        const tgt = e.target;--%>
+<%--        items.forEach(item => item.classList.remove("active"));--%>
+<%--        if (tgt.tagName==="STRONG") tgt.classList.add("active");--%>
+<%--    };--%>
+<%--    schedulelist.addEventListener("click",activate)--%>
+<%--    //schedulelist.addEventListener("mouseover",activate)--%>
+<%--</script>--%>
+
 
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>

@@ -102,35 +102,19 @@ public class PlanInfo extends HttpServlet {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //		startday 20210714
 		int year = Integer.parseInt(startday.substring(0,4));
-		int month = Integer.parseInt(startday.substring(4, 6)) ;
+		int month = Integer.parseInt(startday.substring(4, 6));
 		int day = Integer.parseInt(startday.substring(6));
-		date.set(year, month-1, day-1);
-		ArrayList<String> datelist = new ArrayList<String>();
+		date.set(year, month, day);
+		ArrayList<Calendar> datelist = new ArrayList<>();
 
-//		for(int i=0; i<calDateDays; i++){
-//			date.add(Calendar.DATE, 1);
-//			String dated = df.format(date.getTime());
-//			datelist.add(dated);
-//			System.out.println(dated);
-//		}
-		int eyear = Integer.parseInt(endday.substring(0,4));
-		int emonth = Integer.parseInt(endday.substring(4, 6)) ;
-		int eday = Integer.parseInt(endday.substring(6));
-		Calendar endDay = Calendar.getInstance();
-		endDay.set(eyear, emonth-1, eday-1);
-		while(true){
-			if(endDay.before(date)){
-				break;
-			}
-//			if(date > date.add(Calendar.DATE, calDateDays +1)
+		for(int i=0; i<calDateDays; i++){
 			date.add(Calendar.DATE, 1);
 			String dated = df.format(date.getTime());
-			datelist.add(dated);
-			System.out.println(dated);
+			datelist.add(date);
+			
 		}
 
-
-//		System.out.println(date);
+		System.out.println(date);
 		//분류별로 저장
 
 //		req.setAttribute("dto",dto);
@@ -143,8 +127,7 @@ public class PlanInfo extends HttpServlet {
 
 		req.setAttribute("city",city); //도시 좌표
 		req.setAttribute("citydto",citydto); //일정에 채워 넣을 용
-//		req.setAttribute("days", calDateDays); //전체 일정 날짜
-		req.setAttribute("datelist", datelist);
+		req.setAttribute("days", calDateDays); //전체 일정 날짜
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
