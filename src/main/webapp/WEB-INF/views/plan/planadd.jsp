@@ -472,7 +472,7 @@
 
 </head>
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<body>
+<body onload="script();">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -687,11 +687,32 @@ todo:
 <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
 <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
 --%>
-            <label for="from">From</label>
-            <input type="text" id="from" name="daystarttravel">
+            <label for="from">From </label>
+            <input type="text" id="from" name="daystarttravel" value= "${citydto.daystarttravel }">
             <label for="to">to</label>
-            <input type="text" id="to" name="dayendtravel">
+            <input type="text" id="to" name="dayendtravel" value= "${citydto.dayendtravel }" >
+<%--       날짜 계산--%>
+            <script>
+            // new Date("dateString") is browser-dependent and discouraged, so we'll write
+            // a simple parse function for U.S. date format (which does no error checking)
+            //2021-08-11
+          /*   function parseDate(str) {
+            
+            return new Date(str);
+            } 
 
+            function datediff(first, second) {
+            // Take the difference between the dates and divide by milliseconds per day.
+            // Round to nearest whole number to deal with DST.
+            return (second-first);
+            } */
+			
+            alert(new  Date($('#from').value));
+            //alert(datediff(($('#from').value), ($('#to').value)));
+
+            </script>
+
+<%--            날짜계산--%>
         </div>
         <div class="w-100 align-items-center justify-content-between">
             <h2>제목</h2>
@@ -731,14 +752,16 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
     </a>
     </form>
 
-citydto.setDaystarttravel(req.getParameter("daystarttravel"));
-		citydto.setDayendtravel(req.getParameter("dayendtravel"));
+<!-- citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel")); -->
 <%--값 전달해서 보내주기--%>
 <%--<c:set var="num" value="1" />--%>
 <%--<c:set var="Day" value="Day"/>--%>
 <%--<c:forEach var="test" begin="1" end= "${citydto.dayendtravel - citydto.daystarttravel}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
 <%--<c:out value="${test}" /> --%>
 <%--</c:forEach>--%>
+
+
 
 
 <%--<c:set var="num" value="1" />--%>
@@ -753,7 +776,7 @@ citydto.setDaystarttravel(req.getParameter("daystarttravel"));
             <strong class="mb-1">${"Day"}${num}</strong>
             <small>08.01</small>
         </div>
-        <div class="col-10 mb-1 small">부산</div>
+        <div class="col-10 mb-1 small">${city.name}</div>
     </a>
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
         <div class="d-flex w-100 align-items-center justify-content-between">
