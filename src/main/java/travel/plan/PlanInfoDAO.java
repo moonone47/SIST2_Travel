@@ -66,15 +66,17 @@ public class PlanInfoDAO {
             pstat.executeUpdate();
             //정처기 로킹이게 걸릴거같은데 병행제어 -> 트랜잭션의 원자성을 보장한다.
 
-           sql = "select max(planseq) from tblPlan";
+            sql = "select max(planseq) as planseq from tblPlan";
             stat = conn.createStatement();
             rs = stat.executeQuery(sql);
 			int planseq = -1;	
 			if(rs.next()){
+                System.out.println("error check");
+                System.out.println(rs.getInt("planseq"));
+                System.out.println(rs.getString("planseq"));
                 planseq = rs.getInt("planseq");
             } else{
                 System.out.println("planseq없음");
-                        
             }
 			return planseq;
 			
