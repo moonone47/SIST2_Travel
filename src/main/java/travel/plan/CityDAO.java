@@ -38,7 +38,7 @@ public class CityDAO {
                 CityDTO dto = new CityDTO();
                 dto.setCityseq(rs.getString("Cityseq"));
                 dto.setName(rs.getString("name"));
-                dto.setExplain(rs.getString("Explain"));
+                dto.setExplain(rs.getString("explain"));
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
 
@@ -66,7 +66,7 @@ public class CityDAO {
 
                 dto.setCityseq(rs.getString("Cityseq"));
                 dto.setName(rs.getString("name"));
-                dto.setExplain(rs.getString("Explain"));
+                dto.setExplain(rs.getString("explain"));
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
             }
