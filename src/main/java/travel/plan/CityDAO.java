@@ -16,8 +16,6 @@ public class CityDAO {
     private ResultSet rs;
 
 
-
-
  	public CityDAO() {
         try {
             conn = DBUtil.open();
@@ -33,7 +31,6 @@ public class CityDAO {
             String sql = "select * from tblCity";
             stat = conn.createStatement();
             rs = stat.executeQuery(sql);
-
 
             ArrayList<CityDTO> citys = new ArrayList<CityDTO>();
 
@@ -52,10 +49,10 @@ public class CityDAO {
             System.out.println("CityDAO.list()");
             e.printStackTrace();
         }
-
         return null;
     }
 
+    
     public CityDTO getCity(String cityseq) {
         try{
             String sql = "select * from tblCity where cityseq = ? ";

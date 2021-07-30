@@ -687,28 +687,27 @@ todo:
 <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
 <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
 --%>
-            <label for="from">From </label>
-            <input type="text" id="from" name="daystarttravel" value= "${citydto.daystarttravel }">
+            <label for="from">From</label>
+            <input type="text" id="from" name="daystarttravel">
             <label for="to">to</label>
-            <input type="text" id="to" name="dayendtravel" value= "${citydto.dayendtravel }" >
+            <input type="text" id="to" name="dayendtravel">
 <%--       날짜 계산--%>
             <script>
             // new Date("dateString") is browser-dependent and discouraged, so we'll write
             // a simple parse function for U.S. date format (which does no error checking)
             //2021-08-11
-          /*   function parseDate(str) {
-            
-            return new Date(str);
-            } 
+            function parseDate(str) {
+            var mdy = str.split('/');
+            return new Date(mdy[2], mdy[0]-1, mdy[1]);
+            }
 
             function datediff(first, second) {
             // Take the difference between the dates and divide by milliseconds per day.
             // Round to nearest whole number to deal with DST.
-            return (second-first);
-            } */
-			
-            alert(new  Date($('#from').value));
-            //alert(datediff(($('#from').value), ($('#to').value)));
+            return Math.round((second-first)/(1000*60*60*24));
+            }
+
+            alert(datediff(parseDate($('#from').value), parseDate($('#to').value)));
 
             </script>
 
