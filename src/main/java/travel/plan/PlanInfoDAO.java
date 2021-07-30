@@ -74,7 +74,7 @@ public class PlanInfoDAO {
 			if(rs.next()){
                 planseq = rs.getInt("planseq");
             } else{
-                System.out.println("planseq없음");
+//                System.out.println("planseq없음");
                         
             }
 			return planseq;

@@ -231,7 +231,7 @@ public class PlaceDAO {
     public int del(String plan2seq) {
 		try {
             String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
-            System.out.println(plan2seq);//null
+//            System.out.println(plan2seq);//null
             stat = conn.createStatement();
             return stat.executeUpdate(sql);
 
