@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.taglibs.standard.tag.common.fmt.ParseDateSupport;
+
 public class CityDAO {
 
     private Connection conn;
@@ -70,6 +72,7 @@ public class CityDAO {
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
             }
+           
            return dto;
 
         } catch (Exception e) {
