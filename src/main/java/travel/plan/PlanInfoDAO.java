@@ -44,6 +44,7 @@ public class PlanInfoDAO {
 //    private String theme;
 //    private String id;
 //    private String cityseq;
+    
     public int add(PlanInfoDTO dto) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
 
        try{
@@ -73,16 +74,17 @@ public class PlanInfoDAO {
 			if(rs.next()){
                 planseq = rs.getInt("planseq");
             } else{
-                System.out.println("planseq없음");
+//                System.out.println("planseq없음");
+                        
             }
 			return planseq;
-
 			
+
+
 	       }catch(Exception e){
-            System.out.println("PlanInfoDTO.add");
+            System.out.println("PlanInfoDTO.add()");
             e.printStackTrace();
         }
-       
         return -1;
     }
 

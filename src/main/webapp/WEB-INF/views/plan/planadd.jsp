@@ -691,13 +691,15 @@ todo:
             <input type="text" id="from" name="daystarttravel">
             <label for="to">to</label>
             <input type="text" id="to" name="dayendtravel">
+            <div>${days}</div>
 <%--       날짜 계산--%>
             <script>
             // new Date("dateString") is browser-dependent and discouraged, so we'll write
             // a simple parse function for U.S. date format (which does no error checking)
             //2021-08-11
             function parseDate(str) {
-            var mdy = str.split('-');
+                console.log(str);
+            var mdy = str.split('/');
             return new Date(mdy[2], mdy[0]-1, mdy[1]);
             }
 
@@ -751,6 +753,8 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
     </a>
     </form>
 
+<!-- citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel")); -->
 <%--값 전달해서 보내주기--%>
 <%--<c:set var="num" value="1" />--%>
 <%--<c:set var="Day" value="Day"/>--%>
