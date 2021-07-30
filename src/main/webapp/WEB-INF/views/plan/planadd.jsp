@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -420,7 +420,6 @@
             font-size: 12px;
             /* border: 1px solid red; */
         }
-
         #schedule {
             position: absolute;
             top: 26px;
@@ -437,26 +436,22 @@
             /* border: 1px solid red; */
         }
 
-        /*도시선택*/
+    /*도시선택*/
         /* select with custom icons */
         .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item-wrapper {
             padding: 0.5em 0 0.5em 3em;
         }
-
         .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item .ui-icon {
             height: 24px;
             width: 24px;
             top: 0.1em;
         }
-
         .ui-icon.video {
             background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
         }
-
         .ui-icon.podcast {
             background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
         }
-
         .ui-icon.rss {
             background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
         }
@@ -466,17 +461,17 @@
             background-repeat: no-repeat !important;
             padding-left: 20px;
         }
-
         .avatar .ui-icon {
             background-position: left top;
         }
+
 
 
     </style>
 
 
 </head>
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <body onload="script();">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -536,7 +531,7 @@
                  class="bi bi-check-lg" viewBox="0 0 16 16">
                 <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
             </svg>
-            <input type="hidden" id="address_name" name="address_name" value="">
+            <input type="hidden" id="address_name"name="address_name" value="">
             <input type="hidden" id="category_group_code" name="category_group_code" value="">
             <input type="hidden" id="category_group_name" name="category_group_name" value="">
             <input type="hidden" id="category_name" name="category_name" value="">
@@ -573,32 +568,32 @@ todo:
  --%>
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
 <form method="POST" action="/SIST2_Travel/plan/planadd.do">
-    <div class="plan sortable" id="planlist">
+<div class="plan sortable" id="planlist"  >
+	
+    <c:forEach items="${list}" var="dto" varStatus="status">
 
-        <c:forEach items="${list}" var="dto" varStatus="status">
-
-            <div class="list-group">
-                <div class="list-group-item list-group-item-action">
-                    <div id="seqname"></div>
-                    <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                        <h5 class="mb-1">${dto.place_name} ${status.index}</h5>
-                        <small class="text-muted">${dto.category_group_name}</small>
-                    </div>
-                    <p class="mb-1">${dto.address_name}</p>
-                    <button type="button" class="close" aria-label="Close"
-                            onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=${dto.plan2seq}';">
-                            <%--                    http://localhost:8090/SIST2_Travel/plan/plandel.do?pan2seq=78--%>
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                        <%-- <small class="text-muted">And some muted small print.</small>--%>
+        <div class="list-group" >
+            <div   class="list-group-item list-group-item-action">
+            	<div id="seqname"></div>
+                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+                    <h5 class="mb-1">${dto.place_name}  ${status.index}</h5>
+                    <small class="text-muted">${dto.category_group_name}</small>
                 </div>
-                <input type="hidden" name="planseq[]" value="${dto.planseq}">
-                <input type="hidden" name="seq[]" value="">
+                <p class="mb-1">${dto.address_name}</p>
+                <button type="button" class="close" aria-label="Close"
+                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=${dto.plan2seq}';">
+<%--                    http://localhost:8090/SIST2_Travel/plan/plandel.do?pan2seq=78--%>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                    <%-- <small class="text-muted">And some muted small print.</small>--%>
             </div>
-        </c:forEach>
-        <input type="submit" value="일정 등록 완료">
-    </div>
+            <input type="hidden" name="planseq[]" value="${dto.planseq}">
+            <input type="hidden" name="seq[]" value="">
+        </div>
+    </c:forEach>
+	<input type="submit" value="일정 등록 완료">
+</div>
 </form>
 <%-----------------------------------------달력---------------------------------%>
 <%--<script>--%>
@@ -615,39 +610,39 @@ todo:
 
 
 <script>
-    $(function () {
+    $( function() {
         var dateFormat = "yy-mm-dd",
-            from = $("#from")
+            from = $( "#from" )
                 .datepicker({
                     defaultDate: "+1w",
                     changeMonth: true,
                     numberOfMonths: 1,
                     dateFormat: 'yy-mm-dd'
                 })
-                .on("change", function () {
-                    to.datepicker("option", "minDate", getDate(this));
+                .on( "change", function() {
+                    to.datepicker( "option", "minDate", getDate( this ) );
                 }),
-            to = $("#to").datepicker({
+            to = $( "#to" ).datepicker({
                 defaultDate: "+1w",
                 changeMonth: true,
                 numberOfMonths: 1,
                 dateFormat: 'yy-mm-dd'
             })
-                .on("change", function () {
-                    from.datepicker("option", "maxDate", getDate(this));
+                .on( "change", function() {
+                    from.datepicker( "option", "maxDate", getDate( this ) );
                 });
 
-        function getDate(element) {
+        function getDate( element ) {
             var date;
             try {
-                date = $.datepicker.parseDate(dateFormat, element.value);
-            } catch (error) {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+            } catch( error ) {
                 date = null;
             }
 
             return date;
         }
-    });
+    } );
 </script>
 <%------------------------도시선택----------------------------%>
 <%--<script>--%>
@@ -685,106 +680,94 @@ todo:
 <p>Date: <input type="text" id="datepicker"></p>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
-        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-            <div class="w-100 align-items-center justify-content-between">
-                <strong class="mb-1">전체 일정</strong>
-<%--                pstat.setString(1, "0");//status--%>
-<%--                pstat.setString(2, dto.getName());//거--%>
-<%--                pstat.setString(3, dto.getDaystarttravel());--%>
-<%--                pstat.setString(4, dto.getDayendtravel());--%>
-<%--                pstat.setString(5, dto.getWillshare());//willshare--%>
-<%--                pstat.setString(6, "0");//wish--%>
-<%--                pstat.setString(7, "");//theme--%>
-<%--                pstat.setString(8, "1");//id--%>
-<%--                pstat.setString(9, dto.getCityseq());--%>
+    <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <div class="w-100 align-items-center justify-content-between">
+            <strong class="mb-1">전체 일정</strong>
+            <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off"></div>
+<%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start"></span> </div><br>--%>
+<%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
+--%>
+            <label for="from">From</label>
+            <input type="text" id="from" name="daystarttravel">
+            <label for="to">to</label>
+            <input type="text" id="to" name="dayendtravel">
+<%--       날짜 계산--%>
+            <script>
+            // new Date("dateString") is browser-dependent and discouraged, so we'll write
+            // a simple parse function for U.S. date format (which does no error checking)
+            //2021-08-11
+            function parseDate(str) {
+            var mdy = str.split('/');
+            return new Date(mdy[2], mdy[0]-1, mdy[1]);
+            }
 
-                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
-                <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start" value=""></span> </div><br>--%>
-                <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end"></span> </div>
-                --%>
-                <label for="from">From</label>
-                <input type="text" id="from" name="daystarttravel" value="${citydto.Daystarttravel}">
-                <label for="to">to</label>
-                <input type="text" id="to" name="dayendtravel" value="${citydto.Dayendtravel}">
-                <%--       날짜 계산--%>
-                <script>
-                    // new Date("dateString") is browser-dependent and discouraged, so we'll write
-                    // a simple parse function for U.S. date format (which does no error checking)
-                    //2021-08-11
-                    function parseDate(str) {
-                        console.log($('#from').val);
-                        var mdy = str.split('/'); //Uncaught TypeError: Cannot read property 'split' of undefined
-                        return new Date(mdy[2], mdy[0] - 1, mdy[1]);
-                    }
+            function datediff(first, second) {
+            // Take the difference between the dates and divide by milliseconds per day.
+            // Round to nearest whole number to deal with DST.
+            return Math.round((second-first)/(1000*60*60*24));
+            }
 
-                    function datediff(first, second) {
-                        // Take the difference between the dates and divide by milliseconds per day.
-                        // Round to nearest whole number to deal with DST.
-                        return Math.round((second - first) / (1000 * 60 * 60 * 24));
-                    }
+            alert(datediff(parseDate($('#from').value), parseDate($('#to').value)));
 
+            </script>
 
-                    alert(datediff(parseDate($('#from').val), parseDate($('#to').val)));
+<%--            날짜계산--%>
+        </div>
+        <div class="w-100 align-items-center justify-content-between">
+            <h2>제목</h2>
+            <fieldset>
+                <select style="width:200px;" name="cityseq">
+                    <c:forEach items='${citys}' var="citys">
+                    <option value="${citys.cityseq}">${citys.name}</option>
+                    </c:forEach>
+                </select>
+            </fieldset>
+<%--
+plan.java -> plan.jsp 에서 DB에있는 City정보를 plan.jsp에게 전달
+plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
+--%>
+        </div>
 
-                </script>
+        <div class="col-10 mb-1 small">공유여부:
+<%--            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"--%>
+<%--            class="willshare" value="y">--%>
+<%--            <input type="ra"--%>
 
-                <%--            날짜계산--%>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    공유함
+                </label>
             </div>
-            <div class="w-100 align-items-center justify-content-between">
-                <h2>제목</h2>
-                <fieldset>
-                    <select style="width:200px;" name="cityseq">
-                        <c:forEach items='${citys}' var="citys">
-                            <option value="${citys.cityseq}">${citys.name}</option>
-                        </c:forEach>
-                    </select>
-                </fieldset>
-                <%--
-                plan.java -> plan.jsp 에서 DB에있는 City정보를 plan.jsp에게 전달
-                plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
-                --%>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    공유안함
+                </label>
             </div>
-
-            <div class="col-10 mb-1 small">공유여부:
-                <%--            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"--%>
-                <%--            class="willshare" value="y">--%>
-                <%--            <input type="ra"--%>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
-                           checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        공유함
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        공유안함
-                    </label>
-                </div>
-            </div>
-            <input type="submit" value="일정 설정 완료">
-            <%--<input type="hidden" value="${citys}" name="citys">--%>
-        </a>
+        </div>
+        <input type="submit" value="일정 설정 완료">
+<%--        <input type="hidden" value="${citys}" name="citys">--%>
+    </a>
     </form>
 
+<!-- citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel")); -->
+<%--값 전달해서 보내주기--%>
+<%--<c:set var="num" value="1" />--%>
+<%--<c:set var="Day" value="Day"/>--%>
+<%--<c:forEach var="test" begin="1" end= "${citydto.dayendtravel - citydto.daystarttravel}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
+<%--<c:out value="${test}" /> --%>
+<%--</c:forEach>--%>
 
-    <%-- citydto.setDaystarttravel(req.getParameter("daystarttravel"));
-    citydto.setDayendtravel(req.getParameter("dayendtravel"));--%>
-    <%--값 전달해서 보내주기--%>
-    <%--<c:set var="num" value="1" />--%>
-    <%--<c:set var="Day" value="Day"/>--%>
-    <%--<c:forEach var="test" begin="1" end= "${citydto.dayendtravel - citydto.daystarttravel}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
-    <%--<c:out value="${test}" /> --%>
-    <%--</c:forEach>--%>
 
 
-    <%--<c:set var="num" value="1" />--%>
-    <%--<c:set var="Day" value="Day"/>--%>
-    <%--<c:forEach var="test" begin="1" end= "${citydto.days}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
-    <%--<c:out value="${test}" /> --%>
-    <%--</c:forEach>--%>
+
+<%--<c:set var="num" value="1" />--%>
+<%--<c:set var="Day" value="Day"/>--%>
+<%--<c:forEach var="test" begin="1" end= "${citydto.days}" step="1">   ---  반복할 횟수를 직접 지정하여 반복. step 생략 시 기본값으로 1--%>
+<%--<c:out value="${test}" /> --%>
+<%--</c:forEach>--%>
 
 
     <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
@@ -878,6 +861,7 @@ todo:
         }
         ps.categorySearch(currCategory, placesSearchCB, {useMapBounds: true});
     }
+
 
 
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -1001,6 +985,7 @@ todo:
     function displayDetail(url) {
 
 
+
         $('#detail').attr('src', url); //iframe url을 넣어줌
         //iframe 내부요소를 조작해서 넣는방법 -> js로 코드를 받아와서 crawling 작업이 필요
 
@@ -1101,28 +1086,29 @@ todo:
     }
 
     var linePath = [
+		
+		<c:forEach items="${list}" var="dto" varStatus="status">
+		
+		 new kakao.maps.LatLng(${dto.y}, ${dto.x})
+		 <c:if test="${list.size()-1 > status.index}">
+			,
+		</c:if>
+		</c:forEach>
 
-        <c:forEach items="${list}" var="dto" varStatus="status">
+	];
+    
+   
+	
+	var polyline = new kakao.maps.Polyline({
+	    path: linePath, // 선을 구성하는 좌표배열 입니다
+	    strokeWeight: 5, // 선의 두께 입니다
+	    strokeColor: '#FFAE00', // 선의 색깔입니다 #FFAE00
+	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	    strokeStyle: 'solid' // 선의 스타일입니다
+	});
 
-        new kakao.maps.LatLng(${dto.y}, ${dto.x})
-        <c:if test="${list.size()-1 > status.index}">
-        ,
-        </c:if>
-        </c:forEach>
-
-    ];
-
-
-    var polyline = new kakao.maps.Polyline({
-        path: linePath, // 선을 구성하는 좌표배열 입니다
-        strokeWeight: 5, // 선의 두께 입니다
-        strokeColor: '#FFAE00', // 선의 색깔입니다 #FFAE00
-        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-        strokeStyle: 'solid' // 선의 스타일입니다
-    });
-
-    // 지도에 선을 표시합니다
-    polyline.setMap(map);
+	// 지도에 선을 표시합니다 
+	polyline.setMap(map); 
 
     // 각 카테고리에 클릭 이벤트를 등록합니다
     function addCategoryClickEvent() {
@@ -1173,13 +1159,13 @@ todo:
     //     $( '.sortable' ).disableSelection();
     // } );
 
-    $('.sortable').sortable({
-        start: function (e, ui) {
+     $('.sortable').sortable({
+        start: function(e, ui) {
             // creates a temporary attribute on the element with the old index
             $(this).attr('data-previndex', ui.item.index());
             console.log(ui.item.index());
         },
-        update: function (e, ui) {
+        update: function(e, ui) {
             // gets the new and old index then removes the temporary attribute
             /* var result = $(this).sortable('toArray');
             alert(result);
@@ -1188,56 +1174,59 @@ todo:
             var oldIndex = $(this).attr('data-previndex');
             $(this).removeAttr('data-previndex');
             console.log(ui.item.index());
-            console.log(ui.item.val());
+			console.log(ui.item.val());
         },
-        stop: function (e, ui) {
-            reorder();
-        }
+     	stop: function(e,ui){
+     		reorder();
+     	}
     });
+ 
+     function reorder() {
+    	  $(".list-group input[name='seq']").each(function(i, box) {
+    	 	 $(box).val(i + 1);
+    	  });
+    	  
+    	}
+    
 
-    function reorder() {
-        $(".list-group input[name='seq']").each(function (i, box) {
-            $(box).val(i + 1);
-        });
+     
+     
 
-    }
+   <%--  $('.sortable').sortable({
+        start: function(e, ui) {
+            // creates a temporary attribute on the element with the old index
+            $(this).attr('data-previndex', ui.item.index());
+            console.log(ui.item.index());
+        },
+        update: function(e, ui) {
+            // gets the new and old index then removes the temporary attribute
+            var newIndex = ui.item.index();
+            var oldIndex = $(this).attr('data-previndex');
+            $(this).removeAttr('data-previndex');
+            // console.log(ui.item.index());
+            // console.log($(this));
+            // $('#seq').html=ui.item.index();
+            // newIndex < -> oldIndex의 seq  SWAP?
+            // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
 
+			// 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
+            // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
+            // 여기서 순서대로 정렬시킨 -> DB size(); order by
 
-    <%--  $('.sortable').sortable({
-         start: function(e, ui) {
-             // creates a temporary attribute on the element with the old index
-             $(this).attr('data-previndex', ui.item.index());
-             console.log(ui.item.index());
-         },
-         update: function(e, ui) {
-             // gets the new and old index then removes the temporary attribute
-             var newIndex = ui.item.index();
-             var oldIndex = $(this).attr('data-previndex');
-             $(this).removeAttr('data-previndex');
-             // console.log(ui.item.index());
-             // console.log($(this));
-             // $('#seq').html=ui.item.index();
-             // newIndex < -> oldIndex의 seq  SWAP?
-             // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
+            //1. n번 -> m번으로 이동하면
+            // ------------------ 이함수실행시 1번 시작
 
-             // 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
-             // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
-             // 여기서 순서대로 정렬시킨 -> DB size(); order by
+            //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
+            // seq 기준???
+            //3. n번의 seq는 m이 된다.
 
-             //1. n번 -> m번으로 이동하면
-             // ------------------ 이함수실행시 1번 시작
+            // $('[data-input-type="test"')
+           // <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+            // $('.seq').data('seq', newIndex);
+		document.getElementById("seq").innerHTML=ui.item.index();
 
-             //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
-             // seq 기준???
-             //3. n번의 seq는 m이 된다.
-
-             // $('[data-input-type="test"')
-            // <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-             // $('.seq').data('seq', newIndex);
-         document.getElementById("seq").innerHTML=ui.item.index();
-
-         }
-     }); --%>
+        }
+    }); --%>
 </script>
 
 
