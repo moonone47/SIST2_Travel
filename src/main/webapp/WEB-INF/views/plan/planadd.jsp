@@ -691,6 +691,7 @@ todo:
             <input type="text" id="from" name="daystarttravel">
             <label for="to">to</label>
             <input type="text" id="to" name="dayendtravel">
+            <div>${days}</div>
 <%--       날짜 계산--%>
             <script>
             // new Date("dateString") is browser-dependent and discouraged, so we'll write
