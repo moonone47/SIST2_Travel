@@ -497,23 +497,33 @@
         /*
             <div id="schedulelist">
             <a href="/SIST2_Travel/plan/planadd.do?rdate=
+
         ${list}
-        " class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-                    <div class="d-flex w-100 align-items-center justify-content-between">
-                        <strong class="mb-1">
+
+                " class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">
+
         ${"Day"}
+
+
         ${status.count}
-        </strong>
-                        <small>
+
+                </strong>
+                                <small>
+
         ${list}
-        </small>
-                    </div>
-                    <div class="col-10 mb-1 small">
+
+                </small>
+                            </div>
+                            <div class="col-10 mb-1 small">
+
         ${city.name}
-        </div>
-                </a>
-            </div>
-            */
+
+                </div>
+                        </a>
+                    </div>
+                    */
 
         /*#schedulelist a strong { background-color: blue }*/
         /* #schedulelist a strong:active { background-color: red } */
@@ -599,7 +609,10 @@
             <input type="hidden" id="x" name="x" value="">
             <input type="hidden" id="y" name="y" value="">
 
-            <input type="hidden" id="rdateadd" name="rdate" value="">
+            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
+            <%--js로 위의 데이터를 기본값은 ${citydto.daystarttravel} day1로 잡고, 클릭시 value 변경
+                -> 만약 day2에서 일정 추가하고 페이지 돌아오면..다시 Day1으로 잡힐거 같..은데 rdate 유지할 방법..?--%>
+
             <%-- rdate알아와서 같이 보내기 -> 업뎃된 리스트 select where rdate 날려야 해서 --%>
             <%-- 서블릿에서 받은거 똑같이 돌려주기...
             req.setAttribute("city",city); //도시 좌표
@@ -849,11 +862,19 @@
     <%--        <li class="list-group-item">Porta ac consectetur ac</li>--%>
     <%--        <li class="list-group-item">Vestibulum at eros</li>--%>
     <%--    </ul>--%>
-
-    <form method="POST" action="/plan/planscd.do">
+    <%--    <html>--%>
+    <%--    <body>--%>
+    <%--    <form id="my_form" method="post" action="mailto://test@test.com">--%>
+    <%--        <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">submit</a>--%>
+    <%--    </form>--%>
+    <%--    </body>--%>
+    <%--    </html>--%>
+    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
         <div id="schedulelist" class="list-group">
             <c:forEach items="${datelist}" var="list" varStatus="status">
-            <a href="/SIST2_Travel/plan/planadd.do?rdate=${list }" class="list-group-item list-group-item-action active py-3 lh-tight"
+                <%--<a href="javascript:formname.submit();">submit</a>--%>
+            <a href="javascript:{}" onclick="document.getElementById('my_form').submit();"
+               class="list-group-item list-group-item-action active py-3 lh-tight"
                aria-current="true">
                 <div class="d-flex w-100 align-items-center justify-content-between">
                     <strong class="mb-1">${"Day"} ${status.count}</strong>
@@ -861,7 +882,7 @@
                 </div>
                 <div class="col-10 mb-1 small">${city.name}</div>
             </a>
-            <input type="hidden"  name="city" value="${city}">
+            <input type="hidden" name="city" value="${city}">
 
             <input type="hidden" name="cityname" value="${city.name}">
             <input type="hidden" name="cityX" value="${city.cityX}">
@@ -870,20 +891,24 @@
             <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
 
-
             <input type="hidden" name="planname" value="${citydto.name}">
             <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
             <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
             <input type="hidden" name="willshare" value="${citydto.willshare}">
 
+            <input type="hidden" name="rdate" value="">
 
-            <c:forEach items="${datelist}" var="list">
-                <input type="hidden" name="datelist" value="${list}">
+
             </c:forEach>
 
+            <input type="hidden" name="datelist" value="${list}">
+
     </form>
-    </c:forEach>
+
 </div>
+
+<%--정보끝--%>
+
 <%--
     할일 -> 사용자가 선택한 날짜에 맞게 tblPlan2에서 where절 걸어서 리스트 가져오기
     문제 : DTO 보내야 함
@@ -907,22 +932,35 @@
     // //     });
     // // });
 </script>
-<%--<script>--%>
-<%--    $("#schedulelist > a:nth-child(1)").addClass("active");--%>
-<%--</script>--%>
-<%--<script>--%>
-<%--    const schedulelist = document.getElementById("schedulelist");--%>
-<%--    const items = schedulelist.querySelectorAll("a")--%>
-<%--    const activate = e => {--%>
-<%--        const tgt = e.target;--%>
-<%--        items.forEach(item => item.classList.remove("active"));--%>
-<%--        if (tgt.tagName==="STRONG") tgt.classList.add("active");--%>
-<%--    };--%>
-<%--    schedulelist.addEventListener("click",activate)--%>
-<%--    //schedulelist.addEventListener("mouseover",activate)--%>
-<%--</script>--%>
+<script>
+    $("#schedulelist > a:nth-child(1)").addClass("active2");
+</script>
+<script>
+    const schedulelist = document.getElementById("schedulelist");
+    const items = schedulelist.querySelectorAll("a")
+    const activate = e => {
+        const tgt = e.target;
+        items.forEach(item => item.classList.remove("active2"));
+        if (tgt.tagName === "STRONG") tgt.classList.add("active2");
+    };
+    schedulelist.addEventListener("click", activate)
+    //schedulelist.addEventListener("mouseover",activate)
+</script>
 
+<script language='javascript'>
 
+    function noEvent() {
+        if (event.keyCode == 116) {
+            event.keyCode = 2;
+            return false;
+        } else if (event.ctrlKey && (event.keyCode == 78 || event.keyCode == 82)) {
+            return false;
+        }
+    }
+
+    document.onkeydown = noEvent;
+
+</script>
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
 <script>

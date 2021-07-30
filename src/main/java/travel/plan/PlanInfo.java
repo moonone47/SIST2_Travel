@@ -43,7 +43,7 @@ public class PlanInfo extends HttpServlet {
 
 		System.out.println(req.getParameter("willshare"));
 
-		System.out.println(req.getParameter("citys"));
+		//System.out.println(req.getParameter("citys"));
 
 
 		if(req.getParameter("willshare") != null) {
@@ -102,19 +102,38 @@ public class PlanInfo extends HttpServlet {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //		startday 20210714
 		int year = Integer.parseInt(startday.substring(0,4));
-		int month = Integer.parseInt(startday.substring(4, 6));
+		int month = Integer.parseInt(startday.substring(4, 6)) ;
 		int day = Integer.parseInt(startday.substring(6));
-		date.set(year, month, day);
-		ArrayList<Calendar> datelist = new ArrayList<>();
+		date.set(year, month-1, day-1);
+		ArrayList<String> datelist = new ArrayList<String>();
 
-		for(int i=0; i<calDateDays; i++){
+//		for(int i=0; i<calDateDays; i++){
+//			date.add(Calendar.DATE, 1);
+//			String dated = df.format(date.getTime());
+//			datelist.add(dated);
+//			System.out.println(dated);
+//		}
+		String startdate = df.format(FirstDate);
+
+
+		int eyear = Integer.parseInt(endday.substring(0,4));
+		int emonth = Integer.parseInt(endday.substring(4, 6)) ;
+		int eday = Integer.parseInt(endday.substring(6));
+		Calendar endDay = Calendar.getInstance();
+		endDay.set(eyear, emonth-1, eday-1);
+		while(true){
+			if(endDay.before(date)){
+				break;
+			}
+//			if(date > date.add(Calendar.DATE, calDateDays +1)
 			date.add(Calendar.DATE, 1);
 			String dated = df.format(date.getTime());
-			datelist.add(date);
-			
+			datelist.add(dated);
+			System.out.println(dated);
 		}
 
-		System.out.println(date);
+
+//		System.out.println(date);
 		//분류별로 저장
 
 //		req.setAttribute("dto",dto);
@@ -127,9 +146,10 @@ public class PlanInfo extends HttpServlet {
 
 		req.setAttribute("city",city); //도시 좌표
 		req.setAttribute("citydto",citydto); //일정에 채워 넣을 용
-		req.setAttribute("days", calDateDays); //전체 일정 날짜
+//		req.setAttribute("days", calDateDays); //전체 일정 날짜
+		req.setAttribute("datelist", datelist);
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate=" + startdate);
 		dispatcher.forward(req, resp);
 	}
 
