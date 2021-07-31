@@ -20,7 +20,6 @@ public class CityDAO {
         try {
             conn = DBUtil.open();
         } catch (Exception e) {
-            System.out.println("CityDAO.CityDAO()");
             e.printStackTrace();
         }
     }
@@ -46,7 +45,6 @@ public class CityDAO {
             }
             return citys;
         } catch (Exception e) {
-            System.out.println("CityDAO.list()");
             e.printStackTrace();
         }
         return null;
@@ -73,7 +71,6 @@ public class CityDAO {
            return dto;
 
         } catch (Exception e) {
-            System.out.println("CityDAO.getCity()");
             e.printStackTrace();
         }
 

@@ -3,6 +3,7 @@
 .settings/
 .build/
 .lib/
+.run/
 lib/
 .metadata/
 .classpath

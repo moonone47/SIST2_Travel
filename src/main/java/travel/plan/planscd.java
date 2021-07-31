@@ -39,7 +39,6 @@ public class planscd extends HttpServlet {
             <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
         */
-
 		//1. 데이터 받아오기
 		CityDTO city = new CityDTO();
 
@@ -58,11 +57,12 @@ public class planscd extends HttpServlet {
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
-			System.out.println(datelists[i]);
 		}
 
 
 		String rdate = req.getParameter("rdate");
+		System.out.println(rdate);
+
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();
