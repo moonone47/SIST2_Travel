@@ -89,11 +89,13 @@ public class PlanInfo extends HttpServlet {
 		calDateDays = Math.abs(calDateDays);
 
 		Calendar date = Calendar.getInstance();
+		Calendar sdate = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //		startday 20210714
 		int year = Integer.parseInt(startday.substring(0,4));
 		int month = Integer.parseInt(startday.substring(4, 6)) ;
 		int day = Integer.parseInt(startday.substring(6));
+		sdate.set(year, month-1, day);
 		date.set(year, month-1, day-1);
 		ArrayList<String> datelist = new ArrayList<String>();
 
@@ -102,8 +104,8 @@ public class PlanInfo extends HttpServlet {
 //			String dated = df.format(date.getTime());
 //			datelist.add(dated);
 //		}
-		String startdate = df.format(FirstDate);
-
+		String rdate = df.format(sdate.getTime());
+		System.out.println(rdate);
 
 		int eyear = Integer.parseInt(endday.substring(0,4));
 		int emonth = Integer.parseInt(endday.substring(4, 6)) ;
@@ -136,7 +138,7 @@ public class PlanInfo extends HttpServlet {
 //		req.setAttribute("days", calDateDays); //전체 일정 날짜
 		req.setAttribute("datelist", datelist);
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate=" + startdate);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate=" + rdate);
 		dispatcher.forward(req, resp);
 	}
 

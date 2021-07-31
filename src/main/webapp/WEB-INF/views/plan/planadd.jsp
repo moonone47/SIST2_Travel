@@ -926,7 +926,7 @@
     <div id="schedulelist" class="list-group">
         <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
                 <%--<a href="javascript:formname.submit();">submit</a>--%>
-            <input type="submit" value="${"Day"} ${status.count} ${list}" class="btn btn-primary">
+            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">
             <!-- <a href="javascript:{}" id="pickdate"onclick="document.getElementById('my_form').submit();"
                        class="list-group-item list-group-item-action active py-3 lh-tight"
                        aria-current="true"> -->
