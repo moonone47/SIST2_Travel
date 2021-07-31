@@ -31,6 +31,9 @@ public class PlanAdd extends HttpServlet {
 //		x: "127.002698429626"
 //		y: "37.5658944720562"
 		
+		String rdate = req.getParameter("rdate");
+		
+		System.out.println(rdate);
 		String address_name = req.getParameter("address_name");
 		String category_group_code = req.getParameter("category_group_code");
 		String category_group_name = req.getParameter("category_group_name");
@@ -73,7 +76,7 @@ public class PlanAdd extends HttpServlet {
 		dto.setRoad_address_name(road_address_name);
 		dto.setX(x);
 		dto.setY(y);
-
+		dto.setRdate(rdate);
 		result = dao.add(dto);
 
 		}
@@ -85,7 +88,7 @@ public class PlanAdd extends HttpServlet {
 		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
-		ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
+		ArrayList<PlaceDTO> list = dao.getList(rdate,"4"); //where memberid == 4
 
 
 //		req.setAttribute("list", list);

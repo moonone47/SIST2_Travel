@@ -869,19 +869,23 @@
     <%--    </form>--%>
     <%--    </body>--%>
     <%--    </html>--%>
-    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-        <div id="schedulelist" class="list-group">
             <c:forEach items="${datelist}" var="list" varStatus="status">
+        <div id="schedulelist" class="list-group">
+    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
                 <%--<a href="javascript:formname.submit();">submit</a>--%>
-            <a href="javascript:{}" onclick="document.getElementById('my_form').submit();"
-               class="list-group-item list-group-item-action active py-3 lh-tight"
-               aria-current="true">
+			 <input type="submit" value="${"Day"} ${status.count} ${list}" class="btn btn-primary"> 
+            <!-- <a href="javascript:{}" id="pickdate"onclick="document.getElementById('my_form').submit();"
+                       class="list-group-item list-group-item-action active py-3 lh-tight"
+                       aria-current="true"> --> 
+<%--               <a href="#"--%>
+<%--                       class="list-group-item list-group-item-action active py-3 lh-tight"--%>
+<%--                       aria-current="true">--%>
                 <div class="d-flex w-100 align-items-center justify-content-between">
                     <strong class="mb-1">${"Day"} ${status.count}</strong>
                     <small>${list}</small>
                 </div>
                 <div class="col-10 mb-1 small">${city.name}</div>
-            </a>
+            <!-- </a> -->
             <input type="hidden" name="city" value="${city}">
 
             <input type="hidden" name="cityname" value="${city.name}">
@@ -896,14 +900,15 @@
             <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
             <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-            <input type="hidden" name="rdate" value="">
-
-
+<%--            <input type="text" name="rdate" value="">--%>
+			<input type="hidden" name="rdate" id="rdate" value="${list}">
+			<c:forEach items="${datelist}" var="list" varStatus="status">
+            <input type="hidden" name="datelist" value="${list}">
+            </c:forEach>
+    </form>
             </c:forEach>
 
-            <input type="hidden" name="datelist" value="${list}">
 
-    </form>
 
 </div>
 
@@ -945,6 +950,11 @@
     };
     schedulelist.addEventListener("click", activate)
     //schedulelist.addEventListener("mouseover",activate)
+    
+
+
+    
+    
 </script>
 
 <script language='javascript'>

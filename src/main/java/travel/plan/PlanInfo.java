@@ -31,7 +31,7 @@ public class PlanInfo extends HttpServlet {
 //		System.out.println(req.getParameter("dayendtravel"));
 //		System.out.println(req.getParameter("name"));
 		//System.out.println(req.getParameter("planseq"));
-		System.out.println(req.getParameter("willshare"));
+		//System.out.println(req.getParameter("willshare"));
 		String startday = req.getParameter("daystarttravel");
 		String endday = req.getParameter("dayendtravel");
 
@@ -41,7 +41,7 @@ public class PlanInfo extends HttpServlet {
 		citydto.setName(req.getParameter("name"));
 		//dto.setPlanseq(req.getParameter("planseq"));
 
-		System.out.println(req.getParameter("willshare"));
+		//System.out.println(req.getParameter("willshare"));
 
 		//System.out.println(req.getParameter("citys"));
 
