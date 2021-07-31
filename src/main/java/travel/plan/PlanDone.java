@@ -47,7 +47,21 @@ public class PlanDone extends HttpServlet {
 			//seq[i] ->
 		}
 
+/*
+169
+1
+update성공?1
+180
+2
+update성공?1
+246
+3
+update성공?1
+247
+4
+update성공?1
 
+ */
 
 
 
