@@ -64,9 +64,9 @@ public class planscd extends HttpServlet {
 
 
 		String rdate = req.getParameter("rdate");
-		System.out.println("-----------");
-		System.out.println(rdate);
-		System.out.println("-----------");
+//		System.out.println("-----------");
+//		System.out.println(rdate);
+//		System.out.println("-----------");
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();

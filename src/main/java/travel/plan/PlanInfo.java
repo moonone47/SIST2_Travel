@@ -90,6 +90,7 @@ public class PlanInfo extends HttpServlet {
 
 		Calendar date = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
 //		startday 20210714
 		int year = Integer.parseInt(startday.substring(0,4));
 		int month = Integer.parseInt(startday.substring(4, 6)) ;
