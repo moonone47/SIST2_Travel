@@ -962,7 +962,7 @@
         </form>
         </c:forEach>
 
-        <&-------------------------------------------------------------------------------&>
+       <%--<&--------------------------------------------------------------------------&>--%>
 
 
     </div>
@@ -1011,18 +1011,18 @@
             // $(this).addClass("active2");
         });
     </script>
-    <script>
-        const schedulelist = document.getElementById("schedulelist");
-        const items = schedulelist.querySelectorAll("a")
-        const activate = e => {
-            const tgt = e.target;
-            items.forEach(item => item.classList.remove("active2"));
-            if (tgt.tagName === "STRONG") tgt.classList.add("active2");
-        };
-        schedulelist.addEventListener("click", activate)
+<%--    <script>--%>
+<%--        const schedulelist = document.getElementById("schedulelist");--%>
+<%--        const items = schedulelist.querySelectorAll("a")--%>
+<%--        const activate = e => {--%>
+<%--            const tgt = e.target;--%>
+<%--            items.forEach(item => item.classList.remove("active2"));--%>
+<%--            if (tgt.tagName === "STRONG") tgt.classList.add("active2");--%>
+<%--        };--%>
+<%--        schedulelist.addEventListener("click", activate)--%>
 
-        //schedulelist.addEventListener("mouseover",activate)
-    </script>
+<%--        //schedulelist.addEventListener("mouseover",activate)--%>
+<%--    </script>--%>
 
     <script language='javascript'>
 
@@ -1183,6 +1183,7 @@
 
                         //여기에서 바꿀까요?
                         $('#address_name').val(address_name);
+                        console.log(address_name);
                         $('#category_group_code').val(category_group_code);
                         $('#category_group_name').val(category_group_name);
                         $('#category_name').val(category_name);
