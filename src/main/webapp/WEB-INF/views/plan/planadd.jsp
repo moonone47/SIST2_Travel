@@ -635,7 +635,6 @@
             <c:forEach items="${datelist}" var="list">
                 <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
-
             <input type="submit" value="일정추가">
         </form>
     </div>
@@ -648,7 +647,7 @@
                  viewBox="0 0 16 16">
                 <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
             </svg>
-            <div>찜 추가</div>
+            <div>찜${rdate } 추가</div>
         </a>
     </div>
 </div>
@@ -869,11 +868,12 @@
     <%--    </form>--%>
     <%--    </body>--%>
     <%--    </html>--%>
-    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
+    <%-- <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
         <div id="schedulelist" class="list-group">
             <c:forEach items="${datelist}" var="list" varStatus="status">
-                <%--<a href="javascript:formname.submit();">submit</a>--%>
-            <a href="javascript:{}" onclick="document.getElementById('my_form').submit();"
+                <a href="javascript:formname.submit();">submit</a>
+             <a href="javascript:{}" onclick="document.getElementById('my_form').submit();" 
+            
                class="list-group-item list-group-item-action active py-3 lh-tight"
                aria-current="true">
                 <div class="d-flex w-100 align-items-center justify-content-between">
@@ -882,6 +882,7 @@
                 </div>
                 <div class="col-10 mb-1 small">${city.name}</div>
             </a>
+            <input type="hidden" name="rdate" value="${list }">
             <input type="hidden" name="city" value="${city}">
 
             <input type="hidden" name="cityname" value="${city.name}">
@@ -896,14 +897,53 @@
             <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
             <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-            <input type="hidden" name="rdate" value="">
 
 
             </c:forEach>
 
             <input type="hidden" name="datelist" value="${list}">
 
+    </form> --%>
+    
+    
+     <c:forEach items="${datelist}" var="list" varStatus="status">
+        <div id="schedulelist" class="list-group">
+    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
+                <%--<a href="javascript:formname.submit();">submit</a>--%>
+			 <input type="submit" value="${"Day"} ${status.count} ${list}" class="btn btn-primary">
+            <!-- <a href="javascript:{}" id="pickdate"onclick="document.getElementById('my_form').submit();"
+                       class="list-group-item list-group-item-action active py-3 lh-tight"
+                       aria-current="true"> -->
+<%--               <a href="#"--%>
+<%--                       class="list-group-item list-group-item-action active py-3 lh-tight"--%>
+<%--                       aria-current="true">--%>
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">${"Day"} ${status.count}</strong>
+                    <small>${list}</small>
+                </div>
+                <div class="col-10 mb-1 small">${city.name}</div>
+            <!-- </a> -->
+            <input type="hidden" name="city" value="${city}">
+
+            <input type="hidden" name="cityname" value="${city.name}">
+            <input type="hidden" name="cityX" value="${city.cityX}">
+            <input type="hidden" name="cityY" value="${city.cityY}">
+            <input type="hidden" name="Explain" value="${city.explain}">
+            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+
+
+            <input type="hidden" name="planname" value="${citydto.name}">
+            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+            <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+<%--            <input type="text" name="rdate" value="">--%>
+			<input type="hidden" name="rdate" id="rdate" value="${list}">
+			<c:forEach items="${datelist}" var="list" varStatus="status">
+            <input type="hidden" name="datelist" value="${list}">
+            </c:forEach>
     </form>
+            </c:forEach>
 
 </div>
 

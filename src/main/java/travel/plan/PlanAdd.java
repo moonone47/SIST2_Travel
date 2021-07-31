@@ -42,7 +42,12 @@ public class PlanAdd extends HttpServlet {
 		String road_address_name = req.getParameter("road_address_name");
 		String x = req.getParameter("x");
 		String y = req.getParameter("y");
-		String date = req.getParameter("date");
+		
+		String rdate = req.getParameter("rdate");
+		System.out.println("@@@@@@@@@@@@@@");
+		System.out.println(rdate);
+		System.out.println("@@@@@@@@@@@@@@");
+		
 		HttpSession session = req.getSession();
 //		todo: 구현
 //		String userId = (String) session.getAttribute("id");
@@ -73,6 +78,7 @@ public class PlanAdd extends HttpServlet {
 		dto.setRoad_address_name(road_address_name);
 		dto.setX(x);
 		dto.setY(y);
+		dto.setRdate(rdate);
 
 		result = dao.add(dto);
 
