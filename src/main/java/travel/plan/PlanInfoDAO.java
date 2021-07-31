@@ -17,7 +17,6 @@ public class PlanInfoDAO {
         try {
             conn = DBUtil.open();
         } catch (Exception e) {
-            System.out.println("PlanInfoDAO.PlanINfoDAO()");
             e.printStackTrace();
         }
     }
@@ -74,7 +73,6 @@ public class PlanInfoDAO {
             if(rs.next()){
                 planseq = rs.getInt("planseq");
             } else{
-//                System.out.println("planseq없음");
 
             }
             return planseq;
@@ -82,7 +80,6 @@ public class PlanInfoDAO {
 
 
         }catch(Exception e){
-            System.out.println("PlanInfoDTO.add()");
             e.printStackTrace();
         }
         return -1;
