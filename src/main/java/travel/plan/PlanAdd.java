@@ -33,9 +33,9 @@ public class PlanAdd extends HttpServlet {
 		String y = req.getParameter("y");
 		
 		String rdate = req.getParameter("rdate");
-		System.out.println("@@@@@@@@@@@@@@");
-		System.out.println(rdate);
-		System.out.println("@@@@@@@@@@@@@@");
+//		System.out.println("@@@@@@@@@@@@@@");
+//		System.out.println(rdate);
+//		System.out.println("@@@@@@@@@@@@@@");
 
 
 		//2.tblPlan2 -> rdate select해오기

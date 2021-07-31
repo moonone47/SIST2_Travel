@@ -349,7 +349,7 @@ EXPLAIN	VARCHAR2(2000 BYTE) @                      2
 ADDRESS	VARCHAR2(500 BYTE)                         3
 null IMAGE	VARCHAR2(1000 BYTE) ----? 삭제 @       4
 GRADE	NUMBER ----? 삭제 @                        5
-WISH	VARCHAR2(10 BYTE)                          6
+WISH	VARCHAR2(10 BYTE)@                         6
 THEME	VARCHAR2(100 BYTE) ---?@                   7
 SIGHTSX	NUMBER                                     8
 SIGHTSY	NUMBER                                     9
