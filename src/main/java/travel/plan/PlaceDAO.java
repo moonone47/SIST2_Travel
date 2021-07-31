@@ -288,7 +288,7 @@ public class PlaceDAO {
     }
 
 	//tblPlan2 seq를 seq[i]로 변경
-    public int update(String plan2seq, String seq) {
+    public void update(String plan2seq, String seq) {
         try{
 
             String sql = "update tblPlan2 set seq = ? where plan2seq = ?";
@@ -298,13 +298,13 @@ public class PlaceDAO {
             pstat.setString(1,seq);
             pstat.setString(2,plan2seq);
 
-            System.out.println();
-           return pstat.executeUpdate();
+           int result = pstat.executeUpdate();
+            System.out.println("update성공?" + result);
         }catch(Exception e){
             e.printStackTrace();
         }
 
-        return -1;
+
     }
 }
 

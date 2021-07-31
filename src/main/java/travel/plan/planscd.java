@@ -53,6 +53,7 @@ public class planscd extends HttpServlet {
 		citydto.setName(req.getParameter("planname"));
 		citydto.setDayendtravel(req.getParameter("dayendtravel"));
 		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setWillshare(req.getParameter("willshare"));
 
 		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
 		ArrayList<String> datelist = new ArrayList<String>();

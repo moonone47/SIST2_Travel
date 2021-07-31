@@ -44,10 +44,24 @@ public class PlanDone extends HttpServlet {
 			System.out.println(seq[i]);	// 1 2 3 4
 			dao.update(planseq[i],seq[i]);
 			//planseq[i] -> where절걸고
-			//seq[i] -> 
+			//seq[i] ->
 		}
 
+/*
+169
+1
+update성공?1
+180
+2
+update성공?1
+246
+3
+update성공?1
+247
+4
+update성공?1
 
+ */
 
 
 
