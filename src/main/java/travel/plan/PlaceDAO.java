@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -241,12 +242,14 @@ public class PlaceDAO {
 
     public ArrayList<PlaceDTO> getList(String rdate, String memberid) {
         try{
-            String from = rdate;
-            SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date to = transFormat.parse(from); //Unparseable date: ""
+//            String str_date = "11-June-07";
+//            DateFormat formatter = new SimpleDateFormat("dd-MMM-yy");
+//            Date date = formatter.parse(str_date);
+//            String from = rdate;
+//            DateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+//            Date to = transFormat.parse(from); //Unparseable date: ""
 //            String sql = "select * from tblPlan2 where rdate = '"+to+"'" + "and memberid =" + memberid ;
-            String sql = "select * from tblPlan2 where rdate = ? and memberid = ?"; 
-
+            String sql = "select * from tblPlan2 where rdate = ? and memberid = ?"; //2초
             pstat = conn.prepareStatement(sql);
 
             pstat.setString(1, rdate);
@@ -282,6 +285,26 @@ public class PlaceDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+	//tblPlan2 seq를 seq[i]로 변경
+    public int update(String plan2seq, String seq) {
+        try{
+
+            String sql = "update tblPlan2 set seq = ? where plan2seq = ?";
+
+            pstat = conn.prepareStatement(sql);
+
+            pstat.setString(1,seq);
+            pstat.setString(2,plan2seq);
+
+            System.out.println();
+           return pstat.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return -1;
     }
 }
 
