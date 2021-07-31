@@ -3,6 +3,8 @@ package travel.plan;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -29,7 +31,7 @@ public class PlanInfo extends HttpServlet {
 //		System.out.println(req.getParameter("dayendtravel"));
 //		System.out.println(req.getParameter("name"));
 		//System.out.println(req.getParameter("planseq"));
-		System.out.println(req.getParameter("willshare"));
+//		System.out.println(req.getParameter("willshare"));
 		String startday = req.getParameter("daystarttravel");
 		String endday = req.getParameter("dayendtravel");
 
@@ -39,9 +41,9 @@ public class PlanInfo extends HttpServlet {
 		citydto.setName(req.getParameter("name"));
 		//dto.setPlanseq(req.getParameter("planseq"));
 		
-		System.out.println(req.getParameter("willshare"));
+//		System.out.println(req.getParameter("willshare"));
 
-		System.out.println(req.getParameter("citys"));
+//		System.out.println(req.getParameter("citys"));
 
 		
 			if(req.getParameter("willshare") != null) {
@@ -96,9 +98,22 @@ public class PlanInfo extends HttpServlet {
 
         calDateDays = Math.abs(calDateDays);
 
+        Calendar date = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//		startday 20210714
+		int year = Integer.parseInt(startday.substring(0,4));
+		int month = Integer.parseInt(startday.substring(4, 6));
+		int day = Integer.parseInt(startday.substring(6));
+		date.set(year, month, day);
+		ArrayList<String> datelist = new ArrayList<String>();
 
+		for(int i=0; i<calDateDays; i++){
+			date.add(Calendar.DATE, 1);
+			String dated = df.format(date.getTime());
+			datelist.add(dated);
+		}
 
-
+//		System.out.println(date);
 		//분류별로 저장
 
 //		req.setAttribute("dto",dto);
@@ -111,7 +126,7 @@ public class PlanInfo extends HttpServlet {
 
 		req.setAttribute("city",city); //도시 좌표
 		req.setAttribute("citydto",citydto); //일정에 채워 넣을 용
-		req.setAttribute("days", calDateDays); //전체 일정 날짜
+		req.setAttribute("datelist", datelist);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);

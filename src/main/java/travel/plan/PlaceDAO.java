@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class PlaceDAO {
 
@@ -187,7 +188,6 @@ public class PlaceDAO {
                 PlaceDTO dto = new PlaceDTO();
 
                 dto.setPlan2seq(rs.getString("plan2seq"));
-
                 dto.setPlace_url(rs.getString("place_url"));
                 dto.setPlace_name(rs.getString("place_name"));
                 dto.setPhone(rs.getString("phone"));
@@ -207,7 +207,7 @@ public class PlaceDAO {
 
             return list;
         } catch (Exception e) {
-            System.out.println("PlanDAO.getList()");
+            System.out.println("PlanDAO.getList(id)");
             e.printStackTrace();
         }
         return null;
@@ -231,7 +231,7 @@ public class PlaceDAO {
     public int del(String plan2seq) {
 		try {
             String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
-//            System.out.println(plan2seq);//null
+            System.out.println(plan2seq);//null
             stat = conn.createStatement();
             return stat.executeUpdate(sql);
 
@@ -241,6 +241,43 @@ public class PlaceDAO {
 			e.printStackTrace();
         }
         return 0;
+    }
+
+    public ArrayList<PlaceDTO> getList(String rdate) {
+        try{
+            String sql = "select * from tblPlan2 where rdate =" + rdate;
+            stat = conn.createStatement();
+            rs = stat.executeQuery(sql);
+            
+            ArrayList<PlaceDTO> list = new ArrayList<PlaceDTO>();
+            while(rs.next()){
+                PlaceDTO dto = new PlaceDTO();
+                               
+                dto.setPlan2seq(rs.getString("plan2seq"));
+                dto.setPlace_url(rs.getString("place_url"));
+                dto.setPlace_name(rs.getString("place_name"));
+                dto.setPhone(rs.getString("phone"));
+                dto.setMemberid(rs.getString("memberid"));
+                dto.setSeq(rs.getString("seq"));
+                dto.setCategory_group_code(rs.getString("category_group_code"));
+                dto.setCategory_group_name(rs.getString("category_group_name"));
+                dto.setCategory_name(rs.getString("category_name"));
+                dto.setId(rs.getString("id"));
+                dto.setPlace_name(rs.getString("place_name"));
+                dto.setRdate(rs.getString("rdate"));
+                dto.setX(rs.getString("x"));
+                dto.setY(rs.getString("y"));
+                dto.setAddress_name(rs.getString("address_name"));
+                list.add(dto);
+            }
+            
+            
+            return list;
+        } catch (Exception e) {
+            System.out.println("PlanDAO.getList(rdate)");
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 
