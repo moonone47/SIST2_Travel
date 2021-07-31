@@ -18,7 +18,6 @@ public class PlanDel extends HttpServlet {
 
 		//PlanDel.java
 		String plan2seq = req.getParameter("plan2seq");
-		System.out.println("plandel.java" + plan2seq); //null
 
 
 
@@ -30,7 +29,7 @@ public class PlanDel extends HttpServlet {
 
 		ArrayList<PlaceDTO> list = dao.getList(4);
 		if(result == 0){
-			System.out.println("삭제 안됨.");
+			
 		} else {
 			req.setAttribute("list", list);
 		}
