@@ -23,7 +23,6 @@ public class PlaceDAO {
         try {
             conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");
         } catch (Exception e) {
-            System.out.println("PlanDAO.PlanDAO()");
             e.printStackTrace();
         }
     }
@@ -61,7 +60,6 @@ public class PlaceDAO {
 //            }
 //            return 0;
         } catch (Exception e) {
-            System.out.println("PlanDAO.add()");
             e.printStackTrace();
         }
         return 0;
@@ -167,7 +165,6 @@ public class PlaceDAO {
 //            return list;
 //
 //        } catch (Exception e) {
-//            System.out.println("BoardDAO.list()");
 //            e.printStackTrace();
 //        }
 //
@@ -209,7 +206,6 @@ public class PlaceDAO {
 
             return list;
         } catch (Exception e) {
-            System.out.println("PlanDAO.getList(id)");
             e.printStackTrace();
         }
         return null;
@@ -233,13 +229,11 @@ public class PlaceDAO {
     public int del(String plan2seq) {
         try {
             String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
-            System.out.println(plan2seq);//null
             stat = conn.createStatement();
             return stat.executeUpdate(sql);
 
         }catch(Exception e)
         {
-            System.out.println("PlanDAO.del()");
             e.printStackTrace();
         }
         return 0;
@@ -249,10 +243,9 @@ public class PlaceDAO {
         try{
             String from = rdate;
             SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date to = transFormat.parse(from); //Unparseable date: "2021-08-14"
-            System.out.println(to);
+            Date to = transFormat.parse(from); //Unparseable date: ""
 //            String sql = "select * from tblPlan2 where rdate = '"+to+"'" + "and memberid =" + memberid ;
-            String sql = "select * from tblPlan2 where rdate = ? and memberid = ?";
+            String sql = "select * from tblPlan2 where rdate = ? and memberid = ?"; 
 
             pstat = conn.prepareStatement(sql);
 
@@ -286,7 +279,6 @@ public class PlaceDAO {
 
             return list;
         } catch (Exception e) {
-            System.out.println("PlanDAO.getList(rdate)");
             e.printStackTrace();
         }
         return null;
