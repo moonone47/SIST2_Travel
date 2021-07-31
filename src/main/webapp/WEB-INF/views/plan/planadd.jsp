@@ -1182,6 +1182,7 @@
 
                         //여기에서 바꿀까요?
                         $('#address_name').val(address_name);
+                        console.log(address_name);
                         $('#category_group_code').val(category_group_code);
                         $('#category_group_name').val(category_group_name);
                         $('#category_name').val(category_name);
