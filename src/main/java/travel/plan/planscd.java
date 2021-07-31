@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/plan/planscd.do")
 public class planscd extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		req.setCharacterEncoding("UTF-8");
 		/*
              <input type="hidden"  name="city" value="${city}">
 
@@ -38,42 +40,46 @@ public class planscd extends HttpServlet {
             </c:forEach>
         */
 
-        //1. 데이터 받아오기
-        CityDTO city = new CityDTO();
+		//1. 데이터 받아오기
+		CityDTO city = new CityDTO();
 
-        city.setName(req.getParameter("cityname"));
-        city.setCityX(req.getParameter("cityX"));
-        city.setCityY(req.getParameter("cityY"));
-        city.setExplain(req.getParameter("Explain"));
-        city.setCityseq(req.getParameter("Cityseq"));
+		city.setName(req.getParameter("cityname"));
+		city.setCityX(req.getParameter("cityX"));
+		city.setCityY(req.getParameter("cityY"));
+		city.setExplain(req.getParameter("Explain"));
+		city.setCityseq(req.getParameter("Cityseq"));
 
-        PlanInfoDTO citydto = new PlanInfoDTO();
-        citydto.setName(req.getParameter("name"));
-        citydto.setDayendtravel(req.getParameter("dayendtravel"));
-        citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		PlanInfoDTO citydto = new PlanInfoDTO();
+		citydto.setName(req.getParameter("name"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel"));
+		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
 
-        String[] datelists = req.getParameterValues("datelist");
-        ArrayList<String> datelist = new ArrayList<String>();
-        for (int i = 0; i < datelists.length; i++) {
-            datelist.add(datelists[i]);
-        }
+		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
+		ArrayList<String> datelist = new ArrayList<String>();
+		for (int i = 0; i < datelists.length; i++) {
+			datelist.add(datelists[i]);
+			System.out.println(datelists[i]);
+		}
 
-        String rdate = req.getParameter("rdate");
-        //2.tblPlan2 -> rdate select해오기
-        //
-        PlaceDAO dao = new PlaceDAO();
 
-        ArrayList<PlaceDTO> list = dao.getList(rdate);
+		String rdate = req.getParameter("rdate");
+		//2.tblPlan2 -> rdate select해오기
+		//
+		PlaceDAO dao = new PlaceDAO();
 
-        req.setAttribute("list", list); //planadd.jsp에서 일정 리스트 용
-        req.setAttribute("city", city); //도시 좌표
-        req.setAttribute("citydto", citydto); //일정에 채워 넣을 용
-        req.setAttribute("datelist", datelist); //전체 일정 날짜
+		//todo: 로그인 구현 되면 id ->session에서 가져오기
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
-        dispatcher.forward(req, resp);
+		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
 
-    }
+		req.setAttribute("list", list); //planadd.jsp에서 일정 리스트 용
+		req.setAttribute("city", city); //도시 좌표
+		req.setAttribute("citydto", citydto); //일정에 채워 넣을 용
+		req.setAttribute("datelist", datelist); //전체 일정 날짜
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate="+rdate);
+		dispatcher.forward(req, resp);
+
+	}
 
 }
 

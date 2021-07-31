@@ -6,14 +6,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 public class PlaceDAO {
 
     private Connection conn;
-    private Statement stat; 
+    private Statement stat;
     private PreparedStatement pstat;
     private ResultSet rs;
 
@@ -213,23 +215,23 @@ public class PlaceDAO {
         return null;
     }
 
-	public int addseq(ArrayList<HashMap<String, String>> seqlist) {
+    public int addseq(ArrayList<HashMap<String, String>> seqlist) {
 
-		try {
-			
-			while(rs.next()) {
-				//rs.get
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		return 0;
-	}
+        try {
+
+            while(rs.next()) {
+                //rs.get
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        return 0;
+    }
 
     public int del(String plan2seq) {
-		try {
+        try {
             String sql = "delete from tblPlan2 where plan2seq =" + plan2seq;
             System.out.println(plan2seq);//null
             stat = conn.createStatement();
@@ -237,22 +239,32 @@ public class PlaceDAO {
 
         }catch(Exception e)
         {
-			System.out.println("PlanDAO.del()");
-			e.printStackTrace();
+            System.out.println("PlanDAO.del()");
+            e.printStackTrace();
         }
         return 0;
     }
 
-    public ArrayList<PlaceDTO> getList(String rdate) {
+    public ArrayList<PlaceDTO> getList(String rdate, String memberid) {
         try{
-            String sql = "select * from tblPlan2 where rdate =" + rdate;
-            stat = conn.createStatement();
-            rs = stat.executeQuery(sql);
-            
+            String from = rdate;
+            SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date to = transFormat.parse(from); //Unparseable date: "2021-08-14"
+            System.out.println(to);
+//            String sql = "select * from tblPlan2 where rdate = '"+to+"'" + "and memberid =" + memberid ;
+            String sql = "select * from tblPlan2 where rdate = ? and memberid = ?";
+
+            pstat = conn.prepareStatement(sql);
+
+            pstat.setString(1, rdate);
+            pstat.setString(2, memberid);
+
+            rs = pstat.executeQuery(); //SQL command not properly ended
+//            java.sql.SQLSyntaxErrorException: ORA-00932: inconsistent datatypes: expected DATE got NUMBER
             ArrayList<PlaceDTO> list = new ArrayList<PlaceDTO>();
             while(rs.next()){
                 PlaceDTO dto = new PlaceDTO();
-                               
+
                 dto.setPlan2seq(rs.getString("plan2seq"));
                 dto.setPlace_url(rs.getString("place_url"));
                 dto.setPlace_name(rs.getString("place_name"));
@@ -270,8 +282,8 @@ public class PlaceDAO {
                 dto.setAddress_name(rs.getString("address_name"));
                 list.add(dto);
             }
-            
-            
+
+
             return list;
         } catch (Exception e) {
             System.out.println("PlanDAO.getList(rdate)");
