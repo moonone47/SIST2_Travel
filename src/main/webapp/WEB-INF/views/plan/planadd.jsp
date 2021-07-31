@@ -5,800 +5,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%--    <%@ include file="/inc/asset.jsp" %>--%>
     <meta charset="utf-8">
     <title> 플젝 </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        .map_wrap, .map_wrap * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-            font-size: 12px;
-        }
 
-        .map_wrap {
-            position: relative;
-            width: 100%;
-            height: 350px;
-        }
 
-        #category {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            border-radius: 5px;
-            border: 1px solid #909090;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-            background: #fff;
-            overflow: hidden;
-            z-index: 2;
-        }
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/plan.css" type="text/css"/>
+<%--    <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>--%>
 
-        #category li {
-            float: left;
-            list-style: none;
-            width: 50px;
-            border-right: 1px solid #acacac;
-            padding: 6px 0;
-            text-align: center;
-            cursor: pointer;
-        }
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        #category li.on {
-            background: #eee;
-        }
-
-        #category li:hover {
-            background: #ffe6e6;
-            border-left: 1px solid #acacac;
-            margin-left: -1px;
-        }
-
-        #category li:last-child {
-            margin-right: 0;
-            border-right: 0;
-        }
-
-        #category li span {
-            display: block;
-            margin: 0 auto 3px;
-            width: 27px;
-            height: 28px;
-        }
-
-        #category li .category_bg {
-            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
-        }
-
-        #category li .bank {
-            background-position: -10px 0;
-        }
-
-        #category li .mart {
-            background-position: -10px -36px;
-        }
-
-        #category li .pharmacy {
-            background-position: -10px -72px;
-        }
-
-        #category li .oil {
-            background-position: -10px -108px;
-        }
-
-        #category li .cafe {
-            background-position: -10px -144px;
-        }
-
-        #category li .store {
-            background-position: -10px -180px;
-        }
-
-        #category li.on .category_bg {
-            background-position-x: -46px;
-        }
-
-        .placeinfo_wrap {
-            position: absolute;
-            bottom: 28px;
-            left: -150px;
-            width: 300px;
-        }
-
-        .placeinfo {
-            position: relative;
-            width: 100%;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-            background: #fff;
-        }
-
-        .placeinfo:nth-of-type(n) {
-            border: 0;
-            box-shadow: 0px 1px 2px #888;
-        }
-
-        .placeinfo_wrap .after {
-            content: '';
-            position: relative;
-            margin-left: -12px;
-            left: 50%;
-            width: 22px;
-            height: 12px;
-            background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
-        }
-
-        .placeinfo a, .placeinfo a:hover, .placeinfo a:active {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .placeinfo a, .placeinfo span {
-            display: block;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .placeinfo span {
-            margin: 5px 5px 0 5px;
-            cursor: default;
-            font-size: 13px;
-        }
-
-        .placeinfo .title {
-            font-weight: bold;
-            font-size: 14px;
-            border-radius: 6px 6px 0 0;
-            margin: -1px -1px 0 -1px;
-            padding: 10px;
-            color: #fff;
-            background: #d95050;
-            background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
-        }
-
-        .placeinfo .tel {
-            color: #0f7833;
-        }
-
-        .placeinfo .jibun {
-            color: #999;
-            font-size: 11px;
-            margin-top: 0;
-        }
-
-
-        .map_wrap, .map_wrap * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-            font-size: 12px;
-        }
-
-        .map_wrap a, .map_wrap a:hover, .map_wrap a:active {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .map_wrap {
-            position: relative;
-            width: 100%;
-            height: 500px;
-        }
-
-        #menu_wrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 250px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            border-radius: 10px;
-        }
-
-        .bg_white {
-            background: #fff;
-        }
-
-        #menu_wrap hr {
-            display: block;
-            height: 1px;
-            border: 0;
-            border-top: 2px solid #5F5F5F;
-            margin: 3px 0;
-        }
-
-        #menu_wrap .option {
-            text-align: center;
-        }
-
-        #menu_wrap .option p {
-            margin: 10px 0;
-        }
-
-        #menu_wrap .option button {
-            margin-left: 5px;
-        }
-
-        #placesList li {
-            list-style: none;
-        }
-
-        #placesList .item {
-            position: relative;
-            border-bottom: 1px solid #888;
-            overflow: hidden;
-            cursor: pointer;
-            min-height: 65px;
-        }
-
-        #placesList .item span {
-            display: block;
-            margin-top: 4px;
-        }
-
-        #placesList .item h5, #placesList .item .info {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        #placesList .item .info {
-            padding: 10px 0 10px 55px;
-        }
-
-        #placesList .info .gray {
-            color: #8a8a8a;
-        }
-
-        #placesList .info .jibun {
-            padding-left: 26px;
-            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
-        }
-
-        #placesList .info .tel {
-            color: #009900;
-        }
-
-        #placesList .item .markerbg {
-            float: left;
-            position: absolute;
-            width: 36px;
-            height: 37px;
-            margin: 10px 0 0 10px;
-            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
-        }
-
-        #placesList .item .marker_1 {
-            background-position: 0 -10px;
-        }
-
-        #placesList .item .marker_2 {
-            background-position: 0 -56px;
-        }
-
-        #placesList .item .marker_3 {
-            background-position: 0 -102px
-        }
-
-        #placesList .item .marker_4 {
-            background-position: 0 -148px;
-        }
-
-        #placesList .item .marker_5 {
-            background-position: 0 -194px;
-        }
-
-        #placesList .item .marker_6 {
-            background-position: 0 -240px;
-        }
-
-        #placesList .item .marker_7 {
-            background-position: 0 -286px;
-        }
-
-        #placesList .item .marker_8 {
-            background-position: 0 -332px;
-        }
-
-        #placesList .item .marker_9 {
-            background-position: 0 -378px;
-        }
-
-        #placesList .item .marker_10 {
-            background-position: 0 -423px;
-        }
-
-        #placesList .item .marker_11 {
-            background-position: 0 -470px;
-        }
-
-        #placesList .item .marker_12 {
-            background-position: 0 -516px;
-        }
-
-        #placesList .item .marker_13 {
-            background-position: 0 -562px;
-        }
-
-        #placesList .item .marker_14 {
-            background-position: 0 -608px;
-        }
-
-        #placesList .item .marker_15 {
-            background-position: 0 -654px;
-        }
-
-        #pagination {
-            margin: 10px auto;
-            text-align: center;
-        }
-
-        #pagination a {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        #pagination .on {
-            font-weight: bold;
-            cursor: default;
-            color: #777;
-        }
-
-        #detail {
-            position: absolute;
-            top: 0px;
-            left: 580px;
-            bottom: 0;
-            width: 500px;
-            height: 900px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            border-radius: 10px;
-        }
-
-        #kakaoWrap {
-            width: 500px;
-            hieght: 500px;
-        }
-
-        #addplan {
-            position: absolute;
-            top: 565px;
-            left: 310px;
-            bottom: 0;
-            width: 100px;
-            height: 100px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /*border: 1px solid red;*/
-        }
-
-        #addWish {
-            position: absolute;
-            top: 565px;
-            left: 510px;
-            bottom: 0;
-            width: 100px;
-            height: 100px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /*border: 1px solid red;*/
-        }
-
-        #planlist {
-            position: absolute;
-            top: 26px;
-            left: 253px;
-            bottom: 0;
-            width: 300px;
-            height: 463px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
-
-        #schedule {
-            position: absolute;
-            top: 26px;
-            left: 553px;
-            bottom: 0;
-            width: 300px;
-            height: 463px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
-
-        /*도시선택*/
-        /* select with custom icons */
-        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item-wrapper {
-            padding: 0.5em 0 0.5em 3em;
-        }
-
-        .ui-selectmenu-menu .ui-menu.customicons .ui-menu-item .ui-icon {
-            height: 24px;
-            width: 24px;
-            top: 0.1em;
-        }
-
-        .ui-icon.video {
-            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
-        }
-
-        .ui-icon.podcast {
-            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
-        }
-
-        .ui-icon.rss {
-            background: url("https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=916") 0 0 no-repeat;
-        }
-
-        /* select with CSS avatar icons */
-        option.avatar {
-            background-repeat: no-repeat !important;
-            padding-left: 20px;
-        }
-
-        .avatar .ui-icon {
-            background-position: left top;
-        }
-
-        #schedulelist > a {
-            /*border: 3px solid black;*/
-            background-color: #203341;
-            /*border-bottom : 1px solid white;*/
-        }
-
-        #schedule > form > a {
-            background-color: #0e9a00;
-        }
-
-        #schedulelist > a > div.d-flex.w-100.align-items-center.justify-content-between > strong {
-            font-size: 18px;
-        }
-
-        #schedulelist > a > div.d-flex.w-100.align-items-center.justify-content-between > small {
-            font-size: 16px;
-        }
-
-        #schedulelist > a > div.col-10.mb-1.small {
-            font-size: 14px;
-        }
-
-        /*
-            <div id="schedulelist">
-            <a href="/SIST2_Travel/plan/planadd.do?rdate=
-
-
-
-        ${list}
-
-
-
-                                " class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-                                            <div class="d-flex w-100 align-items-center justify-content-between">
-                                                <strong class="mb-1">
-
-
-
-        ${"Day"}
-
-
-
-
-
-
-        ${status.count}
-
-
-
-                                </strong>
-                                                <small>
-
-
-
-        ${list}
-
-
-
-                                </small>
-                                            </div>
-                                            <div class="col-10 mb-1 small">
-
-
-
-        ${city.name}
-
-
-
-                                </div>
-                                        </a>
-                                    </div>
-                                    */
-
-        /*#schedulelist a strong { background-color: blue }*/
-        /* #schedulelist a strong:active { background-color: red } */
-        #schedulelist .active2 {
-            background-color: red
-        }
-
-        /*#schedulelist .active { background-color: red}*/
-    </style>
-
-
+<%--    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">--%>
+<%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
+<%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
 </head>
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-<body onload="script();">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
-
-
-<link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
-<script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
-
-<%-- <p style="margin-top:-12px">
-    <em class="link">
-        <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
-    </em>
-</p> --%>
-<%-------------------------------- test -----------------------------------%>
-
-<%--<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">--%>
-<%--    <div class="plan sortable" id="planlist">--%>
-
-
-<%--        <div class="list-group">--%>
-<%--            <div class="list-group-item list-group-item-action">--%>
-<%--                <div id="seqname"></div>--%>
-<%--                <div class="d-flex w-100 justify-content-between" data-seq="0">--%>
-<%--                    <h5 class="mb-1">신라스테이 광화문 0</h5>--%>
-<%--                    <small class="text-muted">숙박</small>--%>
-<%--                </div>--%>
-<%--                <p class="mb-1">서울 종로구 수송동 156</p>--%>
-
-
-<%--                <button type="button" class="close" aria-label="Close"--%>
-<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=161';">--%>
-
-<%--                    <span aria-hidden="true">&times;</span>--%>
-<%--                </button>--%>
-
-<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
-<%--                    <input type="hidden" name="plan2seq" value="161">--%>
-
-
-<%--                    <input type="hidden" name="cityname" value="서울">--%>
-<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
-<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
-<%--                    <input type="hidden" name="Explain" value="설명">--%>
-<%--                    <input type="hidden" name="Cityseq" value="1">--%>
-
-
-<%--                    <input type="hidden" name="planname" value="asdf">--%>
-<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
-<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
-<%--                    <input type="hidden" name="willshare" value="n">--%>
-
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
-
-
-<%--                </form>--%>
-
-
-<%--            </div>--%>
-
-
-<%--            <input type="hidden" name="planseq" value="161">--%>
-
-<%--            <input type="hidden" name="seq" value="">--%>
-<%--        </div>--%>
-
-
-<%--        <div class="list-group">--%>
-<%--            <div class="list-group-item list-group-item-action">--%>
-<%--                <div id="seqname"></div>--%>
-<%--                <div class="d-flex w-100 justify-content-between" data-seq="1">--%>
-<%--                    <h5 class="mb-1">오장동함흥냉면 1</h5>--%>
-<%--                    <small class="text-muted">음식점</small>--%>
-<%--                </div>--%>
-<%--                <p class="mb-1">서울 중구 오장동 90-10</p>--%>
-
-
-<%--                <button type="button" class="close" aria-label="Close"--%>
-<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=191';">--%>
-
-<%--                    <span aria-hidden="true">&times;</span>--%>
-<%--                </button>--%>
-
-<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
-<%--                    <input type="hidden" name="plan2seq" value="191">--%>
-
-
-<%--                    <input type="hidden" name="cityname" value="서울">--%>
-<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
-<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
-<%--                    <input type="hidden" name="Explain" value="설명">--%>
-<%--                    <input type="hidden" name="Cityseq" value="1">--%>
-
-
-<%--                    <input type="hidden" name="planname" value="asdf">--%>
-<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
-<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
-<%--                    <input type="hidden" name="willshare" value="n">--%>
-
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
-
-
-<%--                </form>--%>
-
-
-<%--            </div>--%>
-
-
-<%--            <input type="hidden" name="planseq" value="191">--%>
-
-<%--            <input type="hidden" name="seq" value="">--%>
-<%--        </div>--%>
-
-
-<%--        <div class="list-group">--%>
-<%--            <div class="list-group-item list-group-item-action">--%>
-<%--                <div id="seqname"></div>--%>
-<%--                <div class="d-flex w-100 justify-content-between" data-seq="2">--%>
-<%--                    <h5 class="mb-1">오장동함흥냉면 2</h5>--%>
-<%--                    <small class="text-muted">음식점</small>--%>
-<%--                </div>--%>
-<%--                <p class="mb-1">서울 중구 오장동 90-10</p>--%>
-
-
-<%--                <button type="button" class="close" aria-label="Close"--%>
-<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=192';">--%>
-
-<%--                    <span aria-hidden="true">&times;</span>--%>
-<%--                </button>--%>
-
-<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
-<%--                    <input type="hidden" name="plan2seq" value="192">--%>
-
-
-<%--                    <input type="hidden" name="cityname" value="서울">--%>
-<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
-<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
-<%--                    <input type="hidden" name="Explain" value="설명">--%>
-<%--                    <input type="hidden" name="Cityseq" value="1">--%>
-
-
-<%--                    <input type="hidden" name="planname" value="asdf">--%>
-<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
-<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
-<%--                    <input type="hidden" name="willshare" value="n">--%>
-
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
-
-
-<%--                </form>--%>
-
-
-<%--            </div>--%>
-
-
-<%--            <input type="hidden" name="planseq" value="192">--%>
-
-<%--            <input type="hidden" name="seq" value="">--%>
-<%--        </div>--%>
-
-
-<%--        <div class="list-group">--%>
-<%--            <div class="list-group-item list-group-item-action">--%>
-<%--                <div id="seqname"></div>--%>
-<%--                <div class="d-flex w-100 justify-content-between" data-seq="3">--%>
-<%--                    <h5 class="mb-1">우래옥 본점 3</h5>--%>
-<%--                    <small class="text-muted">음식점</small>--%>
-<%--                </div>--%>
-<%--                <p class="mb-1">서울 중구 주교동 118-1</p>--%>
-
-
-<%--                <button type="button" class="close" aria-label="Close"--%>
-<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=193';">--%>
-
-<%--                    <span aria-hidden="true">&times;</span>--%>
-<%--                </button>--%>
-
-<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
-<%--                    <input type="hidden" name="plan2seq" value="193">--%>
-
-
-<%--                    <input type="hidden" name="cityname" value="서울">--%>
-<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
-<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
-<%--                    <input type="hidden" name="Explain" value="설명">--%>
-<%--                    <input type="hidden" name="Cityseq" value="1">--%>
-
-
-<%--                    <input type="hidden" name="planname" value="asdf">--%>
-<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
-<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
-<%--                    <input type="hidden" name="willshare" value="n">--%>
-
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
-
-<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
-
-
-<%--                </form>--%>
-
-
-<%--            </div>--%>
-
-
-<%--            <input type="hidden" name="planseq" value="193">--%>
-
-<%--            <input type="hidden" name="seq" value="">--%>
-<%--        </div>--%>
-
-<%--        <input type="submit" value="일정 등록 완료">--%>
-<%--    </div>--%>
-<%--</form>--%>
-
-<%-------------------------------- test -----------------------------------%>
 <%-------------------------------- 카테고리 -----------------------------------%>
+<body onload="script();">
+
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
@@ -834,7 +62,7 @@
         <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
     </iframe>
 
-    <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
+<%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
     <div id="addplan" class="noshow">
         <form method="POST" action="/SIST2_Travel/plan/planadd.do">
             <span><img src=""></span>
@@ -855,14 +83,6 @@
             <input type="hidden" id="y" name="y" value="">
 
             <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
-            <%--js로 위의 데이터를 기본값은 ${citydto.daystarttravel} day1로 잡고, 클릭시 value 변경
-                -> 만약 day2에서 일정 추가하고 페이지 돌아오면..다시 Day1으로 잡힐거 같..은데 rdate 유지할 방법..?--%>
-
-            <%-- rdate알아와서 같이 보내기 -> 업뎃된 리스트 select where rdate 날려야 해서 --%>
-            <%-- 서블릿에서 받은거 똑같이 돌려주기...
-            req.setAttribute("city",city); //도시 좌표
-            req.setAttribute("citydto",citydto); //일정에 채워 넣을
-            req.setAttribute("datelist", datelist);--%>
 
             <input type="hidden" name="cityname" value="${city.name}">
             <input type="hidden" name="cityX" value="${city.cityX}">
@@ -885,7 +105,7 @@
         </form>
     </div>
 
-    <%-------------------------- 찜추가 ----------------------------%>
+<%-------------------------- 찜추가 ----------------------------%>
     <div id="addWish" class="noshow">
         <a href="!#">
             <span><img src=""></span>
@@ -913,21 +133,13 @@
                     </div>
                     <p class="mb-1">${dto.address_name}</p>
 
-                        <%--일정 삭제 버튼을 form으로 바꿔서 rdate + 전체 일정 dto 추가--%>
                     <button type="button" class="close" aria-label="Close"
                             onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=${dto.plan2seq}';">
-                            <%--                    http://localhost:8090/SIST2_Travel/plan/plandel.do?pan2seq=78--%>
                         <span aria-hidden="true">&times;</span>
                     </button>
 
                     <form method="POST" action="/SIST2_Travel/plan/plandel.do">
                         <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-                            <%--rdate알아와서 같이 보내기 -> 업뎃된 리스트 select where rdate 날려야 해서 --%>
-                            <%-- 서블릿에서 받은거 똑같이 돌려주기...
-                            req.setAttribute("city",city); //도시 좌표
-                            req.setAttribute("citydto",citydto); //일정에 채워 넣을
-                            req.setAttribute("datelist", datelist);--%>
-
 
                         <input type="hidden" name="cityname" value="${city.name}">
                         <input type="hidden" name="cityX" value="${city.cityX}">
@@ -945,128 +157,15 @@
                         <c:forEach items="${datelist}" var="list">
                             <input type="hidden" name="datelist" value="${list}">
                         </c:forEach>
-
-
-                            <%--                        <input type="submit" class="close" aria-label="Close"><span aria-hidden="true">&times;</span>--%>
                     </form>
-
-                        <%-- <small class="text-muted">And some muted small print.</small>--%>
                 </div>
-                    <%--                여 아래에 값이 안들어간다..--%>
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
                 <input type="hidden" name="seq" value="${status.count}">
-<%--
-                    161
-1
-여기는  plandone
-191
-2
-여기는  plandone
-192
-3
-여기는  plandone
-193
-4
-여기는  plandone
------------
-2021-07-01
------------
-161
-1
-193
-2
-191
-3
-192
-4
-
-
---%>
-
             </div>
         </c:forEach>
         <input type="submit" value="일정 등록 완료">
     </div>
 </form>
-
-<%-----------------------------------------달력---------------------------------%>
-<%--<script>--%>
-<%--    $( function() {--%>
-<%--        $( "#datepicker" ).datepicker({--%>
-<%--            showOn: "button",--%>
-<%--            buttonImage: "https://d29fhpw069ctt2.cloudfront.net/icon/image/38308/preview.svg",--%>
-<%--            buttonImageOnly: true,--%>
-<%--            buttonText: "Select date"--%>
-<%--        });--%>
-<%--        $('.ui-datepicker-trigger').width('100px');--%>
-<%--    } );--%>
-<%--</script>--%>
-
-<script>
-    $(function () {
-        var dateFormat = "yy-mm-dd",
-            from = $("#from")
-                .datepicker({
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 1,
-                    dateFormat: 'yy-mm-dd'
-                })
-                .on("change", function () {
-                    to.datepicker("option", "minDate", getDate(this));
-                }),
-            to = $("#to").datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 1,
-                dateFormat: 'yy-mm-dd'
-            })
-                .on("change", function () {
-                    from.datepicker("option", "maxDate", getDate(this));
-                });
-
-        function getDate(element) {
-            var date;
-            try {
-                date = $.datepicker.parseDate(dateFormat, element.value);
-            } catch (error) {
-                date = null;
-            }
-
-            return date;
-        }
-    });
-</script>
-<%------------------------도시선택----------------------------%>
-<%--<script>--%>
-<%--    $( function() {--%>
-<%--        $.widget( "custom.iconselectmenu", $.ui.selectmenu, {--%>
-<%--            _renderItem: function( ul, item ) {--%>
-<%--                var li = $( "<li>" ),--%>
-<%--                    wrapper = $( "<div>", { text: item.label } );--%>
-
-<%--                if ( item.disabled ) {--%>
-<%--                    li.addClass( "ui-state-disabled" );--%>
-<%--                }--%>
-
-<%--                $( "<span>", {--%>
-<%--                    style: item.element.attr( "data-style" ),--%>
-<%--                    "class": "ui-icon " + item.element.attr( "data-class" )--%>
-<%--                })--%>
-<%--                    .appendTo( wrapper );--%>
-
-<%--                return li.append( wrapper ).appendTo( ul );--%>
-<%--            }--%>
-<%--        });--%>
-
-
-<%--        $( "#city" )--%>
-<%--            .iconselectmenu()--%>
-<%--            .iconselectmenu( "menuWidget")--%>
-<%--            .addClass( "ui-menu-icons avatar" );--%>
-<%--    } );--%>
-<%--</script>--%>
-<%--<p>Date: <input type="text" class="datepicker"></p>--%>
 
 
 <%---------------------------------달력---------------------------------%>
@@ -1076,19 +175,13 @@
             <div class="w-100 align-items-center justify-content-between">
                 <strong class="mb-1">전체 일정</strong>
                 <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
-                <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start" value="${citydto.daystarttravel}"></span> </div><br>--%>
-                <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end" value="${citydto.dayendtravel}"></span> </div>
-                --%>
+
                 <label for="from">From</label>
                 <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">
                 <br>
                 <label for="to">to</label>
                 <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">
 
-                <%-- 날짜 계산--%>
-
-
-                <%-- 날짜계산--%>
             </div>
             <div class="w-100 align-items-center justify-content-between">
                 <fieldset>
@@ -1098,16 +191,9 @@
                         </c:forEach>
                     </select>
                 </fieldset>
-                <%--
-                plan.java -> plan.jsp 에서 DB에있는 City정보를 plan.jsp에게 전달
-                plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 도시 좌표, 일 수 계산값을 planadd.jsp에게 전달
-                --%>
-            </div>
 
+            </div>
             <div class="col-10 mb-1 small">공유여부:
-                <%--            <input type="checkbox" checked data-toggle="toggle" data-size="xs" name="willshare" id="willshare"--%>
-                <%--            class="willshare" value="y">--%>
-                <%--            <input type="ra"--%>
 
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
@@ -1124,80 +210,14 @@
                 </div>
             </div>
             <input type="submit" value="일정 설정 완료">
-            <%--        <input type="hidden" value="${citys}" name="citys">--%>
         </a>
     </form>
-
-    <%----------------------- 전체 일정 : 일정 날짜 --------------------%>
-
-    <%--    <ul class="list-group">--%>
-    <%--        <li class="list-group-item active">Cras justo odio</li>--%>
-    <%--        <li class="list-group-item">Dapibus ac facilisis in</li>--%>
-    <%--        <li class="list-group-item">Morbi leo risus</li>--%>
-    <%--        <li class="list-group-item">Porta ac consectetur ac</li>--%>
-    <%--        <li class="list-group-item">Vestibulum at eros</li>--%>
-    <%--    </ul>--%>
-    <%--    <html>--%>
-    <%--    <body>--%>
-    <%--    <form id="my_form" method="post" action="mailto://test@test.com">--%>
-    <%--        <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">submit</a>--%>
-    <%--    </form>--%>
-    <%--    </body>--%>
-    <%--    </html>--%>
-
-
-    <%--    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">--%>
-    <%--        <div id="schedulelist" class="list-group">--%>
-    <%--            <c:forEach items="${datelist}" var="list" varStatus="status">--%>
-    <%--                &lt;%&ndash;<a href="javascript:formname.submit();">submit</a>&ndash;%&gt;--%>
-
-    <%--&lt;%&ndash;           <a href="javascript:{}" onclick="document.getElementById('my_form').submit();"&ndash;%&gt;--%>
-    <%--&lt;%&ndash;                       class="list-group-item list-group-item-action active py-3 lh-tight"&ndash;%&gt;--%>
-    <%--&lt;%&ndash;                       aria-current="true">&ndash;%&gt;--%>
-    <%--               <a href="#"--%>
-    <%--                       class="list-group-item list-group-item-action active py-3 lh-tight"--%>
-    <%--                       aria-current="true">--%>
-    <%--                <div id="scddate" class="d-flex w-100 align-items-center justify-content-between">--%>
-    <%--                    <strong class="mb-1">${"Day"} ${status.count}</strong>--%>
-    <%--                    <small>${list}</small>--%>
-    <%--                </div>--%>
-    <%--                <div class="col-10 mb-1 small">${city.name}</div>--%>
-    <%--            </a>--%>
-    <%--            <input type="hidden" name="city" value="${city}">--%>
-
-    <%--            <input type="hidden" name="cityname" value="${city.name}">--%>
-    <%--            <input type="hidden" name="cityX" value="${city.cityX}">--%>
-    <%--            <input type="hidden" name="cityY" value="${city.cityY}">--%>
-    <%--            <input type="hidden" name="Explain" value="${city.explain}">--%>
-    <%--            <input type="hidden" name="Cityseq" value="${city.cityseq}">--%>
-
-
-    <%--            <input type="hidden" name="planname" value="${citydto.name}">--%>
-    <%--            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">--%>
-    <%--            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">--%>
-    <%--            <input type="hidden" name="willshare" value="${citydto.willshare}">--%>
-
-
-    <%--&lt;%&ndash;			<input type="hidden" name="rdate" value="${list}">&ndash;%&gt;--%>
-
-    <%--            </c:forEach>--%>
-    <%--                <input type="text" name="rdate" value="">--%>
-    <%--            <input type="hidden" name="datelist" value="${list}">--%>
-
-    <%--    </form>--%>
-
-    <%--<&--------------------------------------------------------------------------&>--%>
+<%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
     <c:forEach items="${datelist}" var="list" varStatus="status">
     <div id="schedulelist" class="list-group">
         <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-                <%--<a href="javascript:formname.submit();">submit</a>--%>
             <input type="submit" value="${"Day"} ${status.count} ${list}" class="btn btn-primary">
-            <!-- <a href="javascript:{}" id="pickdate"onclick="document.getElementById('my_form').submit();"
-                       class="list-group-item list-group-item-action active py-3 lh-tight"
-                       aria-current="true"> -->
-                <%--               <a href="#"--%>
-                <%--                       class="list-group-item list-group-item-action active py-3 lh-tight"--%>
-                <%--                       aria-current="true">--%>
+
             <div class="d-flex w-100 align-items-center justify-content-between">
                 <strong class="mb-1">${"Day"} ${status.count}</strong>
                 <small>${list}</small>
@@ -1207,8 +227,8 @@
             <input type="hidden" name="city" value="${city}">
 
             <input type="hidden" name="cityname" value="${city.name}">
-            <input type="hidden" name="cityX" value="${city.cityX}">
-            <input type="hidden" name="cityY" value="${city.cityY}">
+            <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
+            <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
             <input type="hidden" name="Explain" value="${city.explain}">
             <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
@@ -1225,84 +245,44 @@
             </c:forEach>
         </form>
         </c:forEach>
-
-        <%--<&--------------------------------------------------------------------------&>--%>
-
-
     </div>
 
-    <%--정보끝--%>
 
-    <%--
-        할일 -> 사용자가 선택한 날짜에 맞게 tblPlan2에서 where절 걸어서 리스트 가져오기
-        문제 : DTO 보내야 함
-        1. form으로 보낸다
-        2. a로 보내는데 -> 페이지에서 필요로 하는 dto들을 db에서 구해온다.
-        3. 또 다른방방 방법 있을까요..    --%>
-    <%--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
     <script>
-        // $("#schedulelist > a").click(function(){
-        //     $("#schedulelist > a").not(this).each(function(){
-        //         $(this).removeClass("active2");
-        //     });
-        //     $(this.addClass("active2"));
-        // })
-        // // $(document).ready(function() {
-        // //     $("#schedulelist > a").click(function() {
-        // //         $(this).addClass('active');
-        // //     });
-        // //     $("#schedulelist > a").not(this).each(function(){
-        // //        $(this).removeClass('active');
-        // //     });
-        // // });
-    </script>
-    <script>
-        $("#schedulelist > a:nth-child(1)").addClass("active2");
-    </script>
-    <script>
+        $(function () {
+            var dateFormat = "yy-mm-dd",
+                from = $("#from")
+                    .datepicker({
+                        defaultDate: "+1w",
+                        changeMonth: true,
+                        numberOfMonths: 1,
+                        dateFormat: 'yy-mm-dd'
+                    })
+                    .on("change", function () {
+                        to.datepicker("option", "minDate", getDate(this));
+                    }),
+                to = $("#to").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    dateFormat: 'yy-mm-dd'
+                })
+                    .on("change", function () {
+                        from.datepicker("option", "maxDate", getDate(this));
+                    });
 
-        // $("#my_form > input.btn.btn-primary").click(function () {
-        //     // $("#schedulelist > a").css("background", "blue");
-        //     $("#my_form > input.btn.btn-primary").not(this).each(function () {
-        //         // $(this).removeClass("active2");
-        //         $(this).css("color", "green");
-        //
-        //     })
-        //     $(this).css("color", "blue");
-        //     // console.log($(this).find("small").val());
-        //     console.log($(this).select($("#scddate small")).val());
-        //     $("#schedulelist > input[type=text]").val($(this).find("small").val());
-        //
-        //     // $(this).addClass("active2");
-        // });
-        // $("#schedulelist > a").click(function () {
-        //     // $("#schedulelist > a").css("background", "blue");
-        //     $("#schedulelist > a").not(this).each(function () {
-        //         // $(this).removeClass("active2");
-        //         $(this).css("color", "green");
-        //
-        //     })
-        //     $(this).css("color", "blue");
-        //     // console.log($(this).find("small").val());
-        //     console.log($(this).select($("#scddate small")).val());
-        //     $("#schedulelist > input[type=text]").val($(this).find("small").val());
-        //
-        //     // $(this).addClass("active2");
-        // });
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
     </script>
-    <%--    <script>--%>
-    <%--        const schedulelist = document.getElementById("schedulelist");--%>
-    <%--        const items = schedulelist.querySelectorAll("a")--%>
-    <%--        const activate = e => {--%>
-    <%--            const tgt = e.target;--%>
-    <%--            items.forEach(item => item.classList.remove("active2"));--%>
-    <%--            if (tgt.tagName === "STRONG") tgt.classList.add("active2");--%>
-    <%--        };--%>
-    <%--        schedulelist.addEventListener("click", activate)--%>
-
-    <%--        //schedulelist.addEventListener("mouseover",activate)--%>
-    <%--    </script>--%>
-
     <script language='javascript'>
 
         function noEvent() {
@@ -1316,6 +296,7 @@
 
         document.onkeydown = noEvent;
 
+<%---------------------------------지도---------------------------------%>
     </script>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
@@ -1331,8 +312,9 @@
 
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
-                center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-                level: 5 // 지도의 확대 레벨
+                center: new kakao.maps.LatLng(${city.cityY}, ${city.cityX}), // 지도의 중심좌표   ${city.cityX}
+                level: 7 // 지도의 확대 레벨
+
             };
 
         // 지도를 생성합니다
@@ -1675,10 +657,8 @@
         }
 
 
-        // $( function() {
-        //     $( '.sortable' ).sortable();
-        //     $( '.sortable' ).disableSelection();
-        // } );
+
+<%--------------------------------------------------------------------------%>
 
         $('.sortable').sortable({
             start: function (e, ui) {
@@ -1710,41 +690,6 @@
         }
 
 
-        <%--  $('.sortable').sortable({
-             start: function(e, ui) {
-                 // creates a temporary attribute on the element with the old index
-                 $(this).attr('data-previndex', ui.item.index());
-                 console.log(ui.item.index());
-             },
-             update: function(e, ui) {
-                 // gets the new and old index then removes the temporary attribute
-                 var newIndex = ui.item.index();
-                 var oldIndex = $(this).attr('data-previndex');
-                 $(this).removeAttr('data-previndex');
-                 // console.log(ui.item.index());
-                 // console.log($(this));
-                 // $('#seq').html=ui.item.index();
-                 // newIndex < -> oldIndex의 seq  SWAP?
-                 // 3번 -> 0번 3번 seq 데이터 0번 : 0번 ~n번 +1
-
-                 // 일정추가 -> 무조건 순서대로 넣는다.(마지막 seq) -> DB 데이터에 이 아이디 + 전체 일정 번호 중에 seq가 max...? max + 1
-                 // 일정받아오면 -> seq 줘야하는데..${status.index}이거로 초기화
-                 // 여기서 순서대로 정렬시킨 -> DB size(); order by
-
-                 //1. n번 -> m번으로 이동하면
-                 // ------------------ 이함수실행시 1번 시작
-
-                 //2. seq가 m번과 같거나 큰 애들은 각 seq를 +1
-                 // seq 기준???
-                 //3. n번의 seq는 m이 된다.
-
-                 // $('[data-input-type="test"')
-                // <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                 // $('.seq').data('seq', newIndex);
-             document.getElementById("seq").innerHTML=ui.item.index();
-
-             }
-         }); --%>
     </script>
 
 
