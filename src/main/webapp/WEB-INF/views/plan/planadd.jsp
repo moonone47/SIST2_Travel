@@ -26,7 +26,7 @@
 
 <%-------------------------------- 카테고리 -----------------------------------%>
 <body onload="script();">
-${pageContext.request.contextPath} /SIST2_Travel <%= request.getContextPath() %> /SIST2_Travel
+
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
@@ -62,7 +62,7 @@ ${pageContext.request.contextPath} /SIST2_Travel <%= request.getContextPath() %>
         <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
     </iframe>
 
-    <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
+<%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
     <div id="addplan" class="noshow">
         <form method="POST" action="/SIST2_Travel/plan/planadd.do">
             <span><img src=""></span>
@@ -105,7 +105,7 @@ ${pageContext.request.contextPath} /SIST2_Travel <%= request.getContextPath() %>
         </form>
     </div>
 
-    <%-------------------------- 찜추가 ----------------------------%>
+<%-------------------------- 찜추가 ----------------------------%>
     <div id="addWish" class="noshow">
         <a href="!#">
             <span><img src=""></span>
@@ -296,7 +296,7 @@ ${pageContext.request.contextPath} /SIST2_Travel <%= request.getContextPath() %>
 
         document.onkeydown = noEvent;
 
-        <%---------------------------------지도---------------------------------%>
+<%---------------------------------지도---------------------------------%>
     </script>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
@@ -316,7 +316,7 @@ ${pageContext.request.contextPath} /SIST2_Travel <%= request.getContextPath() %>
                 level: 7 // 지도의 확대 레벨
 
             };
-        console.log(${city.cityY});
+
         // 지도를 생성합니다
         var map = new kakao.maps.Map(mapContainer, mapOption);
 

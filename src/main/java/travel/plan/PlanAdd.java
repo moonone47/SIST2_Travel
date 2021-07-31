@@ -52,7 +52,6 @@ public class PlanAdd extends HttpServlet {
 //		String isDone = req.getParameter("isDone");
 		PlaceDAO dao = new PlaceDAO();
 		PlaceDTO dto = new PlaceDTO();
-		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
 		int plan2seq = 0;
 		//
 		// 맵에서 들어오는 req들을 PlanDTO > list 에 일정들을 임시 저장
@@ -89,15 +88,16 @@ public class PlanAdd extends HttpServlet {
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
 		//ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
-
+		
+		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
 
 		CityDTO city = new CityDTO();
 
 		city.setName(req.getParameter("cityname"));
 		city.setCityX(req.getParameter("cityX"));
 		city.setCityY(req.getParameter("cityY"));
-		city.setExplain(req.getParameter("Explain"));
-		city.setCityseq(req.getParameter("Cityseq"));
+		city.setExplain(req.getParameter("explain"));
+		city.setCityseq(req.getParameter("cityseq"));
 
 		PlanInfoDTO citydto = new PlanInfoDTO();
 		citydto.setName(req.getParameter("planname"));

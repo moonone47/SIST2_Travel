@@ -33,6 +33,9 @@ public class Plan extends HttpServlet {
 
 
 
+
+
+
 //plan.java 시작
 //plan.jsp 전체 일정을 세팅 (: 일정설정 완료)
 //planinfo.java -> tblPlan에 전체 일정 생성 ->  todo: select(citydto에 정보 where절 날리기)으로 planseq 얻어오기 -> session에 담아두기
