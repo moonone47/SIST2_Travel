@@ -39,16 +39,14 @@ public class planscd extends HttpServlet {
             <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
         */
-		System.out.println("플랜스케쥴");
-		System.out.println(req.getParameter("rdate"));
 		//1. 데이터 받아오기
 		CityDTO city = new CityDTO();
 
 		city.setName(req.getParameter("cityname"));
 		city.setCityX(req.getParameter("cityX"));
 		city.setCityY(req.getParameter("cityY"));
-		city.setExplain(req.getParameter("explain"));
-		city.setCityseq(req.getParameter("cityseq"));
+		city.setExplain(req.getParameter("Explain"));
+		city.setCityseq(req.getParameter("Cityseq"));
 
 		PlanInfoDTO citydto = new PlanInfoDTO();
 		citydto.setName(req.getParameter("name"));
@@ -58,13 +56,13 @@ public class planscd extends HttpServlet {
 		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
-			System.out.println(datelists[i]);
 			datelist.add(datelists[i]);
-			System.out.println();
 		}
 
 
 		String rdate = req.getParameter("rdate");
+		System.out.println(rdate);
+
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();

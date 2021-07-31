@@ -26,12 +26,6 @@ public class PlanInfo extends HttpServlet {
 		PlanInfoDAO dao = new PlanInfoDAO();
 		PlanInfoDTO citydto = new PlanInfoDTO();
 
-//		System.out.println("cs :" + req.getParameter("cityseq"));
-//		System.out.println(req.getParameter("daystarttravel"));
-//		System.out.println(req.getParameter("dayendtravel"));
-//		System.out.println(req.getParameter("name"));
-		//System.out.println(req.getParameter("planseq"));
-		//System.out.println(req.getParameter("willshare"));
 		String startday = req.getParameter("daystarttravel");
 		String endday = req.getParameter("dayendtravel");
 
@@ -41,9 +35,7 @@ public class PlanInfo extends HttpServlet {
 		citydto.setName(req.getParameter("name"));
 		//dto.setPlanseq(req.getParameter("planseq"));
 
-		//System.out.println(req.getParameter("willshare"));
 
-		//System.out.println(req.getParameter("citys"));
 
 
 		if(req.getParameter("willshare") != null) {
@@ -66,8 +58,6 @@ public class PlanInfo extends HttpServlet {
 		session.setAttribute("planseq", planseq);
 
 		//todo : daystrattravel , dayendtravel -> 날짜 계산
-//		System.out.println(startday);
-//		System.out.println(endday);
 //		20210714
 //20210722
 
@@ -111,7 +101,6 @@ public class PlanInfo extends HttpServlet {
 //			date.add(Calendar.DATE, 1);
 //			String dated = df.format(date.getTime());
 //			datelist.add(dated);
-//			System.out.println(dated);
 //		}
 		String startdate = df.format(FirstDate);
 
@@ -129,11 +118,9 @@ public class PlanInfo extends HttpServlet {
 			date.add(Calendar.DATE, 1);
 			String dated = df.format(date.getTime());
 			datelist.add(dated);
-			System.out.println(dated);
 		}
 
 
-//		System.out.println(date);
 		//분류별로 저장
 
 //		req.setAttribute("dto",dto);
