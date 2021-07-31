@@ -20,7 +20,6 @@ public class Plan extends HttpServlet {
 		CityDAO dao = new CityDAO();
 		
 		CityDTO dto = new CityDTO();
-		
 
 		ArrayList<CityDTO> citys = dao.list();
 
@@ -31,6 +30,9 @@ public class Plan extends HttpServlet {
 	}
 
 }
+
+
+
 
 
 

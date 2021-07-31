@@ -50,9 +50,10 @@ public class planscd extends HttpServlet {
 		city.setCityseq(req.getParameter("Cityseq"));
 
 		PlanInfoDTO citydto = new PlanInfoDTO();
-		citydto.setName(req.getParameter("name"));
+		citydto.setName(req.getParameter("planname"));
 		citydto.setDayendtravel(req.getParameter("dayendtravel"));
 		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setWillshare(req.getParameter("willshare"));
 
 		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
 		ArrayList<String> datelist = new ArrayList<String>();
@@ -63,9 +64,9 @@ public class planscd extends HttpServlet {
 
 
 		String rdate = req.getParameter("rdate");
-		System.out.println("-----------");
-		System.out.println(rdate);
-		System.out.println("-----------");
+//		System.out.println("-----------");
+//		System.out.println(rdate);
+//		System.out.println("-----------");
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();
