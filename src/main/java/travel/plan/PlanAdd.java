@@ -18,7 +18,18 @@ public class PlanAdd extends HttpServlet {
 
 		req.setCharacterEncoding("UTF-8");
 
-
+		// PlanAdd.java
+//		address_name: "서울 중구 을지로5가 275-3"
+//		category_group_code: "AD5"
+//		category_group_name: "숙박"
+//		category_name: "여행 > 숙박 > 호텔 > 특급호텔 > 라마다호텔"
+//		id: "13111137"
+//		phone: "02-2276-3500"
+//		place_name: "라마다 서울동대문"
+//		place_url: "http://place.map.kakao.com/13111137"
+//		road_address_name: "서울 중구 동호로 354"
+//		x: "127.002698429626"
+//		y: "37.5658944720562"
 		
 		String address_name = req.getParameter("address_name");
 		String category_group_code = req.getParameter("category_group_code");
@@ -31,19 +42,7 @@ public class PlanAdd extends HttpServlet {
 		String road_address_name = req.getParameter("road_address_name");
 		String x = req.getParameter("x");
 		String y = req.getParameter("y");
-		
-		String rdate = req.getParameter("rdate");
-		System.out.println("@@@@@@@@@@@@@@");
-		System.out.println(rdate);
-		System.out.println("@@@@@@@@@@@@@@");
-
-
-		//2.tblPlan2 -> rdate select해오기
-		//
-
-		//todo: 로그인 구현 되면 id ->session에서 가져오기
-
-
+		String date = req.getParameter("date");
 		HttpSession session = req.getSession();
 //		todo: 구현
 //		String userId = (String) session.getAttribute("id");
@@ -52,7 +51,6 @@ public class PlanAdd extends HttpServlet {
 //		String isDone = req.getParameter("isDone");
 		PlaceDAO dao = new PlaceDAO();
 		PlaceDTO dto = new PlaceDTO();
-		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
 		int plan2seq = 0;
 		//
 		// 맵에서 들어오는 req들을 PlanDTO > list 에 일정들을 임시 저장
@@ -75,7 +73,6 @@ public class PlanAdd extends HttpServlet {
 		dto.setRoad_address_name(road_address_name);
 		dto.setX(x);
 		dto.setY(y);
-		dto.setRdate(rdate);
 
 		result = dao.add(dto);
 
@@ -88,54 +85,56 @@ public class PlanAdd extends HttpServlet {
 		//todo: id별로 dto를 묶어서 사용자에게 모든 일정을 전달해야한다. dto가 아닌 list를 던져줘야함..
 		// db 들어가서 where 일정번호로 select해서 나온 값을 return해줘야함...
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
-		//ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
+		ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
 
 
-		CityDTO city = new CityDTO();
+//		req.setAttribute("list", list);
+//		if (list.size() != 0) {
+//			resp.sendRedirect("/SIST2_Travel/map.jsp");
+//		} else {
+//			System.out.println("list에 값이 들어있지 않습니다.");
+//		}
 
-		city.setName(req.getParameter("cityname"));
-		city.setCityX(req.getParameter("cityX"));
-		city.setCityY(req.getParameter("cityY"));
-		city.setExplain(req.getParameter("Explain"));
-		city.setCityseq(req.getParameter("Cityseq"));
+//		list.add(dto); // DB에 넣지 않고 list에 add 가능한가요..?
+		//
+		/*
+		 * if(isDone != null && isDone.equals("y")){ dao.add(list); }
+		 */
+//		req.setAttribute("list", list);
+//		req.setAttribute("dto", dto); // dto로 전달
 
-		PlanInfoDTO citydto = new PlanInfoDTO();
-		citydto.setName(req.getParameter("planname"));
-		citydto.setDayendtravel(req.getParameter("dayendtravel"));
-		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
-		citydto.setWillshare(req.getParameter("willshare"));
-
-		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
-		ArrayList<String> datelist = new ArrayList<String>();
-		for (int i = 0; i < datelists.length; i++) {
-			datelist.add(datelists[i]);
-			//System.out.println(datelists[i]);
+		
+		/* //일정 순서 저장 -> 마지막에 seq에 넣어줌...
+		 * String[] planseq = req.getParameterValues("planseq"); String[] seq =
+		 * req.getParameterValues("seq");
+		 * 
+		 * ArrayList<HashMap<String,String>> seqlist = new
+		 * ArrayList<HashMap<String,String>>();
+		 * 
+		 * 
+		 * for(int i=0; i<planseq.length; i++) {
+		 * 
+		 * HashMap<String,String> temp = new HashMap<String,String>();
+		 * 
+		 * temp.put(planseq[i], seq[i]); seqlist.add(temp); }
+		 * 
+		 * int r = dao.addseq(seqlist);
+		 * 
+		 * if(r == planseq.length) { // 완료 페이지로 이동
+		 * 
+		 * } else { // 실패 -> 페이지 유지 }
+		 */
+		
+		if(list.size() == 0){
+			System.out.println("list가 null입니다.");
 		}
-
-
-
-		req.setAttribute("list", list); //planadd.jsp에서 일정 리스트 용
-		req.setAttribute("city", city); //도시 좌표
-		req.setAttribute("citydto", citydto); //일정에 채워 넣을 용
-		req.setAttribute("datelist", datelist); //전체 일정 날짜
-		req.setAttribute("rdate", rdate);
-
+		req.setAttribute("list", list);
 		//RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 //		todo: 기능 구현 후 아래 planadd.jsp
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate="+rdate);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
 		dispatcher.forward(req, resp);
 		
 	}
-
-
-
-
-
-
-
-
-
-
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
