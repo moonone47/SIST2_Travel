@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import org.apache.taglibs.standard.tag.common.fmt.ParseDateSupport;
-
 public class CityDAO {
 
     private Connection conn;
@@ -40,7 +38,7 @@ public class CityDAO {
                 CityDTO dto = new CityDTO();
                 dto.setCityseq(rs.getString("Cityseq"));
                 dto.setName(rs.getString("name"));
-                dto.setExplain(rs.getString("Explain"));
+                dto.setExplain(rs.getString("explain"));
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
 
@@ -68,11 +66,10 @@ public class CityDAO {
 
                 dto.setCityseq(rs.getString("Cityseq"));
                 dto.setName(rs.getString("name"));
-                dto.setExplain(rs.getString("Explain"));
+                dto.setExplain(rs.getString("explain"));
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
             }
-           
            return dto;
 
         } catch (Exception e) {

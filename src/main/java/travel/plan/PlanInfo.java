@@ -43,7 +43,7 @@ public class PlanInfo extends HttpServlet {
 		
 		System.out.println(req.getParameter("willshare"));
 
-		System.out.println(req.getParameter("citys"));
+		//System.out.println(req.getParameter("citys"));
 
 		
 			if(req.getParameter("willshare") != null) {
@@ -113,6 +113,9 @@ public class PlanInfo extends HttpServlet {
 //			datelist.add(dated);
 //			System.out.println(dated);
 //		}
+		String startdate = df.format(FirstDate);
+		
+		
 		int eyear = Integer.parseInt(endday.substring(0,4));
 		int emonth = Integer.parseInt(endday.substring(4, 6)) ;
 		int eday = Integer.parseInt(endday.substring(6));
@@ -146,7 +149,7 @@ public class PlanInfo extends HttpServlet {
 //		req.setAttribute("days", calDateDays); //전체 일정 날짜
 		req.setAttribute("datelist", datelist);
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate=" + startdate);
 		dispatcher.forward(req, resp);
 	}
 
