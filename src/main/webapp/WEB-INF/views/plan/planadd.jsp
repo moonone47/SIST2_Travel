@@ -499,12 +499,15 @@
             <a href="/SIST2_Travel/plan/planadd.do?rdate=
 
 
+
         ${list}
 
 
-                        " class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <strong class="mb-1">
+
+                                " class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+                                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                                <strong class="mb-1">
+
 
 
         ${"Day"}
@@ -512,28 +515,35 @@
 
 
 
+
+
         ${status.count}
 
 
-                        </strong>
-                                        <small>
+
+                                </strong>
+                                                <small>
+
 
 
         ${list}
 
 
-                        </small>
-                                    </div>
-                                    <div class="col-10 mb-1 small">
+
+                                </small>
+                                            </div>
+                                            <div class="col-10 mb-1 small">
+
 
 
         ${city.name}
 
 
-                        </div>
-                                </a>
-                            </div>
-                            */
+
+                                </div>
+                                        </a>
+                                    </div>
+                                    */
 
         /*#schedulelist a strong { background-color: blue }*/
         /* #schedulelist a strong:active { background-color: red } */
@@ -562,7 +572,232 @@
         <a href="/web/documentation/#CategoryCode" target="_blank">카테고리 코드목록을 보시려면 여기를 클릭하세요!</a>
     </em>
 </p> --%>
+<%-------------------------------- test -----------------------------------%>
 
+<%--<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">--%>
+<%--    <div class="plan sortable" id="planlist">--%>
+
+
+<%--        <div class="list-group">--%>
+<%--            <div class="list-group-item list-group-item-action">--%>
+<%--                <div id="seqname"></div>--%>
+<%--                <div class="d-flex w-100 justify-content-between" data-seq="0">--%>
+<%--                    <h5 class="mb-1">신라스테이 광화문 0</h5>--%>
+<%--                    <small class="text-muted">숙박</small>--%>
+<%--                </div>--%>
+<%--                <p class="mb-1">서울 종로구 수송동 156</p>--%>
+
+
+<%--                <button type="button" class="close" aria-label="Close"--%>
+<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=161';">--%>
+
+<%--                    <span aria-hidden="true">&times;</span>--%>
+<%--                </button>--%>
+
+<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
+<%--                    <input type="hidden" name="plan2seq" value="161">--%>
+
+
+<%--                    <input type="hidden" name="cityname" value="서울">--%>
+<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
+<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
+<%--                    <input type="hidden" name="Explain" value="설명">--%>
+<%--                    <input type="hidden" name="Cityseq" value="1">--%>
+
+
+<%--                    <input type="hidden" name="planname" value="asdf">--%>
+<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
+<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
+<%--                    <input type="hidden" name="willshare" value="n">--%>
+
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
+
+
+<%--                </form>--%>
+
+
+<%--            </div>--%>
+
+
+<%--            <input type="hidden" name="planseq" value="161">--%>
+
+<%--            <input type="hidden" name="seq" value="">--%>
+<%--        </div>--%>
+
+
+<%--        <div class="list-group">--%>
+<%--            <div class="list-group-item list-group-item-action">--%>
+<%--                <div id="seqname"></div>--%>
+<%--                <div class="d-flex w-100 justify-content-between" data-seq="1">--%>
+<%--                    <h5 class="mb-1">오장동함흥냉면 1</h5>--%>
+<%--                    <small class="text-muted">음식점</small>--%>
+<%--                </div>--%>
+<%--                <p class="mb-1">서울 중구 오장동 90-10</p>--%>
+
+
+<%--                <button type="button" class="close" aria-label="Close"--%>
+<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=191';">--%>
+
+<%--                    <span aria-hidden="true">&times;</span>--%>
+<%--                </button>--%>
+
+<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
+<%--                    <input type="hidden" name="plan2seq" value="191">--%>
+
+
+<%--                    <input type="hidden" name="cityname" value="서울">--%>
+<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
+<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
+<%--                    <input type="hidden" name="Explain" value="설명">--%>
+<%--                    <input type="hidden" name="Cityseq" value="1">--%>
+
+
+<%--                    <input type="hidden" name="planname" value="asdf">--%>
+<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
+<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
+<%--                    <input type="hidden" name="willshare" value="n">--%>
+
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
+
+
+<%--                </form>--%>
+
+
+<%--            </div>--%>
+
+
+<%--            <input type="hidden" name="planseq" value="191">--%>
+
+<%--            <input type="hidden" name="seq" value="">--%>
+<%--        </div>--%>
+
+
+<%--        <div class="list-group">--%>
+<%--            <div class="list-group-item list-group-item-action">--%>
+<%--                <div id="seqname"></div>--%>
+<%--                <div class="d-flex w-100 justify-content-between" data-seq="2">--%>
+<%--                    <h5 class="mb-1">오장동함흥냉면 2</h5>--%>
+<%--                    <small class="text-muted">음식점</small>--%>
+<%--                </div>--%>
+<%--                <p class="mb-1">서울 중구 오장동 90-10</p>--%>
+
+
+<%--                <button type="button" class="close" aria-label="Close"--%>
+<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=192';">--%>
+
+<%--                    <span aria-hidden="true">&times;</span>--%>
+<%--                </button>--%>
+
+<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
+<%--                    <input type="hidden" name="plan2seq" value="192">--%>
+
+
+<%--                    <input type="hidden" name="cityname" value="서울">--%>
+<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
+<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
+<%--                    <input type="hidden" name="Explain" value="설명">--%>
+<%--                    <input type="hidden" name="Cityseq" value="1">--%>
+
+
+<%--                    <input type="hidden" name="planname" value="asdf">--%>
+<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
+<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
+<%--                    <input type="hidden" name="willshare" value="n">--%>
+
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
+
+
+<%--                </form>--%>
+
+
+<%--            </div>--%>
+
+
+<%--            <input type="hidden" name="planseq" value="192">--%>
+
+<%--            <input type="hidden" name="seq" value="">--%>
+<%--        </div>--%>
+
+
+<%--        <div class="list-group">--%>
+<%--            <div class="list-group-item list-group-item-action">--%>
+<%--                <div id="seqname"></div>--%>
+<%--                <div class="d-flex w-100 justify-content-between" data-seq="3">--%>
+<%--                    <h5 class="mb-1">우래옥 본점 3</h5>--%>
+<%--                    <small class="text-muted">음식점</small>--%>
+<%--                </div>--%>
+<%--                <p class="mb-1">서울 중구 주교동 118-1</p>--%>
+
+
+<%--                <button type="button" class="close" aria-label="Close"--%>
+<%--                        onclick="location.href='/SIST2_Travel/plan/plandel.do?plan2seq=193';">--%>
+
+<%--                    <span aria-hidden="true">&times;</span>--%>
+<%--                </button>--%>
+
+<%--                <form method="POST" action="/SIST2_Travel/plan/plandel.do">--%>
+<%--                    <input type="hidden" name="plan2seq" value="193">--%>
+
+
+<%--                    <input type="hidden" name="cityname" value="서울">--%>
+<%--                    <input type="hidden" name="cityX" value="126.97802024074774">--%>
+<%--                    <input type="hidden" name="cityY" value="37.56628243419237">--%>
+<%--                    <input type="hidden" name="Explain" value="설명">--%>
+<%--                    <input type="hidden" name="Cityseq" value="1">--%>
+
+
+<%--                    <input type="hidden" name="planname" value="asdf">--%>
+<%--                    <input type="hidden" name="dayendtravel" value="20210704">--%>
+<%--                    <input type="hidden" name="daystarttravel" value="20210701">--%>
+<%--                    <input type="hidden" name="willshare" value="n">--%>
+
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-01">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-02">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-03">--%>
+
+<%--                    <input type="hidden" name="datelist" value="2021-07-04">--%>
+
+
+<%--                </form>--%>
+
+
+<%--            </div>--%>
+
+
+<%--            <input type="hidden" name="planseq" value="193">--%>
+
+<%--            <input type="hidden" name="seq" value="">--%>
+<%--        </div>--%>
+
+<%--        <input type="submit" value="일정 등록 완료">--%>
+<%--    </div>--%>
+<%--</form>--%>
+
+<%-------------------------------- test -----------------------------------%>
 <%-------------------------------- 카테고리 -----------------------------------%>
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
@@ -636,7 +871,6 @@
             <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
 
-
             <input type="hidden" name="planname" value="${citydto.name}">
             <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
             <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
@@ -665,7 +899,7 @@
 </div>
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
-<form id="getlist" method="POST" action="/SIST2_Travel/plan/planadd.do">
+<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
     <div class="plan sortable" id="planlist">
 
         <c:forEach items="${list}" var="dto" varStatus="status">
@@ -694,6 +928,7 @@
                             req.setAttribute("citydto",citydto); //일정에 채워 넣을
                             req.setAttribute("datelist", datelist);--%>
 
+
                         <input type="hidden" name="cityname" value="${city.name}">
                         <input type="hidden" name="cityX" value="${city.cityX}">
                         <input type="hidden" name="cityY" value="${city.cityY}">
@@ -712,13 +947,42 @@
                         </c:forEach>
 
 
-                        <input type="submit" class="close" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            <%--                        <input type="submit" class="close" aria-label="Close"><span aria-hidden="true">&times;</span>--%>
                     </form>
 
                         <%-- <small class="text-muted">And some muted small print.</small>--%>
                 </div>
-                <input type="hidden" name="planseq[]" value="${dto.planseq}">
-                <input type="hidden" name="seq[]" value="">
+                    <%--                여 아래에 값이 안들어간다..--%>
+                <input type="hidden" name="planseq" value="${dto.plan2seq}">
+                <input type="hidden" name="seq" value="${status.count}">
+<%--
+                    161
+1
+여기는  plandone
+191
+2
+여기는  plandone
+192
+3
+여기는  plandone
+193
+4
+여기는  plandone
+-----------
+2021-07-01
+-----------
+161
+1
+193
+2
+191
+3
+192
+4
+
+
+--%>
+
             </div>
         </c:forEach>
         <input type="submit" value="일정 등록 완료">
@@ -811,15 +1075,15 @@
         <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
             <div class="w-100 align-items-center justify-content-between">
                 <strong class="mb-1">전체 일정</strong>
-                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off"></div>
+                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
                 <%--            <div>시작날짜 <span>Date: <input type="text" class="datepicker" id="datepicker_start" name="datepicker_start" value="${citydto.daystarttravel}"></span> </div><br>--%>
                 <%--            <div>종료날짜:<span>Date: <input type="text" class="datepicker" id="datepicker_end" name="datepicker_end" value="${citydto.dayendtravel}"></span> </div>
                 --%>
                 <label for="from">From</label>
-                <input type="text" id="from" name="daystarttravel">
+                <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">
                 <br>
                 <label for="to">to</label>
-                <input type="text" id="to" name="dayendtravel">
+                <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">
 
                 <%-- 날짜 계산--%>
 
@@ -962,7 +1226,7 @@
         </form>
         </c:forEach>
 
-       <%--<&--------------------------------------------------------------------------&>--%>
+        <%--<&--------------------------------------------------------------------------&>--%>
 
 
     </div>
@@ -996,33 +1260,48 @@
         $("#schedulelist > a:nth-child(1)").addClass("active2");
     </script>
     <script>
-        $("#schedulelist > a").click(function () {
-            // $("#schedulelist > a").css("background", "blue");
-            $("#schedulelist > a").not(this).each(function () {
-                // $(this).removeClass("active2");
-                $(this).css("color", "green");
 
-            })
-            $(this).css("color", "blue");
-            // console.log($(this).find("small").val());
-            console.log($(this).select($("#scddate small")).val());
-            $("#schedulelist > input[type=text]").val($(this).find("small").val());
-
-            // $(this).addClass("active2");
-        });
+        // $("#my_form > input.btn.btn-primary").click(function () {
+        //     // $("#schedulelist > a").css("background", "blue");
+        //     $("#my_form > input.btn.btn-primary").not(this).each(function () {
+        //         // $(this).removeClass("active2");
+        //         $(this).css("color", "green");
+        //
+        //     })
+        //     $(this).css("color", "blue");
+        //     // console.log($(this).find("small").val());
+        //     console.log($(this).select($("#scddate small")).val());
+        //     $("#schedulelist > input[type=text]").val($(this).find("small").val());
+        //
+        //     // $(this).addClass("active2");
+        // });
+        // $("#schedulelist > a").click(function () {
+        //     // $("#schedulelist > a").css("background", "blue");
+        //     $("#schedulelist > a").not(this).each(function () {
+        //         // $(this).removeClass("active2");
+        //         $(this).css("color", "green");
+        //
+        //     })
+        //     $(this).css("color", "blue");
+        //     // console.log($(this).find("small").val());
+        //     console.log($(this).select($("#scddate small")).val());
+        //     $("#schedulelist > input[type=text]").val($(this).find("small").val());
+        //
+        //     // $(this).addClass("active2");
+        // });
     </script>
-<%--    <script>--%>
-<%--        const schedulelist = document.getElementById("schedulelist");--%>
-<%--        const items = schedulelist.querySelectorAll("a")--%>
-<%--        const activate = e => {--%>
-<%--            const tgt = e.target;--%>
-<%--            items.forEach(item => item.classList.remove("active2"));--%>
-<%--            if (tgt.tagName === "STRONG") tgt.classList.add("active2");--%>
-<%--        };--%>
-<%--        schedulelist.addEventListener("click", activate)--%>
+    <%--    <script>--%>
+    <%--        const schedulelist = document.getElementById("schedulelist");--%>
+    <%--        const items = schedulelist.querySelectorAll("a")--%>
+    <%--        const activate = e => {--%>
+    <%--            const tgt = e.target;--%>
+    <%--            items.forEach(item => item.classList.remove("active2"));--%>
+    <%--            if (tgt.tagName === "STRONG") tgt.classList.add("active2");--%>
+    <%--        };--%>
+    <%--        schedulelist.addEventListener("click", activate)--%>
 
-<%--        //schedulelist.addEventListener("mouseover",activate)--%>
-<%--    </script>--%>
+    <%--        //schedulelist.addEventListener("mouseover",activate)--%>
+    <%--    </script>--%>
 
     <script language='javascript'>
 

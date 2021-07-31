@@ -39,8 +39,7 @@ public class planscd extends HttpServlet {
             <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
         */
-		System.out.println("플랜스케쥴");
-		System.out.println(req.getParameter("rdate"));
+
 		//1. 데이터 받아오기
 		CityDTO city = new CityDTO();
 
