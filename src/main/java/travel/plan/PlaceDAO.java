@@ -47,7 +47,7 @@ public class PlaceDAO {
             pstat.setString(11, dto.getY());
             pstat.setInt(12, 1);              //pstat.setInt(12, 1);
             pstat.setInt(13, 4);
-            pstat.setString(14, "2021-07-27");
+            pstat.setString(14, dto.getRdate());
             return pstat.executeUpdate();
 
 //            sql = "select max(plan2seq) from tblPlan2";

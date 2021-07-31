@@ -17,8 +17,20 @@ public class PlanAdd extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		req.setCharacterEncoding("UTF-8");
-		HttpSession session = req.getSession();
 
+		// PlanAdd.java
+//		address_name: "서울 중구 을지로5가 275-3"
+//		category_group_code: "AD5"
+//		category_group_name: "숙박"
+//		category_name: "여행 > 숙박 > 호텔 > 특급호텔 > 라마다호텔"
+//		id: "13111137"
+//		phone: "02-2276-3500"
+//		place_name: "라마다 서울동대문"
+//		place_url: "http://place.map.kakao.com/13111137"
+//		road_address_name: "서울 중구 동호로 354"
+//		x: "127.002698429626"
+//		y: "37.5658944720562"
+		
 		String address_name = req.getParameter("address_name");
 		String category_group_code = req.getParameter("category_group_code");
 		String category_group_name = req.getParameter("category_group_name");
@@ -30,46 +42,13 @@ public class PlanAdd extends HttpServlet {
 		String road_address_name = req.getParameter("road_address_name");
 		String x = req.getParameter("x");
 		String y = req.getParameter("y");
-		String date = req.getParameter("date"); //??
-
+		
 		String rdate = req.getParameter("rdate");
-
-		String cityname = req.getParameter("cityname");
-		String cityX = req.getParameter("cityX");
-		String cityY = req.getParameter("cityY");
-		String explain = req.getParameter("Explain");
-		String cityseq = req.getParameter("Cityseq");
-
-		String planname = req.getParameter("plannmae");
-		String dayendtravel = req.getParameter("dayendtravel");
-		String daystarttravel = req.getParameter("daystarttravel");
-		String willshare = req.getParameter("willshare");
-
-		String tdatelist[] = req.getParameterValues("datelist");
-
-		CityDTO city = new CityDTO();
-		city.setName(cityname);
-		city.setCityX(cityX);
-		city.setCityY(cityY);
-		city.setExplain(explain);
-		city.setCityseq(cityseq);
-
-		PlanInfoDTO citydto = new PlanInfoDTO();
-		citydto.setName(planname);
-		citydto.setDayendtravel(dayendtravel);
-		citydto.setDaystarttravel(daystarttravel);
-		citydto.setWillshare(willshare);
-
-		String[] datelists = tdatelist;
-
-		ArrayList<String> datelist = new ArrayList<String>();
-		for(int i=0; i<datelists.length; i++){
-			datelist.add(datelists[i]);
-		}
-
-
-
-
+		System.out.println("@@@@@@@@@@@@@@");
+		System.out.println(rdate);
+		System.out.println("@@@@@@@@@@@@@@");
+		
+		HttpSession session = req.getSession();
 //		todo: 구현
 //		String userId = (String) session.getAttribute("id");
 //		String userId = req.getParameter("userid");
@@ -99,6 +78,7 @@ public class PlanAdd extends HttpServlet {
 		dto.setRoad_address_name(road_address_name);
 		dto.setX(x);
 		dto.setY(y);
+		dto.setRdate(rdate);
 
 		result = dao.add(dto);
 
@@ -114,9 +94,44 @@ public class PlanAdd extends HttpServlet {
 		ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
 
 
+//		req.setAttribute("list", list);
+//		if (list.size() != 0) {
+//			resp.sendRedirect("/SIST2_Travel/map.jsp");
+//		} else {
+//		}
+
+//		list.add(dto); // DB에 넣지 않고 list에 add 가능한가요..?
+		//
+		/*
+		 * if(isDone != null && isDone.equals("y")){ dao.add(list); }
+		 */
+//		req.setAttribute("list", list);
+//		req.setAttribute("dto", dto); // dto로 전달
 
 		
-
+		/* //일정 순서 저장 -> 마지막에 seq에 넣어줌...
+		 * String[] planseq = req.getParameterValues("planseq"); String[] seq =
+		 * req.getParameterValues("seq");
+		 * 
+		 * ArrayList<HashMap<String,String>> seqlist = new
+		 * ArrayList<HashMap<String,String>>();
+		 * 
+		 * 
+		 * for(int i=0; i<planseq.length; i++) {
+		 * 
+		 * HashMap<String,String> temp = new HashMap<String,String>();
+		 * 
+		 * temp.put(planseq[i], seq[i]); seqlist.add(temp); }
+		 * 
+		 * int r = dao.addseq(seqlist);
+		 * 
+		 * if(r == planseq.length) { // 완료 페이지로 이동
+		 * 
+		 * } else { // 실패 -> 페이지 유지 }
+		 */
+		
+		if(list.size() == 0){
+		}
 		req.setAttribute("list", list);
 		//RequestDispatcher dispatcher = req.getRequestDispatcher("/map.jsp");
 //		todo: 기능 구현 후 아래 planadd.jsp

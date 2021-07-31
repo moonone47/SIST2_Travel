@@ -39,6 +39,7 @@ public class planscd extends HttpServlet {
             <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
         */
+
 		//1. 데이터 받아오기
 		CityDTO city = new CityDTO();
 
@@ -58,12 +59,14 @@ public class planscd extends HttpServlet {
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
+			//System.out.println(datelists[i]);
 		}
 
 
 		String rdate = req.getParameter("rdate");
+		System.out.println("-----------");
 		System.out.println(rdate);
-
+		System.out.println("-----------");
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();
@@ -76,7 +79,7 @@ public class planscd extends HttpServlet {
 		req.setAttribute("city", city); //도시 좌표
 		req.setAttribute("citydto", citydto); //일정에 채워 넣을 용
 		req.setAttribute("datelist", datelist); //전체 일정 날짜
-
+		req.setAttribute("rdate", rdate);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate="+rdate);
 		dispatcher.forward(req, resp);
 
