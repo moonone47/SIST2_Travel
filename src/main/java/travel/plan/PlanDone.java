@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/plan/plandone.do")
 public class PlanDone extends HttpServlet {
@@ -18,7 +17,7 @@ public class PlanDone extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
-
+//        req.setAttribute("?", )
 		/*
 		일정 계획 완료
 		1) 순서 넣어주기 tblPlan2에 seq 컬럼에 추가해준다.
