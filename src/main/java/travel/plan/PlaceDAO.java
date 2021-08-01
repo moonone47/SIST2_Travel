@@ -6,12 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
 
 public class PlaceDAO {
 
@@ -213,20 +210,7 @@ public class PlaceDAO {
         return null;
     }
 
-    public int addseq(ArrayList<HashMap<String, String>> seqlist) {
 
-        try {
-
-            while (rs.next()) {
-                //rs.get
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        return 0;
-    }
 
     public int del(String plan2seq) {
         try {
@@ -298,7 +282,6 @@ public class PlaceDAO {
             pstat.setString(2, plan2seq);
 
             int result = pstat.executeUpdate();
-//            System.out.println("update성공?" + result);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -399,7 +382,6 @@ public void addAD5(PlaceDTO dto, String tblplanseq, String memberid) {
 
 }
     public void addAT4(PlaceDTO dto, String tblplanseq, String  memberid) {
-        System.out.println("rdate: " + dto.getRdate());
         try {
             String sql =
                     "insert into tblSights values(seqSights.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , " +

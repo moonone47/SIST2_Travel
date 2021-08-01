@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>myapp</title>
+  <title>여행 병아리들을 위한 여행계획사이트 티피~~</title>
 
 <%@ include file="/inc/asset.jsp" %>
 
@@ -18,21 +18,26 @@
 <%@ include file="/inc/header.jsp" %>
 
 <section class="main-section">
-이름정하기........................................
-zzz
-어스토리 마이리얼트립 스투비플래너 클룩 트리플 프립
-어스 리얼 플래너
-마이트래블플래너
-유어리얼트립
-  travel plan
-  tp
-  sist
-  SisTravel
-  Schedule
 
-트래블러
-티피(아귀엽다) > Travel Plan * 여행 병아리들을 위한 여행계획사이트 티피~~
-TCP
+	<h1>문의게시판list</h1>
+
+	<table class="table table-bordered">
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>이름</th>
+			<th>날짜</th>
+			<th>읽음</th>
+		</tr>
+	</table>
+	
+	<div class="btns">
+		<button type="button" class="btn btn-primary"
+			onclick="location.href='';">글쓰기</button>
+		<button type="button" class="btn btn-primary"
+			onclick="location.reload();">새로도침</button>
+	</div>
+
 </section>
 
 
@@ -43,18 +48,4 @@ TCP
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

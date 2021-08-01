@@ -33,9 +33,6 @@ public class PlanAdd extends HttpServlet {
 		String y = req.getParameter("y");
 		
 		String rdate = req.getParameter("rdate");
-//		System.out.println("@@@@@@@@@@@@@@");
-//		System.out.println(rdate);
-//		System.out.println("@@@@@@@@@@@@@@");
 
 
 		//2.tblPlan2 -> rdate select해오기
@@ -109,7 +106,6 @@ public class PlanAdd extends HttpServlet {
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
-			//System.out.println(datelists[i]);
 		}
 
 
