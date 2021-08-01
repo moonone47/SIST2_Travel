@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Website menu #02</h2>
+					<h2 class="heading-section">이름정하기</h2>
 				</div>
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="index.html">Papermag <span>Magazine</span></a>
+					<a class="navbar-brand" href="index.html">이름정하기 <span>Name</span></a>
 				</div>
 				<div class="col d-flex justify-content-end">
 					<div class="social-media">
@@ -55,16 +55,28 @@
 	        <ul class="navbar-nav mr-auto">
 	        	<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
 	        	<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일정계획</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
               	<a class="dropdown-item" href="#">Page 1</a>
                 <a class="dropdown-item" href="#">Page 2</a>
                 <a class="dropdown-item" href="#">Page 3</a>
-                <a class="dropdown-item" href="#">Page 4</a>
+       <a class="dropdown-item" href="#">Page 4</a>
               </div>
             </li>
-	        	<li class="nav-item"><a href="#" class="nav-link">Catalog</a></li>
-	        	<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="#">질문게시판</a>
+                <a class="dropdown-item" href="#">자유게시판</a>
+                <a class="dropdown-item" href="#">여행소모임게시판</a>
+                <a class="dropdown-item" href="#">이벤트게시판</a>
+                <a class="dropdown-item" href="#">여행후기게시판</a>
+                <a class="dropdown-item" href="#">추천글 모음 ...?</a>
+              </div>
+            </li>
+	        	<li class="nav-item"><a href="#" class="nav-link">커뮤니티</a></li>
+	        	<li class="nav-item"><a href="#" class="nav-link">예약</a></li>
 	          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
@@ -73,12 +85,10 @@
     <!-- END nav -->
 
 	</section>
-
-<script src="<%= request.getContextPath() %>/asset/js/jquery.min.js"></script>
-  <script src="<%= request.getContextPath() %>/asset/js/popper.js"></script>
-  <script src="<%= request.getContextPath() %>/asset/js/bootstrap.min.js"></script>
-  <script src="<%= request.getContextPath() %>/asset/js/main.js"></script>
-
+		<script src="<%= request.getContextPath() %>/asset/js/jquery.min.js"></script>
+		<script src="<%= request.getContextPath() %>/asset/js/popper.js"></script>
+  		<script src="<%= request.getContextPath() %>/asset/js/bootstrap.min.js"></script>
+  		<script src="<%= request.getContextPath() %>/asset/js/main.js"></script>
 	</body>
 </html>
 
