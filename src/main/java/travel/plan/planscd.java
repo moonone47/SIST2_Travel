@@ -79,7 +79,7 @@ public class planscd extends HttpServlet {
 		req.setAttribute("city", city); //도시 좌표
 		req.setAttribute("citydto", citydto); //일정에 채워 넣을 용
 		req.setAttribute("datelist", datelist); //전체 일정 날짜
-		req.setAttribute("rdate", rdate);
+		req.setAttribute("rdate", rdate); // 선택한 날짜 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate="+rdate);
 		dispatcher.forward(req, resp);
 
