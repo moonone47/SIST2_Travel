@@ -1,14 +1,13 @@
 package travel.plan;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/plan/planscd.do")
 public class planscd extends HttpServlet {
@@ -59,14 +58,10 @@ public class planscd extends HttpServlet {
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
-			//System.out.println(datelists[i]);
 		}
 
 
 		String rdate = req.getParameter("rdate");
-//		System.out.println("-----------");
-//		System.out.println(rdate);
-//		System.out.println("-----------");
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();
@@ -79,7 +74,8 @@ public class planscd extends HttpServlet {
 		req.setAttribute("city", city); //도시 좌표
 		req.setAttribute("citydto", citydto); //일정에 채워 넣을 용
 		req.setAttribute("datelist", datelist); //전체 일정 날짜
-		req.setAttribute("rdate", rdate); // 선택한 날짜 
+		req.setAttribute("rdate", rdate); // 선택한 날짜
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planadd.jsp?rdate="+rdate);
 		dispatcher.forward(req, resp);
 

@@ -110,6 +110,8 @@
     <!-- END nav -->
 
 </section>
+<%@ include file="/inc/init.jsp" %>
+
 <script src="<%= request.getContextPath() %>/asset/js/jquery.min.js"></script>
 <script src="<%= request.getContextPath() %>/asset/js/popper.js"></script>
 <script src="<%= request.getContextPath() %>/asset/js/bootstrap.min.js"></script>

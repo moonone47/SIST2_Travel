@@ -14,7 +14,7 @@
 
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/plan.css" type="text/css"/>
-<%--    <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>--%>
+<%-- <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>--%>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -54,7 +54,7 @@
         <div id="pagination"></div>
     </div>
     <iframe id='detail'
-            class="embed-responsive embed-responsive-16by9"
+            class="embed-responsive embed-responsive-16by9 invisible"
             src=''
             frameborder='0'
             scrolling='yes'
@@ -249,6 +249,11 @@
 
 
     <script>
+        $("placesList").click(function(){
+            $("detail").removeAttr("invisible");
+        });
+    </script>
+    <script>
         $(function () {
             var dateFormat = "yy-mm-dd",
                 from = $("#from")
@@ -283,21 +288,21 @@
             }
         });
     </script>
-    <script language='javascript'>
+<%--    <script language='javascript'>--%>
 
-        function noEvent() {
-            if (event.keyCode == 116) {
-                event.keyCode = 2;
-                return false;
-            } else if (event.ctrlKey && (event.keyCode == 78 || event.keyCode == 82)) {
-                return false;
-            }
-        }
+<%--        function noEvent() {--%>
+<%--            if (event.keyCode == 116) {--%>
+<%--                event.keyCode = 2;--%>
+<%--                return false;--%>
+<%--            } else if (event.ctrlKey && (event.keyCode == 78 || event.keyCode == 82)) {--%>
+<%--                return false;--%>
+<%--            }--%>
+<%--        }--%>
 
-        document.onkeydown = noEvent;
-
+<%--        document.onkeydown = noEvent;--%>
+<%--    </script>--%>
 <%---------------------------------지도---------------------------------%>
-    </script>
+
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
     <script>
