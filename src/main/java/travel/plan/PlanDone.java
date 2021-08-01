@@ -38,6 +38,7 @@ public class PlanDone extends HttpServlet {
         String[] planseq = req.getParameterValues("planseq");
         String[] seq = req.getParameterValues("seq");
         PlaceDAO dao = new PlaceDAO();
+
         PlaceDTO dto = new PlaceDTO();
 
 
