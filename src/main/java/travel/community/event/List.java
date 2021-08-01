@@ -42,6 +42,12 @@ public class List extends HttpServlet {
 
 		String page = req.getParameter("page");
 
+		if(page == null || page.equals("")){
+			nowPage = 1;
+		} else{
+			nowPage = Integer.parseInt(page);
+		}
+
 		begin = ((nowPage - 1) * pageSize) +1;
 		end = begin + pageSize - 1;
 
@@ -92,8 +98,8 @@ public class List extends HttpServlet {
 
 		pagebar += "</ul>\r\n"
 				+ "		</nav>";
-
 		ArrayList<EventDTO> list = dao.list(map);
+
 		for(EventDTO dto : list){
 			String regdate = dto.getRegdate();
 			regdate = regdate.substring(0, 10);

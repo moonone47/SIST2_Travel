@@ -43,8 +43,6 @@ public class PlanDone extends HttpServlet {
 
         //tblPlan2 -> seq -> 1로 통일 -> seq[i]로 바꿔주기
         for (int i = 0; i < planseq.length; i++) {
-//            System.out.println(planseq[i]);    //161 191 192 193
-//            System.out.println(seq[i]);    // 1 2 3 4
             dao.update(planseq[i], seq[i]);
             //planseq[i] -> where절걸고
             //seq[i] ->
@@ -61,7 +59,6 @@ public class PlanDone extends HttpServlet {
         for (int i = 0; i < planseq.length; i++) {
             dto = dao.split(planseq[i]);
 
-            System.out.println(dto.getCategory_group_code());
             if (dto.getCategory_group_code().equals("AT4")) {
                 dao.addAT4(dto,tblplanseq,memberid);
             } else if (dto.getCategory_group_code().equals("AD5")) {
@@ -69,7 +66,7 @@ public class PlanDone extends HttpServlet {
             } else if (dto.getCategory_group_code().equals("FD6")) {
                 dao.addFD6(dto,tblplanseq, memberid);
             }else{
-                System.out.println("잘못됨..");
+                System.err.println("잘못됨..");
             }
             
             dao.removeAll(planseq[i]);

@@ -282,7 +282,6 @@ public class PlaceDAO {
             pstat.setString(2, plan2seq);
 
             int result = pstat.executeUpdate();
-//            System.out.println("update성공?" + result);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -383,7 +382,6 @@ public void addAD5(PlaceDTO dto, String tblplanseq, String memberid) {
 
 }
     public void addAT4(PlaceDTO dto, String tblplanseq, String  memberid) {
-        System.out.println("rdate: " + dto.getRdate());
         try {
             String sql =
                     "insert into tblSights values(seqSights.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , " +

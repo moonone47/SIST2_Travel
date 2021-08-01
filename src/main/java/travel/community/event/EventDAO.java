@@ -43,6 +43,7 @@ public class EventDAO {
             , map.get("end")
             , where);
 
+
             pstat = conn.prepareStatement(sql);
             rs = pstat.executeQuery();
             ArrayList<EventDTO> list = new ArrayList<EventDTO>();
@@ -50,7 +51,7 @@ public class EventDAO {
             while(rs.next()){
                 EventDTO dto = new EventDTO();
                 dto.setSeq(rs.getString("seq"));
-                dto.setNick(rs.getString("nick"));
+                dto.setName(rs.getString("name"));
                 dto.setSubject(rs.getString("subject"));
                 dto.setContent(rs.getString("content"));
                 dto.setRegdate(rs.getString("regdate"));

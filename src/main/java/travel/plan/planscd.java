@@ -1,14 +1,13 @@
 package travel.plan;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/plan/planscd.do")
 public class planscd extends HttpServlet {
@@ -59,14 +58,10 @@ public class planscd extends HttpServlet {
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
-			//System.out.println(datelists[i]);
 		}
 
 
 		String rdate = req.getParameter("rdate");
-//		System.out.println("-----------");
-//		System.out.println(rdate);
-//		System.out.println("-----------");
 		//2.tblPlan2 -> rdate select해오기
 		//
 		PlaceDAO dao = new PlaceDAO();

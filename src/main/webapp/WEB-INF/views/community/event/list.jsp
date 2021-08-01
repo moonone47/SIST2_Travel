@@ -132,11 +132,11 @@
     </div>
 
     <div class="btns">
-        <c:if test="${not empty id}">
+<%--        <c:if test="${not empty id}">--%>
             <button type="button" class="btn btn-primary"
                     onclick="location.href='/SIST2_Travel/community/add.do?reply=0';">글쓰기
             </button>
-        </c:if>
+<%--        </c:if>--%>
 
         <button type="button" class="btn btn-default"
                 onclick="location.href='/SIST2_Travel/community/list.do';">새로고침

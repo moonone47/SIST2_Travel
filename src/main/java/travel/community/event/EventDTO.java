@@ -14,16 +14,16 @@ public class EventDTO {
     private String thread;
     private String depth;
 
-    private String nick;
+    private String name;
     private String isnew;
     private String ccnt;
 
-    public String getNick() {
-        return nick;
+    public String getName() {
+        return name;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIsnew() {
