@@ -25,7 +25,7 @@
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
-					<a class="navbar-brand" href="index.html">Papermag <span>Magazine</span></a>
+					<a class="navbar-brand" href="index.html">이름정하기 <span>Name</span></a>
 				</div>
 				<div class="col d-flex justify-content-end">
 					<div class="social-media">
@@ -85,13 +85,10 @@
     <!-- END nav -->
 
 	</section>
-	<%= request.getContextPath() %>/asset/css/style.css<br>
-	<%= request.getContextPath() %>/asset/js/main.js
-<script src="<%= request.getContextPath() %>/asset/js/jquery.min.js"></script>
-  <script src="<%= request.getContextPath() %>/asset/js/popper.js"></script>
-  <script src="<%= request.getContextPath() %>/asset/js/bootstrap.min.js"></script>
-  <script src="<%= request.getContextPath() %>/asset/js/main.js"></script>
-
+		<script src="<%= request.getContextPath() %>/asset/js/jquery.min.js"></script>
+		<script src="<%= request.getContextPath() %>/asset/js/popper.js"></script>
+  		<script src="<%= request.getContextPath() %>/asset/js/bootstrap.min.js"></script>
+  		<script src="<%= request.getContextPath() %>/asset/js/main.js"></script>
 	</body>
 </html>
 

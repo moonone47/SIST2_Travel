@@ -216,7 +216,7 @@
     <c:forEach items="${datelist}" var="list" varStatus="status">
     <div id="schedulelist" class="list-group">
         <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-            <input type="submit" value=${"Day"} ${status.count} ${list}" class="btn btn-primary">
+            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">
 
             <div class="d-flex w-100 align-items-center justify-content-between">
                 <strong class="mb-1">${"Day"} ${status.count}</strong>
