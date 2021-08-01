@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/login/logout.do")
 public class Logout extends HttpServlet {
@@ -16,10 +17,13 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/login/logout.jsp");
-		dispatcher.forward(req, resp);
-
+		HttpSession session = req.getSession();
+		
+		session.removeAttribute("id");
+		session.removeAttribute("name");
+		session.removeAttribute("lv");
+		
+		resp.sendRedirect("/SIST2_Travel/index.do");
 	}//doGet
 
 }//class
