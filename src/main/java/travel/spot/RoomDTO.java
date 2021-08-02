@@ -1,19 +1,23 @@
 package travel.spot;
 
 public class RoomDTO {
-
+    //    roomseq name explain address image grade wish theme roomsx roomsy plandate budget seq url planseq id
     private String roomsSeq;
     private String name;
     private String explain;
     private String address;
-    private String type;
-    private String rank;
-    private String price;
+    private String image;
     private String grade;
+    private String wish;
+    private String theme;
     private String roomsX;
     private String roomsY;
-    private String wish;
-    private String siteSeq;
+    private String plandate;
+    private String budget;
+    private String seq;
+    private String url;
+    private String planseq;
+    private String id;
 
     public String getRoomsSeq() {
         return roomsSeq;
@@ -47,28 +51,12 @@ public class RoomDTO {
         this.address = address;
     }
 
-    public String getType() {
-        return type;
+    public String getImage() {
+        return image;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getRank() {
-        return rank;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getGrade() {
@@ -77,6 +65,22 @@ public class RoomDTO {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getWish() {
+        return wish;
+    }
+
+    public void setWish(String wish) {
+        this.wish = wish;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
     }
 
     public String getRoomsX() {
@@ -95,19 +99,51 @@ public class RoomDTO {
         this.roomsY = roomsY;
     }
 
-    public String getWish() {
-        return wish;
+    public String getPlandate() {
+        return plandate;
     }
 
-    public void setWish(String wish) {
-        this.wish = wish;
+    public void setPlandate(String plandate) {
+        this.plandate = plandate;
     }
 
-    public String getSiteSeq() {
-        return siteSeq;
+    public String getBudget() {
+        return budget;
     }
 
-    public void setSiteSeq(String siteSeq) {
-        this.siteSeq = siteSeq;
+    public void setBudget(String budget) {
+        this.budget = budget;
+    }
+
+    public String getSeq() {
+        return seq;
+    }
+
+    public void setSeq(String seq) {
+        this.seq = seq;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getPlanseq() {
+        return planseq;
+    }
+
+    public void setPlanseq(String planseq) {
+        this.planseq = planseq;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

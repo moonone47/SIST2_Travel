@@ -21,7 +21,7 @@
 
 <section class="main-section">
 	
-	<h1>제안게시판list</h1>
+	<h1>건의게시판list</h1>
 	
 		<table class="table table-bordered">
 			<tr>
@@ -36,7 +36,7 @@
 			<tr>
 				<td>${dto.suggestSeq}</td>
 				<td>
-					<a href="/SIST2_Travel/community/suggest/view.do?seq=${dto.suggestSeq}">${dto.subject}</a>
+					<a href="/SIST2_Travel/community/suggest/view.do?suggestSeq=${dto.suggestSeq}">${dto.subject}</a>
 					
 					<c:if test="${dto.isnew < (2 / 24)}">
 						<span class="label label-danger">new</span>
