@@ -8,17 +8,41 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/community/freeboard/addok.do")
 public class AddOk extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//Addok.java
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/freeboard/addok.jsp");
-		dispatcher.forward(req, resp);
+		req.setCharacterEncoding("UTF-8");
+		
+		String subject = req.getParameter("subject");
+		String content = req.getParameter("content");
+		String tag = req.getParameter("tag");
+		
+		
+		FreeBoardDTO dto = new FreeBoardDTO();
+		FreeBoardDAO dao = new FreeBoardDAO();
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		
+		dto.setSubject(subject);
+		dto.setContent(content);
+		dto.setId(id);
+
+		
+		int result = dao.add(dto);
+		
+		if(result == 1) {
+			resp.sendRedirect("/SIST2_Travel/community/freeboard/list.do");
+		} else {
+			resp.sendRedirect("/SIST2_Travel/community/freeboard/add.do");
+		}
+		
 	}
 
 }
