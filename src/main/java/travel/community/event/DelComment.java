@@ -33,7 +33,7 @@ public class DelComment extends HttpServlet {
 
 		//3.
 		if (result == 1) {
-			resp.sendRedirect("/community/event/view.do?seq=" + pseq); //보고 있던 글번호를 가지고 돌아가기
+			resp.sendRedirect("/SIST2_Travel/community/event/view.do?seq=" + pseq); //보고 있던 글번호를 가지고 돌아가기
 		} else {
 
 			resp.setCharacterEncoding("UTF-8");

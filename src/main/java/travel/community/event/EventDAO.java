@@ -1,7 +1,6 @@
 package travel.community.event;
 
 import travel.DBUtil;
-import travel.community.event.EventDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,21 +76,22 @@ public class EventDAO {
     //AddOk.do insert dto
     public int add(EventDTO dto){
         try{
-            String sql = "insert into tblEventBoard values(seqEventBoard.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
+            String sql = "insert into tblEventBoard values(seqEventBoard.nextval, ?, ?, ?, default, default, default," +
+                    " default, default, default, default, default)";
             pstat = conn.prepareStatement(sql);
 
             pstat.setString(1, dto.getId());
             pstat.setString(2,dto.getSubject());
             pstat.setString(3, dto.getContent());
-            pstat.setString(4, dto.getRegdate());
-            pstat.setString(5, dto.getReadcount());
-            pstat.setString(6, dto.getRecommCnt());
-            pstat.setString(7, dto.getStartDate());
-            pstat.setString(8, dto.getEndDate());
-            pstat.setString(9, dto.getAnnounceDate());
-            pstat.setInt(10, dto.getThread());
-            pstat.setInt(11, dto.getDepth());
-
+//            pstat.setString(4, dto.getRegdate());
+//            pstat.setString(5, dto.getReadcount());
+//            pstat.setString(6, dto.getRecommCnt());
+//            pstat.setString(7, dto.getStartDate());
+//            pstat.setString(8, dto.getEndDate());
+//            pstat.setString(9, dto.getAnnounceDate());
+//            pstat.setInt(10, dto.getThread());
+//            pstat.setInt(11, dto.getDepth());
+            return pstat.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -224,7 +224,7 @@ public class EventDAO {
 
         try {
 
-            String sql = "update tblEventBoard set subject = ?, content = ?,where seq = ?";
+            String sql = "update tblEventBoard set subject = ?, content = ? where seq = ?";
 
             pstat = conn.prepareStatement(sql);
 

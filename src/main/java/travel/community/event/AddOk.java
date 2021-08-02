@@ -36,6 +36,8 @@ public class AddOk extends HttpServlet {
 			thread = dao.getMaxThread();
 			depth = 0;
 		}else{
+//			if( parentThread==null)
+//				parentThread=0
 			parentThread = Integer.parseInt(req.getParameter("thread"));
 			parentDepth = Integer.parseInt(req.getParameter("depth"));
 
@@ -55,7 +57,7 @@ public class AddOk extends HttpServlet {
 		if(result == 1){
 			resp.sendRedirect("/SIST2_Travel/community/event/list.do");
 		}else{
-			resp.sendRedirect("/SIST2_Travel/community/event/add.do");
+			resp.sendRedirect("/SIST2_Travel/community/event/list.do");
 		}
 	}
 }
