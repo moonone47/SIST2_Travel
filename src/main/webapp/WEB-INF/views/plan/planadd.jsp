@@ -155,7 +155,7 @@
 
 
                         <c:forEach items="${datelist}" var="list">
-                            <input type="hidden" name="datelist" value="${list}">
+                            <input type="hidden" name="datelist" value="${list}"> 
                         </c:forEach>
                     </form>
                 </div>
@@ -168,7 +168,7 @@
 </form>
 
 
-<%---------------------------------달력---------------------------------%>
+<%---------------------------------일정---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
         <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
@@ -249,7 +249,7 @@
 
 
     <script>
-        $("placesList").click(function(){
+        $("#placesList").click(function(){
             $("detail").removeAttr("invisible");
         });
     </script>

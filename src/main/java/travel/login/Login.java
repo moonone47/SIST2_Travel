@@ -21,7 +21,7 @@ public class Login extends HttpServlet {
 
 		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/login/signin.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/login/login.jsp");
 		dispatcher.forward(req, resp);
 
 	}//doGet

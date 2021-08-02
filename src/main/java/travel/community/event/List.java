@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet("/community/suggest.do")
+@WebServlet("/community/event/list.do")
 public class List extends HttpServlet {
 
 	@Override

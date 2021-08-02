@@ -27,7 +27,9 @@ public class List extends HttpServlet {
 	}
 
 	private void doPostGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		CheckMember cm = new CheckMember();
+		cm.check(req,resp);
+		
 
 		String column = req.getParameter("column");
 		String search = req.getParameter("search");

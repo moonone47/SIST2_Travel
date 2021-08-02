@@ -43,13 +43,13 @@
    
 
 		<script>
-   		<c:if test="${!empty id}">
+   		<c:if test="${not empty id}">
 				location.href="/SIST2_Travel/index.do";
-			<c:if test="${auto == 1}">
+			<c:if test="${cbid == 1}">
 			setCookie("id", "${id}", 365);
 			</c:if>
 			
-			<c:if test="${auto == 0}">
+			<c:if test="${cbid == 0}">
 				setCookie("id", "", -1);
 			</c:if>
 		</c:if>
