@@ -11,11 +11,17 @@ public class FreeBoardDTO {
 	private String id;
 	private String nick;
 	private String isnew;
+	private String ccnt;
 	
 	
 	
 	
-	
+	public String getCcnt() {
+		return ccnt;
+	}
+	public void setCcnt(String ccnt) {
+		this.ccnt = ccnt;
+	}
 	public String getNick() {
 		return nick;
 	}

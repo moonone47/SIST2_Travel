@@ -8,14 +8,50 @@
 <title>여행 병아리들을 위한 여행계획사이트 티피~~</title>
 
 <%@ include file="/inc/asset.jsp"%>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 <style>
+#container {
+	width: 1100px;
+	height: 700px;
+	margin: 0px auto 50px auto;
+	border: 1px solid red;
+}
+
+#category {
+	width: 120px;
+	text-align: center;
+}
+
+.list {
+	width: 900px;
+	margin: 20px auto;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+#search {
+	margin-left: 340px;
+}
+
+#search input[type="text"] {
+	height:
+}
+
+#thumBox {
+	width: 900px;
+	
+}
 </style>
 
 </head>
@@ -25,29 +61,86 @@
 
 	<section class="main-section">
 
+		<div id="container">
+			<h1>여행 일정 내역</h1>
+			<div class="list">
 
-		<h1>여행 일정 내역</h1>
 
-		<div class="btn-group">
-			<button type="button" class="btn btn-danger dropdown-toggle"
-				data-bs-toggle="dropdown" aria-expanded="false">계획</button>
-			<ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="#">계획중인 일정</a></li>
-				<li><a class="dropdown-item" href="#">완료된 일정</a></li>
-				<li><a class="dropdown-item" href="#">찜한 일정</a></li>
-			</ul>
+				<nav class="navbar navbar-expand-sm bg-dark navbar-default">
+					<!-- 리스트 : 부트스트랩은 모바일 우선이라 화면이 작으면 아래로 쌓아서 내려온다 -->
+					<ul id="categorylist"class="navbar-nav navbar-default">
+						<li class="nav-item active"><a id ="ing" class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=ing">계획중인 일정 </a></li>
+						<li class="nav-item"><a id="end" class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=end"> 완료된 일정</a></li>
+						<li class="nav-item"><a id="wish" class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=wish"> 찜한 일정</a></li>
+					</ul>
+					<!-- Search -->
+					<form id="search" method="GET" class="form-inline" action="">
+						<!-- inline여야 간격이 없이 메뉴처럼 나온다-->
+						<input class="form-control mr-sm-2" type="text"
+							placeholder="Search">
+						<!-- form-control 입력창 꾸며주는 클래스 -->
+						<button class="btn btn-success btn-lg" type="submit">Search</button>
+					</form>
+				</nav>
+				<div id=thumbBox>
+				<c:if test="${empty list}">
+							<div>게시물이 없습니다.</div>
+				</c:if>
+				<c:if test="${not empty list}">
+				<c:forEach items="${list}" var="dto">
+				<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<img src="https://cdn.pixabay.com/photo/2016/11/21/17/44/arches-national-park-1846759_960_720.jpg" alt="...">
+							<div class="caption">
+								<h3>${dto.name}</h3>
+								<p>
+									도시 : ${dto.cityname}<br>
+									여행기간 : ${dto.daystarttravel} ~ ${dto.dayendtravel} <br>
+									찜 횟수 : ${dto.wish}
+									<c:if test="${category eq 'wish'}">
+									<br>작성자 : ${dto.writernick}
+									</c:if>
+								</p>
+								<p>
+									<a href="#!" class="btn btn-primary" role="button">자세히</a>
+									<span>
+									<a href="#!" class="btn btn-danger" role="button">삭제하기</a>
+								</span>
+								</p>
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+				</c:forEach>
+			</c:if>
+			</div>
+
+			</div>
 		</div>
-		
-		
-		
 
 	</section>
 
 
 
-
 	<script>
-		$('')
+
+	 $(function(){
+	  var sBtn = $("#categorylist li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+	  sBtn.find("a").click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+	   sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+	   $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+	  })
+	 })
+	
+	 $(function(){
+		 var category = ${category};
+		 if(category == )
+	 })
+
+
 	</script>
 </body>
 <%-- <%@ include file="/inc/footer.jsp"%> --%>

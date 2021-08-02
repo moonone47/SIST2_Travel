@@ -49,7 +49,7 @@ public class FreeBoardCommentDAO {
 	public ArrayList<FreeBoardCommentDTO> getlist(String freeboardseq) {
 		try {
 			
-			String sql = "select * from vwFreeComment where freeboardseq = ? order by freecommentseq desc";
+			String sql = "select * from vwFreeComment where freeboardseq = ? order by freecommentseq asc";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, freeboardseq);
 			
@@ -81,6 +81,8 @@ public class FreeBoardCommentDAO {
 			String sql = "delete from tblFreeComment where freecommentseq = ?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, freecommentseq);
+			
+			pstat.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

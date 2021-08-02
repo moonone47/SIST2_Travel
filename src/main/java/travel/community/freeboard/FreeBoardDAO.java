@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import travel.DBUtil;
 
@@ -44,14 +45,29 @@ public class FreeBoardDAO {
 	}
 
 
-	public ArrayList<FreeBoardDTO> getlist() {
+	public ArrayList<FreeBoardDTO> getlist(HashMap<String, String> map) {
 		
 		try {
 			
-			String sql = "select * from vwFreeBoard order by FREEBOARDSEQ desc";
+			String where = "";
+			if (map.get("isSearch").equals("y")) {
+				//검색
+				//where name like '%홍길동%'
+				//where subject like '%날씨%'
+				//where all like 
+				if(map.get("column").equals("all")) {
+					where = String.format(" subject like '%%%s%%' or  content like '%%%s%%' ", map.get("search"), map.get("search"));										
+				} else {
+					where = String.format(" %s like '%%%s%%' ", map.get("column"), map.get("search"));					
+				}
+			}
+			//String sql = "select * from vwFreeBoard order by FREEBOARDSEQ desc";
 			
-			stat = conn.createStatement();
-			rs = stat.executeQuery(sql);
+			String sql = String.format("select * from vwFreeBoard  where rnum between %s and %s %s order by freeboardseq desc", map.get("begin"), map.get("end"), where);
+			
+			pstat = conn.prepareStatement(sql);
+			
+			rs = pstat.executeQuery();
 			
 			ArrayList<FreeBoardDTO> list = new ArrayList<FreeBoardDTO>();
 			while(rs.next()) {
@@ -65,6 +81,8 @@ public class FreeBoardDAO {
 				dto.setId(rs.getString("id"));
 				dto.setNick(rs.getString("nick"));
 				dto.setIsnew(rs.getString("isnew"));
+				
+				dto.setCcnt(rs.getString("ccnt"));
 				list.add(dto);
 			}
 			return list;
@@ -154,7 +172,40 @@ public class FreeBoardDAO {
 		
 	}
 	
-	
+public int getTotalCount(HashMap<String, String> map) {
+		
+		try {
+			
+			String where = "";
+			
+			if (map.get("isSearch").equals("y")) {
+				//검색
+				//where name like '%홍길동%'
+				//where subject like '%날씨%'
+				//where all like 
+				if(map.get("column").equals("all")) {
+					where = String.format(" where subject like '%%%s%%' or  content like '%%%s%%' ", map.get("search"), map.get("search"));										
+				} else {
+					where = String.format(" where %s like '%%%s%%' ", map.get("column"), map.get("search"));					
+				}
+			}
+			
+			String sql = String.format("select count(*) as cnt from tblBoard %s" , where);
+
+			pstat = conn.prepareStatement(sql);
+			rs = pstat.executeQuery();
+			if(rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("BoardDAO.getTotalCount()");
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
 	
 	
 }

@@ -12,6 +12,7 @@
 <style>
 #container {
 	width: 1100px;
+	height: 700px;
 	margin: 0px auto 50px auto;
 	border: 1px solid red;
 }
@@ -56,6 +57,19 @@
 	border-radius: 6.5px;
 	text-align:center;
 }
+.searchbox{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.searchbox .form-control {
+		display: inline-block;
+		width: auto;
+	}
+	.searchbox #search {
+		width: 300px;
+	}
+	.searchBar {margin: 10px; text-align: center;}
+	.pagebar {text-align: center;}
 </style>
 
 </head>
@@ -69,6 +83,11 @@
 				Board <small>List</small>
 			</h1>
 			<div id="content">
+				<c:if test="${map.isSearch == 'y'}">
+				<div class="searchBar">
+					'${map.search}'으로 검색한 결과 ${list.size()}개의 게시물이 있습니다.
+				</div>
+				</c:if>
 				<table class="table table-bordered">
 					<tr>
 						<th>글번호</th>
@@ -88,7 +107,10 @@
 							<tr>
 								<td>${dto.freeboardseq}</td>
 								<td>
-									<a href="/SIST2_Travel/community/freeboard/view.do?freeboardseq=${dto.freeboardseq}">${dto.subject}</a>
+									<a href="/SIST2_Travel/community/freeboard/view.do?freeboardseq=${dto.freeboardseq}&column=${map.column}&search=${map.search}">${dto.subject}</a>
+									<c:if test="${dto.ccnt > 0}">
+									<span class="badge">${dto.ccnt}</span>
+									</c:if>
 									<c:if test="${dto.isnew < (2/24)}">
 										<div id="isnew" style="font-size:5px;"> N </div>
 									</c:if>
@@ -101,7 +123,24 @@
 						</c:forEach>
 					</c:if>
 				</table>
-
+				<div class="searchbox">
+					<!-- 
+						대부분(99%)의 <form>은 method="POST"를 사용한다.
+						예외로.. 전송 당시의 상태를 유지하고 싶을 때 method="GET"을 사용한다.(ex.검색결과의 북마크)
+						검색 결과 검색할 때 -> GET!!
+						데이터 보내는 거는 POST!! 
+					 -->
+					<form method="GET" action="/SIST2_Travel/community/freeboard/list.do">
+						<select name="column" id="column" class="form-control">
+							<option value="subject">제목</option>
+							<option value="content">내용</option>
+							<option value="name">이름</option>
+							<option value="all">제목+내용</option>
+						</select>
+						<input type="text" name="search" id="search" class="form-control" required placeholder="검색어를 입력하세요.">
+						<input type="submit" value="검색하기" class="btn btn-default">
+					</form>
+				</div>
 
 				<div class="btns">
 					<button type="button" class="btn btn-primary"
@@ -115,11 +154,11 @@
 	</section>
 
 
-	<%@ include file="/inc/init.jsp"%>
-	<%@ include file="/inc/footer.jsp"%>
+
 	<script>
 		
 	</script>
+ <%@ include file="/inc/footer.jsp"%>
 </body>
 </html>
 

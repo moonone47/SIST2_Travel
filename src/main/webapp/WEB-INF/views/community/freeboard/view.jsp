@@ -16,26 +16,70 @@
 	border: 1px solid red;
 }
 
-#list {
+.list {
 	width: 750px;
+	height: 500px;
 	margin: 20px auto;
 }
-.table { text-align: center;}
 
-.table tr:nth-child(1) th {width: 120px;}
-.table tr:nth-child(4) td {height: 300px; text-align: left; }
-.table #subject td:nth-child(1) {text-align: left;}
+.table {
+	text-align: center;
+}
 
-.table td:nth-child(2) {width: 400px;}
+.table tr:nth-child(1) th {
+	width: 120px;
+}
 
-#comment {width: 750px; display:flex; margin-top: 10px;}
-#comment input[type="text"] {width:720px; margin-right: 5px; padding-left: 5px;}
+.table tr:nth-child(4) td {
+	height: 300px;
+	text-align: left;
+}
 
-#reply-container { margin-top: 10px;}
-#reply-container .reply { width: 100%; border-bottom: 1px solid #DDD; padding-bottom: 3px;}
-#nick {font-weight: bold;}
+.table #subject td:nth-child(1) {
+	text-align: left;
+}
 
-#regdate {margin-top:4px; color: #AAA; display: flex; justify-content: space-between;}
+.table #content th {
+	width: 120px;
+}
+
+.table td:nth-child(2) {
+	width: 400px;
+}
+
+#comment {
+	width: 750px;
+	display: flex;
+	margin-top: 10px;
+}
+
+#comment input[type="text"] {
+	width: 720px;
+	margin-right: 5px;
+	padding-left: 5px;
+}
+
+#reply-container {
+	margin-top: 10px;
+
+}
+
+#reply-container .reply {
+	width: 100%;
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 3px;
+}
+
+#nick {
+	font-weight: bold;
+}
+
+#regdate {
+	margin-top: 4px;
+	color: #AAA;
+	display: flex;
+	justify-content: space-between;
+}
 </style>
 
 </head>
@@ -49,8 +93,8 @@
 				Board <small>view</small>
 			</h1>
 
-			<div id="list">
-				<table class="table table-bordered" id="view">
+			<div class="list">
+				<table class="table table-bordered">
 					<tr>
 						<th>글번호</th>
 						<td>${dto.freeboardseq}</td>
@@ -75,40 +119,48 @@
 						<td colspan="3">${dto.content}</td>
 					</tr>
 				</table>
+			</div>
+			<div class="list">
 				<div class="btns">
 					<button type="button" class="btn btn-primary"
 						onclick="location.href='/SIST2_Travel/community/freeboard/edit.do?freeboardseq=${dto.freeboardseq}';">수정하기</button>
 					<button type="button" class="btn btn-primary" id="del">삭제하기</button>
 					<button type="button" class="btn btn-primary" onclick="">답변달기</button>
 					<button type="button" class="btn btn-default"
-						onclick="location.href='/SIST2_Travel/community/freeboard/list.do';">돌아가기</button>
+						onclick="location.href='/SIST2_Travel/community/freeboard/list.do?column=${column}&search=${search}';">돌아가기</button>
 				</div>
-				
 				<div>
-					<div>
- 						<div id="reply-container">
- 							<c:forEach items="${clist}" var="cdto">
- 							<div class="reply box">
-							<div id="nick">${cdto.nick}</div>
-							<div id="comcontent">${cdto.content}</div>
-							<div id="regdate">
-								${cdto.regdate}
-								<span><a id="delcom" href="/SIST2_Travel/community/freeboard/commentdel.do?freecommentseq=${cdto.freecommentseq}?freeboardseq=${dto.freeboardseq}">삭제</a></span>
+					<div id="reply-container">
+						<c:forEach items="${clist}" var="cdto">
+							<div class="reply">
+								<div id="nick">${cdto.nick}</div>
+								<div id="comcontent">${cdto.content}</div>
+								<div id="regdate">
+									${cdto.regdate} 
+									<span>
+										<form method="GET" action="/SIST2_Travel/community/freeboard/commentdel.do">
+											<input type="hidden" name="freecommentseq" value="${cdto.freecommentseq}">
+											<input type="hidden" name="freeboardseq" value="${cdto.freeboardseq}">
+											<input type="submit" value="삭제">
+										</form>
+									</span>
+								</div>
 							</div>
-							</div>
-							</c:forEach>
-						</div>
-						<form method="POST" action="/SIST2_Travel/community/freeboard/comment.do">
-							<div id="comment">
-								<input type="text" name="content" class="form-control" autocomplete="off" required placeholder="댓글을 남겨보세요">
-								<input type="hidden" name="freeboardseq" value="${dto.freeboardseq}">
-								<input type="submit" class="pull-right" value="등록" class="btn btn-default">
-							</div>
-						</form>
+						</c:forEach>
 					</div>
+					<form method="POST"
+						action="/SIST2_Travel/community/freeboard/comment.do">
+						<div id="comment">
+							<input type="text" name="content" class="form-control"
+								autocomplete="off" required placeholder="댓글을 남겨보세요"> <input
+								type="hidden" name="freeboardseq" value="${dto.freeboardseq}">
+							<input type="submit" class="pull-right" value="등록"
+								class="btn btn-default">
+						</div>
+					</form>
 				</div>
-				
 			</div>
+
 		</div>
 
 	</section>
@@ -117,18 +169,21 @@
 	<%@ include file="/inc/init.jsp"%>
 	<%@ include file="/inc/footer.jsp"%>
 	<script>
-		$('#del').click(function(){
-			var result = confirm('${dto.freeboardseq}번 글을 삭제하시겠습니까?');
-			
-			if(result) {
-				location.replace('/SIST2_Travel/community/freeboard/delete.do?freeboardseq=${dto.freeboardseq}');
-			} else {
-				
-			}
-		});
-		$('#delcom').click(function(){
+		$('#del')
+				.click(
+						function() {
+							var result = confirm('${dto.freeboardseq}번 글을 삭제하시겠습니까?');
+
+							if (result) {
+								location
+										.replace('/SIST2_Travel/community/freeboard/delete.do?freeboardseq=${dto.freeboardseq}');
+							} else {
+
+							}
+						});
+		$('#delcom').click(function() {
 			var result = confirm('댓글을 삭제하시겠습니까?');
-			
+
 		});
 	</script>
 </body>

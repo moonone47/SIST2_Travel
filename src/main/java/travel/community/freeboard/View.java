@@ -21,6 +21,9 @@ public class View extends HttpServlet {
 		
 		String freeboardseq = req.getParameter("freeboardseq");
 		
+
+		String column = req.getParameter("column");
+		String search = req.getParameter("search");
 				
 		FreeBoardDAO dao = new FreeBoardDAO();
 		FreeBoardDTO dto = new FreeBoardDTO();
@@ -57,6 +60,8 @@ public class View extends HttpServlet {
 		
 		req.setAttribute("dto", dto);
 		req.setAttribute("clist", clist);
+		req.setAttribute("column", column);
+		req.setAttribute("search", search);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/freeboard/view.jsp?freeboardseq=" + freeboardseq);
 		dispatcher.forward(req, resp);

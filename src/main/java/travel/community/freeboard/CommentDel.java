@@ -18,9 +18,6 @@ public class CommentDel extends HttpServlet {
 		String freecommentseq = req.getParameter("freecommentseq");
 		String freeboardseq = req.getParameter("freeboardseq");
 		
-		System.out.println(freecommentseq);
-		
-		System.out.println(freeboardseq);
 		FreeBoardCommentDAO dao = new FreeBoardCommentDAO();
 		
 		dao.del(freecommentseq);
