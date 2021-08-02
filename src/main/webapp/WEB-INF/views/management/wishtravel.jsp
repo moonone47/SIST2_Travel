@@ -15,7 +15,7 @@
    <!--  -->
    <div class="container">
       
-      <h1 class="page-header"></h1>
+      <h1 class="page-header">찜 목록</h1>
       
    </div>
 
