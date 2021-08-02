@@ -14,9 +14,7 @@ import javax.servlet.http.HttpSession;
 public class Editprofileok extends HttpServlet {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		req.setCharacterEncoding("UTF-8");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String name = req.getParameter("name");
 		String nick = req.getParameter("nick");
@@ -26,7 +24,7 @@ public class Editprofileok extends HttpServlet {
 		String address = req.getParameter("address");
 		String birthday = req.getParameter("birthday");
 		String gender = req.getParameter("gender");
-		String id = req.getParameter("id");
+		String id = "1";
 		
 		MypageDAO dao = new MypageDAO();
 		MypageDTO dto = new MypageDTO();
@@ -46,9 +44,9 @@ public class Editprofileok extends HttpServlet {
 		int result = dao.edit(dto);
 		
 		if (result == 1) {
-			resp.sendRedirect("/index.do");
+			resp.sendRedirect("/SIST2_Travel/mypage/profile.do?id=" + id);
 		} else {
-			resp.sendRedirect("/mypage/editprofile.do");
+			resp.sendRedirect("/SIST2_Travel/mypage/editprofile.do?id=" + id);
 		}
 		
 	}

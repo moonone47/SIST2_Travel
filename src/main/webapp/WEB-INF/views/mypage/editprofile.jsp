@@ -9,7 +9,7 @@
 <%@ include file="/inc/asset.jsp" %>
 
   <style>
-	
+		.main-section { padding: 100px; }
   </style>
 
 </head>
@@ -20,7 +20,7 @@
 <section class="main-section">
 
 	<h1 class="page-header">프로필수정</h1>
-	<form method="POST" action="/SIST2_Travel/mypage/editprofileok.do">
+	
 			<table class="table table-bordered">
 				<tr>
 					<th>이름</th>
@@ -71,17 +71,14 @@
 						<label><input type="radio" name="gender" value="f">여자</label>
 					</td>
 				</tr>
-
 			</table>
 			
 			<div class="btns">
-				<button type="submit" class="btn btn-primary">수정하기</button>
+				<button type="button" class="btn btn-primary"
+					onclick="location.href='/SIST2_Travel/mypage/editprofileok.do?id=${dto.id}';">수정하기</button>
 				<button type="button" class="btn btn-default"
-					onclick="location.href='#">돌아가기</button>
+					onclick="location.href='/SIST2_Travel/mypage/profile.do?id=${dto.id}';">돌아가기</button>
 			</div>
-			
-			<input type="hidden" name="id" value="${dto.id}">
-	</form>
 
 </section>
 
