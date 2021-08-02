@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 회원 로그아웃 클래스
+ * @author 이준희
+ *
+ */
+
 @WebServlet("/login/logout.do")
 public class Logout extends HttpServlet {
 

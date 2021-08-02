@@ -1,32 +1,39 @@
-package travel.community.question;
-
-/**
- * 질문 게시판 DTO
- * @author 이준희
- *
- */
-
+package travel.community.suggest;
 
 public class BoardDTO {
-	private String questionseq;
+		
+	private String suggestSeq;
 	private String subject;
 	private String content;
 	private String viewcnt;
 	private String recommcnt;
-	private int thread;
-	private int depth;
 	private String regdate;
 	private String id;
-	private String name; //view를 위한 추가멤버 
+	
 	private String isnew;
-	private String ccnt;
+	private String name;
 	
 	
-	public String getQuestionseq() {
-		return questionseq;
+	
+
+	public String getName() {
+		return name;
 	}
-	public void setQuestionseq(String questionseq) {
-		this.questionseq = questionseq;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getIsnew() {
+		return isnew;
+	}
+	public void setIsnew(String isnew) {
+		this.isnew = isnew;
+	}
+
+	public String getSuggestSeq() {
+		return suggestSeq;
+	}
+	public void setSuggestSeq(String suggestSeq) {
+		this.suggestSeq = suggestSeq;
 	}
 	public String getSubject() {
 		return subject;
@@ -64,37 +71,7 @@ public class BoardDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getThread() {
-		return thread;
-	}
-	public void setThread(int thread) {
-		this.thread = thread;
-	}
-	public int getDepth() {
-		return depth;
-	}
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getIsnew() {
-		return isnew;
-	}
-	public void setIsnew(String isnew) {
-		this.isnew = isnew;
-	}
-	public String getCcnt() {
-		return ccnt;
-	}
-	public void setCcnt(String ccnt) {
-		this.ccnt = ccnt;
-	}
 	
-
+	
 	
 }
