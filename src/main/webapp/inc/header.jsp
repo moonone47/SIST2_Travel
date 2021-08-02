@@ -90,7 +90,7 @@
 							class="nav-link dropdown-toggle" href="#" id="dropdown04"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="#">질문게시판</a> <a
+								<a class="dropdown-item" href="/SIST2_Travel/community/question/list.do">질문게시판</a> <a
 									class="dropdown-item" href="#">자유게시판</a> <a
 									class="dropdown-item" href="#">여행소모임게시판</a> <a
 									class="dropdown-item" href="#">이벤트게시판</a> <a

@@ -13,8 +13,9 @@
 .table th {
 	width: 120px;
 }
-.table td {
-	width: 680px;
+.main-section .table td {
+	width: 680px; 
+	text-align: left;
 }
 .table #content {
 	height: 300px;
@@ -27,45 +28,37 @@
 
 </head>
 <body>
-	<!-- board/edit.jsp -->
+	<!-- question/del.jsp -->
 	<%@ include file="/inc/header.jsp"%>
 
 	<section class="main-section">
 
 		<h1>
-			Board <small>Edit</small>
+			질문게시판 <small>Del</small>
 		</h1>
 
-		<form method="POST" action="/SIST2_Travel/community/question/editok.do">
+		<form method="POST" action="/SIST2_Travel/community/question/delok.do">
 			<table class="table table-bordered">
 				<tr>
-					<th>제목</th>
-					<td><input type="text" name="subject" id="subject" 
-						class="form-control" required value="${dto.subject }"/></td>
+					<th>번호</th>
+					<td>${questionseq } 번 게시물을 삭제합니다.</td>
 				</tr>
-				<tr>
-					<th>내용</th>
-					<td><textarea name="content" id="content" class="form-control" style="height: 300px !important;"
-							required>${dto.content }</textarea></td>
-				</tr>
-				
 
 			</table>
 
 			<div class="btns">
-				<button type="submit" class="btn btn-primary">수정하기</button>
+				<button type="submit" class="btn btn-primary">삭제하기</button>
 				<button type="button" class="btn btn-default"
-					onclick="location.href='/SIST2_Travel/community/question/list.do';">돌아가기</button>
+					onclick="location.href='/SIST2_Travel/community/question/view.do?questionseq=${questionseq}';">돌아가기</button>
 			</div>
 
-			<input type="hidden" name="questionseq" value="${dto.questionseq }" />
+			<input type="hidden" name="questionseq" value="${questionseq }" />
 		</form>
 
 	</section>
 
 	<%@ include file="/inc/init.jsp"%>
 	<script>
-		
 		
 	</script>
 </body>
