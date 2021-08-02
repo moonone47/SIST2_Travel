@@ -8,6 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+/**
+ * 질문 게시판 삭제 클래스 
+ * @author 이준희
+ *
+ */
 
 @WebServlet("/community/question/del.do")
 public class Del extends HttpServlet {

@@ -16,7 +16,7 @@ public class TourList extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/reservation/tourlist.jsp");
 		dispatcher.forward(req, resp);
 

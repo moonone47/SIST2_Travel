@@ -94,7 +94,7 @@
                         <span style="color:tomato;margin-left:${dto.depth*30}px;">▶</span>
                     </c:if>
 
-                    <a href="/SIST2_Travel/community/view.do?seq=${dto.seq}&column=${map.column}&search
+                    <a href="/SIST2_Travel/community/event/view.do?seq=${dto.seq}&column=${map.column}&search
 						=${map.search}">${dto.subject}</a>
 
                     <c:if test="${dto.ccnt > 0}">
@@ -119,7 +119,7 @@
     </div>
 
     <div class="searchbox">
-        <form method="GET" action="/community/event/list.do">
+        <form method="GET" action="SIST2_Travel/community/event/list.do">
             <select name="column" id="column" class="form-control">
                 <option value="subject">제목</option>
                 <option value="content">내용</option>

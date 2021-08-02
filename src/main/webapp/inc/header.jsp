@@ -74,7 +74,7 @@
 				</form>
 				<div class="collapse navbar-collapse" id="ftco-nav">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+						<li class="nav-item active"><a href="/SIST2_Travel/index.do" class="nav-link">Home</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="dropdown04"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일정계획</a>
@@ -91,7 +91,7 @@
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
 								<a class="dropdown-item" href="/SIST2_Travel/community/question/list.do">질문게시판</a> <a
-									class="dropdown-item" href="#">자유게시판</a> <a
+									class="dropdown-item" href="/SIST2_Travel/community/freeboard/list.do">자유게시판</a> <a
 									class="dropdown-item" href="#">여행소모임게시판</a> <a
 									class="dropdown-item" href="#">이벤트게시판</a> <a
 									class="dropdown-item" href="#">여행후기게시판</a> <a
@@ -99,7 +99,8 @@
 							</div></li>
 						<li class="nav-item"><a href="#" class="nav-link">서비스</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">기타</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+						<!-- <li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li> -->
+						
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="dropdown04"
@@ -111,7 +112,16 @@
 									href="#">투어/입장권</a>
 							</div></li>
 						<li class="nav-item"><a href="#" class="nav-link">기타</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+												<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								 <a class="dropdown-item" href="#">개인정보 조회</a>
+								 <a class="dropdown-item" href="#">내 여행 일정 조회</a>
+								 <a class="dropdown-item" href="#">장바구니</a> 
+								 <a class="dropdown-item" href="#">결제내역</a>
+								<a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
+							</div>
+							</li>
 						<li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
 						<c:if test="${not empty id }">
 							<div style="color: white;">이름 : ${name }(id : ${id})</div>
