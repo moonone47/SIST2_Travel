@@ -106,4 +106,44 @@ public class MemberDAO {
 
 		return 0;
 	}
+
+	public String findId(MemberDTO dto) {
+		String id = null;
+		try{
+		    String sql = "select id from tblmember where name = ? and email = ?";
+		    pstat = conn.prepareStatement(sql);
+		    pstat.setString(1, dto.getName());
+		    pstat.setString(2, dto.getEmail());
+
+		    rs = pstat.executeQuery();
+
+		    if(rs.next()){
+		    	id = rs.getString("id");
+			}
+		    return id;
+		}catch(Exception e){
+		    e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String findPw(MemberDTO dto) {
+		String pw = null;
+		try{
+			String sql = "select pw from tblmember where id = ? and email = ?";
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.setString(2, dto.getEmail());
+
+			rs = pstat.executeQuery();
+
+			if(rs.next()){
+				pw = rs.getString("pw");
+			}
+			return pw;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
