@@ -9,15 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/reservation/reservationindex.do")
-public class ReservationIndex extends HttpServlet {
+@WebServlet("/mypage/revview.do")
+public class ReservationView extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String tourseq = req.getParameter("tourseq");
 		
+		ReservationDAO dao = new ReservationDAO();
+		
+		ReservationDTO dto = dao.get(tourseq);
+		
+		req.setAttribute("dto", dto);
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/reservation/reservationindex.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/revview.jsp");
 		dispatcher.forward(req, resp);
 
 	}

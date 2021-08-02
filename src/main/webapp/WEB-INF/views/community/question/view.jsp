@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>myapp</title>
 
-<%@ include file="/inc/asset.jsp"%>
+<%-- <%@ include file="/inc/asset.jsp"%> --%>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/myapp.css" />
 
 <style>
 .main-section .table th {
@@ -26,6 +27,45 @@
 .main-section {
 	width: 800px;
 	margin: 35px auto;
+	padding-bottom: 300px;
+}
+#tblAddComment, #tblListComment {
+	width: 800px;
+	margin: 15px auto;
+}
+
+#tblAddComment {
+	margin-top: 30px;
+}
+
+#tblAddComment td:nth-child(1) {
+	width: 600px;
+}
+
+#tblAddComment td:nth-child(2) {
+	width: 100px;
+}
+
+#tblListComment td:nth-child(1) {
+	width: 600px;
+}
+
+#tblListComment td:nth-child(2) {
+	width: 100px;
+}
+
+#tblListComment td {
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+#tblListComment td span {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+	color: #AAA;
+	font-size: 11px;
 }
 </style>
 
@@ -82,7 +122,13 @@
 				
 				<button type="button" class="btn btn-primary"
 					onclick="location.href='/SIST2_Travel/community/question/add.do?reply=1&thread=${dto.thread}&depth=${dto.depth }';">답변달기</button>
-
+				
+				<form method="get" action="/SIST2_Travel/community/question/addrecommcnt.do">
+				<button type = "submit" id = "btnRecommend">추천하기</button>
+				<input type="hidden" name="questionseq" value="${dto.questionseq }" />
+				</form>
+				
+				
 			</c:if>
 			
 			<button type="button" class="btn btn-default"
@@ -90,11 +136,11 @@
 		</div>
 		
 		
-		<div>
+		<div >
 			<c:if test="${not empty id }">
 				<form method="POST"
 					action="/SIST2_Travel/community/question/addcomment.do">
-					<table id="tblAddComment" class="table table-bordered">
+					<table id="tblAddComment" class="table table-bordered" style="width: 800px;">
 						<tr>
 							<td><input type="text" name="content" id="content"
 								class="form-control" required placeholder="댓글을 입력하세요." /></td>
@@ -108,8 +154,8 @@
 			<table id="tblListComment" class="table table-bordered">
 
 				<c:if test="${clist.size() ==0 }">
-					<tr>
-						<td colspan="2">댓글이 없습니다.</td>
+					<tr >
+						<td colspan="2" >댓글이 없습니다.</td>
 					</tr>
 				</c:if>
 				<c:forEach items="${clist }" var="cdto">
@@ -135,7 +181,14 @@
 
 	<%@ include file="/inc/init.jsp"%>
 	<script>
-		
+	$("#btnRecommend").click(function(){
+	    if(confirm("해당 글을 추천하시겠습니까?")){
+	        
+	        
+	       
+	        
+	        }
+	    });
 	</script>
 </body>
 </html>

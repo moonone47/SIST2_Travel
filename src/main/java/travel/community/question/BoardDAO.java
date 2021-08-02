@@ -418,4 +418,20 @@ public class BoardDAO {
 		return 0;
 	}
 
+	public int updateRecommcnt(String questionseq) {
+		
+		try {
+
+			String sql = "update tblquestion set recommcnt = recommcnt + 1 where questionseq = ?";
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, questionseq);
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
 }
