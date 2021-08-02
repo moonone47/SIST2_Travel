@@ -124,11 +124,12 @@
 							</li>
 						<li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
 						<c:if test="${not empty id }">
-							<div style="color: white;">이름 : ${name }(id : ${id})</div>
-
-							<div class="btn-auth"
+							<div style="color: white;">이름 : ${name }</div>
+							<div  style="color: white;">(id : ${id})</div>
+							
+							<div class="btn-auth" id="logoutbtn"
 								onclick="location.href='/SIST2_Travel/login/logout.do';"
-								title="로그아웃" style="color: white; cursor: pointer;">Logout</div>
+								title="로그아웃" style="color: white; cursor: pointer; border: 1px solid white;">Logout</div>
 						</c:if>
 						<c:if test="${empty id }">
 							<div class="btn-auth"
