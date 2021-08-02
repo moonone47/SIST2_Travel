@@ -6,7 +6,8 @@ pageEncoding="UTF-8"%>
     <head>
         <meta charset="UTF-8">
         <title>네이버 : 회원가입</title>
-        <link rel="stylesheet" href="new_main.css">
+        <%@ include file="/inc/asset.jsp"%>
+        <!-- <link rel="stylesheet" href="/SIST2_Travel/login/new_main.css"> -->
         
     </head>
     <body>
