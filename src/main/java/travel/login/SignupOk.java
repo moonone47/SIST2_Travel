@@ -1,6 +1,5 @@
 package travel.login;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -96,8 +95,8 @@ public class SignupOk extends HttpServlet {
 //            resp.sendRedirect("/WEB-INF/views/login/signup.jsp");
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
-        dispatcher.forward(req, resp);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
+//        dispatcher.forward(req, resp);
 
     }//doGet
 

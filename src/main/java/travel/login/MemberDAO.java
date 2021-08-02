@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.LinkedList;
 
 /**
  * 회원 정보 DAO
@@ -143,6 +144,22 @@ public class MemberDAO {
 			return pw;
 		}catch(Exception e){
 			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public LinkedList<String> getAllId() {
+		try{
+		    String sql = "select id from tblmember";
+		    stat = conn.createStatement();
+		    rs = stat.executeQuery(sql);
+			LinkedList<String> list = new LinkedList<String>();
+		    while(rs.next()){
+		    	list.add(rs.getString("id"));
+			}
+		    return list;
+		}catch(Exception e){
+		    e.printStackTrace();
 		}
 		return null;
 	}
