@@ -18,6 +18,8 @@ public class AddOk extends HttpServlet {
 
 		CheckMember cm = new CheckMember();
 		cm.check(req, resp);
+	
+		req.setCharacterEncoding("UTF-8");
 
 		String subject = req.getParameter("subject");
 		String content = req.getParameter("content");

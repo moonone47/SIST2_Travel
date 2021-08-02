@@ -54,7 +54,7 @@
         <div id="pagination"></div>
     </div>
     <iframe id='detail'
-            class="embed-responsive embed-responsive-16by9 invisible"
+            class="embed-responsive embed-responsive-16by9 "
             src=''
             frameborder='0'
             scrolling='yes'

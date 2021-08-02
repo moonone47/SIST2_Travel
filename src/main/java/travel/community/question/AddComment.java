@@ -18,6 +18,7 @@ public class AddComment extends HttpServlet {
 		CheckMember cm = new CheckMember();
 		cm.check(req,resp);
 
+		req.setCharacterEncoding("UTF-8");
 		String questionseq = req.getParameter("questionseq"); // 보고있던 글번호 (작성중인 부모 글번호)
 		String content = req.getParameter("content");
 

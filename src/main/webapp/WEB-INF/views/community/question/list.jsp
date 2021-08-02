@@ -29,6 +29,15 @@
 .table th:nth-child(5) {
 	width: 60px;
 }
+.table th:nth-child(6) {
+	width: 60px;
+}
+.table td:nth-child(5) {
+	text-align: center;
+}
+.table td:nth-child(6) {
+	text-align: center;
+}
 
 .table td:nth-child(2) {
 	text-align: left;
@@ -60,6 +69,7 @@
 .main-section {
 	width: 800px;
 	margin: 35px auto;
+	padding-bottom: 300px;
 }
 </style>
 
@@ -85,12 +95,13 @@
 				<th>제목</th>
 				<th>이름</th>
 				<th>날짜</th>
-				<th>읽음</th>
+				<th>조회수</th>
+				<th>추천수</th>
 			</tr>
 
 			<c:if test="${list.size() ==0 }">
 				<tr>
-					<td colspan="5">게시물이 없습니다.</td>
+					<td colspan="6">게시물이 없습니다.</td>
 				</tr>
 			</c:if>
 
@@ -118,6 +129,7 @@
 					<td>${dto.name}</td>
 					<td>${dto.regdate}</td>
 					<td>${dto.viewcnt}</td>
+					<td> ${dto.recommcnt }</td>
 				</tr>
 			</c:forEach>
 		</table>

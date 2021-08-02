@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/mypage/rev.do")
+@WebServlet("/mypage/rev2.do")
 public class Rev extends HttpServlet {
 
 	@Override

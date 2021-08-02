@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>myapp</title>
 
-<%@ include file="/inc/asset.jsp"%>
+ <%@ include file="/inc/asset.jsp"%> 
+<%-- <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/myapp.css" /> --%>
 
 <style>
 .table th {
@@ -25,7 +26,9 @@
 .main-section {
 	width: 800px;
 	margin: 35px auto;
+	padding-bottom: 300px;
 }
+
 </style>
 
 </head>
@@ -48,7 +51,7 @@
 				</tr>
 				<tr style="height: 300px;">
 					<th>내용</th>
-					<td><textarea style="height: 300px !important;" name="content" id="content" class="form-control"
+					<td ><textarea style="height: 290px !important; " name="content"  class="form-control "
 							required></textarea></td>
 				</tr>
 				

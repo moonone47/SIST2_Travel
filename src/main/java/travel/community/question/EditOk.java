@@ -16,6 +16,8 @@ public class EditOk extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		req.setCharacterEncoding("UTF-8");
+		
 		String questionseq = req.getParameter("questionseq");
 		String subject = req.getParameter("subject");
 		String content = req.getParameter("content");
