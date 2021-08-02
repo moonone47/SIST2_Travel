@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
     <body>
         <!-- header -->
         <div id="header">
-            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img src="NAVER_CI_Green.png" id="logo"></a>
+            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img src="/SIST2_Travel/asset/images/NAVER_CI_Green.png" id="logo"></a>
         </div>
 
 
@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%>
                     <span class="box int_pass">
                         <input type="text" id="pswd1" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
-                        <img src="m_icon_pass.png" id="pswd1_img1" class="pswdImg">
+                        <img src="/SIST2_Travel/asset/images/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -51,7 +51,7 @@ pageEncoding="UTF-8"%>
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
                         <input type="text" id="pswd2" class="int" maxlength="20">
-                        <img src="m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
+                        <img src="/SIST2_Travel/asset/images/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -155,6 +155,6 @@ pageEncoding="UTF-8"%>
 
         </div> 
         <!-- wrapper -->
-    <script src="main.js"></script>
+    <script src="/SIST2_Travel/asset/js/main.js"></script>
     </body>
 </html>
