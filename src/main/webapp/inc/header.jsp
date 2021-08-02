@@ -97,7 +97,7 @@
 									class="dropdown-item" href="#">여행후기게시판</a> <a
 									class="dropdown-item" href="#">추천글 모음 ...?</a>
 							</div></li>
-						<li class="nav-item"><a href="#" class="nav-link">서비스</a></li>
+						<li class="nav-item"><a href="/SIST2_Travel/service/list.do" class="nav-link">서비스</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">기타</a></li>
 						<!-- <li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li> -->
 						
