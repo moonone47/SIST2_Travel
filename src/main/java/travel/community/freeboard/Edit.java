@@ -16,7 +16,17 @@ public class Edit extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//Edit.java
+		
+		String freeboardseq = req.getParameter("freeboardseq");
+		
+		FreeBoardDAO dao = new FreeBoardDAO();
+		FreeBoardDTO dto = new FreeBoardDTO();
+		
+		dto = dao.getlist(freeboardseq);
+		
+		req.setAttribute("dto", dto);
 
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/freeboard/edit.jsp");
 		dispatcher.forward(req, resp);
 	}
