@@ -25,24 +25,13 @@ public class DelComment extends HttpServlet {
 		int result = dao.delComment(suggestCommentSeq);//1, 0		
 		
 		//3.
+		
+		//댓글 지워지는데 오류 + 새로고침 해야만 지워짐
+		//Cannot invoke "travel.community.suggest.BoardDTO.getSubject()" because "dto" is null
 		if (result == 1) {
-			resp.sendRedirect("/SIST2_Travel/community/suggest/view.do?suggestSeq" + suggestSeq); //보고 있던 글번호를 가지고 돌아가기
+			resp.sendRedirect("/SIST2_Travel/community/suggest/view.do?suggestSeq=" + suggestSeq); 
 		} else {
-			
-			req.setCharacterEncoding("UTF-8");
-			
-			PrintWriter writer = resp.getWriter();			
-			
-			writer.print("<html>");
-			writer.print("<body>");
-			writer.print("<script>");
-			writer.print("alert('delete fail');");
-			writer.print("history.back();");
-			writer.print("</script>");
-			writer.print("</body>");
-			writer.print("</html>");
-			
-			writer.close();
+			resp.sendRedirect("/SIST2_Travel/community/suggest/list.do"); 		
 		}
 
 		

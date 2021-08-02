@@ -96,7 +96,7 @@
 						<%-- <c:if test="${not empty id}">
 							<c:if test="${cdto.id == id}"> --%>
 								<input type="button" value="삭제하기" class="btn btn-default"
-									onclick="location.href='/SIST2_Travel/community/suggest/delcomment.do?suggestCommentSeq=${cdto.suggestCommentSeq}&suggestSeq${dto.suggestSeq}';">
+									onclick="location.href='/SIST2_Travel/community/suggest/delcomment.do?suggestCommentSeq=${cdto.suggestCommentSeq}&suggestSeq${cdto.suggestSeq}';">
 <%-- 							</c:if>
 						</c:if> --%>
 					</td>

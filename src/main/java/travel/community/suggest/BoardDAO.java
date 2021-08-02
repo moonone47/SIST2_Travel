@@ -241,7 +241,7 @@ public class BoardDAO {
 		}
 
 	
-	//DelOk 글번호를 줄테니 댓글을 delete
+	//DelComment 글번호를 줄테니 댓글을 delete
 	public int delComment(String suggestCommentSeq) {
 		
 		try {
@@ -256,7 +256,6 @@ public class BoardDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return 0;
 	}
 }
