@@ -25,7 +25,7 @@ public class EventDAO {
     }
 
 
-    //Add.do get dto
+    //list.do get dto
     public ArrayList<EventDTO> list(HashMap<String, String> map) {
         try{
             String where = "";
@@ -60,8 +60,8 @@ public class EventDAO {
                 dto.setStartDate(rs.getString("startDate"));
                 dto.setEndDate(rs.getString("enddate"));
                 dto.setAnnounceDate(rs.getString("announcedate"));
-                dto.setThread(rs.getString("thread"));
-                dto.setDepth(rs.getString("depth"));
+                dto.setThread(rs.getInt("thread"));
+                dto.setDepth(rs.getInt("depth"));
 
                 list.add(dto);
             }
@@ -89,8 +89,8 @@ public class EventDAO {
             pstat.setString(7, dto.getStartDate());
             pstat.setString(8, dto.getEndDate());
             pstat.setString(9, dto.getAnnounceDate());
-            pstat.setString(10, dto.getThread());
-            pstat.setString(11, dto.getDepth());
+            pstat.setInt(10, dto.getThread());
+            pstat.setInt(11, dto.getDepth());
 
         }catch(Exception e){
             e.printStackTrace();
@@ -124,5 +124,35 @@ public class EventDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    //AddOk getMaxThread
+    public int getMaxThread() {
+        try{
+            String sql = "select nvl(max(thread), 0) + 1000 as thread from tblEventBoard";
+            stat = conn.createStatement();
+            rs = stat.executeQuery(sql);
+
+            if(rs.next()){
+                return rs.getInt("thread");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    //AddOk 답변 글쓰기 업무 위임
+    public void updateThread(int parentThread, int previousThread) {
+        try{
+            String sql = "update tblEventBoard set thread = thread - 1 where thread > ? and thread < ?";
+            pstat = conn.prepareStatement(sql);
+            pstat.setInt(1, previousThread);
+            pstat.setInt(2, parentThread);
+
+            pstat.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -11,36 +11,12 @@ public class EventDTO {
     private String startDate;
     private String endDate;
     private String announceDate;
-    private String thread;
-    private String depth;
+    private int thread;
+    private int depth;
 
     private String name;
     private String isnew;
     private String ccnt;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIsnew() {
-        return isnew;
-    }
-
-    public void setIsnew(String isnew) {
-        this.isnew = isnew;
-    }
-
-    public String getCcnt() {
-        return ccnt;
-    }
-
-    public void setCcnt(String ccnt) {
-        this.ccnt = ccnt;
-    }
 
     public String getSeq() {
         return seq;
@@ -122,19 +98,43 @@ public class EventDTO {
         this.announceDate = announceDate;
     }
 
-    public String getThread() {
+    public int getThread() {
         return thread;
     }
 
-    public void setThread(String thread) {
+    public void setThread(int thread) {
         this.thread = thread;
     }
 
-    public String getDepth() {
+    public int getDepth() {
         return depth;
     }
 
-    public void setDepth(String depth) {
+    public void setDepth(int depth) {
         this.depth = depth;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getIsnew() {
+        return isnew;
+    }
+
+    public void setIsnew(String isnew) {
+        this.isnew = isnew;
+    }
+
+    public String getCcnt() {
+        return ccnt;
+    }
+
+    public void setCcnt(String ccnt) {
+        this.ccnt = ccnt;
     }
 }
