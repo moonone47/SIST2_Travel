@@ -53,9 +53,9 @@ public class AddOk extends HttpServlet {
 		int result = dao.add(dto);
 
 		if(result == 1){
-			resp.sendRedirect("/SIST2_Travel/community/list.do");
+			resp.sendRedirect("/SIST2_Travel/community/event/list.do");
 		}else{
-			resp.sendRedirect("/SIST2_Travel/community/add.do");
+			resp.sendRedirect("/SIST2_Travel/community/event/add.do");
 		}
 	}
 }
