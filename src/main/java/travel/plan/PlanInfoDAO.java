@@ -15,7 +15,7 @@ public class PlanInfoDAO {
 
     public PlanInfoDAO() {
         try {
-            conn = DBUtil.open();
+        	conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");
         } catch (Exception e) {
             e.printStackTrace();
         }

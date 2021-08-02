@@ -548,7 +548,7 @@
 	<!-- 전체일정 선택 -->
     <div id="schedule" class="list-group list-group-info border-bottom" >  
         <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
-            <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+            <a href="#"  class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
                 <div class="w-100 align-items-center justify-content-between">
                     <strong class="mb-1">전체 일정</strong>
                     <div>일정 이름: <input class="form-control" type="text" id="name" name="name" autocomplete="off" style="margin-bottom:10px;"></div>

@@ -49,7 +49,6 @@ public class PlanDel extends HttpServlet {
 		ArrayList<String> datelist = new ArrayList<String>();
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
-			//System.out.println(datelists[i]);
 		}
 
 

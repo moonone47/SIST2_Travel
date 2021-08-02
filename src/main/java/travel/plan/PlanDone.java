@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/plan/plandone.do")
 public class PlanDone extends HttpServlet {
@@ -18,7 +17,7 @@ public class PlanDone extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
-
+//        req.setAttribute("?", )
 		/*
 		일정 계획 완료
 		1) 순서 넣어주기 tblPlan2에 seq 컬럼에 추가해준다.
@@ -38,13 +37,12 @@ public class PlanDone extends HttpServlet {
         String[] planseq = req.getParameterValues("planseq");
         String[] seq = req.getParameterValues("seq");
         PlaceDAO dao = new PlaceDAO();
+
         PlaceDTO dto = new PlaceDTO();
 
 
         //tblPlan2 -> seq -> 1로 통일 -> seq[i]로 바꿔주기
         for (int i = 0; i < planseq.length; i++) {
-//            System.out.println(planseq[i]);    //161 191 192 193
-//            System.out.println(seq[i]);    // 1 2 3 4
             dao.update(planseq[i], seq[i]);
             //planseq[i] -> where절걸고
             //seq[i] ->
@@ -61,7 +59,6 @@ public class PlanDone extends HttpServlet {
         for (int i = 0; i < planseq.length; i++) {
             dto = dao.split(planseq[i]);
 
-            System.out.println(dto.getCategory_group_code());
             if (dto.getCategory_group_code().equals("AT4")) {
                 dao.addAT4(dto,tblplanseq,memberid);
             } else if (dto.getCategory_group_code().equals("AD5")) {
@@ -69,7 +66,7 @@ public class PlanDone extends HttpServlet {
             } else if (dto.getCategory_group_code().equals("FD6")) {
                 dao.addFD6(dto,tblplanseq, memberid);
             }else{
-                System.out.println("잘못됨..");
+                System.err.println("잘못됨..");
             }
             
             dao.removeAll(planseq[i]);

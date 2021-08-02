@@ -106,7 +106,6 @@ public class PlanInfo extends HttpServlet {
 //			datelist.add(dated);
 //		}
 		String rdate = df.format(sdate.getTime());
-		System.out.println(rdate);
 
 		int eyear = Integer.parseInt(endday.substring(0,4));
 		int emonth = Integer.parseInt(endday.substring(4, 6)) ;

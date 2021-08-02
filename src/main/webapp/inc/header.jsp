@@ -1,39 +1,145 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<header class="main-header">
-	<section>
-		<nav>
-			<ul>
-				<li><img src="/myapp/asset/images/logo.png"></li>
-				<li onclick="location.href='/myapp/index.do';" title="시작 페이지">Home</li>
-				<li>Something</li>
-				<li onclick="location.href='/myapp/board/list.do';" title="게시판">Board</li>
-				<li onclick="location.href='/myapp/chart/chart.do';" title="차트">Chart</li>
-				<li onclick="location.href='/myapp/openapi/book.do';" title="OpenAPI">OpenAPI(책검색)</li>
-				<li onclick="location.href='/myapp/openapi/movie.do';" title="OpenAPI">OpenAPI(영화)</li>
-				<li onclick="location.href='/myapp/openapi/local.do';" title="OpenAPI">OpenAPI(지역)</li>
-				<li onclick="location.href='/myapp/map/map.do';" title="Map">MAP</li>
-			</ul>
-		</nav>
-		<div class="auth">
-		
-		<c:if test="${not empty id }">
-			<div>${name }(${id})</div>
-			<div class="btn-auth" onclick="location.href='/myapp/member/logout.do';" title="로그아웃">Logout</div>
-		</c:if>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-		<c:if test="${empty id }">
-			<div class="btn-auth" onclick="location.href='/myapp/member/login.do';" title="로그인">Login</div>
-		</c:if>			
+<!doctype html>
+<html lang="en">
+<head>
+<title>여행 병아리들을 위한 여행계획사이트 티피~~</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/asset/css/style.css">
+
+</head>
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">TP</h2>
+				</div>
+			</div>
 		</div>
+
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col">
+					<a class="navbar-brand" href="index.html">TP<span>여행
+							병아리들을 위한 여행계획사이트 티피~~</span></a>
+				</div>
+				<div class="col d-flex justify-content-end">
+					<div class="social-media">
+						<p class="mb-0 d-flex">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center"><span
+								class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a> <a
+								href="#"
+								class="d-flex align-items-center justify-content-center"><span
+								class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a> <a
+								href="#"
+								class="d-flex align-items-center justify-content-center"><span
+								class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+							<a href="#"
+								class="d-flex align-items-center justify-content-center"><span
+								class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav
+			class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+			id="ftco-navbar">
+			<div class="container">
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#ftco-nav" aria-controls="ftco-nav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span> Menu
+				</button>
+				<form action="#" class="searchform order-lg-last">
+					<div class="form-group d-flex">
+						<input type="text" class="form-control pl-3" placeholder="Search">
+						<button type="submit" placeholder="" class="form-control search">
+							<span class="fa fa-search"></span>
+						</button>
+					</div>
+				</form>
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="dropdown04"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일정계획</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="#">새로운 일정</a> <a
+									class="dropdown-item" href="#">Page 2</a> <a
+									class="dropdown-item" href="#">Page 3</a> <a
+									class="dropdown-item" href="#">Page 4</a>
+							</div></li>
+						<li class="nav-item"><a href="#" class="nav-link">여행관리</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">예약</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="dropdown04"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="#">질문게시판</a> <a
+									class="dropdown-item" href="#">자유게시판</a> <a
+									class="dropdown-item" href="#">여행소모임게시판</a> <a
+									class="dropdown-item" href="#">이벤트게시판</a> <a
+									class="dropdown-item" href="#">여행후기게시판</a> <a
+									class="dropdown-item" href="#">추천글 모음 ...?</a>
+							</div></li>
+						<li class="nav-item"><a href="#" class="nav-link">서비스</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">기타</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="dropdown04"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<%-- 메뉴만 만들어 놓죠ㅎㅅㅎ  넵 ^.^--%>
+								<a class="dropdown-item" href="#">항공권</a> <a
+									class="dropdown-item" href="#">숙소</a> <a class="dropdown-item"
+									href="#">투어/입장권</a>
+							</div></li>
+						<li class="nav-item"><a href="#" class="nav-link">기타</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
+						<c:if test="${not empty id }">
+							<div style="color: white;">이름 : ${name }(id : ${id})</div>
+
+							<div class="btn-auth"
+								onclick="location.href='/SIST2_Travel/login/logout.do';"
+								title="로그아웃" style="color: white; cursor: pointer;">Logout</div>
+						</c:if>
+						<c:if test="${empty id }">
+							<div class="btn-auth"
+								onclick="location.href='/SIST2_Travel/login/login.do';"
+								title="로그인" style="color: white; cursor: pointer;">Login</div>
+						</c:if>
+					</ul>
+				</div>
+			</div>
+
+
+		</nav>
+		<!-- END nav -->
+
 	</section>
-</header>
+	<%@ include file="/inc/init.jsp"%>
 
-
-
-
-
-
-
-
+	<script src="<%=request.getContextPath()%>/asset/js/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/asset/js/popper.js"></script>
+	<script src="<%=request.getContextPath()%>/asset/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath()%>/asset/js/main.js"></script>
+</body>
+</html>
 
