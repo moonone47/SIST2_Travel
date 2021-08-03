@@ -41,7 +41,7 @@ public class TravelPlan extends HttpServlet {
 		//날짜 계산 -> 
 		ArrayList<String> datelist = new ArrayList<String>();
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mi:ss");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		// date1, date2 두 날짜를 parse()를 통해 Date형으로 변환.
 		Date FirstDate = null;
 		try {
