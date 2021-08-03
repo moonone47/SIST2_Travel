@@ -15,14 +15,12 @@ public class Editprofile extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//1. 데이터 가져오기
-		//2. DB작업 > DAO위임 > select where seq
-		//3. BoardDAO 반환 > JSP호출하기 + 전달하기
 		
-		String seq = req.getParameter("id");
+		//String id = req.getParameter("id");
+		String id = "1";
 		
 		MypageDAO dao = new MypageDAO();
-		MypageDTO dto = new MypageDTO();
+		MypageDTO dto = dao.get(id);
 		
 		req.setAttribute("dto", dto);
 

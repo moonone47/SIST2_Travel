@@ -8355,13 +8355,13 @@ h1, h2, h3, h4, h5,
       font-size: 20px; }
 
 .form-control {
-  height: 46px !important;
-  background: #fff !important;
-  color: #000 !important;
+  height: 46px ;
+  background: #fff ;
+  color: #000 ;
   font-size: 14px;
   border-radius: 0px;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none ;
+  box-shadow: none ;
   border: 1px solid rgba(0, 0, 0, 0.1); }
   .form-control:focus, .form-control:active {
     border-color: #000; }

@@ -44,7 +44,6 @@ public class PlanInfo extends HttpServlet {
 			} else {
 				citydto.setWillshare("n");
 			}
-			citydto.setWillshare("n");
 		}
 //			[travel.plan.CityDTO@45c06dde, travel.plan.CityDTO@3415498e, travel.plan.CityDTO@38a5a859,
 //			travel.plan.CityDTO@1c65f3ea, travel.plan.CityDTO@5a8dd325, travel.plan.CityDTO@44caa8c3, travel.plan.CityDTO@51383763, travel.plan.CityDTO@6271740d, travel.plan.CityDTO@56d1979d, travel.plan.CityDTO@47ccb134, travel.plan.CityDTO@575f1581, travel.plan.CityDTO@3e67d27b, travel.plan.CityDTO@6450d755, travel.plan.CityDTO@46379ffa, travel.plan.CityDTO@696b69a0, travel.plan.CityDTO@691f9afc]

@@ -36,6 +36,7 @@
                         <span class="step_url">아이디를 입력하세요</span>
                     </span>
                 <span class="error_next_box"></span>
+                <span><button type="button" class="btn btn-primary" id="idcheck">아이디 중복 검사</button></span>
             </div>
 
             <!-- PW1 -->
@@ -190,6 +191,28 @@
 <%@ include file="/inc/footer.jsp" %>
 <script src="/SIST2_Travel/asset/js/main.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script language="JavaScript">
+    $( document ).ready( function() {
+    function checkJoinForm() {
+        $("#idcheck").click(function () {
+            alert('hi');
+            var list = new Array();
+            <c:forEach items="${dto}" var="user">
+            list.push("${user}");
+            </c:forEach>
+
+            for (var i = 0; i < list.length; i++) {
+                console.log($("#id").val());
+                if ($("#id").val.equals(list[i])) {
+                    alert("이미 가입된 아이디입니다.");
+                    $("#id").focus();
+                    return false;
+                }
+            }
+        });
+    }
+    }
+</script>
 <script>
     // 우편번호 찾기 찾기 화면을 넣을 element
     var element_wrap = document.getElementById('wrap');

@@ -8,6 +8,7 @@ public class ClubBoardCommentDTO {
 	private String id;
 	private String nick;
 	private String isnew;
+	private String name;
 
 	public String getNick() {
 		return nick;
@@ -15,13 +16,13 @@ public class ClubBoardCommentDTO {
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
+
 	public String getIsnew() {
 		return isnew;
 	}
 	public void setIsnew(String isnew) {
 		this.isnew = isnew;
 	}
-	private String name;
 	
 	public String getTravelclubcommentseq() {
 		return travelclubcommentseq;

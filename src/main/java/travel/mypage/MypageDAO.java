@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import travel.DBUtil;
 
@@ -23,24 +24,59 @@ public class MypageDAO {
 		}
 	}
 	
-	//Editprofileok에서 내용수정
-	public int edit(MypageDTO dto) {
+	//Profile.java
+	public MypageDTO get(String id) {	
 		try {
-			
-			String sql = "update tblmember set id = ?, name = ?, nick = ?, email = ?, phone = ?,"
-					+ "zip = ?, address = ?, birthday = ?, gender = ?";
+
+			String sql = "select * from tblMember where id=?";
 			
 			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
 			
-			pstat.setString(1, dto.getId());
-			pstat.setString(2, dto.getName());
-			pstat.setString(3, dto.getNick());
-			pstat.setString(4, dto.getEmail());
-			pstat.setString(5, dto.getPhone());
-			pstat.setString(6, dto.getZip());
-			pstat.setString(7, dto.getAddress());
-			pstat.setString(8, dto.getBirthday());
-			pstat.setString(9, dto.getGender());
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				MypageDTO dto = new MypageDTO();
+				
+				dto.setId("id");
+				dto.setName(rs.getString("name"));
+				dto.setNick(rs.getString("nick"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setZip(rs.getString("zip"));
+				dto.setAddress(rs.getString("address"));
+				dto.setLv(rs.getString("lv"));
+				dto.setBirthday(rs.getString("birthday"));
+				dto.setGender(rs.getString("gender"));
+				
+				return dto;			
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return null;
+	}	
+	
+	
+	//Editprofileok.java
+	public int edit(MypageDTO dto) {
+		try {
+//			java.sql.SQLException: ORA-01407: cannot update ("SIST2_TRAVEL"."TBLMEMBER"."NAME") to NULL
+			String sql = "update tblmember set name = ?, nick = ?, email = ?, phone = ?,"
+					+ "zip = ?, address = ?, birthday = ?, gender = ? where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			System.out.println(dto.getName());
+			pstat.setString(1, dto.getName());
+			pstat.setString(2, dto.getNick());
+			pstat.setString(3, dto.getEmail());
+			pstat.setString(4, dto.getPhone());
+			pstat.setString(5, dto.getZip());
+			pstat.setString(6, dto.getAddress());
+			pstat.setString(7, dto.getBirthday());
+			pstat.setString(8, dto.getGender());
+			pstat.setString(9, dto.getId());
 			
 			return pstat.executeUpdate();
 			
@@ -50,6 +86,7 @@ public class MypageDAO {
 		return 0;
 	}
 	
+<<<<<<< HEAD
 	//비밀번호 수정을 위한 메서드 선언.
 		public boolean changePassword(String id, String newPw) {
 
@@ -94,5 +131,7 @@ public class MypageDAO {
 		 * 
 		 * return flag; } }
 		 */
+=======
+>>>>>>> 79f33093642573f47f9789cf90cf16cd3784c51a
 	
 }

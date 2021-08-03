@@ -60,7 +60,7 @@ public class PlanInfoDAO {
             pstat.setString(5, dto.getWillshare());//willshare
             pstat.setString(6, "0");//wish
             pstat.setString(7, "");//theme
-            pstat.setString(8, "1");//id
+            pstat.setString(8, "4");//id
             pstat.setString(9, dto.getCityseq());
 
             pstat.executeUpdate();

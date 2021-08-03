@@ -86,6 +86,26 @@ public class ReservationDAO {
 		
 		return null;
 	}
+
+	
+
+	public int cancel(String reservationseq) {
+		
+		try {
+		
+			String sql = "update tblreservation set iscancel = 'y' where reservationseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, reservationseq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
 
 

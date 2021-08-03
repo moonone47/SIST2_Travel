@@ -16,9 +16,9 @@
    <div class="container">
       
       <h1 class="page-header"></h1>
-      
-   </div>
 
+   </div>
+   <%@ include file="/inc/footer.jsp"%>
    <script>
       
    </script>
