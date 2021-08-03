@@ -38,7 +38,8 @@
 			</c:forEach>		
 		</c:forEach>	
 	</table>
-	<button class="btn btn-primary" onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y;">수정하기</button>
+	<button class="btn btn-primary" 
+		onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y';">수정하기</button>
 </section>
 
 
