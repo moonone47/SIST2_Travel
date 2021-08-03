@@ -9,7 +9,7 @@
    <%@ include file="/inc/asset.jsp" %>
 
    <style>
-
+	   .main-section {padding: 100px;}
    </style>
 
 </head>
@@ -18,26 +18,26 @@
 <%@ include file="/inc/header.jsp" %>
 
 <section class="main-section">
+	<h1>상세 일정 보기</h1>
 	<table>
 		<c:forEach items="${datelist}" var="date" varStatus="status">
-			<c:forEach items="${list}" var="dto"  varStatus="instatus">
 				<tr>
 					<th>DAY ${status.count}</th>
 					<td>${date}</td>
-					<td>${dto.city}</td>
+					<td>${cityname}</td>
 				</tr>
-				<c:if test="${date == dto.rdate}">
-				<tr>	
-					<th>{instatus.count}</th>
-					<td colspan="2">
-						<span>${dto.place_name}</span>
-						<span>${dto.address_name}</span>
-						<span>${dto.category_group_name}</span>
-						<a href="${dto.place_url}">상세 페이지</a>
-					<td>
-				</tr>
-				</c:if>
-				
+			<c:forEach items="${list}" var="dto"  varStatus="instatus">
+			
+					<tr>	
+						<th>${instatus.count}</th>
+						<td colspan="2">
+							<span>${dto.place_name}</span>
+							<span>${dto.address_name}</span>
+							<span>${dto.category_group_name}</span>
+							<a href="${dto.place_url}">상세 페이지</a>
+						<td>
+					</tr>
+			
 			</c:forEach>			
 		</c:forEach>	
 	</table>

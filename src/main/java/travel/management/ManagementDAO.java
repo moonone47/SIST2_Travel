@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import travel.DBUtil;
 import travel.mypage.TravelPlanDTO;
@@ -80,22 +82,140 @@ public class ManagementDAO {
 			
 			String tbl = "tblSights";
 			
-			ArrayList<ManagementDTO> tlist = new ArrayList<ManagementDTO>();
-			ArrayList<ManagementDTO> list1 = get("tblSights", planseq);
-			ArrayList<ManagementDTO> list2 = get("tblRooms", planseq);
-			ArrayList<ManagementDTO> list3 = get("tblRestaurant", planseq);
+			ArrayList<ManagementDTO> list = new ArrayList<ManagementDTO>();
+
 			
-			tlist.addAll(list1);
-			tlist.addAll(list2);
-			tlist.addAll(list3);
+			String sql = "select * from tblSights where planseq =" + planseq;
 			
-			for(ManagementDTO dto : tlist) {
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			/*
+				private String address_name;   
+			    private String category_group_name;  
+			    private String place_name;
+			    private String place_url;
+			    private String road_address_name;
+			    private String x;
+			    private String y;
+			    private String seq;
+			    private String memberid;
+			    private String rdate; // 일정 날짜
+			 */			
+			
+			while(rs.next()) {
 				
-				 String sql = "insert into tblPlan2(plan2seq, address_name, category_group_code, category_group_name, " +
+				ManagementDTO dto = new ManagementDTO();
+				dto.setAddress_name(rs.getString("address"));
+				dto.setPlace_name(rs.getString("name"));
+				dto.setPlace_url(rs.getString("url"));
+				dto.setX(rs.getString("SightsX"));				
+				dto.setY(rs.getString("SightsY"));
+				dto.setSeq(rs.getString("seq"));
+				dto.setMemberid(rs.getString("id"));
+				dto.setRdate(rs.getString("plandate"));
+				
+				dto.setCategory_group_name("관광명소");
+				
+				
+				list.add(dto);
+			}
+			
+			
+			sql = "select * from tblRestaurant where planseq =" + planseq;
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			/*
+				private String address_name;   
+			    private String category_group_name;  
+			    private String place_name;
+			    private String place_url;
+			    private String road_address_name;
+			    private String x;
+			    private String y;
+			    private String seq;
+			    private String memberid;
+			    private String rdate; // 일정 날짜
+			 */			
+			
+			while(rs.next()) {
+				
+				ManagementDTO dto = new ManagementDTO();
+				dto.setAddress_name(rs.getString("address"));
+				dto.setPlace_name(rs.getString("name"));
+				dto.setPlace_url(rs.getString("url"));
+				dto.setX(rs.getString("RestaurantX"));				
+				dto.setY(rs.getString("RestaurantY"));
+				dto.setSeq(rs.getString("seq"));
+				dto.setMemberid(rs.getString("id"));
+				dto.setRdate(rs.getString("plandate"));
+				dto.setCategory_group_name("음식점");
+				
+				
+				list.add(dto);
+			}
+			
+			
+			
+			sql = "select * from tblRooms where planseq =" + planseq;
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			/*
+				private String address_name;   
+			    private String category_group_name;  
+			    private String place_name;
+			    private String place_url;
+			    private String road_address_name;
+			    private String x;
+			    private String y;
+			    private String seq;
+			    private String memberid;
+			    private String rdate; // 일정 날짜
+			 */			
+			
+			while(rs.next()) {
+				
+				ManagementDTO dto = new ManagementDTO();
+				dto.setAddress_name(rs.getString("address"));
+				dto.setPlace_name(rs.getString("name"));
+				dto.setPlace_url(rs.getString("url"));
+				dto.setX(rs.getString("roomsX"));				
+				dto.setY(rs.getString("roomsY"));
+				dto.setSeq(rs.getString("seq"));
+				dto.setMemberid(rs.getString("id"));
+				dto.setRdate(rs.getString("plandate"));
+				dto.setCategory_group_name("숙박");
+
+				list.add(dto);
+			}			
+			
+			
+			for(ManagementDTO dto : list) {				
+				System.out.println(dto.getRdate());
+				System.out.println(dto.getAddress_name());
+				System.out.println(dto.getPlace_name());;
+			}
+			
+			
+			// ORA-01861: literal does not match format string
+		
+			for(ManagementDTO dto : list) {
+				
+				 String sql2 = "insert into tblPlan2(plan2seq, address_name, category_group_code, category_group_name, " +
 		                    "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
 		                    "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		            pstat = conn.prepareStatement(sql);
+				 
+				 String lastCrawlDate = dto.getRdate();
+			     Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(lastCrawlDate);
+			     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+				 
+				 
+		            pstat = conn.prepareStatement(sql2);
 		            
 		            //15
 		            pstat.setString(1, dto.getAddress_name());
@@ -110,17 +230,19 @@ public class ManagementDAO {
 		            pstat.setString(10, dto.getX());
 		            pstat.setString(11, dto.getY());
 		            pstat.setString(12, dto.getSeq());    
-		            pstat.setInt(13, 3);
-		            pstat.setString(14, dto.getRdate());
+		            pstat.setString(13, "3");
+		            pstat.setDate(14, sqlDate);
 		            
 		            pstat.executeUpdate();
 			}
 			
-			ArrayList<ManagementDTO> list = new ArrayList<ManagementDTO>();
+			ArrayList<ManagementDTO> dlist = new ArrayList<ManagementDTO>();
 			
-	           String sql = "select * from tblPlan2 where memberid=? order by rdate asc, seq asc"; 
+	           String sql3 = "select * from tblPlan2 where memberid=? order by rdate asc, seq asc"; 
 
-	            pstat = conn.prepareStatement(sql);
+	            pstat = conn.prepareStatement(sql3);
+	            pstat.setString(1, "3");
+	            
 	            rs = pstat.executeQuery(); //복붙
 
 	            while (rs.next()) {
@@ -138,10 +260,10 @@ public class ManagementDAO {
 	                dto.setY(rs.getString("y"));
 	                dto.setAddress_name(rs.getString("address_name"));
 	   	            
-	   	            list.add(dto);
+	                dlist.add(dto);
 	            }//end while
 
-	            return list;
+	            return dlist;
 		
 		} catch (Exception e) {
 			e.printStackTrace();	
