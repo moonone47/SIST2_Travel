@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet("/community/event/list.do")
+@WebServlet("/community/event/list.do") //여기 event 맞아요? 엥 왜지/??
 public class List extends HttpServlet {
 
 	@Override

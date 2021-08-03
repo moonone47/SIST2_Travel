@@ -701,13 +701,13 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
 	                    });
 	
 	            function getDate(element) {
-	                var date;
+	                var regdate;
 	                try {
-	                    date = $.datepicker.parseDate(dateFormat, element.value);
+	                    regdate = $.datepicker.parseDate(dateFormat, element.value);
 	                } catch (error) {
-	                    date = null;
+	                    regdate = null;
 	                }
-	                return date;
+	                return regdate;
 	            }
 	        });
 	    </script>

@@ -112,7 +112,7 @@
 
 			<c:if test="${not empty id }">
 
-				<c:if test="${dto.id == id }">
+				<c:if test="${dto.id == id || id == 1 }">
 					<button type="button" class="btn btn-primary"
 						onclick="location.href='/SIST2_Travel/community/question/edit.do?questionseq=${dto.questionseq}';">수정하기</button>
 					<button type="button" class="btn btn-primary"

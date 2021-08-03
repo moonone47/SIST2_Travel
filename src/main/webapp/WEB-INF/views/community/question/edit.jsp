@@ -17,11 +17,15 @@
 	width: 680px;
 }
 .table #content {
-	height: 300px;
+	height: 400px;
+}
+.table {
+	width: 1000px;
 }
 .main-section {
 	width: 800px;
 	margin: 35px auto;
+	padding-bottom: 300px;
 }
 </style>
 
@@ -43,9 +47,9 @@
 					<td><input type="text" name="subject" id="subject" 
 						class="form-control" required value="${dto.subject }"/></td>
 				</tr>
-				<tr>
+				<tr style="height: 300px;">
 					<th>내용</th>
-					<td><textarea name="content" id="content" class="form-control" style="height: 300px !important;"
+					<td><textarea name="content"  class="form-control" style="height: 300px !important;"
 							required>${dto.content }</textarea></td>
 				</tr>
 				
