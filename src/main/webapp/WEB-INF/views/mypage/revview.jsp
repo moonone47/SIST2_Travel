@@ -68,6 +68,9 @@
 	color: #AAA;
 	font-size: 11px;
 }
+#table1{
+width:82%;
+}
 </style>
 
 </head>
@@ -82,7 +85,7 @@
 		</h1>
 
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" id="table1">
 			<tr>
 				<th>투어 번호</th>
 				<td>${dto.tourseq }</td>
@@ -101,6 +104,10 @@
 				<th>상세정보</th>
 				<td colspan="5">${dto.detail }</td>
 			</tr>
+			<tr>
+				
+				<td colspan ="6"><img src="${dto.img }" > </td>
+			</tr>
 			<%-- <tr>
 				<th>내용</th>
 				<td colspan="5">${dto.content }</td>
@@ -108,10 +115,8 @@
 
 		</table>
 			
-		<button type="button" class="btn btn-default"
+		<button type="button" class="btn btn-primary"
 			onclick="location.href='/SIST2_Travel/mypage/rev.do';">돌아가기</button>
-		<button type="button" class="btn btn-default"
-			onclick="location.href='/SIST2_Travel/mypage/revcancel.do?tourseq=${dto.tourseq}';">예약 취소하기</button>
 
 
 

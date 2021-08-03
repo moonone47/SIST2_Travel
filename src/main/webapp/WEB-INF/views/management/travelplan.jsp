@@ -86,7 +86,8 @@
 
 								</p>
 								<p>
-									<a href="/SIST2_Travel/management/detailview.do?planseq=${dto.planseq}" class="btn btn-primary" role="button">자세히</a>
+									<a href="/SIST2_Travel/management/detailview.do?planseq=${dto.planseq}&name=${dto.name}&daystarttravel=${dto.daystarttravel}&dayendtravel=${dto.dayendtravel}&cityname=${dto.cityname}" 
+											class="btn btn-primary" role="button">자세히</a>
 									<span>
 									<a id="del" href="/SIST2_Travel/mypage/travelplandel.do?planseq=${dto.planseq}&category=${category}" 
 											class="btn btn-danger" role="button">삭제하기</a>

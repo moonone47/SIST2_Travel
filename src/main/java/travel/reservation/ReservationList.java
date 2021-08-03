@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import travel.community.question.BoardDTO;
 import travel.community.question.CheckMember;
 
 @WebServlet("/mypage/rev.do")
@@ -22,11 +23,20 @@ public class ReservationList extends HttpServlet {
 		cm.check(req,resp);
 		HttpSession session = req.getSession();
 		ReservationDAO dao = new ReservationDAO();
-		ReservationDTO dto = new ReservationDTO();
 		
 		String id = session.getAttribute("id").toString();
 		
 		ArrayList<ReservationDTO> list = dao.list(id);
+		
+		for (ReservationDTO dto : list) {
+			String validdate = dto.getValiddate();
+			validdate = validdate.substring(0, 10);
+			dto.setValiddate(validdate);
+		
+		}
+		
+		
+		
 		req.setAttribute("list", list);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/rev.jsp");

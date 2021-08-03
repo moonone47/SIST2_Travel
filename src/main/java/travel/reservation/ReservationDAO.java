@@ -46,6 +46,7 @@ public class ReservationDAO {
 				dto.setUse(rs.getString("use"));
 				dto.setValiddate(rs.getString("validdate"));
 				dto.setTourprice(rs.getString("tourprice"));
+				dto.setIspay(rs.getString("ispay"));
 				
 				list.add(dto);
 				
@@ -76,6 +77,7 @@ public class ReservationDAO {
 				dto.setUse(rs.getString("use"));
 				dto.setValiddate(rs.getString("validdate"));
 				dto.setTourprice(rs.getString("tourprice"));
+				dto.setImg(rs.getString("img"));
 				
 				return dto;
 			}
@@ -104,6 +106,24 @@ public class ReservationDAO {
 			e.printStackTrace();
 		}
 		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int pay(String reservationseq) {
+		try {
+			
+			String sql = "update tblreservation set ispay = 'y' where reservationseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, reservationseq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		return 0;
 	}
 }
