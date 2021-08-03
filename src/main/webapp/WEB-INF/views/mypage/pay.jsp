@@ -28,7 +28,7 @@
 				<td>비밀번호 앞2자리 <input type="number"></td>
 			</tr>
 			<tr>
-				<td>생년월일 <input type="number"></td>
+				<td>생년월일('-'제외) <input type="number"></td>
 			</tr>
 			<tr>
 				<td>카드 소유자 이름 <input type="text"></td>
@@ -40,7 +40,7 @@
 		<fieldset>
 			<input type="submit" class="btn btn-primary" id ="payment" value="결제하기">
 			<button type="button" class="btn btn-default"
-			onclick="location.href='/SIST2_Travel/mypage/rev.do';">돌아가기</button>
+			onclick="history.back()">돌아가기</button>
 		</fieldset>
 			<input type="hidden" name="reservationseq" value="${reservationseq }" />
 			
