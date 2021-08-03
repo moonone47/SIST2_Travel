@@ -7,65 +7,62 @@
 <meta charset="UTF-8">
 <title>TP</title>
 
- <%@ include file="/inc/asset.jsp"%> 
+<%@ include file="/inc/asset.jsp"%>
 
 <style>
 
 .main-section {
 	width: 800px;
 	margin: 35px auto;
-	padding-bottom: 300px;
 }
 </style>
 
 </head>
 <body>
-	<!-- board/add.jsp -->
+	<!-- board/edit.jsp -->
 	<%@ include file="/inc/header.jsp"%>
 
 	<section class="main-section">
 
 		<h1>
-			건의게시판 <small>게시글 작성</small>
+			건의게시판 <small>Edit</small>
 		</h1>
 
-		<form method="POST" action="/SIST2_Travel/community/suggest/addok.do">
+		<form method="POST" action="/SIST2_Travel/community/suggest/editok.do">
 			<table class="table table-bordered">
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="subject" id="subject"
-						class="form-control" required /></td>
+					<td><input type="text" name="subject" id="subject" 
+						class="form-control" required value="${dto.subject}"/></td>
 				</tr>
-				<tr style="height: 300px;">
+				<tr>
 					<th>내용</th>
-					<td ><textarea style="height: 290px;"  name="content"  
-					class="form-control" required></textarea></td>
+					<td><textarea name="content" id="content" class="form-control" style="height: 300px;"required>
+							${dto.content}</textarea></td>
 				</tr>
 				
 
 			</table>
 
 			<div class="btns">
-				<button type="submit" class="btn btn-primary">글쓰기</button>
+				<button type="submit" class="btn btn-primary">수정하기</button>
 				<button type="button" class="btn btn-default"
 					onclick="location.href='/SIST2_Travel/community/suggest/list.do';">돌아가기</button>
 			</div>
-		
-			<input type="hidden" name="reply" value="${reply}" />
-			<input type="hidden" name="thread" value="${thread}" />
-			<input type="hidden" name="depth" value="${depth}" />
+
+			<input type="hidden" name="suggestseq" value="${dto.suggestseq }" />
 		</form>
 
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
+	<%@ include file="/inc/init.jsp" %>
    <%@ include file="/inc/footer.jsp"%> 
 	<script>
+		
 		
 	</script>
 </body>
 </html>
-
 
 
 

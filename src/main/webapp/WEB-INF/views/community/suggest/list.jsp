@@ -1,85 +1,149 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-   <meta charset="UTF-8">
-   <title>TP</title>
+<meta charset="UTF-8">
+<title>TP</title>
 
-   <%@ include file="/inc/asset.jsp" %>
+<%@ include file="/inc/asset.jsp"%>
 
-   <style>
+<style>
 
-	.main-section { padding: 100px; }
-
-   </style>
+.main-section {
+	width: 800px;
+	margin: 35px auto;
+	padding-bottom: 300px;
+}
+</style>
 
 </head>
 <body>
-<!-- list.jsp -->
-<%@ include file="/inc/header.jsp" %>
+	<!-- question / list.jsp -->
+	<%@ include file="/inc/header.jsp"%>
 
-<section class="main-section">
-	
-	<h1>제안게시판list</h1>
-	
+	<section class="main-section">
+
+		<h1>
+			건의게시판 <small>List</small>
+		</h1>
+			<c:if test="${map.isSearch == 'y' }">
+			<div class="searchBar">
+				'${map.search }'(으)로 검색한 결과가 ${list.size() }개의 결과가 있습니다. 
+			</div>
+		</c:if>
+
 		<table class="table table-bordered">
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
-				<th>닉네임</th>
-				<th>작성일자</th>
+				<th>이름</th>
+				<th>날짜</th>
 				<th>조회수</th>
 				<th>추천수</th>
 			</tr>
+
+			<c:if test="${list.size() ==0 }">
+				<tr>
+					<td colspan="6">게시물이 없습니다.</td>
+				</tr>
+			</c:if>
+
 			<c:forEach items="${list}" var="dto">
-			<tr>
-				<td>${dto.suggestSeq}</td>
-				<td>
-					<a href="/SIST2_Travel/community/suggest/view.do?seq=${dto.suggestSeq}">${dto.subject}</a>
-					
-					<c:if test="${dto.isnew < (2 / 24)}">
-						<span class="label label-danger">new</span>
-					</c:if>
-					
-				</td>
-				<td>${dto.name}</td>
-				<td>${dto.regdate}</td>
-				<td>${dto.viewcnt}</td>
-				<td>${dto.recommcnt}</td>
-			</tr>
+				<tr>
+					<td><c:if test="${dto.depth ==0 }">
+					${dto.suggestseq}
+					</c:if></td>
+
+					<td><c:if test="${dto.depth > 0 }">
+							<span ${dto.depth * 20}></span>
+						</c:if> 
+						<a href="/SIST2_Travel/community/suggest/view.do?suggestseq=${dto.suggestseq}&column=${map.column }&search=${map.search}">
+								${dto.subject}</a>
+
+						<c:if test="${dto.ccnt > 0}">
+							<span class="badge"> ${dto.ccnt} </span>
+							
+						</c:if> 
+						
+						<c:if test="${dto.isnew < (1 / 12 ) }">
+							<span class="label label-danger">new </span>
+						</c:if></td>
+					<td>${dto.name}</td>
+					<td>${dto.regdate}</td>
+					<td>${dto.viewcnt}</td>
+					<td> ${dto.recommcnt }</td>
+				</tr>
 			</c:forEach>
 		</table>
-		
-		<div class="btns">	
-			<button type="button" class="btn btn-primary"
-				onclick="location.href='/SIST2_Travel/community/suggest/add.do';">글쓰기</button>
+		<!-- 페이지바  -->
+		<div>
+			<form method="get" action="/SIST2_Travel/community/suggest/list.do">
+				<input type="number" name="page" min="1" max="${totalPage }"
+					value="${nowPage }" />
+					 <input type="submit" value="페이지 보기" />
+			</form>
+		</div>
+
+		<hr>
+		<div>
+			<select name="" id="selPage">
+				<c:forEach var="i" begin="1" end="${totalPage }">
+					<option value="${i}">${i}page</option>
+				</c:forEach>
+			</select>
+
+		</div>
+		<hr>
+		<div class='pagebar'>${pagebar}</div>
+
+
+
+		<div class="searchbox">
+			<form method="get" action="/SIST2_Travel/community/suggest/list.do">
+				<select name="column" id="column" class="form-control">
+					<option value="subject">제목</option>
+					<option value="content">내용</option>
+					<option value="name">이름</option>
+					<option value="all">제목+내용</option>
+
+				</select> 
+				<input type="text" name="search" id="search" class="form-control" required 
+						placeholder="검색어를 입력하세요." /> 
+				<input type="submit" value="검색하기" class="btn btn-default" />
+			</form>
+		</div>
+
+
+		<div class="btns">
+			<c:if test="${not empty id }">
+				<button type="button" class="btn btn-primary"
+					onclick="location.href='/SIST2_Travel/community/suggest/add.do?reply=0';">글쓰기</button>
+			</c:if>
+
 			<button type="button" class="btn btn-default"
 				onclick="location.reload();">새로고침</button>
-		</div>	
-	
-</section>
+			<button type="button" class="btn btn-default"
+				onclick="location.href='/SIST2_Travel/community/suggest/list.do';">새로고침(list)</button>
+		</div>
 
+	</section>
 
-<%@ include file="/inc/init.jsp" %>
-<%@ include file="/inc/footer.jsp" %>
-<script>
-
-</script>
+	<%@ include file="/inc/init.jsp"%>
+	<script>
+		<c:if test="${map.isSearch == 'y'}">
+		//상태 복원 
+		$('#column').val('${map.column}');
+		$('#search').val('${map.search}');
+		</c:if>
+		$('#selPage')
+				.change(
+						function() {
+							location.href = '/SIST2_Travel/community/suggest/list.do?page='
+									+ $(this).val();
+						})
+		$('#selPage').val('${nowPage}')
+	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
