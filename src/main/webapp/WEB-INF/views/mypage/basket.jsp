@@ -1,112 +1,113 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>여행 병아리들을 위한 여행계획사이트 티피~~</title>
+<meta charset="UTF-8">
+<title></title>
+<%@ include file="/inc/asset.jsp"%>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-<%@ include file="/inc/asset.jsp" %>
-
-  <style>
-	
-	.table th:nth-child(1) {
-	width: 60px;
+<style>
+.main-section {
+	width: 800px;
+	margin: 35px auto;
+	padding-bottom: 300px;
 }
-
-.table th:nth-child(2) {
-	width: auto;
-}
-
-.table th:nth-child(3) {
-	width: 80px;
-}
-
-.table th:nth-child(4) {
-	width: 120px;
-}
-
-.table th:nth-child(5) {
-	width: 60px;
-}
-
-.table td:nth-child(2) {
-	text-align: left;
-}
-
-.searchbox {
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-.searchbox .form-control {
-	display: inline-block;
-	width: auto;
-}
-
-.searchbox #search {
-	width: 300px;
-}
-
-.searchBar {
-	margin: 10px;
-	text-align: center;
-}
-
-.pagebar { text-align: center;}
-
-  </style>
+</style>
 
 </head>
 <body>
-<!-- template.jsp -->
-<%@ include file="/inc/header.jsp" %>
 
-<section class="main-section">
-
-	<h1>
-			MyPage <small>Basket</small>
+	<%@ include file="/inc/header.jsp"%>
+	<!--  -->
+	<section class="main-section">
+		<h1>
+			장바구니 내역 <small>List</small>
 		</h1>
-		
-		<%-- <c:if test="${map.isSearch == 'y'}">
-			<div class="searchBar">'${map.search}'으로 검색한 결과
-				${list.size()}개의 게시물이 있습니다.</div>
-		</c:if>
-
-		<c:if test="${map.isSearch == 'y'}">
-			<div class="searchBar">'${map.search}'으로 검색한 결과
-				${list.size()}개의 게시물이 있습니다.</div>
-		</c:if> --%>
-
 
 		<table class="table table-bordered">
 			<tr>
-				<th>번호</th>
-				<!-- <th>상품 이름</th> -->
-				<th>아이디</th>
-				<th>상품 번호</th>
-				<!-- <th>상품 유효기간</th> -->
+				<th>장바구니 번호</th>
+				<th>투어/티켓 이름</th>
+				<th>사용처</th>
+				<th>사용기간</th>
+				<th>예약자 이름</th>
+				<th>투어 가격</th>
+				<th>결제 여부</th>
+				<th>장바구니 제거</th>
 			</tr>
-			<c:forEach items="${list}" var="dto">
+
+			<c:if test="${list.size() ==0 }">
 				<tr>
-					<td>${dto.basketseq}</td>
-					<%-- <td>${dto.name}</td> --%>
-					<td>${dto.id}</td>
-					<td>${dto.tourseq}</td>
-					<%-- <td>${dto.validDate}</td> --%>
+					<td colspan="8">게시물이 없습니다.</td>
 				</tr>
-			</c:forEach>
+			</c:if>
+			<c:if test="${not empty id }">
+				<c:forEach items="${list}" var="dto">
+					<tr>
+						<td>${dto.basketseq}</td>
+						<td id="tourname"><a
+							href="/SIST2_Travel/mypage/revview.do?tourseq=${dto.tourseq }">${dto.tourname}</a></td>
+						<td>${dto.use}</td>
+						<td>${dto.validdate}</td>
+						<td><div id="membername">${dto.membername }</div></td>
+						<td>${dto.tourprice}</td>
+					 	<td>${dto.ispay }
+						<c:if test="${dto.ispay eq '미결제' }">
+								<form method="POST"
+									action="/SIST2_Travel/mypage/basketpay.do?basketseq=${dto.basketseq}	">
+									<button id="payment" type="submit" >결제하기</button>
+									<input type="hidden" name="reservationseq"	value="${dto.basketseq }" />
+									<input type="hidden" name="tourseq"	value="${dto.tourseq }" />
+								</form>
+							</c:if>
+						</td> 
+						
+
+						<td>
+								<form method="get"
+									action="/SIST2_Travel/mypage/basketdel.do?basketseq=${dto.basketseq}">
+									<button type="submit" id="btnDel" onclick="del()">장바구니 삭제</button>
+									<input type="hidden" name="basketseq"
+										value="${dto.basketseq }" />
+								</form>
+							
+							
+						</td>
+					</tr>
+				</c:forEach>
+			</c:if>
 		</table>
 
 
 
-</section>
 
 
-<%@ include file="/inc/init.jsp" %>
-<%-- <%@ include file="/inc/footer.jsp" %> --%>
-<script>
+	</section>
 
-</script>
+	<%@ include file="/inc/init.jsp"%>
+	<%@ include file="/inc/footer.jsp"%>
+	<script>
+	
+		
+	    function del() {
+	        if (!confirm("목록에거 삭제하시겠습니까?")) {
+	            alert("취소(아니오)를 누르셨습니다.");
+	        } else {
+	            alert("확인(예)을 누르셨습니다.");
+	        }
+	    }
+
+		/* function showPopup() {
+			window.open("/SIST2_Travel/mypage/pay.do", "결제창",
+					"width=400, height=600, left=100, top=50");
+		} */
+	</script>
+
 </body>
 </html>

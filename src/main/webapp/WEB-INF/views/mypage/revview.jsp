@@ -116,7 +116,7 @@ width:82%;
 		</table>
 			
 		<button type="button" class="btn btn-primary"
-			onclick="location.href='/SIST2_Travel/mypage/rev.do';">돌아가기</button>
+			onclick="history.back()">돌아가기</button>
 
 
 
