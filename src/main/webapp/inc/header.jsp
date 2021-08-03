@@ -99,9 +99,8 @@
                                 class="dropdown-item" href="#">추천글 모음 ...?</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link">서비스</a></li>
+                    <li class="nav-item"><a href="/SIST2_Travel/service/list.do" class="nav-link">서비스</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
 
                     <li class="nav-item dropdown"><a
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
@@ -114,7 +113,17 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+                   <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
+												<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								 <a class="dropdown-item" href="#">개인정보 조회</a>
+								 <a class="dropdown-item" href="#">내 여행 일정 조회</a>
+								 <a class="dropdown-item" href="#">장바구니</a> 
+								 <a class="dropdown-item" href="#">결제내역</a>
+								<a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
+							</div>
+							</li>
                     <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
                     <c:if test="${not empty id }">
                         <div style="color: white;">이름 : ${name }(id : ${id})</div>
