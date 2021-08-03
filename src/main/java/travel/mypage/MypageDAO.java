@@ -86,7 +86,7 @@ public class MypageDAO {
 		return 0;
 	}
 	
-<<<<<<< HEAD
+
 	//비밀번호 수정을 위한 메서드 선언.
 		public boolean changePassword(String id, String newPw) {
 
@@ -114,24 +114,7 @@ public class MypageDAO {
 			return flag;
 		}
 		
-		/*
-		 * public String getName() { String sql =
-		 * "select name from tblTour where tourseq = ?";
-		 * 
-		 * pstat = conn.prepareStatement(sql);
-		 * 
-		 * try { pstat = conn.prepareStatement(sql); pstat.setString(1,
-		 * dto.getTourseq());
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * } catch (Exception e) { e.printStackTrace(); }
-		 * 
-		 * return flag; } }
-		 */
-=======
->>>>>>> 79f33093642573f47f9789cf90cf16cd3784c51a
+		
+
 	
 }

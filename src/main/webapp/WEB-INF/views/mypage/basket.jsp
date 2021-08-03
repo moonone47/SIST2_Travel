@@ -82,21 +82,18 @@
 		<table class="table table-bordered">
 			<tr>
 				<th>번호</th>
-				<th>상품 이름</th>
+				<!-- <th>상품 이름</th> -->
 				<th>아이디</th>
 				<th>상품 번호</th>
-				<th>상품 유효기간</th>
-				<th></th>
-				
+				<!-- <th>상품 유효기간</th> -->
 			</tr>
-			
 			<c:forEach items="${list}" var="dto">
 				<tr>
 					<td>${dto.basketseq}</td>
-					<td>${tblTour.name}</td>
+					<%-- <td>${dto.name}</td> --%>
 					<td>${dto.id}</td>
 					<td>${dto.tourseq}</td>
-					<td>${tblTour.validDate}</td>
+					<%-- <td>${dto.validDate}</td> --%>
 				</tr>
 			</c:forEach>
 		</table>

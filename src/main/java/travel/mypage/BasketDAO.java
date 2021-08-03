@@ -128,6 +128,44 @@ public class BasketDAO {
 		
 		return 0;
 	}
+	
+	
+	/*
+	 * public String getName() { String sql =
+	 * "select name from tblTour where tourseq = ?";
+	 * 
+	 * pstat = conn.prepareStatement(sql);
+	 * 
+	 * try { pstat = conn.prepareStatement(sql); pstat.setString(1,
+	 * dto.getTourseq());
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); }
+	 * 
+	 * return flag; } }
+	 */
+	
+	/*
+	 * public BasketDTO get(String tourseq) { try {
+	 * 
+	 * String sql = "select * from tblTour where tourseq=?";
+	 * 
+	 * pstat = conn.prepareStatement(sql); pstat.setString(1, tourseq);
+	 * 
+	 * rs = pstat.executeQuery();
+	 * 
+	 * if (rs.next()) {
+	 * 
+	 * BasketDTO dto = new BasketDTO();
+	 * 
+	 * dto.setName(rs.getString("name")); dto.setValidDate("validDate");
+	 * 
+	 * 
+	 * return dto; } } catch (Exception e) { e.printStackTrace(); } return null; }
+	 */
 
 	
 }

@@ -15,8 +15,18 @@ public class Editpwok extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+			
 		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/editpwok.jsp");
+		dispatcher.forward(req, resp);
 
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+			
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/editpwok.jsp");
 		dispatcher.forward(req, resp);
 
