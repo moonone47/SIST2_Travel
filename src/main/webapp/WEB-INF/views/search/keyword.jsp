@@ -101,7 +101,7 @@
    </div>
 
    <%@ include file="/inc/footer.jsp"%>
-   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b98db171cb4bc02433f272306db4edb2&libraries=services"></script>
+   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
    <script>
       // 마커를 담을 배열입니다
       var markers = [];

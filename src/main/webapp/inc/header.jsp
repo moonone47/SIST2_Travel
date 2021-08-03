@@ -100,7 +100,6 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="/SIST2_Travel/service/list.do" class="nav-link">서비스</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
 
                     <li class="nav-item dropdown"><a
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
@@ -112,7 +111,6 @@
                                                                          href="#">투어/입장권</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
 												<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
@@ -120,8 +118,7 @@
 								 <a class="dropdown-item" href="#">개인정보 조회</a>
 								 <a class="dropdown-item" href="#">내 여행 일정 조회</a>
 								 <a class="dropdown-item" href="#">장바구니</a> 
-								 <a class="dropdown-item" href="#">결제내역</a>
-								<a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
+								<a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 및 결제 내역</a>
 							</div>
 							</li>
                     <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
