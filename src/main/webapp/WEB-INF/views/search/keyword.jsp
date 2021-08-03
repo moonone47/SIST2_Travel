@@ -149,14 +149,14 @@
                     });
 
             function getDate(element) {
-                var date;
+                var regdate;
                 try {
-                    date = $.datepicker.parseDate(dateFormat, element.value);
+                    regdate = $.datepicker.parseDate(dateFormat, element.value);
                 } catch (error) {
-                    date = null;
+                    regdate = null;
                 }
 
-                return date;
+                return regdate;
             }
         });
     </script>

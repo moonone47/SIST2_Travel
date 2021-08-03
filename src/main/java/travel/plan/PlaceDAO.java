@@ -385,7 +385,7 @@ public void addAD5(PlaceDTO dto, String tblplanseq, String memberid) {
         try {
             String sql =
                     "insert into tblSights values(seqSights.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , " +
-                    "?, ?, ?, ?, ?)"; 
+                    "?, ?, ?, ?, ?)";
 
             String lastCrawlDate = dto.getRdate();
             Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(lastCrawlDate);
