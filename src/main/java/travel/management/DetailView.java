@@ -1,7 +1,11 @@
 package travel.management;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,20 +23,18 @@ public class DetailView extends HttpServlet {
 
 		String planseq = req.getParameter("planseq");
 		
+		System.out.println(planseq);
 		HttpSession session = req.getSession();
 		
 		String id = (String)session.getAttribute("id");
 		
-		ManagementDAO dao = new ManagementDAO();
+		ManagementDAO dao = new ManagementDAO();			
 			
 		ArrayList<ManagementDTO> list = dao.getdetail(planseq, "3"); // id로 나중에 바꾸기
 	
-		// 끝 - 시작 = ( 날짜 + 1 )  -> 날짜 ArrayList 만들기
 
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/management/detailview.jsp");
-		dispatcher.forward(req, resp);
-
+		
+		resp.sendRedirect("/SIST2_Travel/management/between.do?planseq="+planseq);
 	}//doGet
 
 }//class

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class PlanInfoDAO {
     private Connection conn;
@@ -84,6 +85,46 @@ public class PlanInfoDAO {
         }
         return -1;
     }
+
+//  private String name;
+//  private String daystarttravel;
+//  private String dayendtravel;
+//  private String willshare;
+//  private String wish;
+//  private String theme;
+//  private String id;
+//  private String cityseq;
+    
+    
+	public PlanInfoDTO getlist(String planseq) {
+		try {
+			String sql = "select * from tblPlan where planseq = ?"; // todo:일정번호로 바꿔야함
+	
+	        pstat = conn.prepareStatement(sql);
+	        pstat.setString(1, planseq);
+	
+	        rs = pstat.executeQuery(); //복붙
+
+	
+	        PlanInfoDTO dto = new PlanInfoDTO();
+	        if(rs.next()) {
+	        	dto.setPlanseq(rs.getString("planseq"));
+	        	dto.setName(rs.getString("name"));
+	        	dto.setDaystarttravel(rs.getString("daystarttravel"));
+	        	dto.setDayendtravel(rs.getString("dayendtravel"));
+	        	dto.setWillshare(rs.getString("willshare"));
+	        	dto.setTheme(rs.getString("theme"));
+	        	dto.setId(rs.getString("id"));
+				dto.setCityseq(rs.getString("cityseq"));
+
+	        }//end while
+	
+	        return dto;
+		} catch (Exception e) {
+        e.printStackTrace();
+    }
+    return null;
+	}
 
 
 }

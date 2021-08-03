@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import travel.community.freeboard.FreeBoardDTO;
-
 @WebServlet("/mypage/travelplan.do")
 public class TravelPlan extends HttpServlet {
 
