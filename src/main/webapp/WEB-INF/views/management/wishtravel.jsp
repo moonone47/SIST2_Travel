@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
+
 <meta charset="UTF-8">
 <title></title>
 
@@ -14,30 +14,7 @@
 </head>
 <body>
    <!--
-    	req.setAttribute("Resdto", Restaurantdto);
-		req.setAttribute("Roomdto", Roomdto);
-		req.setAttribute("Sdto", Sightdto);
-		    restaurantSeq number           NOT NULL primary key,
-    name          varchar2(100)    NOT NULL,
-    address       varchar2(1000)   NOT NULL,
-    image         varchar2(1000)   NULL,
-    wish          number default 0 NOT NULL,
-    theme         varchar2(100)    NULL,
-    restaurantX   number           NULL,
-    restaurantY   number           NULL
 
-        roomsSeq number         NOT NULL PRIMARY KEY,
-    name     varchar2(50)   NOT NULL,
-    explain  varchar2(2000) NOT NULL,
-    address  varchar2(200)  NOT NULL,
-    type     varchar2(50)   NOT NULL,
-    rank     number         NOT NULL,
-    price    number         NOT NULL,
-    grade    number         NOT NULL,
-    roomsX   number         NOT NULL,
-    roomsY   number         NOT NULL,
-    wish     number  default 0  NOT NULL,
-    siteSeq  number         NOT NULL references tblRoomsSite (siteSeq)
     -->
    <div class="container">
       
@@ -45,39 +22,61 @@
       <c:forEach items="${Resdto}" var="resdto">
          ${resdto.restaurantSeq}
          ${resdto.name}
+         ${resdto.explain}
          ${resdto.address}
          ${resdto.image}
+         ${resdto.grade}
          ${resdto.wish}
          ${resdto.theme}
          ${resdto.restaurantX}
          ${resdto.restaurantY}
-         ${resdto}
+         ${resdto.plandate}
+         ${resdto.budget}
+         ${resdto.seq}
+         ${resdto.url}
+         ${resdto.planseq}
+         ${resdto.id}
+         <hr>
       </c:forEach>
-      <hr>
+
       <c:forEach items="${Roomdto}" var="roomdto">
+         ${roomdto.roomsSeq}
          ${roomdto.name}
          ${roomdto.explain}
          ${roomdto.address}
-         ${roomdto.type}
-         ${roomdto.rank}
-         ${roomdto.price}
+         ${roomdto.image}
          ${roomdto.grade}
+         ${roomdto.wish}
+         ${roomdto.theme}
          ${roomdto.roomsX}
          ${roomdto.roomsY}
-         ${roomdto.wish}
-         ${roomdto.siteSeq}
+         ${roomdto.plandate}
+         ${roomdto.budget}
+         ${roomdto.seq}
+         ${roomdto.url}
+         ${roomdto.planseq}
+         ${roomdto.id}
+         <hr>
       </c:forEach>
-      <hr>
       <c:forEach items="${Sdto}" var="sdto">
-         ${sdto.restaurantSeq}
+
+         ${sdto.sightsSeq}
          ${sdto.name}
+         ${sdto.explain}
          ${sdto.address}
          ${sdto.image}
+         ${sdto.grade}
          ${sdto.wish}
          ${sdto.theme}
-         ${sdto.restaurantX}
-         ${sdto.restaurantY}
-         ${sdto}
+         ${sdto.sightsX}
+         ${sdto.sightsY}
+         ${sdto.plandate}
+         ${sdto.budget}
+         ${sdto.seq}
+         ${sdto.url}
+         ${sdto.planseq}
+         ${sdto.id}
+         <hr>
       </c:forEach>
       <hr>
       

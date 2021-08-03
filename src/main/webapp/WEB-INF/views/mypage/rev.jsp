@@ -54,11 +54,12 @@
 						<td>${dto.iscancel }</td>
 						<td>${dto.membername }</td>
 						<td>
-
-
-							<button type="button" class="btn btn-default" id="cancel"
-								onclick="location.href='/SIST2_Travel/mypage/revcancel.do?reservationseq=${dto.reservationseq}';">예약
-								취소하기</button>
+							<form method="get"
+								action="/SIST2_Travel/mypage/revcancel.do?reservationseq=${dto.reservationseq}">
+								<button type="submit" id="btnCancel">예약 취소하기</button>
+								<input type="hidden" name="reservationseq"
+									value="${dto.reservationseq }" />
+							</form>
 
 						</td>
 					</tr>
@@ -73,7 +74,7 @@
 	<%@ include file="/inc/init.jsp"%>
 	<%@ include file="/inc/footer.jsp"%>
 	<script>
-		$("#cancel").click(function() {
+		$("#btnCancel").click(function() {
 			if (confirm("정말 예약을 취소하시겠습니까?")) {
 				alert('취소되었습니다.');
 			}

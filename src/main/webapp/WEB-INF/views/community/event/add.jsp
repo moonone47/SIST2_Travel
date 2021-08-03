@@ -17,12 +17,12 @@
 	<!-- add.jsp -->
 	<div class= "container">
 		<h1 class="page-header"></h1>
-		<form method="POST" action="${pageContext.request.contextPath}/community/event/addok.do">
+		<form method="POST" action="/SIST2_Travel/community/event/addok.do">
 			<table class="table table-bordered">
 				<tr>
 					<th>제목</th>
 					<td>
-						<label for="subject"></label><input type="text" name="subject" id="subject" class="form-control" required">
+						<label for="subject"></label><input type="text" name="subject" id="subject" class="form-control" required>
 					</td>
 				</tr>
 				<tr>

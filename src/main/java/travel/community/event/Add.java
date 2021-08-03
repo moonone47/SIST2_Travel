@@ -15,8 +15,8 @@ public class Add extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 //		todo: 로그인 구현 이후
-//		CheckMember cm = new CheckMember();
-//		cm.check(req, resp);
+		CheckMember cm = new CheckMember();
+		cm.check(req, resp);
 
 		String reply = req.getParameter("reply");
 		String thread = req.getParameter("thread");
