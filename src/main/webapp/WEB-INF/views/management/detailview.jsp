@@ -19,15 +19,14 @@
 
 <section class="main-section">
 	<h1>상세 일정 보기</h1>
-	<table>
+	<table class="table">
 		<c:forEach items="${datelist}" var="date" varStatus="status">
 				<tr>
 					<th>DAY ${status.count}</th>
 					<td>${date}</td>
-					<td>${cityname}</td>
+					<td>${plan.cityname}</td>
 				</tr>
 			<c:forEach items="${list}" var="dto"  varStatus="instatus">
-			
 					<tr>	
 						<th>${instatus.count}</th>
 						<td colspan="2">
@@ -50,6 +49,18 @@
 <%@ include file="/inc/init.jsp" %>
 <%@ include file="/inc/footer.jsp" %>
 <script>
+
+	function noEvent() { // 새로 고침 방지
+	    if (event.keyCode == 116) {
+	        alert("새로고침을 할 수 없습니다.");
+	        event.keyCode = 2;
+	        return false;
+	    } else if (event.ctrlKey
+	            && (event.keyCode == 78 || event.keyCode == 82)) {
+	        return false;
+	    }
+	}
+	document.onkeydown = noEvent;
 
 </script>
 </body>

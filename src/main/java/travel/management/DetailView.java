@@ -92,7 +92,7 @@ public class DetailView extends HttpServlet {
 		req.setAttribute("datelist", datelist);
 		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/SIST2_Travel/management/between.do");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/management/between.do");
 		dispatcher.forward(req, resp);
 
 	}//doGet

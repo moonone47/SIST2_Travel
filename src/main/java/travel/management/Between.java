@@ -20,6 +20,8 @@ public class Between extends HttpServlet {
 		
 		ArrayList<String> datelist = (ArrayList<String>)req.getAttribute("datelist");
 		
+		req.setAttribute("list", list);
+		req.setAttribute("datelist", datelist);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/management/detailview.jsp");
 		dispatcher.forward(req, resp);
