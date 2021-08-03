@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="/inc/asset.jsp"%>
 	<form method="POST"
-		action="/SIST2_Travel/mypage/payok.do?reservationseq=${reservationseq}	">
+		action="/SIST2_Travel/mypage/basketpayok.do?basketseq=${basketseq}">
 
 		<h1>카드정보입력</h1>
 		<table class="table table-bordered">
@@ -42,13 +42,14 @@
 			<button type="button" class="btn btn-default"
 			onclick="history.back()">돌아가기</button>
 		</fieldset>
-			<input type="hidden" name="reservationseq" value="${reservationseq }" />
+			<input type="hidden" name=basketseq value="${basketseq }" />
+			<input type="hidden" name=tourseq value="${tourseq }" />
 			
 	</form>
 		<script>
 		$("#payment").click(function() {
 			if (confirm("결제를 완료하시겠습니까?")) {
-				alert('결제 완료되었습니다.');
+				alert('결제 완료되었습니다. 결제 내역은 예약 및 결제내역 페이지에서 확인가능합니다.');
 			} 
 		});
 		</script>

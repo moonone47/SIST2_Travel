@@ -33,7 +33,7 @@
 		<table class="table table-bordered">
 			<tr>
 				<th>예약 번호</th>
-				<th>투어 이름</th>
+				<th>투어/티켓 이름</th>
 				<th>사용처</th>
 				<th>사용기간</th>
 				<th>예약자 이름</th>
