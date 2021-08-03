@@ -67,7 +67,7 @@
             <form action="#" class="searchform order-lg-last">
                 <div class="form-group d-flex">
                     <input type="text" class="form-control pl-3" placeholder="Search">
-                    <button type="submit" placeholder="" class="form-control search">
+                    <button type="submit" placeholder="도시/장소를 찾아보세요." class="form-control search">
                         <span class="fa fa-search"></span>
                     </button>
                 </div>
@@ -100,6 +100,7 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="/SIST2_Travel/service/list.do" class="nav-link">서비스</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
 
                     <li class="nav-item dropdown"><a
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
@@ -111,31 +112,58 @@
                                                                          href="#">투어/입장권</a>
                         </div>
                     </li>
-                   <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
-												<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								 <a class="dropdown-item" href="#">개인정보 조회</a>
-								 <a class="dropdown-item" href="#">내 여행 일정 조회</a>
-								 <a class="dropdown-item" href="#">장바구니</a> 
-								<a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 및 결제 내역</a>
-							</div>
-							</li>
+                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
+                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <a class="dropdown-item" href="#">개인정보 조회</a>
+                            <a class="dropdown-item" href="#">내 여행 일정 조회</a>
+                            <a class="dropdown-item" href="#">장바구니</a>
+                            <a class="dropdown-item" href="#">결제내역</a>
+                            <a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
+                        </div>
+                    </li>
                     <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
-                    <c:if test="${not empty id }">
-                        <div style="color: white;">이름 : ${name }(id : ${id})</div>
+<%--                    <c:if test="${not empty id }">--%>
+<%--                        <div style="color: white;">이름 : ${name }(id : ${id})</div>--%>
 
-                        <div class="btn-auth"
-                             onclick="location.href='/SIST2_Travel/login/logout.do';"
-                             title="로그아웃" style="color: white; cursor: pointer;">Logout
-                        </div>
+<%--                        <div class="btn-auth"--%>
+<%--                             onclick="location.href='/SIST2_Travel/login/logout.do';"--%>
+<%--                             title="로그아웃" style="color: white; cursor: pointer;">Logout--%>
+<%--                        </div>--%>
+<%--                    </c:if>--%>
+<%--                    <c:if test="${empty id }">--%>
+<%--                        <div class="btn-auth"--%>
+<%--                             onclick="location.href='/SIST2_Travel/login/login.do';"--%>
+<%--                             title="로그인" style="color: white; cursor: pointer;">Login--%>
+<%--                        </div>--%>
+<%--                    </c:if>--%>
+                    <c:if test="${empty id}">
+                    <button type="button" class="btn btn-warning form-control"
+                            onclick="location.href='/SIST2_Travel/login/login.do';">로그인
+                    </button>
+                    <button type="button" class="btn btn-primary form-control"
+                            onclick="location.href='/SIST2_Travel/login/signup.do';">회원가입
+                    </button>
                     </c:if>
-                    <c:if test="${empty id }">
-                        <div class="btn-auth"
-                             onclick="location.href='/SIST2_Travel/login/login.do';"
-                             title="로그인" style="color: white; cursor: pointer;">Login
-                        </div>
+
+                    <c:if test="${not empty id}">
+                        <li class="nav-item dropdown">
+                            <img src="https://www.earthtory.com/res/img/common/mobile/img_profile.png">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="mypage"--%>
+<%--                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>--%>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                <a class="dropdown-item" href="#">개인정보 조회</a>
+                                <a class="dropdown-item" href="#">내 여행 일정 조회</a>
+                                <a class="dropdown-item" href="#">장바구니</a>
+                                <a class="dropdown-item" href="#">결제내역</a>
+                                <a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
+                            </div>
+                        </li>
                     </c:if>
+
+
                 </ul>
             </div>
         </div>
