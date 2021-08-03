@@ -1,4 +1,4 @@
-package travel.reservation.tour;
+package travel.tour;
 
 import java.io.IOException;
 
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/reservation/tourresvation.do")
-public class TourReservation extends HttpServlet {
+@WebServlet("/reservation/tourlist.do")
+public class TourList extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/reservation/tourresvation.jsp");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/reservation/tourlist.jsp");
 		dispatcher.forward(req, resp);
 
 	}

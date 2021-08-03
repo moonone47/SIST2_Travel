@@ -1,11 +1,12 @@
 package travel.management;
 
+import travel.DBUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-import travel.DBUtil;
+import java.util.ArrayList;
 
 public class ManagementDAO {
 
@@ -22,8 +23,9 @@ public class ManagementDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
+
+
+	public ArrayList<ManagementDTO> getlist(String planseq) {
+		return null;
+	}
 }

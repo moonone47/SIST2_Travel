@@ -59,7 +59,7 @@ public class PlanDone extends HttpServlet {
         for (int i = 0; i < planseq.length; i++) {
             dto = dao.split(planseq[i]);
 
-            if (dto.getCategory_group_code().equals("AT4")) {
+            if (dto.getCategory_group_code().equals("AT4")) { 
                 dao.addAT4(dto,tblplanseq,memberid);
             } else if (dto.getCategory_group_code().equals("AD5")) {
                 dao.addAD5(dto,tblplanseq,memberid);

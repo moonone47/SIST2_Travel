@@ -58,7 +58,7 @@
 				</tr>
 				<tr>
 					<th>생년월일</th>
-					<td><input type="date" name="birthday" id="birthday"
+					<td><input type="regdate" name="birthday" id="birthday"
 						class="form-control" value="${dto.birthday}"></td>
 				</tr>
 				<tr>
