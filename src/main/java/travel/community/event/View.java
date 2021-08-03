@@ -1,4 +1,4 @@
-package com.test.myapp.board;
+package travel.community.event;
 
 import travel.community.event.CommentDTO;
 import travel.community.event.EventDAO;

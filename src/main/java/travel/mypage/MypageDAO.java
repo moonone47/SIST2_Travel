@@ -62,12 +62,12 @@ public class MypageDAO {
 	//Editprofileok.java
 	public int edit(MypageDTO dto) {
 		try {
-			
+//			java.sql.SQLException: ORA-01407: cannot update ("SIST2_TRAVEL"."TBLMEMBER"."NAME") to NULL
 			String sql = "update tblmember set name = ?, nick = ?, email = ?, phone = ?,"
 					+ "zip = ?, address = ?, birthday = ?, gender = ? where id = ?";
 			
 			pstat = conn.prepareStatement(sql);
-			
+			System.out.println(dto.getName());
 			pstat.setString(1, dto.getName());
 			pstat.setString(2, dto.getNick());
 			pstat.setString(3, dto.getEmail());

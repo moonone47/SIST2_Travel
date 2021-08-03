@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/community/suggest/del.do")
 public class Del extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//1. 데이터 가져오기
-		String suggestSeq = req.getParameter("suggestSeq");
+		/*
+		 * CheckMember cm = new CheckMember(); cm.check(req,resp);
+		 */
 		
-		//2. JSP 호출하기  + 글번호 전달하기
-		req.setAttribute("suggestSeq", suggestSeq);
+		String suggestseq = req.getParameter("suggestseq");
+		
+		req.setAttribute("suggestseq", suggestseq);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/suggest/del.jsp");
 		dispatcher.forward(req, resp);

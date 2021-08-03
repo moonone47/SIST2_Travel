@@ -15,48 +15,48 @@ public class AddComment extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		/*
+		 * CheckMember cm = new CheckMember(); cm.check(req,resp);
+		 */
 
 		req.setCharacterEncoding("UTF-8");
-
-		
-		//1. 데이터 가져오기
-		String suggestSeq = req.getParameter("suggestSeq"); //보고있던 글번호(= 작성 중인 댓글의 부모 글번호)
+		String suggestseq = req.getParameter("suggestseq"); // 보고있던 글번호 (작성중인 부모 글번호)
 		String content = req.getParameter("content");
-		
+
 		//2.
 		BoardDAO dao = new BoardDAO();
+
 		CommentDTO dto = new CommentDTO();
-		
 		HttpSession session = req.getSession();
-		
-		//dto.setId(session.getAttribute("id").toString()); //댓글 작성자 아이디(= 로그인한 사람 세션)
-		dto.setId("2");
-		dto.setSuggestSeq(suggestSeq);
+
+		dto.setId(session.getAttribute("id").toString()); // 댓글 작성자 id (로그인한 사람 세션)
 		dto.setContent(content);
-		
-		int result = dao.addComment(dto);//1, 0		
-		
+		dto.setSuggestSeq(suggestseq);
+
+		int result = dao.addComment(dto);
+
 		//3.
-		if (result == 1) {
-			resp.sendRedirect("/SIST2_Travel/community/suggest/view.do?suggestSeq=" + suggestSeq); 
-			//보고 있던 글번호를 가지고 돌아가기
+		if(result == 1) {
+			resp.sendRedirect("/SIST2_Travel/community/suggest/view.do?suggestseq=" + suggestseq);
 		} else {
-			
-			PrintWriter writer = resp.getWriter();		
-			resp.setCharacterEncoding("UTF-8");
-			
+
+			resp.setCharacterEncoding("UTF-8"); 
+
+			PrintWriter writer = resp.getWriter();
 			writer.print("<html>");
 			writer.print("<body>");
 			writer.print("<script>");
-			writer.print("alert('댓글 쓰기 실패');");
+			writer.print("alert('댓글쓰기 실패');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body>");
 			writer.print("</html>");
-			
-			writer.close();
-		}
-		
-	}
 
-}
+			writer.close();
+
+		}
+
+	}//doGet
+
+}//class

@@ -14,23 +14,23 @@ import javax.servlet.http.HttpSession;
 public class DelOk extends HttpServlet {
 
 	@Override
-	protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//1. 데이터 가져오기
-		String suggestSeq = req.getParameter("suggestSeq");
-		
-		//2. DB작업 > DAO위임 > delete where suggestSeq
+		String suggestseq = req.getParameter("suggestseq");
+
 		BoardDAO dao = new BoardDAO();
-		
+
 		HttpSession session = req.getSession();
-		
-		int result = dao.del(suggestSeq);
-		
-		//3. 결과처리
-		if (result == 1 ) {
+
+		// 2.1 현재 글에 달린 댓글부터 삭제하기 ***
+		dao.delAllComment(suggestseq); // 부모 글번호 - 이 글을 부모라고 생각하는 모든 댓글 지우기
+
+		int result = dao.del(suggestseq);
+
+		if (result == 1) {
 			resp.sendRedirect("/SIST2_Travel/community/suggest/list.do");
 		} else {
-			resp.sendRedirect("/SIST2_Travel/community/suggest/view.do?suggestSeq=" + suggestSeq);
+			resp.sendRedirect("/SIST2_Travel/community/suggest/del.do?suggestseq=" + suggestseq);
 		}
 		
 	}
