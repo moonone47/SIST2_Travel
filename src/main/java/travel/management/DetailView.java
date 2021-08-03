@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/management/detailview.do")
 public class DetailView extends HttpServlet {
@@ -18,13 +19,16 @@ public class DetailView extends HttpServlet {
 
 		String planseq = req.getParameter("planseq");
 		
+		HttpSession session = req.getSession();
+		
+		String id = (String)session.getAttribute("id");
+		
 		ManagementDAO dao = new ManagementDAO();
-		
-		ArrayList<ManagementDTO> dto = dao.getlist(planseq);
-		
-		// planseq를 보내서 tblPlan이랑 음식점, tblPlan + 명소, tblPlan + 숙소 -> 이너조인한 vw에 where로 planseq를 넣고 DTO에 담아서 리스트로 만들어서 와 -> 날짜별로 asc
-		
-		req.setAttribute("dto", dto);
+			
+		ArrayList<ManagementDTO> list = dao.getdetail(planseq, "3"); // id로 나중에 바꾸기
+	
+		// 끝 - 시작 = ( 날짜 + 1 )  -> 날짜 ArrayList 만들기
+
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/management/detailview.jsp");
 		dispatcher.forward(req, resp);

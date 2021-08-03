@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import travel.community.question.CheckMember;
 import travel.reservation.ReservationDAO;
 
-@WebServlet("/mypage/pay.do")
-public class Pay extends HttpServlet {
+@WebServlet("/mypage/payok.do")
+public class PayOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,12 +24,31 @@ public class Pay extends HttpServlet {
 		
 		String reservationseq = req.getParameter("reservationseq");
 		
-		req.setAttribute("reservationseq", reservationseq);
+		ReservationDAO dao = new ReservationDAO();
 		
+		int result = dao.pay(reservationseq);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/pay.jsp");
-		dispatcher.forward(req, resp);
+		if(result == 1) {
+		
 
+			resp.sendRedirect("/SIST2_Travel/mypage/rev.do");
+		} else {
+
+		resp.setCharacterEncoding("UTF-8"); 
+
+			PrintWriter writer = resp.getWriter();
+			writer.print("<html>");
+			writer.print("<body>");
+			writer.print("<script>");
+			writer.print("alert('결제에 실패했습니다. 다시 시도해주세요.');");
+			writer.print("history.back();");
+			writer.print("</script>");
+			writer.print("</body>");
+			writer.print("</html>");
+
+			writer.close();
+
+		}
 
 	}
 

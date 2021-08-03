@@ -26,6 +26,8 @@ public class ReservationDTO {
 	private String tourprice;
 	private String id;
 	private String detail;
+	private String ispay;
+	private String img;
 	
 	public String getReservationseq() {
 		return reservationseq;
@@ -86,6 +88,18 @@ public class ReservationDTO {
 	}
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+	public String getIspay() {
+		return ispay;
+	}
+	public void setIspay(String ispay) {
+		this.ispay = ispay;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	} 
 	
 	
