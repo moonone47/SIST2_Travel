@@ -1,20 +1,19 @@
 package travel.plan;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/plan/plandel.do")
 public class PlanDel extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//PlanDel.java
 		String plan2seq = req.getParameter("plan2seq");
@@ -47,6 +46,7 @@ public class PlanDel extends HttpServlet {
 
 		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
 		ArrayList<String> datelist = new ArrayList<String>();
+//		System.out.println((req.getParameterValues("datalist")));
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
 		}
