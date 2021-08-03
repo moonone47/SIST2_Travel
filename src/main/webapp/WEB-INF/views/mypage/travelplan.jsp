@@ -48,9 +48,10 @@
 	height:
 }
 
-#thumBox {
+#thumbBox {
 	width: 900px;
-	
+	display: flex;
+	flex-wrap: wrap;
 }
 </style>
 
@@ -69,9 +70,9 @@
 				<nav class="navbar navbar-expand-sm bg-dark navbar-default">
 					<!-- 리스트 : 부트스트랩은 모바일 우선이라 화면이 작으면 아래로 쌓아서 내려온다 -->
 					<ul id="categorylist"class="navbar-nav navbar-default">
-						<li class="nav-item active"><a id ="ing" class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=ing">계획중인 일정 </a></li>
-						<li class="nav-item"><a id="end" class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=end"> 완료된 일정</a></li>
-						<li class="nav-item"><a id="wish" class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=wish"> 찜한 일정</a></li>
+						<li id ="ing" class="nav-item"><a class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=ing">계획중인 일정 </a></li>
+						<li id="end" class="nav-item"><a class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=end"> 완료된 일정</a></li>
+						<li id="wish" class="nav-item"><a class="nav-link" href="/SIST2_Travel/mypage/travelplan.do?category=wish"> 찜한 일정</a></li>
 					</ul>
 					<!-- Search -->
 					<form id="search" method="GET" class="form-inline" action="">
@@ -82,13 +83,13 @@
 						<button class="btn btn-success btn-lg" type="submit">Search</button>
 					</form>
 				</nav>
-				<div id=thumbBox>
+				<div id="thumbBox">
 				<c:if test="${empty list}">
 							<div>게시물이 없습니다.</div>
 				</c:if>
 				<c:if test="${not empty list}">
+				<div id=""class="row">
 				<c:forEach items="${list}" var="dto">
-				<div class="row">
 					<div class="col-sm-6 col-md-3">
 						<div class="thumbnail">
 							<img src="https://cdn.pixabay.com/photo/2016/11/21/17/44/arches-national-park-1846759_960_720.jpg" alt="...">
@@ -103,9 +104,9 @@
 									</c:if>
 								</p>
 								<p>
-									<a href="#!" class="btn btn-primary" role="button">자세히</a>
+									<a href="/SIST2_Travel/management/detailview.do?planseq=${dto.planseq}" class="btn btn-primary" role="button">자세히</a>
 									<span>
-									<a href="#!" class="btn btn-danger" role="button">삭제하기</a>
+									<a id="del" href="/SIST2_Travel/mypage/travelplandel.do?planseq=${dto.planseq}&category=${category}" class="btn btn-danger" role="button">삭제하기</a>
 								</span>
 								</p>
 								
@@ -113,8 +114,8 @@
 						</div>
 					</div>
 
-				</div>
 				</c:forEach>
+				</div>
 			</c:if>
 			</div>
 
@@ -136,10 +137,20 @@
 	 })
 	
 	 $(function(){
-		 var category = ${category};
-		 if(category == )
+		
+		 if(${category == 'wish'}){
+			 $('#wish').addClass('active');
+		 } else if (${category == 'end'}){
+			 $('#end').addClass('active');
+		 } else if (${category == 'ing'}){
+			 $('#ing').addClass('active');
+		 }
 	 })
 
+	 $('#del').click(function() {
+			var result = confirm('일정을 삭제하시겠습니까?');
+
+		});
 
 	</script>
 </body>

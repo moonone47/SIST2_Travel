@@ -84,5 +84,22 @@ public class TravelPlanDAO {
 		
 		return null;
 	}
+
+
+	public int del(String planseq) {
+		
+		try {
+			
+			String spl = "delete from tblPlan where planseq=" + planseq;
+			
+			stat = conn.createStatement();
+			return stat.executeUpdate(spl);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 }

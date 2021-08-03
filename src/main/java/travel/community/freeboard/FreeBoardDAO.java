@@ -56,14 +56,14 @@ public class FreeBoardDAO {
 				//where subject like '%날씨%'
 				//where all like 
 				if(map.get("column").equals("all")) {
-					where = String.format(" subject like '%%%s%%' or  content like '%%%s%%' ", map.get("search"), map.get("search"));										
+					where = String.format("and subject like '%%%s%%' or  content like '%%%s%%' ", map.get("search"), map.get("search"));										
 				} else {
-					where = String.format(" %s like '%%%s%%' ", map.get("column"), map.get("search"));					
+					where = String.format("and %s like '%%%s%%' ", map.get("column"), map.get("search"));					
 				}
 			}
 			//String sql = "select * from vwFreeBoard order by FREEBOARDSEQ desc";
 			
-			String sql = String.format("select * from vwFreeBoard  where rnum between %s and %s %s order by freeboardseq desc", map.get("begin"), map.get("end"), where);
+			String sql = String.format("select * from vwFreeBoard where rnum between %s and %s %s order by freeboardseq desc", map.get("begin"), map.get("end"), where);
 			
 			pstat = conn.prepareStatement(sql);
 			
@@ -179,10 +179,7 @@ public int getTotalCount(HashMap<String, String> map) {
 			String where = "";
 			
 			if (map.get("isSearch").equals("y")) {
-				//검색
-				//where name like '%홍길동%'
-				//where subject like '%날씨%'
-				//where all like 
+
 				if(map.get("column").equals("all")) {
 					where = String.format(" where subject like '%%%s%%' or  content like '%%%s%%' ", map.get("search"), map.get("search"));										
 				} else {
@@ -190,7 +187,7 @@ public int getTotalCount(HashMap<String, String> map) {
 				}
 			}
 			
-			String sql = String.format("select count(*) as cnt from tblBoard %s" , where);
+			String sql = String.format("select count(*) as cnt from tblFreeBoard %s" , where);
 
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
@@ -199,7 +196,6 @@ public int getTotalCount(HashMap<String, String> map) {
 			}
 			
 		} catch (Exception e) {
-			System.out.println("BoardDAO.getTotalCount()");
 			e.printStackTrace();
 		}
 		
