@@ -50,7 +50,49 @@ public class MypageDAO {
 		return 0;
 	}
 	
-	
-	
+	//비밀번호 수정을 위한 메서드 선언.
+		public boolean changePassword(String id, String newPw) {
+
+			boolean flag = false;
+			String sql = "UPDATE tblMember "
+					+ "SET pw=? WHERE id=?"; 
+
+
+			try {
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, newPw);
+				pstat.setString(2, id);
+
+				int i = pstat.executeUpdate();
+
+				if(i == 1) {
+					flag = true;
+				} else {
+					flag = false;
+				}			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+
+			return flag;
+		}
+		
+		/*
+		 * public String getName() { String sql =
+		 * "select name from tblTour where tourseq = ?";
+		 * 
+		 * pstat = conn.prepareStatement(sql);
+		 * 
+		 * try { pstat = conn.prepareStatement(sql); pstat.setString(1,
+		 * dto.getTourseq());
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * } catch (Exception e) { e.printStackTrace(); }
+		 * 
+		 * return flag; } }
+		 */
 	
 }
