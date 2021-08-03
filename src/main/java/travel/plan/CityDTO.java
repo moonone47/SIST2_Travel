@@ -17,7 +17,7 @@ public class CityDTO {
     private String cityX;
     private String cityY ;
 	private String days;
-	
+
 	public String getDays() {
         return days;
     }
@@ -27,9 +27,7 @@ public class CityDTO {
     }
 	
 	
-    public String getCityseq() {
-        return cityseq;
-    }
+    public String getCityseq() {return cityseq;}
 
     public void setCityseq(String cityseq) {
         this.cityseq = cityseq;

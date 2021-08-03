@@ -74,7 +74,7 @@
             </form>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a href="/SIST2_Travel/index.do" class="nav-link">Home</a></li>
                     <li class="nav-item dropdown"><a
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일정계획</a>
@@ -150,7 +150,7 @@
 
                     <c:if test="${not empty id}">
                         <li class="nav-item dropdown">
-                            <img src="https://www.earthtory.com/res/img/common/mobile/img_profile.png">
+                            <img src="https://www.earthtory.com/res/img/common/mobile/img_profile.png" style="width:50px;">
 <%--                            <a class="nav-link dropdown-toggle" href="#" id="mypage"--%>
 <%--                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>--%>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -159,6 +159,7 @@
                                 <a class="dropdown-item" href="#">장바구니</a>
                                 <a class="dropdown-item" href="#">결제내역</a>
                                 <a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
+                                <a class="dropdown-item" href="/SIST2_Travel/login/logout.do">로그아웃</a>
                             </div>
                         </li>
                     </c:if>

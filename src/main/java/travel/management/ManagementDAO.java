@@ -146,7 +146,7 @@ public class ManagementDAO {
 				dto.setAddress_name(rs.getString("address"));
 				dto.setPlace_name(rs.getString("name"));
 				dto.setPlace_url(rs.getString("url"));
-				dto.setX(rs.getString("RestaurantX"));				
+				dto.setX(rs.getString("Restaurantx"));				
 				dto.setY(rs.getString("RestaurantY"));
 				dto.setSeq(rs.getString("seq"));
 				dto.setMemberid(rs.getString("id"));
@@ -183,8 +183,8 @@ public class ManagementDAO {
 				dto.setAddress_name(rs.getString("address"));
 				dto.setPlace_name(rs.getString("name"));
 				dto.setPlace_url(rs.getString("url"));
-				dto.setX(rs.getString("roomsX"));				
-				dto.setY(rs.getString("roomsY"));
+				dto.setX(rs.getString("roomsx"));				
+				dto.setY(rs.getString("roomsy"));
 				dto.setSeq(rs.getString("seq"));
 				dto.setMemberid(rs.getString("id"));
 				dto.setRdate(rs.getString("plandate"));
@@ -201,7 +201,7 @@ public class ManagementDAO {
 			}
 			
 			
-			// ORA-01861: literal does not match format string
+			
 		
 			for(ManagementDTO dto : list) {
 				
@@ -209,14 +209,13 @@ public class ManagementDAO {
 		                    "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
 		                    "values (tplanseq.nextVal, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-				 
-				 String lastCrawlDate = dto.getRdate();
-			     Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(lastCrawlDate);
-			     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-				 
-				 
 		            pstat = conn.prepareStatement(sql2);
 		            
+		            String lastCrawlDate = dto.getRdate();
+		            Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(lastCrawlDate);
+		            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+		            
+		       	            
 		            //15
 		            pstat.setString(1, dto.getAddress_name());
 		            pstat.setString(2, "");
@@ -236,34 +235,6 @@ public class ManagementDAO {
 		            pstat.executeUpdate();
 			}
 			
-			ArrayList<ManagementDTO> dlist = new ArrayList<ManagementDTO>();
-			
-	           String sql3 = "select * from tblPlan2 where memberid=? order by rdate asc, seq asc"; 
-
-	            pstat = conn.prepareStatement(sql3);
-	            pstat.setString(1, "3");
-	            
-	            rs = pstat.executeQuery(); //복붙
-
-	            while (rs.next()) {
-	            	ManagementDTO dto = new ManagementDTO();
-
-	                
-	                dto.setPlace_url(rs.getString("place_url"));
-	                dto.setPlace_name(rs.getString("place_name"));
-	                dto.setMemberid(rs.getString("memberid"));
-	                dto.setSeq(rs.getString("seq"));	                
-	                dto.setCategory_group_name(rs.getString("category_group_name"));
-	                dto.setId(rs.getString("id"));
-	                dto.setRdate(rs.getString("rdate"));
-	                dto.setX(rs.getString("x"));
-	                dto.setY(rs.getString("y"));
-	                dto.setAddress_name(rs.getString("address_name"));
-	   	            
-	                dlist.add(dto);
-	            }//end while
-
-	            return dlist;
 		
 		} catch (Exception e) {
 			e.printStackTrace();	
@@ -325,6 +296,75 @@ public class ManagementDAO {
 			e.printStackTrace();
 		}
 				
+		
+		return null;
+	}
+
+
+	public ArrayList<ManagementDTO> getDetailList(String id) {
+		try {
+			ArrayList<ManagementDTO> dlist = new ArrayList<ManagementDTO>();
+			
+	           String sql3 = "select * from tblPlan2 where memberid= ? order by rdate asc, seq asc"; 
+
+	            pstat = conn.prepareStatement(sql3);
+	            pstat.setString(1, "3");
+	            
+	            rs = pstat.executeQuery(); //복붙
+
+	            
+	            while (rs.next()) {
+	            	ManagementDTO dto = new ManagementDTO();
+
+	                
+	                dto.setPlace_url(rs.getString("place_url"));
+	                dto.setPlace_name(rs.getString("place_name"));
+	                dto.setMemberid(rs.getString("memberid"));
+	                dto.setSeq(rs.getString("seq"));	                
+	                dto.setCategory_group_name(rs.getString("category_group_name"));
+	                dto.setId(rs.getString("id"));
+	                dto.setRdate(rs.getString("rdate"));
+	                dto.setX(rs.getString("x"));
+	                dto.setY(rs.getString("y"));
+	                dto.setAddress_name(rs.getString("address_name"));
+	   	            
+	                dlist.add(dto);
+	            }//end while
+
+	            return dlist;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+	public ManagementDTO list(String planseq) {
+		
+		try {
+			
+			String sql = "select * from vwTravelPlan where planseq=" + planseq;
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			ManagementDTO dto = new ManagementDTO();
+			
+			if(rs.next()) {
+				
+				dto.setName(rs.getString("name"));
+				dto.setCityname(rs.getString("cityname"));
+				dto.setDaystarttravel(rs.getString("daystarttravel"));
+				dto.setDayendtravel(rs.getString("dayendtravel"));
+				dto.setWish(rs.getString("wish"));
+				dto.setPlanseq(rs.getString("planseq"));
+				
+			}
+			return dto;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		return null;
 	}

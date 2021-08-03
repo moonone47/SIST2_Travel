@@ -10,7 +10,9 @@
 <%--    <link rel="stylesheet" href="assets/css/style.css">--%>
 </head>
 <style>
+
     .footer-dark {
+        margin-top: 200px;
         padding:50px 0;
         color:#f0f9ff;
         background-color:#282d32;
@@ -99,6 +101,7 @@
         font-size:13px;
         margin-bottom:0;
     }
+
 </style>
 <body>
 <div class="footer-dark">

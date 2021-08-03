@@ -34,16 +34,12 @@ public class TravelPlan extends HttpServlet {
 		String dayendtravel = req.getParameter("dayendtravel");
 		String cityname = req.getParameter("cityname");		
 		
-		
 		ManagementDAO dao = new ManagementDAO();
 		
 		ArrayList<ManagementDTO> list = dao.getlist("3"); // 3에 id 넣자	
-
-		
-		
+			
 		req.setAttribute("list", list);
 
-		
 		
 		//travelplan.jsp - SIST2_Travel/src/main/webapp/WEB-INF/views/management
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/management/travelplan.jsp");

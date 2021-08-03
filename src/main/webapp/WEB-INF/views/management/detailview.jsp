@@ -23,25 +23,22 @@
 		<c:forEach items="${datelist}" var="date" varStatus="status">
 				<tr>
 					<th>DAY ${status.count}</th>
-					<td>${date}</td>
-					<td>${plan.cityname}</td>
+					<td>${date} ${plan.cityname}</td>
 				</tr>
 			<c:forEach items="${list}" var="dto"  varStatus="instatus">
 					<tr>	
 						<th>${instatus.count}</th>
-						<td colspan="2">
+						<td>
 							<span>${dto.place_name}</span>
 							<span>${dto.address_name}</span>
 							<span>${dto.category_group_name}</span>
 							<a href="${dto.place_url}">상세 페이지</a>
 						<td>
 					</tr>
-			
-			</c:forEach>			
+			</c:forEach>		
 		</c:forEach>	
 	</table>
-
-
+	<button class="btn btn-primary" onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y;">수정하기</button>
 </section>
 
 
