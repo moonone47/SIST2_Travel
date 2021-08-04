@@ -25,20 +25,19 @@
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
     <style>
-        #xdetail2 {
+         #xdetail2{
             position: absolute;
             left: 1500px;
             top: 40px;
             z-index: 2000;
-            font-size: 50px;
+            font-size:50px;
         }
-
-        #xdetail {
+        #xdetail{
             position: absolute;
-            left: 1500px;
-            top: 40px;
+            left: 520px;
+            top: 12px;
             z-index: 2000;
-            font-size: 50px;
+            font-size:12px;
         }
 
        /*  #menu_wrap {
@@ -316,69 +315,87 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
-    <iframe id='detail'
-            class="embed-responsive embed-responsive-16by9 invisible"
-            src=''
-            frameborder='0'
-            scrolling='yes'>
-        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
-    </iframe>
-    <button id="xdetail" type="button" class="btn-close invisible" aria-label="Close"></button>
-    <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
-    <div id="addplan" class="noshow">
-        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
-            <span><img src=""></span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                 class="bi bi-check-lg" viewBox="0 0 16 16">
-                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-            </svg>
-            <input type="hidden" id="address_name" name="address_name" value="">
-            <input type="hidden" id="category_group_code" name="category_group_code" value="">
-            <input type="hidden" id="category_group_name" name="category_group_name" value="">
-            <input type="hidden" id="category_name" name="category_name" value="">
-            <input type="hidden" id="id" name="id" value="">
-            <input type="hidden" id="phone" name="phone" value="">
-            <input type="hidden" id="place_name" name="place_name" value="">
-            <input type="hidden" id="place_url" name="place_url" value="">
-            <input type="hidden" id="road_address_name" name="road_address_name" value="">
-            <input type="hidden" id="x" name="x" value="">
-            <input type="hidden" id="y" name="y" value="">
-
-            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
-
-            <input type="hidden" name="cityname" value="${city.name}">
-            <input type="hidden" name="cityX" value="${city.cityX}">
-            <input type="hidden" name="cityY" value="${city.cityY}">
-            <input type="hidden" name="Explain" value="${city.explain}">
-            <input type="hidden" name="Cityseq" value="${city.cityseq}">
-
-
-            <input type="hidden" name="planname" value="${citydto.name}">
-            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-            <input type="hidden" name="willshare" value="${citydto.willshare}">
-
-
-            <c:forEach items="${datelist}" var="list">
-                <input type="hidden" name="datelist" value="${list}">
-            </c:forEach>
-
-            <input class="btn btn-primary" type="submit" value="일정추가">
-        </form>
-    </div>
-<div id="on_city_open_btn"></div>
-    <%-------------------------- 찜추가 ----------------------------%>
-    <div id="addWish" class="noshow">
-        <a href="!#">
-            <span><img src=""></span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
-                 viewBox="0 0 16 16">
-                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-            </svg>
-            <div>찜 추가</div>
-        </a>
-    </div>
+    <!--------------------------------------     상세 페이지   ---------------------------->
+    <div id="detail-box">
+    
+   <!-- -->
+	    <iframe id='detail' 
+			    name=naver onload="naver.scrollTo(40,100);"
+			    class="embed-responsive embed-responsive-16by9 invisible"
+			    style="-webkit-transform:scale(0.7);"
+	            src=''
+	            frameborder='0'
+	            scrolling='yes'>
+	        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+	        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
+	    </iframe>
+	    
+	    <div id="detailbtns" class="invisible">
+	    <button id="xdetail" type="button" class="invisible" >
+	   	<img id="xdetailimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM3OC4zMDIgMzc4LjMwMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzc4LjMwMiAzNzguMzAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIzNzguMzAyLDI4LjI4NCAzNTAuMDE3LDAgMTg5LjE1MSwxNjAuODY3IDI4LjI4NCwwIDAsMjguMjg0IDE2MC44NjYsMTg5LjE1MSAwLDM1MC4wMTggDQoJMjguMjg0LDM3OC4zMDIgMTg5LjE1MSwyMTcuNDM2IDM1MC4wMTcsMzc4LjMwMiAzNzguMzAyLDM1MC4wMTggMjE3LjQzNSwxODkuMTUxICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
+	    창 닫기</button>
+		        <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
+	    <div id="addplan" class="noshow" >
+	        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+<!-- 	            <span><img src=""></span>
+	            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	                 class="bi bi-check-lg" viewBox="0 0 16 16">
+	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+	            </svg> -->
+	            <input type="hidden" id="address_name" name="address_name" value="">
+	            <input type="hidden" id="category_group_code" name="category_group_code" value="">
+	            <input type="hidden" id="category_group_name" name="category_group_name" value="">
+	            <input type="hidden" id="category_name" name="category_name" value="">
+	            <input type="hidden" id="id" name="id" value="">
+	            <input type="hidden" id="phone" name="phone" value="">
+	            <input type="hidden" id="place_name" name="place_name" value="">
+	            <input type="hidden" id="place_url" name="place_url" value="">
+	            <input type="hidden" id="road_address_name" name="road_address_name" value="">
+	            <input type="hidden" id="x" name="x" value="">
+	            <input type="hidden" id="y" name="y" value="">
+	
+	            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
+	
+	            <input type="hidden" name="cityname" value="${city.name}">
+	            <input type="hidden" name="cityX" value="${city.cityX}">
+	            <input type="hidden" name="cityY" value="${city.cityY}">
+	            <input type="hidden" name="Explain" value="${city.explain}">
+	            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+	
+	
+	            <input type="hidden" name="planname" value="${citydto.name}">
+	            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+	            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+	            <input type="hidden" name="willshare" value="${citydto.willshare}">
+	
+	
+	            <c:forEach items="${datelist}" var="list">
+	                <input type="hidden" name="datelist" value="${list}">
+	            </c:forEach>
+	
+	            <button id="addplanbtn" class ="invisible" type="submit" >
+	            <img id="addplanimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5NSA0OTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5NSA0OTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNCRERCRkY7IiBwb2ludHM9IjIyNy41LDM3OS4xMzMgMjI3LjUsMjY3LjUgMTE1Ljg2NSwyNjcuNSAxMTUuODY1LDIyNy41IDIyNy41LDIyNy41IDIyNy41LDExNS44NjcgDQoJCTI0Ny41LDExNS44NjcgMjQ3LjUsMCAwLDAgMCw0OTUgMjQ3LjUsNDk1IDI0Ny41LDM3OS4xMzMgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiM5QkM5RkY7IiBwb2ludHM9IjI0Ny41LDAgMjQ3LjUsMTE1Ljg2NyAyNjcuNSwxMTUuODY3IDI2Ny41LDIyNy41IDM3OS4xMzUsMjI3LjUgMzc5LjEzNSwyNjcuNSAyNjcuNSwyNjcuNSANCgkJMjY3LjUsMzc5LjEzMyAyNDcuNSwzNzkuMTMzIDI0Ny41LDQ5NSA0OTUsNDk1IDQ5NSwwIAkiLz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIyMjcuNSwyMjcuNSAxMTUuODY1LDIyNy41IDExNS44NjUsMjY3LjUgMjI3LjUsMjY3LjUgMjI3LjUsMzc5LjEzMyAyNjcuNSwzNzkuMTMzIA0KCQkyNjcuNSwyNjcuNSAzNzkuMTM1LDI2Ny41IDM3OS4xMzUsMjI3LjUgMjY3LjUsMjI3LjUgMjY3LjUsMTE1Ljg2NyAyMjcuNSwxMTUuODY3IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
+	            일정 추가</button>
+	        </form>
+	        </div>
+	    
+	
+	    <%-------------------------- 찜추가 ----------------------------%>
+	    <div id="addWish" class="noshow">
+	        <!-- <a href="!#">
+	            <span><img src=""></span>
+	            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+	                 viewBox="0 0 16 16">
+	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+	            </svg>
+	        </a> -->
+	            <button type="button" id="addWishbtn" class="invisible">
+	            <img id="addwishimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUwMS4yOCA1MDEuMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwMS4yOCA1MDEuMjg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkNEMDA7IiBwb2ludHM9IjUwMS4yOCwxOTQuMzcgMzM1LjI2LDE1OS4zMyAyNTAuNjQsMTIuMjcgMjUwLjY0LDQxOS43NyA0MDUuNTQsNDg5LjAxIDM4Ny41NiwzMjAuMjkgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkRBNDQ7IiBwb2ludHM9IjE2Ni4wMiwxNTkuMzMgMCwxOTQuMzcgMTEzLjcyLDMyMC4yOSA5NS43NCw0ODkuMDEgMjUwLjY0LDQxOS43NyAyNTAuNjQsMTIuMjcgCSIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
+	            찜 추가</button>
+	    </div>
+	</div>
+	</div>
+	
 </div>
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
@@ -539,14 +556,20 @@
 
     <%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
-        $("#placesList").click(function () {
-            $("#detail").removeClass("invisible");
-            $("#xdetail").removeClass("invisible");
-        });
-        $("#xdetail").click(function () {
-            $("#detail").addClass("invisible");
-            $("#xdetail").addClass("invisible");
-        });
+    $("#placesList").click(function () {
+        $("#detail").removeClass("invisible");
+        $("#xdetail").removeClass("invisible");
+        $("#addplanbtn").removeClass("invisible");
+        $("#addWishbtn").removeClass("invisible");
+        $("#detailbtns").removeClass("invisible");
+    });
+    $("#xdetail").click(function () {
+        $("#detail").addClass("invisible");
+        $("#xdetail").addClass("invisible");
+        $("#addplanbtn").addClass("invisible");
+        $("#addWishbtn").addClass("invisible");
+        $("#detailbtns").addClass("invisible");
+    });
     </script>
     <script>
         $(function () {
