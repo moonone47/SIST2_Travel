@@ -58,7 +58,7 @@
 }
 
 #category li .category_bg {
-    background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
+    background: url(/SIST2_Travel/asset/images/places_category3.png) no-repeat;
 }
 
 #category li .bank {
@@ -70,7 +70,7 @@
 }
 
 #category li .pharmacy {
-    background-position: -10px -72px;
+    background-position: -10px -70px;
 }
 
 #category li .oil {
