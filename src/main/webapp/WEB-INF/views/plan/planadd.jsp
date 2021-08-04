@@ -171,10 +171,8 @@
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
                            value="서울 여행">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                    <span class="fa fa-search form-control-feedback"></span>
                     <%--            <input title="Search" value="" type="submit" class="button">--%>
                 </form>
-                <span class="fa fa-search form-control-feedback"></span>
             </div>
 
             <ul id="category">
