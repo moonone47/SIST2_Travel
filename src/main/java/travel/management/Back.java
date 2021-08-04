@@ -1,24 +1,29 @@
-package travel.plan;
+package travel.management;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/plan/planview.do")
-public class PlanView extends HttpServlet {
+@WebServlet("/management/back.do")
+public class Back extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		HttpSession session = req.getSession();
+		
+		String id = (String)session.getAttribute("id");
+		
+		ManagementDAO dao = new ManagementDAO();
+		
+		dao.del(id);
 
-		//PlanView.java
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/planview.jsp");
-		dispatcher.forward(req, resp);
+		resp.sendRedirect("/SIST2_Travel/management/travelplan.do");
 	}
 
 }

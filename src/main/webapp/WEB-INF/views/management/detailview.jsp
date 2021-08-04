@@ -13,7 +13,7 @@
    </style>
 
 </head>
-<body>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 <!-- template.jsp > management > detailview.jsp -->
 <%@ include file="/inc/header.jsp" %>
 
@@ -38,7 +38,10 @@
 			</c:forEach>		
 		</c:forEach>	
 	</table>
-	<button class="btn btn-primary" onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y;">수정하기</button>
+	<button class="btn btn-primary" 
+		onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y';">수정하기</button>
+	<button class="btn btn-default"
+		onclick="location.href='/SIST2_Travel/management/back.do';">돌아가기</button>
 </section>
 
 
@@ -58,6 +61,11 @@
 	    }
 	}
 	document.onkeydown = noEvent;
+	
+	window.history.forward();
+	function noBack(){window.history.forward();}
+	
+	
 
 </script>
 </body>

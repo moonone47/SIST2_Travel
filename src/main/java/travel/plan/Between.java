@@ -33,9 +33,10 @@ public class Between extends HttpServlet {
 		String isedit = req.getParameter("isedit");
 		ArrayList<String> datelist = new ArrayList<String>();
 		
+		citydto.setDaystarttravel(citydto.getDaystarttravel().substring(0,11));
+		citydto.setDayendtravel(citydto.getDayendtravel().substring(0,11));
 		
 		if(isedit == null || isedit.equals("")) {
-
 			
 			String startday = citydto.getDaystarttravel();
 			String endday = citydto.getDayendtravel();			
@@ -135,7 +136,7 @@ public class Between extends HttpServlet {
 			calDateDays = Math.abs(calDateDays);
 
 			int cal = (int)calDateDays;
-			
+			cal +=2;
 			//20210803
 			Calendar date = Calendar.getInstance(); //yyyy-mm-dd
 			int year = Integer.parseInt(daystarttravel.substring(0,4));
@@ -147,6 +148,7 @@ public class Between extends HttpServlet {
 			
 			for(int i=0; i<cal; i++) {
 				String dated = df.format(date.getTime());
+				System.out.println(dated);
 				datelist.add(dated);
 				date.add(Calendar.DATE, 1);			
 			}	

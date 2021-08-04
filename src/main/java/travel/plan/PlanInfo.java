@@ -52,7 +52,7 @@ public class PlanInfo extends HttpServlet {
 		session.setAttribute("planseq", planseq);
 
 		
-		resp.sendRedirect("/SIST2_Travel/plan/between.do?planseq=" + planseq);
+		resp.sendRedirect("/SIST2_Travel/plan/between.do?planseq=" + planseq+"&isedit=n");
 
 	}
 

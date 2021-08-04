@@ -370,6 +370,22 @@ public class ManagementDAO {
 	}
 
 
+	public void del(String id) {
+		try {
+			
+			String sql = "delete from tblPlan2 where memberid=" + "3";
+			
+			stat = conn.createStatement();
+			
+			stat.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+
 
 }
 
