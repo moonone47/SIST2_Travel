@@ -68,7 +68,11 @@
 		    height: 1137px;
 		    top: 5px;
 		    background: #fff;
-	   }	
+            -ms-overflow-style: none;
+	   }
+         #menu_wrap::-webkit-scrollbar{
+             display:none;
+         }
 
         .city_name {
             margin-left: 3px;
