@@ -318,7 +318,7 @@
     </div>
      <div id="on_city_open_btn"></div>
     <!--------------------------------------     상세 페이지   ---------------------------->
-    <div id="detail-box">
+    <div id="detail-box" style="display:none;">
     
    <!-- -->
 	    <iframe id='detail' 
@@ -553,12 +553,14 @@
     <script>
     $("#placesList").click(function () {
         $("#detail").show();
+        $("#detail-box").show();
         $("#xdetail").show();
         $("#addplanbtn").show();
         $("#addWishbtn").show();
         $("#detailbtns").show();
     });
     $("#xdetail").click(function () {
+    	$("#detail-box").hide();
         $("#detail").hide();
         $("#xdetail").hide();
         $("#addplanbtn").hide();
