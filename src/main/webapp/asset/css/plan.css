@@ -397,7 +397,7 @@
 
 #planlist {
     position: absolute;
-    top: 26px;
+    top: px;
     left: 253px;
     bottom: 0;
     width: 300px;
@@ -467,9 +467,7 @@ option.avatar {
     /*border-bottom : 1px solid white;*/
 }
 
-#schedule > form > a {
-    background-color: #0e9a00;
-}
+
 
 #schedulelist > a > div.d-flex.w-100.align-items-center.justify-content-between > strong {
     font-size: 18px;

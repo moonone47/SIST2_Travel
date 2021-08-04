@@ -23,6 +23,11 @@
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
     <style>
+    
+    #map {
+    	height: 100%;
+    }
+    
         #xdetail2{
             position: absolute;
             left: 1500px;
@@ -37,6 +42,62 @@
             z-index: 2000;
             font-size:50px;
         }
+        
+   #schedule > form > a {
+    background-color: #4383D9;
+    border-color: #4383D9;
+    margin-bottom: 20px;
+}
+	
+	.list-group-item {
+		background-color: #A2D4F2;
+	}
+	
+.btn-primary {
+	position: relative;
+    color: #fff;
+    background-color: #529AD9;
+    border-color: #fff;
+    margin: 0px 10px;
+    z-index: 2;
+}
+
+#planlist {
+    position: absolute;
+    top: 0px;
+    left: 253px;
+    bottom: 0;
+    width: 300px;
+    height: 463px;
+    margin: 10px 0 30px 10px;
+    padding: 5px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size: 12px;
+    /* border: 1px solid red; */
+}
+
+#schedule {
+    position: absolute;
+    top: 0px;
+    left: 553px;
+    bottom: 0;
+    width: 300px;
+    height: 463px;
+    margin: 10px 0 30px 10px;
+    padding: 5px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size: 13px;
+    /* border: 1px solid red; */
+}
+
+#my_form {
+	border: 1px solid #DDD;
+	border-radius: 5%;
+}
 
     </style>
 </head>
@@ -45,7 +106,7 @@
 <body onload="script();">
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
     <ul id="category">
         <li id="all" data-order="1">
             <span class="category_bg store"></span>
