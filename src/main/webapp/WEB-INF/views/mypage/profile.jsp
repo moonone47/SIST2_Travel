@@ -69,6 +69,8 @@
 		<div class="btn">
 			<button type="button" class="btn btn-primary"
 				onclick="location.href='/SIST2_Travel/mypage/editprofile.do?id=${dto.id}';">수정하기</button>
+			<button type="button" class="btn btn-primary"
+				onclick="location.href='/SIST2_Travel/mypage/memberdelete.do?id=${dto.id}';">탈퇴하기</button>
 		</div>
 </section>
 
