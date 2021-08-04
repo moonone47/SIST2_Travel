@@ -41,7 +41,7 @@
             font-size: 50px;
         }
 
-        #menu_wrap {
+       /*  #menu_wrap {
             margin: 0;
             padding: 0;
             border: 0;
@@ -54,7 +54,22 @@
             left: 700px;
             height: 1145px;
             background: #fff;
-        }
+        } */
+        #menu_wrap {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    box-sizing: border-box;
+    width: 325px;
+    z-index: 999;
+    position: absolute;
+    left: 600px;
+    height: 1137px;
+    top: 5px;
+    background: #fff;
+}
 
         .city_name {
             margin-left: 3px;
@@ -234,7 +249,25 @@
    	border-color: #203341;
    	margin-left: 50px;
    }
-        
+   #on_city_close_btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: url(/SIST2_Travel/asset/images/city_close_btn.png);
+    cursor: pointer;
+}
+        #on_city_open_btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    left: 600px;
+    background: url(/SIST2_Travel/asset/images/city_open_btn.png);
+    cursor: pointer;
+    z-index: 99;
+}
     </style>
 </head>
 
@@ -246,8 +279,9 @@
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
+    <div id="on_city_close_btn"></div>
         <div class="sticky-top">
-            <div class="city_name">${city.name}</div>
+            <div class="city_name">${city.name} <div id="on_city_close_btn"></div></div>
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
@@ -333,7 +367,7 @@
             <input class="btn btn-primary" type="submit" value="일정추가">
         </form>
     </div>
-
+<div id="on_city_open_btn"></div>
     <%-------------------------- 찜추가 ----------------------------%>
     <div id="addWish" class="noshow">
         <a href="!#">
@@ -1081,6 +1115,15 @@
             });
 
         }
+        $('#menu_wrap').on('click','#on_city_close_btn',function(){
+            $('#menu_wrap').hide("slide", { direction: "left" }, 200);
+            deleteMarkers(0);
+        	map_resize(1);
+        });
+        $('#on_city_open_btn').click(function(){
+            $('#menu_wrap').show("slide", { direction: "left" }, 200);
+        	$('#cat_menu li.on').click();
+        });
 
 
     </script>
