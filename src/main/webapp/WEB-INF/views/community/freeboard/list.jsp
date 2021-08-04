@@ -14,7 +14,7 @@
 	width: 1100px;
 	height: 700px;
 	margin: 0px auto 50px auto;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
 
 #content {
@@ -27,7 +27,7 @@
 }
 
 .table tr:first-child th:nth-child(1) {
-	width: 60px;
+	width: 90px;
 }
 
 .table tr:first-child th:nth-child(2) {
@@ -35,7 +35,7 @@
 }
 
 .table tr:first-child th:nth-child(3) {
-	width: 100px;
+	width: 140px;
 }
 
 .table tr:first-child th:nth-child(4) {
@@ -43,11 +43,11 @@
 }
 
 .table tr:first-child th:nth-child(5) {
-	width: 60px;
+	width: 90px;
 }
 
 .table tr:first-child th:nth-child(6) {
-	width: 60px;
+	width: 90px;
 }
 
 .table tr td:nth-child(2) {
@@ -65,6 +65,8 @@
 }
 
 .searchbox {
+	display: flex;
+	justify-content: space-between;
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -141,7 +143,7 @@
 					</c:if>
 				</table>
 				<div class="pagebar">${pagebar}</div>
-				<div class="searchbox">
+		
 					<div class="searchbox">
 						<!-- 
 						대부분(99%)의 <form>은 method="POST"를 사용한다.
@@ -169,7 +171,7 @@
 					</div>
 
 					
-				</div>
+				
 
 			</div>
 	</section>

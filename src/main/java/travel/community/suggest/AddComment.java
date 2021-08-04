@@ -16,9 +16,8 @@ public class AddComment extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		/*
-		 * CheckMember cm = new CheckMember(); cm.check(req,resp);
-		 */
+		  CheckMember cm = new CheckMember(); 
+		  cm.check(req,resp);
 
 		req.setCharacterEncoding("UTF-8");
 		String suggestseq = req.getParameter("suggestseq"); // 보고있던 글번호 (작성중인 부모 글번호)
