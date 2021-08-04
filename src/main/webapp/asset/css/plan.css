@@ -352,7 +352,7 @@
 	width: 500px;
 	hieght: 500px;
 }
-
+/* 상세 페이지 */
 #detail {
 	position: absolute;
 /*     top: 0px;
@@ -454,6 +454,9 @@
 	width: 15px;
 	height: 15px;
 }
+
+
+
 
 #planlist {
 	position: absolute;
