@@ -342,61 +342,113 @@
     cursor: default;
     color: #777;
 }
-/* 상세 페이지 */
-#detail {
-    position: absolute;
-    top: 0px;
-    left: 1000px;
-    bottom: 0;
-    width: 931px;
-    height: 900px;
-    margin: 10px 0 30px 10px;
-    padding: 5px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-    font-size: 12px;
-    border-radius: 10px;
-}
 
 #kakaoWrap {
     width: 500px;
     hieght: 500px;
 }
-
-#addplan {
-    position: absolute;
-    top: 565px;
-    left: 310px;
+/* 상세 페이지 */
+#detail {
+	position: absolute;
+/*     top: 0px;
+    left: 1000px; */
     bottom: 0;
-    width: 100px;
-    height: 100px;
-    margin: 10px 0 30px 10px;
+    width: 931px;
+    height: 100%;
+  /*  margin: 10px 0 30px 10px; */
     padding: 5px;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
+    z-index: 2;
     font-size: 12px;
-    /*border: 1px solid red;*/
+    border-radius: 10px;
+}
+
+#detail-box {
+	width:931px;
+	height:1300px;
+	position: relative;
+	top: -1100px;
+    left: 880px;
+	/* border: 1px solid red; */
+	z-index: 1;
+	padding: 0px;
+}
+#detailbtns {
+	position: absolute;
+	top: 198px;
+	left: 155px;
+	background-color: #FFF;
+	width: 620px;
+	height: 42px;
+	z-index: 4;
+}
+
+#addplan {
+	position: absolute;
+	top: -3px;
+	left: 13px;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	
+	z-index: 2;
+	font-size: 12px;
+	/*border: 1px solid red;*/
+}
+
+#addplanimg {
+	width: 25px;
+	height: 25spx;
+	
+}
+#addplanbtn {
+	padding: 0;
+	border: none;
+	background: none;
 }
 
 #addWish {
-    position: absolute;
-    top: 565px;
-    left: 510px;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    margin: 10px 0 30px 10px;
-    padding: 5px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-    font-size: 12px;
-    /*border: 1px solid red;*/
+	position: absolute;
+	top: -3px;
+	left: 113px;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	
+	z-index: 3;
+	font-size: 12px;
+	/*border: 1px solid red;*/
+}
+
+#addWishbtn {
+	padding: 0;
+	border: none;
+	background: none;
 }
 
 
+#addwishimg {
+	width: 25px;
+	height: 25spx;
+}
+#xdetail {
+	padding: 0;
+	border: none;
+	background: none;
+	font-size : 13px;
+}
+
+#xdetailimg {
+	width: 15px;
+	height: 15px;
+}
 
 
 #planlist {
