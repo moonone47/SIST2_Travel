@@ -545,3 +545,8 @@ option.avatar {
 }
 
 
+#planlist > div:nth-child(2) > div > div.d-flex.w-100.justify-content-between > h5 {
+	font-size: 30px;
+}
+
+
