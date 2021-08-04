@@ -37,7 +37,7 @@ public class Between extends HttpServlet {
 			String endday = citydto.getDayendtravel();			
 			
 			//daystrattravel , dayendtravel -> 날짜 계산
-			SimpleDateFormat format = new SimpleDateFormat("yyyymmdd");
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			// date1, date2 두 날짜를 parse()를 통해 Date형으로 변환.
 			Date FirstDate = null;
 			try {
