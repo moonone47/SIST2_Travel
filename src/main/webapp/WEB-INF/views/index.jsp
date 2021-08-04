@@ -8,567 +8,8 @@
 
     <%@ include file="/inc/asset.jsp" %>
 
-    <style>
-        body {
-            border: 0;
-            font: inherit;
-            line-height: 1;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-size: 12px;
-            font-family: nanum;
-        }
-
-        form {
-            outline: 0;
-            float: left;
-            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            -webkit-border-radius: 4px;
-            border-radius: 4px;
-        }
-
-        form > .textbox {
-            outline: 0;
-            height: 42px;
-            width: 244px;
-            line-height: 42px;
-            padding: 0 16px;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #212121;
-            border: 0;
-            float: left;
-            -webkit-border-radius: 4px 0 0 4px;
-            border-radius: 4px 0 0 4px;
-        }
-
-        form > .textbox:focus {
-            outline: 0;
-            background-color: #FFF;
-        }
-
-        form > .button {
-            outline: 0;
-            background: none;
-            background-color: rgba(38, 50, 56, 0.8);
-            float: left;
-            height: 42px;
-            width: 42px;
-            text-align: center;
-            line-height: 42px;
-            border: 0;
-            color: #FFF;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: 16px;
-            text-rendering: auto;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-            -webkit-transition: background-color .4s ease;
-            transition: background-color .4s ease;
-            -webkit-border-radius: 0 4px 4px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        form > .button:hover {
-            background-color: rgba(0, 150, 136, 0.8);
-        }
-
-        .con1 {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            height: 454px;
-            /*background: url('/res/img/main/key_bg_1.jpg') no-repeat;*/
-            background-size: cover;
-        }
-
-        .con1-title {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            /*color: white;*/
-            font-size: 44px;
-            font-weight: bold;
-            text-align: center;
-            padding-top: 75px;
-        }
-
-        .cont1-desc {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            text-align: center;
-            padding-top: 20px;
-            font-size: 24px;
-            /*color: white;*/
-            font-weight: bold;
-        }
-
-        .search_area {
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 640px;
-            height: 138px;
-            border-radius: 3px;
-            /*background: url('/res/img/component/bg/bgb_60.png') repeat;*/
-            margin: 0 auto;
-            margin-top: 60px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .search_input {
-            font-family: '나눔바른고딕', NanumBarunGothic, 'nanum', '돋움', Dotum, '맑은고딕', 'Malgun Gothic', '굴림', Gulim, Helvetica, sans-serif;
-            box-sizing: border-box;
-            width: 100%;
-            height: 50px;
-            padding-left: 15px;
-            border: none;
-            font-size: 20px;
-            color: #b3b3b3;
-            /*background: url('/res/img/area/area_search_ico.gif') no-repeat white;*/
-            background-position: center right;
-            margin-bottom: 10px;
-        }
-
-        .logged_box {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 100%;
-            background: #f6f6f6;
-            border-top: 1px solid #e4e4e4;
-            border-bottom: 1px solid #e4e4e4;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        .logged_user_img {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            float: left;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            margin-top: 7px;
-        }
-
-        .logged_left {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            float: left;
-            width: 720px;
-            height: 100%;
-            margin-left: 15px;
-        }
-
-        .logged_name {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            font-size: 16px;
-            color: #555555;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 12px;
-        }
-
-        .clear {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            clear: both;
-        }
-
-        .logged_cnt_box {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            text-decoration: none;
-            box-sizing: border-box;
-            display: block;
-            float: left;
-            text-align: center;
-            min-width: 46px;
-        }
-
-        .logged_line {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            text-decoration: none;
-            box-sizing: border-box;
-            display: block;
-            float: left;
-            text-align: center;
-            min-width: 46px;
-        }
-
-        .logged_btn_box {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            text-decoration: none;
-            box-sizing: border-box;
-        }
-
-        .logged_btn {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            float: right;
-            text-align: center;
-            display: inline-block;
-            color: #808080;
-            font-size: 13px;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        .logged_btn_ico {
-            text-align: center;
-            color: #808080;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #b3b3b3;
-            margin: 0 auto;
-            margin-bottom: 10px;
-        }
-
-        body > div.page.silver.logged_box > div > a > div > div > img {
-            text-align: center;
-            color: #808080;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-        }
-
-        body > section.main-section > div.page.silver.logged_box > div > a > div > div > img {
-            padding-top: 8px;
-        }
-
-        .recruiting_advertisers {
-            text-align: center;
-            margin-bottom: 100px;
-        }
-
-        .wrap {
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 1092px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .page_title {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            color: #363636;
-            font-size: 24px;
-            font-weight: bold;
-            width: 100%;
-            text-align: center;
-        }
-
-        .page_desc {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            font-size: 16px;
-            color: #808080;
-            text-align: center;
-            padding-top: 13px;
-            margin-bottom: 40px;
-        }
-
-        .plan_list {
-            margin: 0 auto;
-            text-align: center;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-        }
-
-        .box {
-            margin: 0;
-            padding: 0;
-            font-size: 100%;
-            font: inherit;
-            text-decoration: none;
-            box-sizing: border-box;
-            display: block;
-            width: 348px;
-            height: 296px;
-            border: 1px solid #dfdfdf;
-            position: relative;
-            float: left;
-            margin-right: 24px;
-            margin-bottom: 30px;
-            background: #fff;
-        }
-
-        .more_btn {
-            padding: 0;
-            font: inherit;
-            box-sizing: border-box;
-            width: 348px;
-            height: 50px;
-            line-height: 50px;
-            font-size: 13px;
-            color: #808080;
-            font-weight: bold;
-            border: 1px solid #dfdfdf;
-            cursor: pointer;
-            text-align: center;
-            background: white;
-            margin: 0 auto;
-        }
-
-        .plan_bg {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-            position: absolute;
-            z-index: 1;
-            left: 0px;
-            top: 100px;
-        }
-
-        .plan_bg_inner {
-            margin: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            padding: 15px;
-            margin-top: 35px;
-            font-size: 16px;
-            color: white;
-            line-height: 20px;
-        }
-
-        .plan_img_box {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 346px;
-            height: 200px;
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .plan_img_box {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 346px;
-            height: 200px;
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .plan_bg_inner2 {
-            margin: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 15px;
-            position: absolute;
-            top: 200px;
-            font-size: 14px;
-            color: #6f6f6f;
-            line-height: 20px;
-        }
-
-        .pn_list_copy_icon {
-            color: #6f6f6f;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            float: right;
-            background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_copy_icon.png') no-repeat 0px 2px;
-            padding-left: 15px;
-            margin-left: 10px;
-        }
-
-        .pn_list_view_icon {
-            color: #6f6f6f;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            float: right;
-            background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_view_icon.png') no-repeat 0px 3.5px;
-            padding-left: 21px;
-            margin-left: 10px;
-        }
-
-        .pn_list_spot_icon {
-            color: #6f6f6f;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            float: right;
-            background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_spot_icon.png') no-repeat 0px 1px;
-            padding-left: 17px;
-        }
-
-        .pn_list_city {
-            color: #6f6f6f;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            margin-top: 4px;
-        }
-
-        .pn_list_user {
-            color: #6f6f6f;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            margin-top: 4px;
-            padding-left: 20px;
-            background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_user_icon.png') no-repeat 0px 2px;
-        }
-
-        .more_btn {
-            padding: 0;
-            font: inherit;
-            box-sizing: border-box;
-            width: 348px;
-            height: 50px;
-            line-height: 50px;
-            font-size: 13px;
-            color: #808080;
-            font-weight: bold;
-            border: 1px solid #dfdfdf;
-            cursor: pointer;
-            text-align: center;
-            background: white;
-            margin: 0 auto;
-        }
-
-        .plan_list .box{
-            margin: 0;
-            padding: 0;
-            font-size: 100%;
-            font: inherit;
-            text-decoration: none;
-            box-sizing: border-box;
-            display: block;
-            width: 348px;
-            height: 296px;
-            border: 1px solid #dfdfdf;
-            position: relative;
-            float: left;
-            margin-right: 24px;
-            margin-bottom: 30px;
-            background: #fff;
-        }
-        .plan_list .box:nth-child(3n) {
-            margin-right: 0px;
-        }
-        .plan_list .plan_img{
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            width: 100%;
-            height: 200px;
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            z-index: 0;
-            -webkit-transition: all 3.6s;
-        }
-        .fr {
-            float: right;
-        }
-    </style>
+    <link rel="stylesheet"
+          href="<%=request.getContextPath()%>/asset/css/index.css">
 
 </head>
 <body>
@@ -653,8 +94,8 @@
     </div>
     <div class="page white" style="padding-top:30px;">
 
-<%--        <center style="padding-bottom:50px;"><img--%>
-<%--                src="/res/1600_210_1.png" style="width:1000px;height:auto;"></center>--%>
+        <%--        <center style="padding-bottom:50px;"><img--%>
+        <%--                src="/res/1600_210_1.png" style="width:1000px;height:auto;"></center>--%>
 
         <!--//<center style="padding-bottom:50px;"><a href="/earthtory_agoda" target="_blank"><img src="/res/et_x_agoda/1000X131.jpg" style="width:1000px;height:auto;"></a></center>-->
         <div class="wrap">
@@ -773,11 +214,157 @@
             </div>
         </div>
     </div>
-    <div class="con2">
-        <div class="con2-title">
-            <div class="cont2-desc">
 
+    <div class="page silver">
+        <div class="wrap">
+            <div class="page_title">
+                어디로 갈까?
             </div>
+            <div class="page_desc">
+                팁에서 아이디어를 얻어보세요.
+            </div>
+            <div class="story_list"><a href="/ko/tip/view?srl=524" class="story_box big">
+                <div class="story_imgbox">
+                    <div class="story_cnt"></div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1401758930.jpg" alt="" class="story_img"
+                         onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
+                <div class="story_title">방콕에서의 달달한 하루</div>
+                <div class="story_desc">방콕에서 단 하루만 머문다면, 어디부터 가야 할까? 방콕 하루 꼬박 여행.</div>
+            </a><a href="/ko/tip/view?srl=1201" class="story_box">
+                <div class="story_imgbox">
+                    <div class="story_cnt"></div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="" class="story_img"
+                         onerror="this.src='http://img.earthtory.com/img/mb_img/74/74_1429243176.jpg';"></div>
+                <div class="story_title">체코, 프라하의 베스트 명소</div>
+                <div class="story_desc">프라하에서 빼놓을 수 없는 명소들을 미리 둘러보기!</div>
+            </a><a href="/ko/tip/view?srl=336" class="story_box">
+                <div class="story_imgbox">
+                    <div class="story_cnt"></div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1400492225.jpg" alt="" class="story_img"
+                         onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
+                <div class="story_title">축제의 도시 멜버른</div>
+                <div class="story_desc">축제가 끊이지 않은 도시, 멜버른의 시기별 다양한 축제와 이벤트 속으로 ...</div>
+            </a><a href="/ko/tip/view?srl=453" class="story_box">
+                <div class="story_imgbox">
+                    <div class="story_cnt">12</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1401265474.jpg" alt="" class="story_img"
+                         onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
+                <div class="story_title">낮보다 화려한 홍콩의 밤</div>
+                <div class="story_desc">야행성 여행자들을 위한 도시 홍콩. 밤에만 볼 수 있는 아주 특별한 풍경! ...</div>
+            </a><a href="/ko/tip/view?srl=378" class="story_box">
+                <div class="story_imgbox">
+                    <div class="story_cnt"></div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1403172007.jpg" alt="" class="story_img"
+                         onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
+                <div class="story_title">스페인 타블라오 탐방기</div>
+                <div class="story_desc">카르멘의 나라, 플라멩코 만끽하기!</div>
+            </a><a href="/ko/tip/view?srl=528" class="story_box big">
+                <div class="story_imgbox">
+                    <div class="story_cnt"></div>
+                    <img src="http://img.earthtory.com/img/place_img_user/74/common/test_1437361860.jpg" alt=""
+                         class="story_img"
+                         onerror="this.src='http://img.earthtory.com/img/mb_img/74/74_1429243176.jpg';"></div>
+                <div class="story_title">홍콩에서 디저트 먹방!!</div>
+                <div class="story_desc">홍콩의 디저트 맛집 체크리스트! 빼먹지말자! 홍콩의 디저트!!</div>
+            </a>
+                <div class="clear"></div>
+            </div>
+
+            <div class="more_btn tip" onclick="location.href='/ko/community/tips';">481개의 여행TIP 모두보기</div>
+        </div>
+    </div>
+    <div class="page white">
+        <div class="wrap">
+            <div class="page_title">
+                인기도시 TOP10		</div>
+            <div class="top_city_list">
+                <a href="/ko/city/london_309" class="top_city w2">
+                    <div class="top_city_title">
+                        런던				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/paris_307" class="top_city">
+                    <div class="top_city_title">
+                        파리				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/singapore_243" class="top_city">
+                    <div class="top_city_title">
+                        싱가포르				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+
+                <a href="/ko/city/istanbul_202" class="top_city">
+                    <div class="top_city_title">
+                        이스탄불				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/venice_187" class="top_city">
+                    <div class="top_city_title">
+                        베네치아				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/barcelona_10005" class="top_city">
+                    <div class="top_city_title">
+                        바르셀로나				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/taipei_92" class="top_city h2">
+                    <div class="top_city_title">
+                        타이베이				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+
+                <a href="/ko/city/hong-kong_245" class="top_city">
+                    <div class="top_city_title">
+                        홍콩				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/bangkok_86" class="top_city">
+                    <div class="top_city_title">
+                        방콕				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <a href="/ko/city/jeju_312" class="top_city">
+                    <div class="top_city_title">
+                        제주도				</div>
+                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="">
+                </a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="page silver">
+        <div class="wrap">
+            <div class="page_title">
+                어스토리에서 여행을 시작하세요!		</div>
+            <div class="clear"></div>
+            <div class="intro_list">
+                <div class="intro_box" onclick="location.href='/ko/area';">
+                    <img src="	https://www.earthtory.com/res/img/main/intro_img/intro_1.jpg" alt="">
+                    <div class="intro_title">
+                        여행정보				</div>
+                    <div class="intro_desc">
+                        전 세계 800개 도시, 30만개의 관광명소, 음식점, 쇼핑 정보를 확인하세요.				</div>
+                </div>
+                <div class="intro_box" onclick="location.href='/ko/plan';">
+                    <img src="	https://www.earthtory.com/res/img/main/intro_img/intro_1.jpg" alt="">
+                    <div class="intro_title">
+                        여행일정				</div>
+                    <div class="intro_desc">
+                        전 세계 100,000개 이상의 여행일정을 확인하고 나만의 일정을 계획해 보세요.				</div>
+                </div>
+                <div class="intro_box" onclick="location.href='/ko/community/qa';">
+                    <img src="	https://www.earthtory.com/res/img/main/intro_img/intro_1.jpg" alt="">
+                    <div class="intro_title">
+                        커뮤니티				</div>
+                    <div class="intro_desc">
+                        여행자들과 정보를 공유하고, 궁금한 것은 언제든 물어보세요.				</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <a href="/ko/intro" class="intro_link">
+                사용방법이 궁금하신가요?		</a>
         </div>
     </div>
     <%--  <c:if test="${not empty id}">--%>
