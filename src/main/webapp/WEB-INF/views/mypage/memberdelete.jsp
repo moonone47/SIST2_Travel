@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>비밀번호 변경</title>
+  <title>회원 탈퇴</title>
 
 <%@ include file="/inc/asset.jsp" %>
 
@@ -20,12 +20,12 @@
 <section class="main-section">
 
 
-	<form  method="POST" action="editpwok.do">
+	<form  method="POST" action="/SIST2_Travel/mypage/memberdeleteok.do">
 	
-		현재 비밀번호 입력 : <input type="password" id="old_pw" name="oldPw" ><br>
+		<!-- 현재 비밀번호 입력 : <input type="password" id="old_pw" name="oldPw" ><br> -->
 		
-		변경할 비밀번호 입력 : <input type="password" maxlength="20" id="new_pw" name="newPw"><br> 
-		<input type="submit" value="변경하기" id="change_pw_btn">  
+		비밀번호 확인 : <input type="password" maxlength="20" id="pw" name="pw"><br> 
+		<input type="submit" value="탈퇴하기" id="change_pw_btn">  
 	</form> 
 
 </section>

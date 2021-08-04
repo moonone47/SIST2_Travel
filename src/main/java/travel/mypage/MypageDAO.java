@@ -114,7 +114,33 @@ public class MypageDAO {
 			return flag;
 		}
 		
-		
-
 	
+		//회원 탈퇴 
+		public boolean deleteMember(String id) {
+
+			boolean flag = false;
+			String sql = "update tblMember set pw=123456789 where id=?";
+
+
+			try {
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, id);
+				
+				int i = pstat.executeUpdate();
+
+				if(i == 1) {
+					flag = true;
+				} else {
+					flag = false;
+				}			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+
+			return flag;
+		}
+
+
 }
+	
+
