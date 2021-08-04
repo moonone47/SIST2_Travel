@@ -198,9 +198,9 @@
     width: 300px;
     height: auto;
     margin: 10px 0 30px 10px;
-    padding: 10px;
+    padding: 7px;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
+    background: white;
     z-index: 1;
     font-size: 12px;
     /* border: 1px solid red; */
@@ -243,11 +243,12 @@
 }
         
    #complete {
-   	width: 150px;
-   	background-color: #203341;
+   	width: 200;
+   	background-color: #529AD9;
    	border-color: #203341;
-   	margin-left: 50px;
+ 	margin-bottom: 10px;
    }
+   
    #on_city_close_btn {
     width: 40px;
     height: 40px;
@@ -257,7 +258,7 @@
     background: url(/SIST2_Travel/asset/images/city_close_btn.png);
     cursor: pointer;
 }
-        #on_city_open_btn {
+    #on_city_open_btn {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -401,39 +402,59 @@
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
 <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
     
-    <div class="plan sortable" id="planlist">
-		<div>여기에 버튼 넣기</div>
+    <div class="plan sortable" id="planlist">   		
+		<%-------------------------------일정 등록 완료------------------------%>
+		<div>
+			<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">	
+		    	<c:forEach items="${list}" var="dto" varStatus="status">
+			        <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+			        <input type="hidden" name="cityname" value="${city.name}">
+			        <input type="hidden" name="cityX" value="${city.cityX}">
+			        <input type="hidden" name="cityY" value="${city.cityY}">
+			        <input type="hidden" name="Explain" value="${city.explain}">
+			        <input type="hidden" name="Cityseq" value="${city.cityseq}">			
+			        <input type="hidden" name="planname" value="${citydto.name}">
+			        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+			        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+			        <input type="hidden" name="willshare" value="${citydto.willshare}">
+			
+			        <c:forEach items="${datelist}" var="list">
+		          		<input type="hidden" name="datelist" value="${list}">
+		        	</c:forEach>		        	
+		        	<input type="hidden" name="planseq" value="${dto.plan2seq}">
+		        	<input type="hidden" name="seq" value="${status.count}">
+		    	</c:forEach>
+		    	<input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
+			</form>
+		</div>
+	<%--------------------------------------------------------------------%>
+	
         <c:forEach items="${list}" var="dto" varStatus="status">
 
             <div class="list-group">
                 <div class="list-group-item list-group-item-action">
-                    <div id="seqname"></div>
+                    <div id="seqname">${status.index}</div>                   
                     <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                        <h5 class="mb-1">${dto.place_name} ${status.index}</h5>
+                        <h5 class="mb-1" style="font-size: 16px; font-weight: bold;">${dto.place_name}</h5>
                         <small class="text-muted">${dto.category_group_name}</small>
                     </div>
                     <p class="mb-1">${dto.address_name}</p>
-                    <button type="submit" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="submit" class="close" aria-label="Close" style="float:right;">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
                     </button>
 
-
                     <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-
                     <input type="hidden" name="cityname" value="${city.name}">
                     <input type="hidden" name="cityX" value="${city.cityX}">
                     <input type="hidden" name="cityY" value="${city.cityY}">
                     <input type="hidden" name="Explain" value="${city.explain}">
                     <input type="hidden" name="Cityseq" value="${city.cityseq}">
-
-
                     <input type="hidden" name="planname" value="${citydto.name}">
                     <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
                     <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
                     <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-
-                        <%--                    <input type="hidden" name="datelist" value="${datelist}">--%>
+                    <%--<input type="hidden" name="datelist" value="${datelist}">--%>
                 </div>
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
                 <input type="hidden" name="seq" value="${status.count}">
@@ -444,33 +465,6 @@
         <input type="hidden" name="datelist" value="${list}">
     </c:forEach>
 
-</form>
-
-
-<%-------------------------------일정 등록 완료------------------------%>
-<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
-
-    <c:forEach items="${list}" var="dto" varStatus="status">
-        <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-        <input type="hidden" name="cityname" value="${city.name}">
-        <input type="hidden" name="cityX" value="${city.cityX}">
-        <input type="hidden" name="cityY" value="${city.cityY}">
-        <input type="hidden" name="Explain" value="${city.explain}">
-        <input type="hidden" name="Cityseq" value="${city.cityseq}">
-
-        <input type="hidden" name="planname" value="${citydto.name}">
-        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-        <input type="hidden" name="willshare" value="${citydto.willshare}">
-
-        <c:forEach items="${datelist}" var="list">
-            <input type="hidden" name="datelist" value="${list}">
-        </c:forEach>
-        <input type="hidden" name="planseq" value="${dto.plan2seq}">
-        <input type="hidden" name="seq" value="${status.count}">
-
-    </c:forEach>
-    <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
 </form>
 
 
