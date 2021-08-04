@@ -15,9 +15,8 @@ public class Add extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		/*
-		 * CheckMember cm = new CheckMember(); cm.check(req,resp);
-		 */
+		  CheckMember cm = new CheckMember(); 
+		  cm.check(req,resp);
 		
 		String reply = req.getParameter("reply"); // 0 - 새글 , 1 - 답변 
 		String thread = req.getParameter("thread");  

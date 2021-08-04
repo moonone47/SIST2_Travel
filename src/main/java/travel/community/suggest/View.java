@@ -17,9 +17,8 @@ public class View extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		/*
-		 * CheckMember cm = new CheckMember(); cm.check(req,resp);
-		 */
+		  CheckMember cm = new CheckMember(); 
+		  cm.check(req,resp);
 		
 		String suggestseq = req.getParameter("suggestseq");
 		

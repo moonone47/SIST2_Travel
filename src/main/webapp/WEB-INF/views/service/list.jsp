@@ -21,6 +21,9 @@ font-size: 2em;
 .btn {
 position:relative;
 }
+#tbl {
+width: 1000px;
+}
 </style>
 
 </head>
@@ -37,7 +40,7 @@ position:relative;
 			내 여행 의뢰 내역 <small>List</small>
 		</h2>
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" id="tbl">
 			<tr>
 				<th>의뢰 번호</th>
 				<th>여행지</th>
@@ -90,6 +93,10 @@ position:relative;
 				alert('취소되었습니다.');
 			}
 		});
+		 
+		 
+		 
+		 
 	</script>
 	<script type="text/javascript" src="script.js" charset="utf-8"></script>
 

@@ -68,7 +68,11 @@
 		    height: 1137px;
 		    top: 5px;
 		    background: #fff;
-	   }	
+            -ms-overflow-style: none;
+	   }
+         #menu_wrap::-webkit-scrollbar{
+             display:none;
+         }
 
         .city_name {
             margin-left: 3px;
@@ -267,6 +271,16 @@
     background: url(/SIST2_Travel/asset/images/city_open_btn.png);
     cursor: pointer;
     z-index: 99;
+}
+#detail-box {
+    width: 931px;
+    height: 1335px;
+    position: absolute;
+    top: -194px;
+    left: 793px;
+    /* border: 1px solid red; */
+    z-index: 1;
+    padding: 0px;
 }
     </style>
 </head>
@@ -1146,7 +1160,10 @@
             $('#menu_wrap').show("slide", { direction: "left" }, 200);
         	$('#cat_menu li.on').click();
         });
-
+	
+        $('.item').click(function(){
+        	$('#detail').show();
+        })
 
     </script>
 
