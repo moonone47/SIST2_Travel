@@ -45,7 +45,7 @@
 <body onload="script();">
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:50%;height:100vh;position:relative;float:right;overflow:hidden;"></div>
     <ul id="category">
         <li id="all" data-order="1">
             <span class="category_bg store"></span>
@@ -279,8 +279,9 @@
             <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
             <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-                <%--            <input type="text" name="rdate" value="">--%>
+            <%--<input type="text" name="rdate" value="">--%>
             <input type="hidden" name="rdate" id="rdate" value="${list}">
+            
             <c:forEach items="${datelist}" var="list" varStatus="status">
                 <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
