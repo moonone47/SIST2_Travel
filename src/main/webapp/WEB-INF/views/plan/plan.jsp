@@ -67,7 +67,7 @@
         }
 
         #category li .category_bg {
-            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
+            background: url(/SIST2_Travel/asset/images/places_category3.png) no-repeat;
         }
 
         #category li .bank {
@@ -79,7 +79,7 @@
         }
 
         #category li .pharmacy {
-            background-position: -10px -72px;
+            background-position: -10px -70px;
         }
 
         #category li .oil {
@@ -524,15 +524,15 @@
 	                전체
 	            </li>
 	            <li id="AD5" data-order="2">
-	                <span class="category_bg store"></span>
+	                <span class="category_bg pharmacy"></span>
 	                숙박시설
 	            </li>
 	            <li id="AT4" data-order="3">
-	                <span class="category_bg store"></span>
+	                <span class="category_bg oil"></span>
 	                관광명소
 	            </li>
 	            <li id="FD6" data-order="4">
-	                <span class="category_bg store"></span>
+	                <span class="category_bg cafe"></span>
 	                음식점
 	            </li>
 	        </ul>
@@ -956,7 +956,7 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
 
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         function addMarker(position, order) {
-            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+            var imageSrc = '/SIST2_Travel/asset/images/places_category3.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                 imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                 imgOptions = {
                     spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
