@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>여행 병아리들을 위한 여행계획사이트 티피~~</title>
+  <title>비밀번호 변경</title>
 
 <%@ include file="/inc/asset.jsp" %>
 
