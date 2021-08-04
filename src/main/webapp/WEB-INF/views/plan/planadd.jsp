@@ -19,222 +19,25 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
     <%--    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">--%>
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
     <style>
-        #xdetail2 {
+        #xdetail2{
             position: absolute;
             left: 1500px;
             top: 40px;
             z-index: 2000;
-            font-size: 50px;
+            font-size:50px;
         }
-
-        #xdetail {
+        #xdetail{
             position: absolute;
-            left: 1500px;
-            top: 40px;
+            left: 520px;
+            top: 12px;
             z-index: 2000;
-            font-size: 50px;
+            font-size:12px;
         }
 
-        #menu_wrap {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 325px;
-            z-index: 999;
-            position: absolute;
-            left: 700px;
-            height: 1145px;
-            background: #fff;
-        }
-
-        .city_name {
-            margin-left: 3px;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            width: 300px;
-            height: 50px;
-            background: #1a7ad9;
-            line-height: 50px;
-            color: #fff;
-            padding-left: 10px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-
-        .search {
-            box-sizing: border-box;
-            width: 300px;
-            height: 31px;
-            border: solid #c8c8ca 1px;
-            padding-left: 5px;
-            font-family: 'nanum';
-            /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
-            /*background-position: 300px 4px;*/
-        }
-
-        #category {
-            background: #f7f7f7;
-            display: flex;
-            margin-left: 5px;
-        }
-
-        #category li {
-            width: 100%;
-            text-align: center;
-        }
-
-        #placesList > li > span {
-            cursor: pointer;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            width: 82px;
-            height: 75px;
-        }
-
-        #keyword {
-            box-sizing: border-box;
-            width: 300px;
-            height: 31px;
-            border: solid #c8c8ca 1px;
-            padding-left: 5px;
-            font-family: 'nanum';
-            /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
-            /*background-position: 300px 4px;*/
-        }
-
-        /*#placesList > .item > .info{*/
-        /*    font-size: 20px;*/
-        /*}*/
-        #button-addon1{
-            box-sizing: border-box;
-            margin: 0;
-            font-family: inherit;
-            overflow: visible;
-            text-transform: none;
-            -webkit-appearance: button;
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-            user-select: none;
-            background-color: transparent;
-            border: 1px solid transparent;
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: .25rem;
-            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-            font-weight: 400;
-            text-decoration: none;
-            color: #007bff!important;
-            position: relative;
-            z-index: 2;
-            cursor: pointer;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            left: 262px;
-            top: -37px;
-            width: 35px;
-        }
-        #category li{
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-             
-   #schedule > form > a {
-    background-color:#203341;
-    border-color: #4383D9;
-    margin-bottom: 20px;
-}
-	
-	.list-group-item {
-		/* background-color: #A2D4F2; */
-		background-color: #fff;
-	}
-	
-.btn-primary {
-	position: relative;
-    color: #fff;
-    background-color: #529AD9;
-    border-color: #fff;
-    z-index: 2;
-    margin: 0px 0px;
-    width: 100%;
-}
-
-#planlist {
-    position: absolute;
-    top: 0px;
-    left: 300px;
-    bottom: 0;
-    width: 300px;
-    height: 463px;
-    margin: 10px 0 30px 10px;
-    padding: 5px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-    font-size: 12px;
-    /* border: 1px solid red; */
-}
-
-#schedule {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0;
-    width: 300px;
-    height: 463px;
-    margin: 10px 0 30px 10px;
-    padding: 5px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-    font-size: 13px;
-    /* border: 1px solid red; */
-}
-
-#my_form {
-	border: 1px solid #DDD;
-	border-radius: 5%; 
-	color: #black;
-	/* list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    box-sizing: border-box;
-    width: 100%;
-    height: 70px;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-    cursor: pointer;
-    background: #203341;
-    border-bottom: solid 1px #1a7ad9; */
-}
-        
-   #complete {
-   	width: 150px;
-   	background-color: #203341;
-   	border-color: #203341;
-   	margin-left: 50px;
-   }
-        
     </style>
 </head>
 
@@ -242,110 +45,115 @@
 <body onload="script();">
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
-    <%--    100vh--%>
-
+    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <ul id="category">
+        <li id="all" data-order="1">
+            <span class="category_bg store"></span>
+            전체
+        </li>
+        <li id="AD5" data-order="2">
+            <span class="category_bg store"></span>
+            숙박시설
+        </li>
+        <li id="AT4" data-order="3">
+            <span class="category_bg store"></span>
+            관광명소
+        </li>
+        <li id="FD6" data-order="4">
+            <span class="category_bg store"></span>
+            음식점
+        </li>
+    </ul>
     <div id="menu_wrap" class="bg_white">
-        <div class="sticky-top">
-            <div class="city_name">${city.name}</div>
-            <div class="search">
-                <form onsubmit="searchPlaces2(); return false;">
-                    <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
-                           value="서울 여행">
-                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                    <%--            <input title="Search" value="" type="submit" class="button">--%>
-                </form>
-            </div>
-
-            <ul id="category">
-                <li id="all" data-order="1">
-                    <span class="category_bg store"></span>
-                    전체
-                </li>
-                <li id="AD5" data-order="2">
-                    <span class="category_bg pharmacy"></span>
-                    숙박시설
-                </li>
-                <li id="AT4" data-order="3">
-                    <span class="category_bg oil"></span>
-                    관광명소
-                </li>
-                <li id="FD6" data-order="4">
-                    <span class="category_bg cafe"></span>
-                    음식점
-                </li>
-            </ul>
-        </div>
-
         <div class="option"></div>
         <hr>
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
-    <iframe id='detail'
-            class="embed-responsive embed-responsive-16by9 invisible"
-            src=''
-            frameborder='0'
-            scrolling='yes'>
-        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
-    </iframe>
-    <button id="xdetail" type="button" class="btn-close invisible" aria-label="Close"></button>
-    <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
-    <div id="addplan" class="noshow">
-        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
-            <span><img src=""></span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                 class="bi bi-check-lg" viewBox="0 0 16 16">
-                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-            </svg>
-            <input type="hidden" id="address_name" name="address_name" value="">
-            <input type="hidden" id="category_group_code" name="category_group_code" value="">
-            <input type="hidden" id="category_group_name" name="category_group_name" value="">
-            <input type="hidden" id="category_name" name="category_name" value="">
-            <input type="hidden" id="id" name="id" value="">
-            <input type="hidden" id="phone" name="phone" value="">
-            <input type="hidden" id="place_name" name="place_name" value="">
-            <input type="hidden" id="place_url" name="place_url" value="">
-            <input type="hidden" id="road_address_name" name="road_address_name" value="">
-            <input type="hidden" id="x" name="x" value="">
-            <input type="hidden" id="y" name="y" value="">
-
-            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
-
-            <input type="hidden" name="cityname" value="${city.name}">
-            <input type="hidden" name="cityX" value="${city.cityX}">
-            <input type="hidden" name="cityY" value="${city.cityY}">
-            <input type="hidden" name="Explain" value="${city.explain}">
-            <input type="hidden" name="Cityseq" value="${city.cityseq}">
-
-
-            <input type="hidden" name="planname" value="${citydto.name}">
-            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-            <input type="hidden" name="willshare" value="${citydto.willshare}">
-
-
-            <c:forEach items="${datelist}" var="list">
-                <input type="hidden" name="datelist" value="${list}">
-            </c:forEach>
-
-            <input class="btn btn-primary" type="submit" value="일정추가">
-        </form>
+    
+    <!--------------------------------------     상세 페이지   ---------------------------->
+    <div id="detail-box">
+    
+   <!-- -->
+	    <iframe id='detail' 
+			    name=naver onload="naver.scrollTo(40,100);"
+			    class="embed-responsive embed-responsive-16by9 invisible"
+			    style="-webkit-transform:scale(0.7);"
+	            src=''
+	            frameborder='0'
+	            scrolling='yes'>
+	        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+	        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
+	    </iframe>
+	    
+	    <div id="detailbtns" class="invisible">
+	    <button id="xdetail" type="button" class="invisible" >
+	   	<img id="xdetailimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM3OC4zMDIgMzc4LjMwMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzc4LjMwMiAzNzguMzAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIzNzguMzAyLDI4LjI4NCAzNTAuMDE3LDAgMTg5LjE1MSwxNjAuODY3IDI4LjI4NCwwIDAsMjguMjg0IDE2MC44NjYsMTg5LjE1MSAwLDM1MC4wMTggDQoJMjguMjg0LDM3OC4zMDIgMTg5LjE1MSwyMTcuNDM2IDM1MC4wMTcsMzc4LjMwMiAzNzguMzAyLDM1MC4wMTggMjE3LjQzNSwxODkuMTUxICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
+	    창 닫기</button>
+		        <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
+	    <div id="addplan" class="noshow" >
+	        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+<!-- 	            <span><img src=""></span>
+	            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	                 class="bi bi-check-lg" viewBox="0 0 16 16">
+	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+	            </svg> -->
+	            <input type="hidden" id="address_name" name="address_name" value="">
+	            <input type="hidden" id="category_group_code" name="category_group_code" value="">
+	            <input type="hidden" id="category_group_name" name="category_group_name" value="">
+	            <input type="hidden" id="category_name" name="category_name" value="">
+	            <input type="hidden" id="id" name="id" value="">
+	            <input type="hidden" id="phone" name="phone" value="">
+	            <input type="hidden" id="place_name" name="place_name" value="">
+	            <input type="hidden" id="place_url" name="place_url" value="">
+	            <input type="hidden" id="road_address_name" name="road_address_name" value="">
+	            <input type="hidden" id="x" name="x" value="">
+	            <input type="hidden" id="y" name="y" value="">
+	
+	            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
+	
+	            <input type="hidden" name="cityname" value="${city.name}">
+	            <input type="hidden" name="cityX" value="${city.cityX}">
+	            <input type="hidden" name="cityY" value="${city.cityY}">
+	            <input type="hidden" name="Explain" value="${city.explain}">
+	            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+	
+	
+	            <input type="hidden" name="planname" value="${citydto.name}">
+	            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+	            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+	            <input type="hidden" name="willshare" value="${citydto.willshare}">
+	
+	
+	            <c:forEach items="${datelist}" var="list">
+	                <input type="hidden" name="datelist" value="${list}">
+	            </c:forEach>
+	
+	            <button id="addplanbtn" class ="invisible" type="submit" >
+	            <img id="addplanimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5NSA0OTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5NSA0OTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNCRERCRkY7IiBwb2ludHM9IjIyNy41LDM3OS4xMzMgMjI3LjUsMjY3LjUgMTE1Ljg2NSwyNjcuNSAxMTUuODY1LDIyNy41IDIyNy41LDIyNy41IDIyNy41LDExNS44NjcgDQoJCTI0Ny41LDExNS44NjcgMjQ3LjUsMCAwLDAgMCw0OTUgMjQ3LjUsNDk1IDI0Ny41LDM3OS4xMzMgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiM5QkM5RkY7IiBwb2ludHM9IjI0Ny41LDAgMjQ3LjUsMTE1Ljg2NyAyNjcuNSwxMTUuODY3IDI2Ny41LDIyNy41IDM3OS4xMzUsMjI3LjUgMzc5LjEzNSwyNjcuNSAyNjcuNSwyNjcuNSANCgkJMjY3LjUsMzc5LjEzMyAyNDcuNSwzNzkuMTMzIDI0Ny41LDQ5NSA0OTUsNDk1IDQ5NSwwIAkiLz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIyMjcuNSwyMjcuNSAxMTUuODY1LDIyNy41IDExNS44NjUsMjY3LjUgMjI3LjUsMjY3LjUgMjI3LjUsMzc5LjEzMyAyNjcuNSwzNzkuMTMzIA0KCQkyNjcuNSwyNjcuNSAzNzkuMTM1LDI2Ny41IDM3OS4xMzUsMjI3LjUgMjY3LjUsMjI3LjUgMjY3LjUsMTE1Ljg2NyAyMjcuNSwxMTUuODY3IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
+	            일정 추가</button>
+	        </form>
+	        </div>
+	    
+	
+	    <%-------------------------- 찜추가 ----------------------------%>
+	    <div id="addWish" class="noshow">
+	        <!-- <a href="!#">
+	            <span><img src=""></span>
+	            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+	                 viewBox="0 0 16 16">
+	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+	            </svg>
+	        </a> -->
+	            <button type="button" id="addWishbtn" class="invisible">
+	            <img id="addwishimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUwMS4yOCA1MDEuMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwMS4yOCA1MDEuMjg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkNEMDA7IiBwb2ludHM9IjUwMS4yOCwxOTQuMzcgMzM1LjI2LDE1OS4zMyAyNTAuNjQsMTIuMjcgMjUwLjY0LDQxOS43NyA0MDUuNTQsNDg5LjAxIDM4Ny41NiwzMjAuMjkgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkRBNDQ7IiBwb2ludHM9IjE2Ni4wMiwxNTkuMzMgMCwxOTQuMzcgMTEzLjcyLDMyMC4yOSA5NS43NCw0ODkuMDEgMjUwLjY0LDQxOS43NyAyNTAuNjQsMTIuMjcgCSIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
+	            찜 추가</button>
+	    </div>
+	</div>
+	</div>
+	
     </div>
 
-    <%-------------------------- 찜추가 ----------------------------%>
-    <div id="addWish" class="noshow">
-        <a href="!#">
-            <span><img src=""></span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
-                 viewBox="0 0 16 16">
-                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-            </svg>
-            <div>찜 추가</div>
-        </a>
-    </div>
-</div>
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
 <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
@@ -381,23 +189,21 @@
                     <input type="hidden" name="willshare" value="${citydto.willshare}">
 
 
-                        <%--                    <input type="hidden" name="datelist" value="${datelist}">--%>
+
+<%--                    <input type="hidden" name="datelist" value="${datelist}">--%>
                 </div>
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
                 <input type="hidden" name="seq" value="${status.count}">
             </div>
         </c:forEach>
     </div>
-    <c:forEach items="${datelist}" var="list">
-        <input type="hidden" name="datelist" value="${list}">
-    </c:forEach>
-
+                    <c:forEach items="${datelist}" var="list">
+                        <input type="hidden" name="datelist" value="${list}">
+                    </c:forEach>
 </form>
-
 
 <%-------------------------------일정 등록 완료------------------------%>
 <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
-
     <c:forEach items="${list}" var="dto" varStatus="status">
         <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
         <input type="hidden" name="cityname" value="${city.name}">
@@ -418,8 +224,9 @@
         <input type="hidden" name="seq" value="${status.count}">
 
     </c:forEach>
-    <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
+    <input class="btn btn-primary" type="submit" value="일정 등록 완료">
 </form>
+
 
 
 <%---------------------------------일정---------------------------------%>
@@ -499,7 +306,6 @@
             </c:forEach>
         </form>
         </c:forEach>
-
     </div>
 
     <%--------------------------------------------------JS----------------------------------------------------------%>
@@ -507,10 +313,16 @@
         $("#placesList").click(function () {
             $("#detail").removeClass("invisible");
             $("#xdetail").removeClass("invisible");
+            $("#addplanbtn").removeClass("invisible");
+            $("#addWishbtn").removeClass("invisible");
+            $("#detailbtns").removeClass("invisible");
         });
         $("#xdetail").click(function () {
             $("#detail").addClass("invisible");
             $("#xdetail").addClass("invisible");
+            $("#addplanbtn").addClass("invisible");
+            $("#addWishbtn").addClass("invisible");
+            $("#detailbtns").addClass("invisible");
         });
     </script>
     <script>
@@ -614,137 +426,10 @@
             }
         }
 
-        ////////////////////////////////키워드 검색 시작
-        searchPlaces2();
-
-        function searchPlaces2() {
-
-            var keyword = document.getElementById('keyword').value;
-
-            if (!keyword.replace(/^\s+|\s+$/g, '')) {
-                alert('키워드를 입력해주세요!');
-                return false;
-            }
-
-            // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-            ps.keywordSearch(keyword, placesSearchCB2);
-        }
-
-        function placesSearchCB2(data, status, pagination) {
-            if (status === kakao.maps.services.Status.OK) {
-
-                // 정상적으로 검색이 완료됐으면
-                // 검색 목록과 마커를 표출합니다
-                displayPlaces2(data);
-
-                // 페이지 번호를 표출합니다
-                displayPagination(pagination);
-
-            } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-
-                alert('검색 결과가 존재하지 않습니다.');
-                return;
-
-            } else if (status === kakao.maps.services.Status.ERROR) {
-
-                alert('검색 결과 중 오류가 발생했습니다.');
-                return;
-
-            }
-        }
-
-        function displayPlaces2(places) {
-
-            var listEl = document.getElementById('placesList'),
-                menuEl = document.getElementById('menu_wrap'),
-                fragment = document.createDocumentFragment(),
-                bounds = new kakao.maps.LatLngBounds(),
-                listStr = '';
-
-            // 검색 결과 목록에 추가된 항목들을 제거합니다
-            removeAllChildNods(listEl);
-
-            // 지도에 표시되고 있는 마커를 제거합니다
-            removeMarker();
-
-            for (var i = 0; i < places.length; i++) {
-
-                // 마커를 생성하고 지도에 표시합니다
-                var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-                    marker = addMarker(placePosition, i),
-                    itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-
-                // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-                // LatLngBounds 객체에 좌표를 추가합니다
-                bounds.extend(placePosition);
-
-                // 마커와 검색결과 항목에 mouseover 했을때
-                // 해당 장소에 인포윈도우에 장소명을 표시합니다
-                // mouseout 했을 때는 인포윈도우를 닫습니다
-                (function (marker, title) {
-                    kakao.maps.event.addListener(marker, 'mouseover', function () {
-                        displayInfowindow(marker, title);
-                    });
-
-                    kakao.maps.event.addListener(marker, 'mouseout', function () {
-                        infowindow.close();
-                    });
-
-                    itemEl.onmouseover = function () {
-                        displayInfowindow(marker, title);
-                    };
-
-                    itemEl.onmouseout = function () {
-                        infowindow.close();
-                    };
-                })(marker, places[i].place_name);
-
-                fragment.appendChild(itemEl);
-            }
-
-            // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
-            listEl.appendChild(fragment);
-            menuEl.scrollTop = 0;
-
-            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-            map.setBounds(bounds);
-        }
-
-        function displayPagination(pagination) {
-            var paginationEl = document.getElementById('pagination'),
-                fragment = document.createDocumentFragment(),
-                i;
-
-            // 기존에 추가된 페이지번호를 삭제합니다
-            while (paginationEl.hasChildNodes()) {
-                paginationEl.removeChild(paginationEl.lastChild);
-            }
-
-            for (i = 1; i <= pagination.last; i++) {
-                var el = document.createElement('a');
-                el.href = "#";
-                el.innerHTML = i;
-
-                if (i === pagination.current) {
-                    el.className = 'on';
-                } else {
-                    el.onclick = (function (i) {
-                        return function () {
-                            pagination.gotoPage(i);
-                        }
-                    })(i);
-                }
-
-                fragment.appendChild(el);
-            }
-            paginationEl.appendChild(fragment);
-        }
-
-        //////////////////////////////////////////키워드 검색 끝
         // 카테고리 검색을 요청하는 함수입니다
         function searchPlaces() {
             if (!currCategory) {
-                // searchAll();
+                searchAll();
             }
 
             // 커스텀 오버레이를 숨깁니다
@@ -798,7 +483,7 @@
                 // console.log(itemEl);
                 var url = places[i].place_url;
                 // 마커를 생성하고 지도에 표시합니다
-                var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order, places[i].category_group_code);
+                var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
 
 
                 bounds.extend(placePosition);
@@ -903,22 +588,20 @@
 
         // 검색결과 항목을 Element로 반환하는 함수입니다
         function getListItem(index, places) {
-            // console.log($("#detail").val());
-            // console.log($("#mArticle > div.cont_essential > div:nth-child(1) > div.place_details > div > div > a:nth-child(3) > span.color_b").val());
             // console.log('@' + places);
             var el = document.createElement('li'),
                 itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
-                    '<div class="info" style="font-size: 15px">' +
-                    '   <h5 style="font-size: 15px; font-weight: bold;">' + places.place_name + '</h5>';
+                    '<div class="info">' +
+                    '   <h5>' + places.place_name + '</h5>';
 
             if (places.road_address_name) {
-                itemStr += '    <span style="font-size: 14px;">' + places.road_address_name + '</span>' +
-                    ' <span class=" gray" style="font-size: 14px;">' + places.category_group_name + '</span>';
+                itemStr += '    <span>' + places.road_address_name + '</span>' +
+                    '   <span class="jibun gray">' + places.address_name + '</span>';
             } else {
-                itemStr += '    <span style="font-size: 14px;">' + places.category_group_name + '</span>';
+                itemStr += '    <span>' + places.address_name + '</span>';
             }
 
-            itemStr += '  <span class="tel" style="color: CornflowerBlue">' + places.phone + '</span>' +
+            itemStr += '  <span class="tel">' + places.phone + '</span>' +
                 '</div>';
 
             el.innerHTML = itemStr;
@@ -935,7 +618,7 @@
 
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         function addMarker(position, order) {
-            var imageSrc = '/SIST2_Travel/asset/images/places_category3.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                 imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                 imgOptions = {
                     spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
