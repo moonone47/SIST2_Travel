@@ -24,7 +24,7 @@
 	width: 1100px;
 	height: 700px;
 	margin: 0px auto 50px auto;
-	border: 1px solid red;
+	
 }
 
 #category {
