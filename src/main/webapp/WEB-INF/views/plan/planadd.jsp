@@ -56,20 +56,20 @@
             background: #fff;
         } */
         #menu_wrap {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    box-sizing: border-box;
-    width: 325px;
-    z-index: 999;
-    position: absolute;
-    left: 600px;
-    height: 1137px;
-    top: 5px;
-    background: #fff;
-}
+		    margin: 0;
+		    padding: 0;
+		    border: 0;
+		    font-size: 100%;
+		    font: inherit;
+		    box-sizing: border-box;
+		    width: 325px;
+		    z-index: 999;
+		    position: absolute;
+		    left: 600px;
+		    height: 1137px;
+		    top: 5px;
+		    background: #fff;
+	   }	
 
         .city_name {
             margin-left: 3px;
@@ -197,9 +197,9 @@
     left: 300px;
     bottom: 0;
     width: 300px;
-    height: 463px;
+    height: auto;
     margin: 10px 0 30px 10px;
-    padding: 5px;
+    padding: 10px;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.7);
     z-index: 1;
@@ -383,8 +383,9 @@
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
 <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
+    
     <div class="plan sortable" id="planlist">
-
+		<div>여기에 버튼 넣기</div>
         <c:forEach items="${list}" var="dto" varStatus="status">
 
             <div class="list-group">
