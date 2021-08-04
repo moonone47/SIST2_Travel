@@ -35,7 +35,7 @@ public class TravelPlan extends HttpServlet {
 		String cityname = req.getParameter("cityname");		
 		
 		ManagementDAO dao = new ManagementDAO();
-		
+		dao.del(id);// 중복 방지
 		ArrayList<ManagementDTO> list = dao.getlist("3"); // 3에 id 넣자	
 			
 		req.setAttribute("list", list);
