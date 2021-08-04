@@ -18,50 +18,50 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/plan/planinfo.do")
 public class PlanInfo extends HttpServlet {
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+   @Override
+   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		req.setCharacterEncoding("UTF-8");
+      req.setCharacterEncoding("UTF-8");
 
-		PlanInfoDAO dao = new PlanInfoDAO();
-		PlanInfoDTO citydto = new PlanInfoDTO();
+      PlanInfoDAO dao = new PlanInfoDAO();
+      PlanInfoDTO citydto = new PlanInfoDTO();
 
-		String startday = req.getParameter("daystarttravel");
-		String endday = req.getParameter("dayendtravel");
+      String startday = req.getParameter("daystarttravel");
+      String endday = req.getParameter("dayendtravel");
 
-		citydto.setCityseq(req.getParameter("cityseq")); //13번으로 고정됨.
-		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
-		citydto.setDayendtravel(req.getParameter("dayendtravel"));
-		citydto.setName(req.getParameter("name"));
-		//dto.setPlanseq(req.getParameter("planseq"));
-
-
-		if(req.getParameter("willshare") != null) {
-			if (req.getParameter("willshare").equals("y") && req.getParameter("willshare") != null && req.getParameter("willshare") != "") {
-				citydto.setWillshare(req.getParameter("willshare"));
-			} else {
-				citydto.setWillshare("n");
-			}
-		}
-
-		int planseq = dao.add(citydto);
+      citydto.setCityseq(req.getParameter("cityseq")); //13번으로 고정됨.
+      citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+      citydto.setDayendtravel(req.getParameter("dayendtravel"));
+      citydto.setName(req.getParameter("name"));
+      //dto.setPlanseq(req.getParameter("planseq"));
 
 
+      if(req.getParameter("willshare") != null) {
+         if (req.getParameter("willshare").equals("y") && req.getParameter("willshare") != null && req.getParameter("willshare") != "") {
+            citydto.setWillshare(req.getParameter("willshare"));
+         } else {
+            citydto.setWillshare("n");
+         }
+      }
 
-		HttpSession session = req.getSession();
-		session.setAttribute("planseq", planseq);
-
-		
-		resp.sendRedirect("/SIST2_Travel/plan/between.do?planseq=" + planseq);
-
-	}
+      int planseq = dao.add(citydto);
 
 
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+      HttpSession session = req.getSession();
+      session.setAttribute("planseq", planseq);
 
-		resp.sendRedirect("/SIST2_Travel/plan/plan.do");
-	}
+      
+      resp.sendRedirect("/SIST2_Travel/plan/between.do?planseq=" + planseq+"&isedit=n");
+
+   }
+
+
+
+   @Override
+   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+      resp.sendRedirect("/SIST2_Travel/plan/plan.do");
+   }
 
 }
