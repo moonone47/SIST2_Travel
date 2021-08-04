@@ -315,6 +315,7 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
+     <div id="on_city_open_btn"></div>
     <!--------------------------------------     상세 페이지   ---------------------------->
     <div id="detail-box">
     
