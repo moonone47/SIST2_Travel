@@ -13,7 +13,7 @@
 <style>
 
 .main-section {
-	width: 800px;
+	width: 1100px;
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
@@ -56,31 +56,24 @@
 				<th>내용</th>
 				<td colspan="5">${dto.content }</td>
 			</tr>
-
 		</table>
 
-		<
+	
 		<div class="btns">
-
 			<c:if test="${not empty id }">
-
 				<c:if test="${dto.id == id }">
 					<button type="button" class="btn btn-primary"
 						onclick="location.href='/SIST2_Travel/community/suggest/edit.do?suggestseq=${dto.suggestseq}';">수정하기</button>
 					<button type="button" class="btn btn-primary"
 						onclick="location.href='/SIST2_Travel/community/suggest/del.do?suggestseq=${dto.suggestseq}';">삭제하기</button>
-
 				</c:if>
 				
 				<button type="button" class="btn btn-primary"
 					onclick="location.href='/SIST2_Travel/community/suggest/add.do?reply=1&thread=${dto.thread}&depth=${dto.depth }';">답변달기</button>
-				
 				<form method="get" action="/SIST2_Travel/community/suggest/addrecommcnt.do">
-				<button type = "submit" id = "btnRecommend">추천하기</button>
-				<input type="hidden" name="suggestseq" value="${dto.suggestseq }" />
-				</form>
-				
-				
+					<button type = "submit" class="btn btn-default" id = "btnRecommend">추천하기</button>
+					<input type="hidden" name="suggestseq" value="${dto.suggestseq }" />
+				</form>	
 			</c:if>
 			
 			<button type="button" class="btn btn-default"
