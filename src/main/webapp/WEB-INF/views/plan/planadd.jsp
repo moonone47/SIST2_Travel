@@ -165,7 +165,7 @@
 
     <div id="menu_wrap" class="bg_white">
         <div class="sticky-top">
-            <div class="city_name">부산</div>
+            <div class="city_name">${city.name}</div>
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
@@ -181,15 +181,15 @@
                     전체
                 </li>
                 <li id="AD5" data-order="2">
-                    <span class="category_bg store"></span>
+                    <span class="category_bg pharmacy"></span>
                     숙박시설
                 </li>
                 <li id="AT4" data-order="3">
-                    <span class="category_bg store"></span>
+                    <span class="category_bg oil"></span>
                     관광명소
                 </li>
                 <li id="FD6" data-order="4">
-                    <span class="category_bg store"></span>
+                    <span class="category_bg cafe"></span>
                     음식점
                 </li>
             </ul>
@@ -852,26 +852,9 @@
         }
 
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-        function addMarker(position, order, category_group_code) {
-            var imgurl = '';
-            // console.log(category_group_code)
-            if (category_group_code == 'AT4') { //명소
-                order = 0
-                imgurl = 'https://image.flaticon.com/icons/png/512/4778/4778956.png'
-            } else if (category_group_code == 'AD5') { //숙박
-                order = 5
-                imgurl = 'https://image.flaticon.com/icons/png/512/4543/4543814.png';
-            } else if (category_group_code == 'FD6') { // 음식점
-                order = 4
-                imgurl = 'https://image.flaticon.com/icons/png/512/948/948036.png'
-            }
-            // console.log(order); //숙박->2 3 명소->3 4  음식->4 5
-            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-                <%--"<%= request.getContextPath() %>/asset/css/bootstrap.css"--%>
-                <%--var imageSrc = "<%= request.getContextPath() %>/asset/images/test.png", // 마커 이미지 url, 스프라이트 이미지를 씁니다--%>
-                // var imageSrc = imgurl, // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        function addMarker(position, order) {
+            var imageSrc = '/SIST2_Travel/asset/images/places_category3.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                 imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
-
                 imgOptions = {
                     spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
                     spriteOrigin: new kakao.maps.Point(46, (order * 36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
