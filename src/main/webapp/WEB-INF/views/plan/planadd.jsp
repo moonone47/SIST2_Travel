@@ -1144,7 +1144,10 @@
             $('#menu_wrap').show("slide", { direction: "left" }, 200);
         	$('#cat_menu li.on').click();
         });
-
+	
+        $('.item').click(function(){
+        	$('#detail').show();
+        })
 
     </script>
 
