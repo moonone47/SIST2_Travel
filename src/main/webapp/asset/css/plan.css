@@ -420,9 +420,9 @@
     width: 300px;
     height: 463px;
     margin: 10px 0 30px 10px;
-    padding: 5px;
+    padding: 10px;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
+    background: #FFFFFF;
     z-index: 1;
     font-size: 12px;
     /* border: 1px solid red; */
@@ -470,6 +470,9 @@ option.avatar {
 
 #schedule > form > a > div:nth-child(1) > strong {
     font-size: 20px;
+    padding: 4px;
+    background-color: #1A7AD9;
+    border-radius: 10%;
 }
 
 #schedule > form > a > div.col-10.mb-1.small {

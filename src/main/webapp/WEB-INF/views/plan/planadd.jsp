@@ -171,7 +171,7 @@
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
                            value="서울 여행">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                    <%--            <input title="Search" value="" type="submit" class="button">--%>
+                    <%--<input title="Search" value="" type="submit" class="button">--%>
                 </form>
             </div>
 
@@ -344,17 +344,17 @@
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
         <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+            
+            <strong class="mb-1">전체 일정 보기</strong>
             <div class="w-100 align-items-center justify-content-between">
-                <strong class="mb-1">전체 일정</strong>
-                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
-
-                <label for="from">From</label>
+                <div>일정 이름 <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
+                <label for="from">여행 시작</label>
                 <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">
                 <br>
-                <label for="to">to</label>
+                <label for="to">여행 종료</label>
                 <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">
-
             </div>
+            <br>
             <div class="w-100 align-items-center justify-content-between">
                 <fieldset>
                     <select style="width:200px;" name="cityseq">
@@ -363,22 +363,17 @@
                         </c:forEach>
                     </select>
                 </fieldset>
-
             </div>
-            <div class="col-10 mb-1 small">공유여부:
-
+            
+            <div class="col-10 mb-1 small">공유여부
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
-                           checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        공유함
-                    </label>
+                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" 
+                    		value="y" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">공유함</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        공유안함
-                    </label>
+                    <label class="form-check-label" for="flexRadioDefault2">공유안함</label>
                 </div>
             </div>
             <input type="submit" value="일정 설정 완료">
