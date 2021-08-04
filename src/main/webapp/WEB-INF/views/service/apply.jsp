@@ -54,14 +54,14 @@
 				<tr >
 					<th>여행시작날짜</th>
 					<td >
-					<input type="regdate" name="daystarttravel" id="daystarttravel"
+					<input type="date" name="daystarttravel" id="daystarttravel"
 						class="form-control" required />
 							</td>
 				</tr>
 				<tr >
 					<th>여행종료날짜</th>
 					<td >
-					<input type="regdate" name="dayendtravel" id="dayendtravel"
+					<input type="date" name="dayendtravel" id="dayendtravel"
 						class="form-control" required />
 							</td>
 				</tr>
