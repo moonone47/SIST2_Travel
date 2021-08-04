@@ -180,8 +180,8 @@
 
 #menu_wrap {
     position: absolute;
-    top: 32px;
-    left: 655px;
+    top: 0;
+    left: 0;
     bottom: 0;
     width: 250px;
     margin: 10px 0 30px 10px;
@@ -398,7 +398,7 @@
 #planlist {
     position: absolute;
     top: 26px;
-    left: 324px;
+    left: 253px;
     bottom: 0;
     width: 300px;
     height: 463px;
@@ -414,7 +414,7 @@
 #schedule {
     position: absolute;
     top: 26px;
-    left: 10px;
+    left: 553px;
     bottom: 0;
     width: 300px;
     height: 463px;
@@ -487,4 +487,5 @@ option.avatar {
 #schedulelist .active2 {
     background-color: red
 }
+
 

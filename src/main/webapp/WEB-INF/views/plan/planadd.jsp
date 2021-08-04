@@ -1,299 +1,295 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<%--    <%@ include file="/inc/asset.jsp" %>--%>
-<meta charset="utf-8">
-<title>플젝</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+    <%--    <%@ include file="/inc/asset.jsp" %>--%>
+    <meta charset="utf-8">
+    <title> 플젝 </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-	rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/asset/css/plan.css"
-	type="text/css" />
-<%-- <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>--%>
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/plan.css" type="text/css"/>
+    <%-- <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>--%>
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<%--    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">--%>
-<%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
-<%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
-<style>
-#xdetail2 {
-	position: absolute;
-	left: 1500px;
-	top: 40px;
-	z-index: 2000;
-	font-size: 50px;
-}
+    <%--    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">--%>
+    <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
+    <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
+    <style>
+        #xdetail2{
+            position: absolute;
+            left: 1500px;
+            top: 40px;
+            z-index: 2000;
+            font-size:50px;
+        }
+        #xdetail{
+            position: absolute;
+            left: 1500px;
+            top: 40px;
+            z-index: 2000;
+            font-size:50px;
+        }
 
-#xdetail {
-	position: absolute;
-	left: 1500px;
-	top: 40px;
-	z-index: 2000;
-	font-size: 50px;
-}
-</style>
+    </style>
 </head>
 
 <%-------------------------------- 카테고리 -----------------------------------%>
 <body onload="script();">
 
-	<div class="map_wrap">
-		<div id="map"
-			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-		<ul id="category">
-			<li id="all" data-order="1"><span class="category_bg store"></span>
-				전체</li>
-			<li id="AD5" data-order="2"><span class="category_bg store"></span>
-				숙박시설</li>
-			<li id="AT4" data-order="3"><span class="category_bg store"></span>
-				관광명소</li>
-			<li id="FD6" data-order="4"><span class="category_bg store"></span>
-				음식점</li>
-		</ul>
-		<div id="menu_wrap" class="bg_white">
-			<div class="option"></div>
-			<hr>
-			<ul id="placesList"></ul>
-			<div id="pagination"></div>
-		</div>
-		<iframe id='detail'
-			class="embed-responsive embed-responsive-16by9 invisible" src=''
-			frameborder='0' scrolling='yes'>
-			<!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-			<%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
-		</iframe>
-		<button id="xdetail" type="button" class="btn-close invisible"
-			aria-label="Close"></button>
-		<%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
-		<div id="addplan" class="noshow">
-			<form method="POST" action="/SIST2_Travel/plan/planadd.do">
-				<span><img src=""></span>
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-					fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                <path
-						d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <ul id="category">
+        <li id="all" data-order="1">
+            <span class="category_bg store"></span>
+            전체
+        </li>
+        <li id="AD5" data-order="2">
+            <span class="category_bg store"></span>
+            숙박시설
+        </li>
+        <li id="AT4" data-order="3">
+            <span class="category_bg store"></span>
+            관광명소
+        </li>
+        <li id="FD6" data-order="4">
+            <span class="category_bg store"></span>
+            음식점
+        </li>
+    </ul>
+    <div id="menu_wrap" class="bg_white">
+        <div class="option"></div>
+        <hr>
+        <ul id="placesList"></ul>
+        <div id="pagination"></div>
+    </div>
+    <iframe id='detail'
+            class="embed-responsive embed-responsive-16by9 invisible"
+            src=''
+            frameborder='0'
+            scrolling='yes'>
+        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
+    </iframe>
+    <button id="xdetail" type="button" class="btn-close invisible" aria-label="Close"></button>
+    <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
+    <div id="addplan" class="noshow">
+        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+            <span><img src=""></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
             </svg>
-				<input type="hidden" id="address_name" name="address_name" value="">
-				<input type="hidden" id="category_group_code"
-					name="category_group_code" value=""> <input type="hidden"
-					id="category_group_name" name="category_group_name" value="">
-				<input type="hidden" id="category_name" name="category_name"
-					value=""> <input type="hidden" id="id" name="id" value="">
-				<input type="hidden" id="phone" name="phone" value=""> <input
-					type="hidden" id="place_name" name="place_name" value=""> <input
-					type="hidden" id="place_url" name="place_url" value=""> <input
-					type="hidden" id="road_address_name" name="road_address_name"
-					value=""> <input type="hidden" id="x" name="x" value="">
-				<input type="hidden" id="y" name="y" value=""> <input
-					type="hidden" id="rdateadd" name="rdate" value="${rdate}">
+            <input type="hidden" id="address_name" name="address_name" value="">
+            <input type="hidden" id="category_group_code" name="category_group_code" value="">
+            <input type="hidden" id="category_group_name" name="category_group_name" value="">
+            <input type="hidden" id="category_name" name="category_name" value="">
+            <input type="hidden" id="id" name="id" value="">
+            <input type="hidden" id="phone" name="phone" value="">
+            <input type="hidden" id="place_name" name="place_name" value="">
+            <input type="hidden" id="place_url" name="place_url" value="">
+            <input type="hidden" id="road_address_name" name="road_address_name" value="">
+            <input type="hidden" id="x" name="x" value="">
+            <input type="hidden" id="y" name="y" value="">
 
-				<input type="hidden" name="cityname" value="${city.name}"> <input
-					type="hidden" name="cityX" value="${city.cityX}"> <input
-					type="hidden" name="cityY" value="${city.cityY}"> <input
-					type="hidden" name="Explain" value="${city.explain}"> <input
-					type="hidden" name="Cityseq" value="${city.cityseq}"> <input
-					type="hidden" name="planname" value="${citydto.name}"> <input
-					type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-				<input type="hidden" name="daystarttravel"
-					value="${citydto.daystarttravel}"> <input type="hidden"
-					name="willshare" value="${citydto.willshare}">
+            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
+
+            <input type="hidden" name="cityname" value="${city.name}">
+            <input type="hidden" name="cityX" value="${city.cityX}">
+            <input type="hidden" name="cityY" value="${city.cityY}">
+            <input type="hidden" name="Explain" value="${city.explain}">
+            <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
 
-				<c:forEach items="${datelist}" var="list">
-					<input type="hidden" name="datelist" value="${list}">
-				</c:forEach>
+            <input type="hidden" name="planname" value="${citydto.name}">
+            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+            <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-				<input type="submit" value="일정추가">
-			</form>
-		</div>
 
-		<%-------------------------- 찜추가 ----------------------------%>
-		<div id="addWish" class="noshow">
-			<a href="!#"> <span><img src=""></span> <svg
-					xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-					fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                <path
-						d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
+            <c:forEach items="${datelist}" var="list">
+                <input type="hidden" name="datelist" value="${list}">
+            </c:forEach>
+
+            <input type="submit" value="일정추가">
+        </form>
+    </div>
+
+    <%-------------------------- 찜추가 ----------------------------%>
+    <div id="addWish" class="noshow">
+        <a href="!#">
+            <span><img src=""></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                 viewBox="0 0 16 16">
+                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
             </svg>
-				<div>찜 추가</div>
-			</a>
-		</div>
-	</div>
+            <div>찜 추가</div>
+        </a>
+    </div>
+</div>
 
-	<%----------------------------- 추가된 일정 리스트 ----------------------------%>
-	<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
-		<div class="plan sortable" id="planlist">
+<%----------------------------- 추가된 일정 리스트 ----------------------------%>
+<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
+    <div class="plan sortable" id="planlist">
 
-			<c:forEach items="${list}" var="dto" varStatus="status">
+        <c:forEach items="${list}" var="dto" varStatus="status">
 
-				<div class="list-group">
-					<div class="list-group-item list-group-item-action">
-						<div id="seqname"></div>
-						<div class="d-flex w-100 justify-content-between"
-							data-seq="${status.index}">
-							<h5 class="mb-1">${dto.place_name}${status.index}</h5>
-							<small class="text-muted">${dto.category_group_name}</small>
-						</div>
-						<p class="mb-1">${dto.address_name}</p>
-						<button type="submit" class="close" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-
-
-						<input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-
-						<input type="hidden" name="cityname" value="${city.name}">
-						<input type="hidden" name="cityX" value="${city.cityX}"> <input
-							type="hidden" name="cityY" value="${city.cityY}"> <input
-							type="hidden" name="Explain" value="${city.explain}"> <input
-							type="hidden" name="Cityseq" value="${city.cityseq}"> <input
-							type="hidden" name="planname" value="${citydto.name}"> <input
-							type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-						<input type="hidden" name="daystarttravel"
-							value="${citydto.daystarttravel}"> <input type="hidden"
-							name="willshare" value="${citydto.willshare}">
-
-					</div>
-					<input type="hidden" name="planseq" value="${dto.plan2seq}">
-					<input type="hidden" name="seq" value="${status.count}">
-				</div>
-			</c:forEach>
-		</div>
-		<c:forEach items="${datelist}" var="list">
-			<input type="hidden" name="datelist" value="${list}">
-		</c:forEach>
-	</form>
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action">
+                    <div id="seqname"></div>
+                    <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+                        <h5 class="mb-1">${dto.place_name} ${status.index}</h5>
+                        <small class="text-muted">${dto.category_group_name}</small>
+                    </div>
+                    <p class="mb-1">${dto.address_name}</p>
+                    <button type="submit" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
 
 
-	<%-------------------------------일정 등록 완료------------------------%>
-	<form id="getlist" method="POST"
-		action="/SIST2_Travel/plan/plandone.do">
-		<c:forEach items="${list}" var="dto" varStatus="status">
-			<input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-			<input type="hidden" name="cityname" value="${city.name}">
-			<input type="hidden" name="cityX" value="${city.cityX}">
-			<input type="hidden" name="cityY" value="${city.cityY}">
-			<input type="hidden" name="Explain" value="${city.explain}">
-			<input type="hidden" name="Cityseq" value="${city.cityseq}">
+                    <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
 
-			<input type="hidden" name="planname" value="${citydto.name}">
-			<input type="hidden" name="dayendtravel"
-				value="${citydto.dayendtravel}">
-			<input type="hidden" name="daystarttravel"
-				value="${citydto.daystarttravel}">
-			<input type="hidden" name="willshare" value="${citydto.willshare}">
+                    <input type="hidden" name="cityname" value="${city.name}">
+                    <input type="hidden" name="cityX" value="${city.cityX}">
+                    <input type="hidden" name="cityY" value="${city.cityY}">
+                    <input type="hidden" name="Explain" value="${city.explain}">
+                    <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
-			<c:forEach items="${datelist}" var="list">
-				<input type="hidden" name="datelist" value="${list}">
-			</c:forEach>
-			<input type="hidden" name="planseq" value="${dto.plan2seq}">
-			<input type="hidden" name="seq" value="${status.count}">
 
-		</c:forEach>
-		<input class="btn btn-primary" type="submit" value="일정 등록 완료">
-	</form>
+                    <input type="hidden" name="planname" value="${citydto.name}">
+                    <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                    <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                    <input type="hidden" name="willshare" value="${citydto.willshare}">
 
 
 
-	<%---------------------------------일정---------------------------------%>
-	<div id="schedule"
-		class="list-group list-group-flush border-bottom scrollarea">
-		<form method="POST" action="/SIST2_Travel/plan/planinfo.do">
-			<a href="#"
-				class="list-group-item list-group-item-action active py-3 lh-tight"
-				aria-current="true">
-				<div class="w-100 align-items-center justify-content-between">
-					<strong class="mb-1">전체 일정</strong>
-					<div>
-						일정 이름: <input type="text" id="name" name="name" autocomplete="off"
-							value="${citydto.name}">
-					</div>
+<%--                    <input type="hidden" name="datelist" value="${datelist}">--%>
+                </div>
+                <input type="hidden" name="planseq" value="${dto.plan2seq}">
+                <input type="hidden" name="seq" value="${status.count}">
+            </div>
+        </c:forEach>
+    </div>
+                    <c:forEach items="${datelist}" var="list">
+                        <input type="hidden" name="datelist" value="${list}">
+                    </c:forEach>
+</form>
 
-					<label for="from">From</label> <input type="text" id="from"
-						name="daystarttravel" value="${citydto.daystarttravel}"> <br>
-					<label for="to">to</label> <input type="text" id="to"
-						name="dayendtravel" value="${citydto.dayendtravel}">
+<%-------------------------------일정 등록 완료------------------------%>
+<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
+    <c:forEach items="${list}" var="dto" varStatus="status">
+        <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+        <input type="hidden" name="cityname" value="${city.name}">
+        <input type="hidden" name="cityX" value="${city.cityX}">
+        <input type="hidden" name="cityY" value="${city.cityY}">
+        <input type="hidden" name="Explain" value="${city.explain}">
+        <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
-				</div>
-				<div class="w-100 align-items-center justify-content-between">
-					<fieldset>
-						<select style="width: 200px;" name="cityseq">
-							<c:forEach items='${citys}' var="citys">
-								<option value="${city.name}">${citys.name}</option>
-							</c:forEach>
-						</select>
-					</fieldset>
+        <input type="hidden" name="planname" value="${citydto.name}">
+        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+        <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-				</div>
-				<div class="col-10 mb-1 small">
-					공유여부:
+        <c:forEach items="${datelist}" var="list">
+            <input type="hidden" name="datelist" value="${list}">
+        </c:forEach>
+        <input type="hidden" name="planseq" value="${dto.plan2seq}">
+        <input type="hidden" name="seq" value="${status.count}">
 
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="willshare"
-							id="flexRadioDefault1" value="y" checked> <label
-							class="form-check-label" for="flexRadioDefault1"> 공유함 </label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="willshare"
-							id="flexRadioDefault2" value="n"> <label
-							class="form-check-label" for="flexRadioDefault2"> 공유안함 </label>
-					</div>
-				</div> <input type="submit" value="일정 설정 완료">
-			</a>
-		</form>
-		<%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
-		<c:forEach items="${datelist}" var="list" varStatus="status">
-			<div id="schedulelist" class="list-group">
-				<form id="my_form" method="POST"
-					action="/SIST2_Travel/plan/planscd.do">
-					<input type="submit" value="${'Day'} ${status.count} ${list}"
-						class="btn btn-primary">
-
-					<div
-						class="d-flex w-100 align-items-center justify-content-between">
-						<strong class="mb-1">${"Day"} ${status.count}</strong> <small>${list}</small>
-					</div>
-					<div class="col-10 mb-1 small">${city.name}</div>
-					<!-- </a> -->
-					<input type="hidden" name="city" value="${city}"> <input
-						type="hidden" name="cityname" value="${city.name}"> <input
-						id="currX" type="hidden" name="cityX" value="${city.cityX}">
-					<input id="currY" type="hidden" name="cityY" value="${city.cityY}">
-					<input type="hidden" name="Explain" value="${city.explain}">
-					<input type="hidden" name="Cityseq" value="${city.cityseq}">
+    </c:forEach>
+    <input class="btn btn-primary" type="submit" value="일정 등록 완료">
+</form>
 
 
-					<input type="hidden" name="planname" value="${citydto.name}">
-					<input type="hidden" name="dayendtravel"
-						value="${citydto.dayendtravel}"> <input type="hidden"
-						name="daystarttravel" value="${citydto.daystarttravel}"> <input
-						type="hidden" name="willshare" value="${citydto.willshare}">
 
-					<%--            <input type="text" name="rdate" value="">--%>
-					<input type="hidden" name="rdate" id="rdate" value="${list}">
-					<c:forEach items="${datelist}" var="list" varStatus="status">
-						<input type="hidden" name="datelist" value="${list}">
-					</c:forEach>
-				</form>
-		</c:forEach>
-	</div>
+<%---------------------------------일정---------------------------------%>
+<div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
+    <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
+        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+            <div class="w-100 align-items-center justify-content-between">
+                <strong class="mb-1">전체 일정</strong>
+                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
 
-	<%--------------------------------------------------JS----------------------------------------------------------%>
-	<script>
+                <label for="from">From</label>
+                <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">
+                <br>
+                <label for="to">to</label>
+                <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">
+
+            </div>
+            <div class="w-100 align-items-center justify-content-between">
+                <fieldset>
+                    <select style="width:200px;" name="cityseq">
+                        <c:forEach items='${citys}' var="citys">
+                            <option value="${city.name}">${citys.name}</option>
+                        </c:forEach>
+                    </select>
+                </fieldset>
+
+            </div>
+            <div class="col-10 mb-1 small">공유여부:
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
+                           checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        공유함
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        공유안함
+                    </label>
+                </div>
+            </div>
+            <input type="submit" value="일정 설정 완료">
+        </a>
+    </form>
+    <%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+    <c:forEach items="${datelist}" var="list" varStatus="status">
+    <div id="schedulelist" class="list-group">
+        <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
+            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">
+
+            <div class="d-flex w-100 align-items-center justify-content-between">
+                <strong class="mb-1">${"Day"} ${status.count}</strong>
+                <small>${list}</small>
+            </div>
+            <div class="col-10 mb-1 small">${city.name}</div>
+            <!-- </a> -->
+            <input type="hidden" name="city" value="${city}">
+
+            <input type="hidden" name="cityname" value="${city.name}">
+            <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
+            <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
+            <input type="hidden" name="Explain" value="${city.explain}">
+            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+
+
+            <input type="hidden" name="planname" value="${citydto.name}">
+            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+            <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+                <%--            <input type="text" name="rdate" value="">--%>
+            <input type="hidden" name="rdate" id="rdate" value="${list}">
+            <c:forEach items="${datelist}" var="list" varStatus="status">
+                <input type="hidden" name="datelist" value="${list}">
+            </c:forEach>
+        </form>
+        </c:forEach>
+    </div>
+
+    <%--------------------------------------------------JS----------------------------------------------------------%>
+    <script>
         $("#placesList").click(function () {
             $("#detail").removeClass("invisible");
             $("#xdetail").removeClass("invisible");
@@ -303,8 +299,7 @@
             $("#xdetail").addClass("invisible");
         });
     </script>
-
-	<script>
+    <script>
         $(function () {
             var dateFormat = "yy-mm-dd",
                 from = $("#from")
@@ -339,24 +334,24 @@
             }
         });
     </script>
-	<%--    <script language='javascript'>--%>
+    <%--    <script language='javascript'>--%>
 
-	<%--        function noEvent() {--%>
-	<%--            if (event.keyCode == 116) {--%>
-	<%--                event.keyCode = 2;--%>
-	<%--                return false;--%>
-	<%--            } else if (event.ctrlKey && (event.keyCode == 78 || event.keyCode == 82)) {--%>
-	<%--                return false;--%>
-	<%--            }--%>
-	<%--        }--%>
+    <%--        function noEvent() {--%>
+    <%--            if (event.keyCode == 116) {--%>
+    <%--                event.keyCode = 2;--%>
+    <%--                return false;--%>
+    <%--            } else if (event.ctrlKey && (event.keyCode == 78 || event.keyCode == 82)) {--%>
+    <%--                return false;--%>
+    <%--            }--%>
+    <%--        }--%>
 
-	<%--        document.onkeydown = noEvent;--%>
-	<%--    </script>--%>
-	<%---------------------------------지도---------------------------------%>
+    <%--        document.onkeydown = noEvent;--%>
+    <%--    </script>--%>
+    <%---------------------------------지도---------------------------------%>
 
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
-	<script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=146e5efa152999d1970430f4e8202734&libraries=services"></script>
+    <script>
         window.onload = function () {
             $('#all').trigger("click");
         }
