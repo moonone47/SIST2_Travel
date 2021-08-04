@@ -253,9 +253,10 @@
         </a>
     </form>
     <%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
-    <c:forEach items="${datelist}" var="list" varStatus="status">
+
     <div id="schedulelist" class="list-group">
         <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
+            <c:forEach items="${datelist}" var="list" varStatus="status">
             <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">
 
             <div class="d-flex w-100 align-items-center justify-content-between">
