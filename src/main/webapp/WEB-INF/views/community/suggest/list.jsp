@@ -12,10 +12,47 @@
 <style>
 
 .main-section {
+	width: 1100px;
+	margin: 35px auto;
+	padding-bottom: 300px;
+}
+
+.searchbox {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.searchbox .form-control {
+	display: inline-block;
+	width: auto;
+}
+
+.searchbox #search {
+	width: 300px;
+}
+
+.searchBar {
+	margin: 10px;
+	text-align: center;
+}
+
+.pagebar {
+	text-align: center;
+}
+
+.main-section {
 	width: 800px;
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
+.pagebar {
+
+	text-align: center;	
+
+	display: flex;
+	 justify-content: center; 
+}
+
 </style>
 
 </head>
@@ -77,24 +114,6 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<!-- 페이지바  -->
-		<div>
-			<form method="get" action="/SIST2_Travel/community/suggest/list.do">
-				<input type="number" name="page" min="1" max="${totalPage }"
-					value="${nowPage }" />
-					 <input type="submit" value="페이지 보기" />
-			</form>
-		</div>
-
-		<hr>
-		<div>
-			<select name="" id="selPage">
-				<c:forEach var="i" begin="1" end="${totalPage }">
-					<option value="${i}">${i}page</option>
-				</c:forEach>
-			</select>
-
-		</div>
 		<hr>
 		<div class='pagebar'>${pagebar}</div>
 
@@ -107,8 +126,8 @@
 					<option value="content">내용</option>
 					<option value="name">이름</option>
 					<option value="all">제목+내용</option>
-
 				</select> 
+				
 				<input type="text" name="search" id="search" class="form-control" required 
 						placeholder="검색어를 입력하세요." /> 
 				<input type="submit" value="검색하기" class="btn btn-default" />
@@ -122,8 +141,7 @@
 					onclick="location.href='/SIST2_Travel/community/suggest/add.do?reply=0';">글쓰기</button>
 			</c:if>
 
-			<button type="button" class="btn btn-default"
-				onclick="location.reload();">새로고침</button>
+
 			<button type="button" class="btn btn-default"
 				onclick="location.href='/SIST2_Travel/community/suggest/list.do';">새로고침(list)</button>
 		</div>
