@@ -153,6 +153,88 @@
             font-size: 16px;
             font-weight: bold;
         }
+        
+             
+   #schedule > form > a {
+    background-color:#203341;
+    border-color: #4383D9;
+    margin-bottom: 20px;
+}
+	
+	.list-group-item {
+		/* background-color: #A2D4F2; */
+		background-color: #fff;
+	}
+	
+.btn-primary {
+	position: relative;
+    color: #fff;
+    background-color: #529AD9;
+    border-color: #fff;
+    z-index: 2;
+    margin: 0px 0px;
+    width: 100%;
+}
+
+#planlist {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    bottom: 0;
+    width: 300px;
+    height: 463px;
+    margin: 10px 0 30px 10px;
+    padding: 5px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size: 12px;
+    /* border: 1px solid red; */
+}
+
+#schedule {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0;
+    width: 300px;
+    height: 463px;
+    margin: 10px 0 30px 10px;
+    padding: 5px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size: 13px;
+    /* border: 1px solid red; */
+}
+
+#my_form {
+	border: 1px solid #DDD;
+	border-radius: 5%; 
+	color: #black;
+	/* list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    background: #203341;
+    border-bottom: solid 1px #1a7ad9; */
+}
+        
+   #complete {
+   	width: 150px;
+   	background-color: #203341;
+   	border-color: #203341;
+   	margin-left: 50px;
+   }
+        
     </style>
 </head>
 
@@ -336,7 +418,7 @@
         <input type="hidden" name="seq" value="${status.count}">
 
     </c:forEach>
-    <input class="btn btn-primary" type="submit" value="일정 등록 완료">
+    <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
 </form>
 
 
