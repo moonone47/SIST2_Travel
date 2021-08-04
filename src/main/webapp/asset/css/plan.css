@@ -366,17 +366,17 @@
 
 #detail-box {
 	width:931px;
-	height:1300px;
+	height:1335px;
 	position: relative;
-	top: -1100px;
-    left: 880px;
+	top: -1136px;
+    left: 780px;
 	/* border: 1px solid red; */
 	z-index: 1;
 	padding: 0px;
 }
 #detailbtns {
 	position: absolute;
-	top: 198px;
+	top: 202px;
 	left: 155px;
 	background-color: #FFF;
 	width: 620px;
