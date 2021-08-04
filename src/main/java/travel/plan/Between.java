@@ -1,20 +1,17 @@
 package travel.plan;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import travel.management.ManagementDTO;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 @WebServlet("/plan/between.do")
 public class Between extends HttpServlet {
@@ -134,7 +131,8 @@ public class Between extends HttpServlet {
 			calDateDays = Math.abs(calDateDays);
 
 			int cal = (int)calDateDays;
-			
+			cal += 2;
+
 			//20210803
 			Calendar date = Calendar.getInstance(); //yyyy-mm-dd
 			int year = Integer.parseInt(daystarttravel.substring(0,4));
