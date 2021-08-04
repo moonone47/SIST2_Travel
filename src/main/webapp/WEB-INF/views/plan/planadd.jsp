@@ -76,7 +76,7 @@
             frameborder='0'
             scrolling='yes'>
         <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-<%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
+        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
     </iframe>
     <button id="xdetail" type="button" class="btn-close invisible" aria-label="Close"></button>
     <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
@@ -170,39 +170,40 @@
 
 
 
-                    <c:forEach items="${datelist}" var="list">
-                        <input type="hidden" name="datelist" value="${list}">
-                    </c:forEach>
+<%--                    <input type="hidden" name="datelist" value="${datelist}">--%>
                 </div>
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
                 <input type="hidden" name="seq" value="${status.count}">
             </div>
         </c:forEach>
     </div>
+                    <c:forEach items="${datelist}" var="list">
+                        <input type="hidden" name="datelist" value="${list}">
+                    </c:forEach>
 </form>
 
 <%-------------------------------일정 등록 완료------------------------%>
 <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
-        <c:forEach items="${list}" var="dto" varStatus="status">
-                    <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-                    <input type="hidden" name="cityname" value="${city.name}">
-                    <input type="hidden" name="cityX" value="${city.cityX}">
-                    <input type="hidden" name="cityY" value="${city.cityY}">
-                    <input type="hidden" name="Explain" value="${city.explain}">
-                    <input type="hidden" name="Cityseq" value="${city.cityseq}">
+    <c:forEach items="${list}" var="dto" varStatus="status">
+        <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+        <input type="hidden" name="cityname" value="${city.name}">
+        <input type="hidden" name="cityX" value="${city.cityX}">
+        <input type="hidden" name="cityY" value="${city.cityY}">
+        <input type="hidden" name="Explain" value="${city.explain}">
+        <input type="hidden" name="Cityseq" value="${city.cityseq}">
 
-                    <input type="hidden" name="planname" value="${citydto.name}">
-                    <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-                    <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-                    <input type="hidden" name="willshare" value="${citydto.willshare}">
+        <input type="hidden" name="planname" value="${citydto.name}">
+        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+        <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-                    <c:forEach items="${datelist}" var="list">
-                        <input type="hidden" name="datelist" value="${list}">
-                    </c:forEach>
-                <input type="hidden" name="planseq" value="${dto.plan2seq}">
-                <input type="hidden" name="seq" value="${status.count}">
-
+        <c:forEach items="${datelist}" var="list">
+            <input type="hidden" name="datelist" value="${list}">
         </c:forEach>
+        <input type="hidden" name="planseq" value="${dto.plan2seq}">
+        <input type="hidden" name="seq" value="${status.count}">
+
+    </c:forEach>
     <input class="btn btn-primary" type="submit" value="일정 등록 완료">
 </form>
 
@@ -287,7 +288,7 @@
         </c:forEach>
     </div>
 
-<%--------------------------------------------------JS----------------------------------------------------------%>
+    <%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
         $("#placesList").click(function () {
             $("#detail").removeClass("invisible");
