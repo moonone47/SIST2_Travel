@@ -71,6 +71,13 @@
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
+.pagebar {
+
+	text-align: center;	
+
+	display: flex;
+	 justify-content: center; 
+}
 </style>
 
 </head>
@@ -134,7 +141,7 @@
 			</c:forEach>
 		</table>
 		<!-- 페이지바  -->
-		<div>
+		<%-- <div>
 			<form method="get" action="/SIST2_Travel/community/question/list.do">
 				<input type="number" name="page" min="1" max="${totalPage }"
 					value="${nowPage }" />
@@ -151,7 +158,7 @@
 				</c:forEach>
 			</select>
 
-		</div>
+		</div> --%>
 		<hr>
 		<div class='pagebar'>${pagebar }</div>
 
@@ -178,10 +185,10 @@
 					onclick="location.href='/SIST2_Travel/community/question/add.do?reply=0';">글쓰기</button>
 			</c:if>
 
+			<!-- <button type="button" class="btn btn-default"
+				onclick="location.reload();">새로고침</button> -->
 			<button type="button" class="btn btn-default"
-				onclick="location.reload();">새로고침</button>
-			<button type="button" class="btn btn-default"
-				onclick="location.href='/SIST2_Travel/community/question/list.do';">새로고침(list)</button>
+				onclick="location.href='/SIST2_Travel/community/question/list.do';">새로고침</button>
 		</div>
 
 	</section>
@@ -200,7 +207,7 @@
 
 							location.href = '/SIST2_Travel/community/question/list.do?page='
 									+ $(this).val();
-						})
+						});
 
 		$('#selPage').val('${nowPage}')
 	</script>
