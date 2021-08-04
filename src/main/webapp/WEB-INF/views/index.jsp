@@ -61,32 +61,6 @@
     form > .button:hover {
       background-color: rgba(0, 150, 136, 0.8);
     }
-
-    .con1-title{
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font: inherit;
-      box-sizing: border-box;
-      color: black;
-      font-size: 44px;
-      font-weight: bold;
-      text-align: center;
-      padding-top: 75px;
-    }
-    .cont1-desc{
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font: inherit;
-      box-sizing: border-box;
-      text-align: center;
-      padding-top: 20px;
-      font-size: 24px;
-      color: black;
-      font-weight: bold;
-    }
-
   </style>
 
 </head>
@@ -98,38 +72,6 @@
   <div class="con1">
     <div class="con1-title">나만의 여행 플래너 TP!</div>
     <div class="cont1-desc">쉽고 빠르게 여행을 계획하세요.</div>
-    <div class="logged">
-      <img src="https://www.earthtory.com/res/img/common/mobile/img_profile.png">
-      <div class="login-info">
-        <a href="#">클립보드</a>
-        <a href="#">여행일정</a>
-        <a href="#">리뷰</a>
-        <a href="#">Q&A</a>
-        <div class="login-btn">
-          <div class="login-btn-ico">
-            <img src="https://www.earthtory.com/res/img/main/ico_plan.png">
-          </div>
-          일정만들기
-        </div>
-        <div class="login-btn">
-          <div class="login-btn-ico">
-            <img src="https://www.earthtory.com/res/img/main/ico_review.png">
-          </div>
-          리뷰쓰기
-        </div>
-        <div class="login-btn">
-          <div class="login-btn-ico">
-            <img src=https://www.earthtory.com/res/img/main/ico_qa.png>
-          </div>
-          질문하기
-        </div>
-      </div>
-    </div>
-
-
-
-
-
     <form method="post">
       <input type="text" class="textbox" placeholder="도시명으로 검색">
       <input title="Search" value="" type="submit" class="button">
