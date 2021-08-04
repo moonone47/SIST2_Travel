@@ -297,6 +297,7 @@
             $("#xdetail").addClass("invisible");
         });
     </script>
+
     <script>
         $(function () {
             var dateFormat = "yy-mm-dd",
