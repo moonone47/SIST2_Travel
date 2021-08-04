@@ -12,11 +12,44 @@
    <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/bootstrap.css" />
    <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/new_main.css" />
 </head>
+<style>
+
+	#content {
+		margin: 100px auto;
+	}
+	
+	#main {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		color: #AAA;
+	}
+	
+	#id{
+		margin-bottom: 2px;
+	}
+	
+	#email {
+		margin-bottom: 20px;
+	}
+	
+	.btn {
+		color: white;
+    	border-color: #529AD9;
+    	background-color: #529AD9;
+	}
+	
+
+</style>
 <body>
 <%--<%@ include file="/inc/header.jsp" %>--%>
 <form class="form-horizontal" role="form" method="POST" action="/SIST2_Travel/login/findpwok.do">
 
-   아이디와 이름을 입력하세요
+<div id="content">
+	
+	<h1>비밀번호 찾기</h1>
+
+   <div id="main">아이디와 이름을 입력하세요</div>
 
 
 
@@ -62,10 +95,11 @@
 
       <div class="col-md-10 inputbb">
 
-         <button type="submit" class="btn btn-outline-secondary findbtn">찾기</button>
+         <button type="submit" class="btn btn-outline-secondary findbtn">비밀번호 찾기</button>
 
       </div>
 
+   </div>
    </div>
 
 </form>
