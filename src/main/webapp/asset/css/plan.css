@@ -365,14 +365,14 @@
 }
 
 #detail-box {
-	width:931px;
-	height:1335px;
-	position: relative;
-	top: -1136px;
-    left: 780px;
-	/* border: 1px solid red; */
-	z-index: 0;
-	padding: 0px;
+    width: 931px;
+    height: 1335px;
+    position: absolute;
+    top: -194px;
+    left: 793px;
+    /* border: 1px solid red; */
+    z-index: 1;
+    padding: 0px;
 }
 #detailbtns {
 	position: absolute;
