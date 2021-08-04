@@ -22,6 +22,22 @@
     <%--    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">--%>
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
+    <style>
+        #xdetail2{
+            position: absolute;
+            left: 1500px;
+            top: 40px;
+            z-index: 2000;
+            font-size:50px;
+        }
+        #xdetail{
+            position: absolute;
+            left: 1500px;
+            top: 40px;
+            z-index: 2000;
+            font-size:50px;
+        }
+    </style>
 </head>
 
 <%-------------------------------- 카테고리 -----------------------------------%>
@@ -54,14 +70,14 @@
         <div id="pagination"></div>
     </div>
     <iframe id='detail'
-            class="embed-responsive embed-responsive-16by9 "
+            class="embed-responsive embed-responsive-16by9 invisible"
             src=''
             frameborder='0'
-            scrolling='yes'
-            style='width: 800px;'>
+            scrolling='yes'>
         <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+<%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
     </iframe>
-
+    <button id="xdetail" type="button" class="btn-close invisible" aria-label="Close"></button>
     <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
     <div id="addplan" class="noshow">
         <form method="POST" action="/SIST2_Travel/plan/planadd.do">
@@ -270,10 +286,15 @@
         </c:forEach>
     </div>
 
-
+<%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
         $("#placesList").click(function () {
-            $("detail").removeAttr("invisible");
+            $("#detail").removeClass("invisible");
+            $("#xdetail").removeClass("invisible");
+        });
+        $("#xdetail").click(function () {
+            $("#detail").addClass("invisible");
+            $("#xdetail").addClass("invisible");
         });
     </script>
     <script>
