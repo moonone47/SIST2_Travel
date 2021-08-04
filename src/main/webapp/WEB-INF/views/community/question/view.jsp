@@ -124,7 +124,7 @@
 					onclick="location.href='/SIST2_Travel/community/question/add.do?reply=1&thread=${dto.thread}&depth=${dto.depth }';">답변달기</button>
 				
 				<form method="get" action="/SIST2_Travel/community/question/addrecommcnt.do">
-				<button type = "submit" id = "btnRecommend">추천하기</button>
+				<button type = "submit" id = "btnRecommend" style="float: right;">추천하기</button>
 				<input type="hidden" name="questionseq" value="${dto.questionseq }" />
 				</form>
 				
