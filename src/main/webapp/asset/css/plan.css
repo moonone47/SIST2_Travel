@@ -371,7 +371,7 @@
 	top: -1136px;
     left: 780px;
 	/* border: 1px solid red; */
-	z-index: 1;
+	z-index: 0;
 	padding: 0px;
 }
 #detailbtns {

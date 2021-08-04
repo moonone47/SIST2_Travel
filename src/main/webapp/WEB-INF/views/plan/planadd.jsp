@@ -323,7 +323,7 @@
    <!-- -->
 	    <iframe id='detail' 
 			    name=naver onload="naver.scrollTo(40,100);"
-			    class="embed-responsive embed-responsive-16by9 invisible"
+			    class="embed-responsive embed-responsive-16by9"
 			    style="-webkit-transform:scale(0.7);"
 	            src=''
 	            frameborder='0'
@@ -332,8 +332,8 @@
 	        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
 	    </iframe>
 	    
-	    <div id="detailbtns" class="invisible">
-	    <button id="xdetail" type="button" class="invisible" >
+	    <div id="detailbtns" >
+	    <button id="xdetail" type="button"  >
 	   	<img id="xdetailimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM3OC4zMDIgMzc4LjMwMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzc4LjMwMiAzNzguMzAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIzNzguMzAyLDI4LjI4NCAzNTAuMDE3LDAgMTg5LjE1MSwxNjAuODY3IDI4LjI4NCwwIDAsMjguMjg0IDE2MC44NjYsMTg5LjE1MSAwLDM1MC4wMTggDQoJMjguMjg0LDM3OC4zMDIgMTg5LjE1MSwyMTcuNDM2IDM1MC4wMTcsMzc4LjMwMiAzNzguMzAyLDM1MC4wMTggMjE3LjQzNSwxODkuMTUxICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
 	    창 닫기</button>
 		        <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
@@ -375,7 +375,7 @@
 	                <input type="hidden" name="datelist" value="${list}">
 	            </c:forEach>
 	
-	            <button id="addplanbtn" class ="invisible" type="submit" >
+	            <button id="addplanbtn" type="submit" >
 	            <img id="addplanimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5NSA0OTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5NSA0OTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNCRERCRkY7IiBwb2ludHM9IjIyNy41LDM3OS4xMzMgMjI3LjUsMjY3LjUgMTE1Ljg2NSwyNjcuNSAxMTUuODY1LDIyNy41IDIyNy41LDIyNy41IDIyNy41LDExNS44NjcgDQoJCTI0Ny41LDExNS44NjcgMjQ3LjUsMCAwLDAgMCw0OTUgMjQ3LjUsNDk1IDI0Ny41LDM3OS4xMzMgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiM5QkM5RkY7IiBwb2ludHM9IjI0Ny41LDAgMjQ3LjUsMTE1Ljg2NyAyNjcuNSwxMTUuODY3IDI2Ny41LDIyNy41IDM3OS4xMzUsMjI3LjUgMzc5LjEzNSwyNjcuNSAyNjcuNSwyNjcuNSANCgkJMjY3LjUsMzc5LjEzMyAyNDcuNSwzNzkuMTMzIDI0Ny41LDQ5NSA0OTUsNDk1IDQ5NSwwIAkiLz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIyMjcuNSwyMjcuNSAxMTUuODY1LDIyNy41IDExNS44NjUsMjY3LjUgMjI3LjUsMjY3LjUgMjI3LjUsMzc5LjEzMyAyNjcuNSwzNzkuMTMzIA0KCQkyNjcuNSwyNjcuNSAzNzkuMTM1LDI2Ny41IDM3OS4xMzUsMjI3LjUgMjY3LjUsMjI3LjUgMjY3LjUsMTE1Ljg2NyAyMjcuNSwxMTUuODY3IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
 	            일정 추가</button>
 	        </form>
@@ -391,7 +391,7 @@
 	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
 	            </svg>
 	        </a> -->
-	            <button type="button" id="addWishbtn" class="invisible">
+	            <button type="button" id="addWishbtn">
 	            <img id="addwishimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUwMS4yOCA1MDEuMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwMS4yOCA1MDEuMjg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkNEMDA7IiBwb2ludHM9IjUwMS4yOCwxOTQuMzcgMzM1LjI2LDE1OS4zMyAyNTAuNjQsMTIuMjcgMjUwLjY0LDQxOS43NyA0MDUuNTQsNDg5LjAxIDM4Ny41NiwzMjAuMjkgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkRBNDQ7IiBwb2ludHM9IjE2Ni4wMiwxNTkuMzMgMCwxOTQuMzcgMTEzLjcyLDMyMC4yOSA5NS43NCw0ODkuMDEgMjUwLjY0LDQxOS43NyAyNTAuNjQsMTIuMjcgCSIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
 	            찜 추가</button>
 	    </div>
@@ -552,19 +552,20 @@
     <%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
     $("#placesList").click(function () {
-        $("#detail").removeClass("invisible");
-        $("#xdetail").removeClass("invisible");
-        $("#addplanbtn").removeClass("invisible");
-        $("#addWishbtn").removeClass("invisible");
-        $("#detailbtns").removeClass("invisible");
+        $("#detail").show();
+        $("#xdetail").show();
+        $("#addplanbtn").show();
+        $("#addWishbtn").show();
+        $("#detailbtns").show();
     });
     $("#xdetail").click(function () {
-        $("#detail").addClass("invisible");
-        $("#xdetail").addClass("invisible");
-        $("#addplanbtn").addClass("invisible");
-        $("#addWishbtn").addClass("invisible");
-        $("#detailbtns").addClass("invisible");
+        $("#detail").hide();
+        $("#xdetail").hide();
+        $("#addplanbtn").hide();
+        $("#addWishbtn").hide();
+        $("#detailbtns").hide();
     });
+
     </script>
     <script>
         $(function () {
