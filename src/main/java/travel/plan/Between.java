@@ -35,7 +35,6 @@ public class Between extends HttpServlet {
 		
 		
 		if(isedit == null || isedit.equals("")) {
-
 			
 			String startday = citydto.getDaystarttravel();
 			String endday = citydto.getDayendtravel();			
