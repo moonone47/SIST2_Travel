@@ -11,7 +11,7 @@
 
 <style>
 .main-section {
-	width: 800px;
+	width: 1100px;
 	margin: 35px auto;
 }
 </style>
