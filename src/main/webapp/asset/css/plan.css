@@ -367,8 +367,8 @@
 #detail-box {
 	width:931px;
 	height:1335px;
-	position: relative;
-	top: -1136px;
+	position: absolute;
+	top: -195px;
     left: 780px;
 	/* border: 1px solid red; */
 	z-index: 1;
