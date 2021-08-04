@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%--    <%@ include file="/inc/asset.jsp" %>--%>
+    <%--<%@ include file="/inc/asset.jsp" %>--%>
     <meta charset="utf-8">
     <title> 플젝 </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,7 +37,6 @@
             z-index: 2000;
             font-size:50px;
         }
-
     </style>
 </head>
 
@@ -45,7 +44,7 @@
 <body onload="script();">
 
 <div class="map_wrap">
-    <div id="map" style="width:50%;height:100vh;position:relative;float:right;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100vh;position:relative;float:right;overflow:hidden;"></div>
     <ul id="category">
         <li id="all" data-order="1">
             <span class="category_bg store"></span>
@@ -211,18 +210,17 @@
 
 <%---------------------------------일정---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
+    
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
-        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">         
             <div class="w-100 align-items-center justify-content-between">
-                <strong class="mb-1">전체 일정</strong>
-                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
-
-                <label for="from">From</label>
+                <strong class="mb-1">전체 일정</strong>              
+           		<div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
+                <label for="from">여행 시작: </label>
                 <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">
                 <br>
-                <label for="to">to</label>
+                <label for="to">여행 종료: </label>
                 <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">
-
             </div>
             <div class="w-100 align-items-center justify-content-between">
                 <fieldset>
@@ -232,10 +230,9 @@
                         </c:forEach>
                     </select>
                 </fieldset>
-
             </div>
-            <div class="col-10 mb-1 small">공유여부:
-
+            <div class="col-10 mb-1 small">공유여부
+            	<br>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
                            checked>
@@ -248,17 +245,17 @@
                     <label class="form-check-label" for="flexRadioDefault2">
                         공유안함
                     </label>
-                </div>
+                </div> 
             </div>
             <input type="submit" value="일정 설정 완료">
         </a>
     </form>
-    <%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+    <%-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+    
     <c:forEach items="${datelist}" var="list" varStatus="status">
     <div id="schedulelist" class="list-group">
         <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">
-
+            <input type="submit" value="${'Day'} ${status.count} " class="btn btn-primary">
             <div class="d-flex w-100 align-items-center justify-content-between">
                 <strong class="mb-1">${"Day"} ${status.count}</strong>
                 <small>${list}</small>
@@ -266,19 +263,15 @@
             <div class="col-10 mb-1 small">${city.name}</div>
             <!-- </a> -->
             <input type="hidden" name="city" value="${city}">
-
             <input type="hidden" name="cityname" value="${city.name}">
             <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
             <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
             <input type="hidden" name="Explain" value="${city.explain}">
             <input type="hidden" name="Cityseq" value="${city.cityseq}">
-
-
             <input type="hidden" name="planname" value="${citydto.name}">
             <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
             <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
             <input type="hidden" name="willshare" value="${citydto.willshare}">
-
             <%--<input type="text" name="rdate" value="">--%>
             <input type="hidden" name="rdate" id="rdate" value="${list}">
             
@@ -286,10 +279,11 @@
                 <input type="hidden" name="datelist" value="${list}">
             </c:forEach>
         </form>
-        </c:forEach>
-    </div>
+      </div>
+      </c:forEach>
+</div>
 
-    <%--------------------------------------------------JS----------------------------------------------------------%>
+<%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
         $("#placesList").click(function () {
             $("#detail").removeClass("invisible");

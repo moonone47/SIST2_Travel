@@ -461,14 +461,27 @@ option.avatar {
     background-position: left top;
 }
 
-#schedulelist > a {
-    /*border: 3px solid black;*/
-    background-color: #203341;
-    /*border-bottom : 1px solid white;*/
+#schedule > form > a {
+    background-color: #9DBAD1;
+    border: #9DBAD1;
+    margin-bottom: 20px;
 }
 
-#schedule > form > a {
-    background-color: #0e9a00;
+#schedule > form > a > div:nth-child(1) > strong {
+    font-size: 20px;
+}
+
+#schedule > form > a > div.col-10.mb-1.small {
+    margin-top: 20px;
+}
+
+#schedule > form > a > div:nth-child(1) > div {
+    margin-top: 10px;
+    margin-bottom:10px; 
+}
+
+#schedule > form > a > div:nth-child(1) > label:nth-child(6){
+    margin-bottom: 10px;
 }
 
 #schedulelist > a > div.d-flex.w-100.align-items-center.justify-content-between > strong {
@@ -482,6 +495,27 @@ option.avatar {
 #schedulelist > a > div.col-10.mb-1.small {
     font-size: 14px;
 }
+
+
+#schedule > form > a > div.col-10.mb-1.small {
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
+#schedule > form > a > div.col-10.mb-1.small > div:nth-child(1){
+    font-size: 12px;
+}
+
+#schedule > form > a > div.col-10.mb-1.small > div:nth-child(2){
+    font-size: 12px;
+}
+
+#my_form{
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
 
 
 #schedulelist .active2 {
