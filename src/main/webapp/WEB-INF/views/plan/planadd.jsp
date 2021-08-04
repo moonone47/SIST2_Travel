@@ -736,17 +736,16 @@
     </form>
     <%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
     <div class="fl">
-        <ul id="pn_title_box" data="313625" data-member_srl="1388555">
+        <ul id="pn_title_box">
             <li data="pn_date">
                 <div class="full_date_info fl">08.5~08.6</div>
-                <div class="fl day_edit_start_btn" onclick="day_edit_start()">EDIT</div>
+                <div class="fl day_edit_start_btn" >EDIT</div>
                 <div class="clear"></div>
             </li>
         </ul>
-        <ul id="cat_menu" data="311" data-member_srl="1388555" style="max-height: 983px;" data-year="2021">
-            <li id="show_all_day" data="show_all_day" original-title="">전체 일정 보기</li>
-            <li data="1" data-date="08.05" data-day_week="4" data-f_ci="311" data-f_lat="35.17955430"
-                data-f_lng="129.07564160" class="on" original-title="부산">
+        <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
+            <li id="show_all_day" data="show_all_day" >전체 일정 보기</li>
+            <li data="1" data-date="08.05" data-day_week="4" class="on" >
                 <div class="fl cat_date_left_box">
                     <div class="cat_left_day">DAY1</div>
                     <div class="cat_left_date">08.05</div>
@@ -757,8 +756,7 @@
                 </div>
                 <div class="clear"></div>
             </li>
-            <li data="2" data-date="08.06" data-day_week="5" data-f_ci="311" data-f_lat="35.17955430"
-                data-f_lng="129.07564160" original-title="부산">
+            <li data="2" data-date="08.06" data-day_week="5">
                 <div class="fl cat_date_left_box">
                     <div class="cat_left_day">DAY2</div>
                     <div class="cat_left_date">08.06</div>
@@ -773,15 +771,14 @@
         <ul id="cat_add_box"
             style="width: 160px; background: rgb(32, 51, 65); color: rgb(255, 255, 255); height: 823px;">
             <li style="padding-top:15px;">
-                <div style="width:124px;height:32px;line-height:32px;border:solid 1px #fff;text-align:center;margin:0 auto;cursor:pointer;"
-                     onclick="add_plan_day()"> DAY 추가
+                <div style="width:124px;height:32px;line-height:32px;border:solid 1px #fff;text-align:center;margin:0 auto;cursor:pointer;"> DAY 추가
                 </div>
             </li>
         </ul>
-        <ul id="pn_date_controll_box" data="" data-member_srl="1388555">
+        <ul id="pn_date_controll_box"  >
             <li data="con_date">
                 <div style="text-align:center;border-top:solid #fff 1px;margin-top:10px;padding-top:15px;width:100%;">
-                    <div style="margin:0 auto;text-align:center;font-size:15px;" onclick="$('#guide_overlay').show();">
+                    <div style="margin:0 auto;text-align:center;font-size:15px;" >
                         <img src="/res/img/workspace/new/cat_tuto_icon.png"
                              style="vertical-align:middle;margin-right:5px;"> 이용방법
                     </div>
