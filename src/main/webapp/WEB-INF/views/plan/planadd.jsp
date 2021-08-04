@@ -268,6 +268,16 @@
     cursor: pointer;
     z-index: 99;
 }
+#detail-box {
+    width: 931px;
+    height: 1335px;
+    position: absolute;
+    top: -194px;
+    left: 793px;
+    /* border: 1px solid red; */
+    z-index: 1;
+    padding: 0px;
+}
     </style>
 </head>
 
