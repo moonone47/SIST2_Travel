@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @WebServlet("/plan/plandel.do")
 public class PlanDel extends HttpServlet {
@@ -28,6 +29,7 @@ public class PlanDel extends HttpServlet {
 		
 		String rdate = req.getParameter("rdate");
 
+		//todo : id로 변경
 		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
 
 		CityDTO city = new CityDTO();
@@ -45,6 +47,7 @@ public class PlanDel extends HttpServlet {
 		citydto.setWillshare(req.getParameter("willshare"));
 
 		String[] datelists = req.getParameterValues("datelist"); //날짜 배열
+
 		ArrayList<String> datelist = new ArrayList<String>();
 //		System.out.println((req.getParameterValues("datalist")));
 		for (int i = 0; i < datelists.length; i++) {
