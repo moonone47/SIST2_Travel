@@ -224,10 +224,11 @@
 
 #placesList .item {
     position: relative;
-    border-bottom: 1px solid #888;
+    border: 1px solid #888;
     overflow: hidden;
     cursor: pointer;
     min-height: 65px;
+    border-radius: 6px;
 }
 
 #placesList .item span {
