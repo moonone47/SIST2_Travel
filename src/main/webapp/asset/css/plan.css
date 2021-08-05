@@ -368,18 +368,18 @@
 	width:931px;
 	height:1335px;
 	position: absolute;
-	top: -195px;
-    left: 780px;
+	top: -175px;
+    left: 540px;
 	/* border: 1px solid red; */
 	z-index: 1;
 	padding: 0px;
 }
 #detailbtns {
 	position: absolute;
-	top: 202px;
-	left: 155px;
+	top: 109px;
+	left: 75px;
 	background-color: #FFF;
-	width: 620px;
+	width: 770px;
 	height: 42px;
 	z-index: 4;
 }
@@ -387,7 +387,7 @@
 #addplan {
 	position: absolute;
 	top: -3px;
-	left: 13px;
+	left: 40px;
 	bottom: 0;
 	width: 100px;
 	height: 100px;
@@ -414,7 +414,7 @@
 #addWish {
 	position: absolute;
 	top: -3px;
-	left: 113px;
+	left: 135px;
 	bottom: 0;
 	width: 100px;
 	height: 100px;

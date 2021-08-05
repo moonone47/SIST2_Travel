@@ -36,7 +36,7 @@
 
         #xdetail {
             position: absolute;
-            left: 520px;
+            left: 670px;
             top: 12px;
             z-index: 2000;
             font-size: 12px;
@@ -286,8 +286,8 @@
             width: 931px;
             height: 1335px;
             position: absolute;
-            top: -194px;
-            left: 793px;
+            top: -100px;
+            left: 695px;
             /* border: 1px solid red; */
             z-index: 1;
             padding: 0px;
@@ -380,7 +380,7 @@
             height: 100%;
             background: #203341;
             overflow-y: auto;
-            max-height: 1383px;
+            max-height: 1183px;
         }
 
         #show_all_day {
@@ -552,7 +552,7 @@
         <iframe id='detail'
                 name=naver onload="naver.scrollTo(40,100);"
                 class="embed-responsive embed-responsive-16by9"
-                style="-webkit-transform:scale(0.7);"
+                style="-webkit-transform:scale(0.85);"
                 src=''
                 frameborder='0'
                 scrolling='no'>
@@ -759,7 +759,7 @@
                 </li>
             </ul>
 
-            <ul id="cat_menu" style="max-height: 1383px;" data-year="2021">
+            <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
 
                 <c:forEach items="${datelist}" var="list" varStatus="status">
@@ -1013,7 +1013,7 @@
                 center: new kakao.maps.LatLng(${city.cityY}, ${city.cityX}), // 지도의 중심좌표
                 level: 7 // 지도의 확대 레벨
             };
-        console.log
+        console.log('${city.cityY}, ${city.cityX}');
         // 지도를 생성합니다
         var map = new kakao.maps.Map(mapContainer, mapOption);
 
@@ -1368,8 +1368,7 @@
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         function addMarker(position, order) {
             var imageSrc = '/SIST2_Travel/asset/images/places_category3.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-                // imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
-                imageSize = new kakao.maps.Size(40, 40),  // 마커 이미지의 크기
+                imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                 imgOptions = {
                     spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
                     spriteOrigin: new kakao.maps.Point(46, (order * 36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
