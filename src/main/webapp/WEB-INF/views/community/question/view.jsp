@@ -87,7 +87,7 @@
 	<section class="main-section">
 
 		<h1>
-			질문게시판 <small>View</small>
+			자유게시판 <small>View</small>
 		</h1>
 
 
