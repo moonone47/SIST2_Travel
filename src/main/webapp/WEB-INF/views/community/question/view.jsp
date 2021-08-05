@@ -8,7 +8,8 @@
 <title>myapp</title>
 
 <%-- <%@ include file="/inc/asset.jsp"%> --%>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/myapp.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/asset/css/myapp.css" />
 
 <style>
 .main-section .table th {
@@ -25,12 +26,13 @@
 }
 
 .main-section {
-	width: 800px;
+	width: 1100px;
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
+
 #tblAddComment, #tblListComment {
-	width: 800px;
+	width: 1100px;
 	margin: 15px auto;
 }
 
@@ -67,6 +69,15 @@
 	color: #AAA;
 	font-size: 11px;
 }
+#btnRecommend {
+    float: right;
+    position: relative;
+    top: -36px;
+    right: 50px;
+    border-radius: 7px;
+    width: 100px;
+    height: 35px;
+}
 </style>
 
 </head>
@@ -89,7 +100,7 @@
 				<td colspan="3">${dto.name }(${dto.id })</td>
 			</tr>
 			<tr>
-				<th>날짜</th>
+				<th>작성 날짜</th>
 				<td>${dto.regdate }</td>
 				<th>조회수</th>
 				<td>${dto.viewcnt }</td>
@@ -107,8 +118,8 @@
 
 		</table>
 
-		<
-		<div class="btns">
+		
+		<div class="btns" style="position: static;">
 
 			<c:if test="${not empty id }">
 
@@ -119,32 +130,36 @@
 						onclick="location.href='/SIST2_Travel/community/question/del.do?questionseq=${dto.questionseq}';">삭제하기</button>
 
 				</c:if>
-				
+
 				<button type="button" class="btn btn-primary"
 					onclick="location.href='/SIST2_Travel/community/question/add.do?reply=1&thread=${dto.thread}&depth=${dto.depth }';">답변달기</button>
-				
-				<form method="get" action="/SIST2_Travel/community/question/addrecommcnt.do">
-				<button type = "submit" id = "btnRecommend" style="float: right;">추천하기</button>
-				<input type="hidden" name="questionseq" value="${dto.questionseq }" />
+
+				<button type="button" class="btn btn-default"
+					style="border: 1px solid gray; float: left ; margin-right: 5px"
+					onclick="location.href='/SIST2_Travel/community/question/list.do?column=${column}&search=${search }';">돌아가기</button>
+
+				<form method="get"
+					action="/SIST2_Travel/community/question/addrecommcnt.do">
+					<button type="submit" id="btnRecommend" >추천하기</button>
+					<input type="hidden" name="questionseq" value="${dto.questionseq }" />
 				</form>
-				
-				
+
+
 			</c:if>
-			
-			<button type="button" class="btn btn-default"
-				onclick="location.href='/SIST2_Travel/community/question/list.do?column=${column}&search=${search }';">돌아가기</button>
+
 		</div>
-		
-		
-		<div >
+
+
+		<div>
 			<c:if test="${not empty id }">
 				<form method="POST"
 					action="/SIST2_Travel/community/question/addcomment.do">
-					<table id="tblAddComment" class="table table-bordered" style="width: 800px;">
+					<table id="tblAddComment" class="table table-bordered"
+						style="width: 1100px;">
 						<tr>
 							<td><input type="text" name="content" id="content"
 								class="form-control" required placeholder="댓글을 입력하세요." /></td>
-							<td><input type="submit" value="댓글쓰기"
+							<td style="text-align: center;"><input type="submit" value="댓글쓰기" style="border: 1px solid gray;"
 								class="btn btn-default" /></td>
 						</tr>
 					</table>
@@ -154,18 +169,17 @@
 			<table id="tblListComment" class="table table-bordered">
 
 				<c:if test="${clist.size() ==0 }">
-					<tr >
-						<td colspan="2" >댓글이 없습니다.</td>
+					<tr>
+						<td colspan="2">댓글이 없습니다.</td>
 					</tr>
 				</c:if>
 				<c:forEach items="${clist }" var="cdto">
 					<tr>
-						<td>${cdto.content }<span>${cdto.name }
-								${cdto.regdate }</span>
+						<td>${cdto.content }<span>${cdto.name } ${cdto.regdate }</span>
 						</td>
 						<c:if test="${not empty id }">
 							<c:if test="${cdto.id == id }">
-								<td><input type="button" value="삭제하기"
+								<td style="text-align: center;"><input type="button" value="삭제하기" style="border: 1px solid gray; text-align: center;"
 									class="btn btn-default"
 									onclick="location.href='/SIST2_Travel/community/question/delcomment.do?questioncommentseq=${cdto.questioncommentseq}&questionseq=${dto.questionseq }';" />
 								</td>
@@ -181,14 +195,11 @@
 
 	<%@ include file="/inc/init.jsp"%>
 	<script>
-	$("#btnRecommend").click(function(){
-	    if(confirm("해당 글을 추천하시겠습니까?")){
-	        
-	        
-	       
-	        
-	        }
-	    });
+		$("#btnRecommend").click(function() {
+			if (confirm("해당 글을 추천하시겠습니까?")) {
+
+			}
+		});
 	</script>
 </body>
 </html>

@@ -12,26 +12,32 @@
 <style>
 .table th:nth-child(1) {
 	width: 60px;
+	text-align: center;
 }
 
 .table th:nth-child(2) {
 	width: auto;
+	text-align: center;
 }
 
 .table th:nth-child(3) {
 	width: 80px;
+	text-align: center;
 }
 
 .table th:nth-child(4) {
 	width: 120px;
+	text-align: center;
 }
 
 .table th:nth-child(5) {
-	width: 60px;
+	width: 70px;
+	text-align: center;
 }
 
 .table th:nth-child(6) {
-	width: 60px;
+	width: 70px;
+	text-align: center;
 }
 
 .table td:nth-child(5) {
