@@ -62,8 +62,9 @@
 								<form method="POST"
 									action="/SIST2_Travel/mypage/pay.do?reservationseq=${dto.reservationseq}	">
 									<button id="payment" type="submit" style="font-size: 15px">결제하기</button>
-									<input type="hidden" name="reservationseq"
-										value="${dto.reservationseq }" />
+									<input type="hidden" name="reservationseq"	value="${dto.reservationseq }" />
+									<input type="hidden" name="tourname"	value="${dto.tourname }" />
+									<input type="hidden" name="tourprice"	value="${dto.tourprice }" />
 								</form>
 							</c:if>
 						</td>
