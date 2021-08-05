@@ -56,42 +56,45 @@
              height: 1145px;
              background: #fff;
          } */
-        #menu_wrap {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 307px;
-            z-index: 999;
-            position: absolute;
-            left: 600px;
-            height: 1137px;
-            top: 5px;
-            background: rgba(255, 255, 255, 0.85);
-            -ms-overflow-style: none;
-        }
+       #menu_wrap {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    box-sizing: border-box;
+    width: 312px;
+    z-index: 999;
+    position: absolute;
+    left: 456px;
+    height: 100vh;
+    top: 5px;
+    background: #fff;
+    -ms-overflow-style: none;
+}
 
         #menu_wrap::-webkit-scrollbar {
             display: none;
         }
 
-        .city_name {
-            margin-left: 3px;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            width: 300px;
-            height: 50px;
-            background: #1a7ad9;
-            line-height: 50px;
-            color: #fff;
-            padding-left: 10px;
-            font-size: 15px;
-            font-weight: bold;
-        }
+.city_name {
+    margin-left: 3px;
+    padding: 0;
+    border: 1px solid black;
+    font: inherit;
+    box-sizing: border-box;
+    width: 311px;
+    height: 44px;
+    background: #529AD9;
+    line-height: 50px;
+    color: #fff;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 9px;
+    position: relative;
+    left: -2px;
+}
 
         .search {
             box-sizing: border-box;
@@ -104,11 +107,12 @@
             /*background-position: 300px 4px;*/
         }
 
-        #category {
-            background: #f7f7f7;
-            display: flex;
-            margin-left: 5px;
-        }
+       #category {
+    background: #f7f7f7;
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+}
 
         #category li {
             width: 100%;
@@ -198,39 +202,35 @@
             width: 100%;
         }
 
-        #planlist {
-            position: absolute;
-            top: 0px;
-            left: 300px;
-            bottom: 0;
-            width: 300px;
-            height: auto;
-            margin: 10px 0 30px 10px;
-            padding: 7px;
-            overflow-y: auto;
-            background: white;
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
+       #planlist {
+    position: absolute;
+    top: 0px;
+    left: 149px;
+    bottom: 0;
+    width: 299px;
+    height: 100vh;
+    margin: 1px 0 27px 8px;
+    padding: 7px;
+    overflow-y: auto;
+    background: #e8e8e8;
+    z-index: 1;
+    font-size: 12px;
+}
 
-        #schedule {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            bottom: 0;
-            width: 200px;
-            height: 1284px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 13px;
-            background: none;
-
-            /* border: 1px solid red; */
-        }
+      #schedule {
+    position: absolute;
+    top: 0px;
+    left: -16px;
+    bottom: 0;
+    width: 175px;
+    height: 100vh;
+    margin: 0px 0 0 0px;
+    padding: 0px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size: 13px;
+}
 
         #my_form {
             border: 1px solid #DDD;
@@ -259,26 +259,28 @@
             margin-bottom: 10px;
         }
 
-        #on_city_close_btn {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: url(/SIST2_Travel/asset/images/city_close_btn.png);
-            cursor: pointer;
-        }
+      #on_city_close_btn {
+    width: 42px;
+    height: 42px;
+    position: relative;
+    top: -50px;
+    right: -257px;
+    background: url(/SIST2_Travel/asset/images/city_close_btn.png);
+    cursor: pointer;
+    border-radius: 0px 8px 8px 0px;
+}
 
-        #on_city_open_btn {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 10px;
-            left: 600px;
-            background: url(/SIST2_Travel/asset/images/city_open_btn.png);
-            cursor: pointer;
-            z-index: 99;
-        }
+       #on_city_open_btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 6px;
+    left: 457px;
+    background: url(/SIST2_Travel/asset/images/city_open_btn.png);
+    cursor: pointer;
+    z-index: 99;
+    border-radius: 0px 6px 7px 2px;
+}
 
         #detail-box {
             width: 931px;
@@ -378,7 +380,7 @@
             height: 100%;
             background: #203341;
             overflow-y: auto;
-            max-height: 1383px;
+            max-height: 1183px;
         }
 
         #show_all_day {
@@ -492,31 +494,6 @@
         .list-group{
             overflow: hidden;
         }
-
-
-
-        .d-flex.w-100.justify-content-between > h5{
-            font-family: "Malgun Gothic", dotum, 돋움, sans-serif;
-            font-size: 15px;
-            font-weight: bold;
-        }
-
-        #planlist > form > div > div > p{
-            font-family: "Malgun Gothic", dotum, 돋움, sans-serif;
-            font-size: 14px;
-        }
-
-        .d-flex.w-100.justify-content-between > small{
-            font-family: "Malgun Gothic", dotum, 돋움, sans-serif;
-            font-size: 14px;
-        }
-
-        #seqname{
-            font-family: "Malgun Gothic", dotum, 돋움, sans-serif;
-            font-size: 14px;
-        }
-
-
     </style>
 </head>
 
@@ -524,12 +501,11 @@
 <body onload="script();">
 <%--<body>--%>
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden; left: 450px;"></div>
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
-        <div id="on_city_close_btn"></div>
-        <div class="sticky-top">
+        <div class="sticky-top" style="position: static;">
             <div class="city_name">${city.name}
                 <div id="on_city_close_btn"></div>
             </div>
@@ -783,7 +759,7 @@
                 </li>
             </ul>
 
-            <ul id="cat_menu" style="max-height: 1383px;" data-year="2021">
+            <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
 
                 <c:forEach items="${datelist}" var="list" varStatus="status">
@@ -1392,8 +1368,7 @@
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         function addMarker(position, order) {
             var imageSrc = '/SIST2_Travel/asset/images/places_category3.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-                // imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
-                imageSize = new kakao.maps.Size(40, 40),  // 마커 이미지의 크기
+                imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                 imgOptions = {
                     spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
                     spriteOrigin: new kakao.maps.Point(46, (order * 36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
