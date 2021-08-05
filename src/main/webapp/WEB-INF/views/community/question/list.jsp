@@ -12,29 +12,38 @@
 <style>
 .table th:nth-child(1) {
 	width: 60px;
+	text-align: center;
 }
 
 .table th:nth-child(2) {
 	width: auto;
+	text-align: center;
 }
 
 .table th:nth-child(3) {
 	width: 80px;
+	text-align: center;
 }
 
 .table th:nth-child(4) {
 	width: 120px;
+	text-align: center;
 }
 
 .table th:nth-child(5) {
-	width: 60px;
+	width: 70px;
+	text-align: center;
 }
+
 .table th:nth-child(6) {
-	width: 60px;
+	width: 70px;
+	text-align: center;
 }
+
 .table td:nth-child(5) {
 	text-align: center;
 }
+
 .table td:nth-child(6) {
 	text-align: center;
 }
@@ -67,16 +76,57 @@
 }
 
 .main-section {
-	width: 800px;
+	width: 1100px;
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
+.main-section .table th {
+    background-color: #EEE;
+}
+
 .pagebar {
-
-	text-align: center;	
-
+	text-align: center;
 	display: flex;
-	 justify-content: center; 
+	justify-content: center;
+}
+
+.pagination>li>a, .pagination>li>span {
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	color: #337ab7;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+	.pagination>.active>span:hover, .pagination>.active>a:focus,
+	.pagination>.active>span:focus {
+	z-index: 3;
+	color: #fff;
+	cursor: default;
+	background-color: #337ab7;
+	border-color: #337ab7;
+}
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+body, table, th, td, a, p, div, span, li, button, input, textarea, select, option, h1, h2, h3, h4, h5, h6 {
+    color: #777;
+    font-family: 'Jal_Onuel' !important;
+}
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 </style>
 
@@ -90,10 +140,9 @@
 		<h1>
 			질문게시판 <small>List</small>
 		</h1>
-			<c:if test="${map.isSearch == 'y' }">
-			<div class="searchBar">
-				'${map.search }'(으)로 검색한 결과가 ${list.size() }개의 결과가 있습니다. 
-			</div>
+		<c:if test="${map.isSearch == 'y' }">
+			<div class="searchBar">'${map.search }'(으)로 검색한 결과가
+				${list.size() }개의 결과가 있습니다.</div>
 		</c:if>
 
 		<table class="table table-bordered">
@@ -127,16 +176,14 @@
 
 						<c:if test="${dto.ccnt > 0}">
 							<span class="badge"> ${dto.ccnt } </span>
-							
-						</c:if> 
-						
-						<c:if test="${dto.isnew < (1 / 12 ) }">
+
+						</c:if> <c:if test="${dto.isnew < (1 / 12 ) }">
 							<span class="label label-danger">new </span>
 						</c:if></td>
 					<td>${dto.name}</td>
 					<td>${dto.regdate}</td>
 					<td>${dto.viewcnt}</td>
-					<td> ${dto.recommcnt }</td>
+					<td>${dto.recommcnt }</td>
 				</tr>
 			</c:forEach>
 		</table>

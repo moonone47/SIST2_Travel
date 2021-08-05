@@ -17,10 +17,19 @@
     <link rel="stylesheet"
           href="<%=request.getContextPath()%>/asset/css/style.css">
 
+<style>
+
+</style>
+	
+
 </head>
 <body>
+<div>
+<div id="mainimg"></div>
 <section class="ftco-section">
-    <div class="container">
+
+
+    <div  class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
                 <h2 class="heading-section">TP</h2>
@@ -32,9 +41,9 @@
         <div class="row justify-content-between">
             <div class="col">
                 <a class="navbar-brand" href="index.html">TP<span>여행
-							병아리들을 위한 여행계획사이트 티피~~</span></a>
+							병아리들을 위한 여행계획사이트 티피</span></a>
             </div>
-            <div class="col d-flex justify-content-end">
+<!--             <div class="col d-flex justify-content-end">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
                         <a href="#"
@@ -51,9 +60,10 @@
                                 class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
                     </p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
+
     <nav
             class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
             id="ftco-navbar">
@@ -79,25 +89,21 @@
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일정계획</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#">새로운 일정</a> <a
-                                class="dropdown-item" href="#">Page 2</a> <a
-                                class="dropdown-item" href="#">Page 3</a> <a
-                                class="dropdown-item" href="#">Page 4</a>
+                            <a class="dropdown-item" href="/SIST2_Travel/plan/plan.do">새로운 일정</a>                        
                         </div>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link">여행관리</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">예약</a></li>
+                    <li class="nav-item"><a href="/SIST2_Travel/management/travelplan.do" class="nav-link">여행관리</a></li>
+           
                     <li class="nav-item dropdown"><a
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="/SIST2_Travel/community/question/list.do">질문게시판</a> 
-                            <a class="dropdown-item" href="#">자유게시판</a> 
+                            <a class="dropdown-item" href="/SIST2_Travel/community/freeboard/list.do">자유게시판</a> 
                             <a class="dropdown-item" href="#">여행소모임게시판</a> 
                             <a class="dropdown-item" href="/SIST2_Travel/community/event/list.do">이벤트게시판</a> 
                             <a class="dropdown-item" href="/SIST2_Travel/community/suggest/list.do">건의게시판</a> 
                             <a class="dropdown-item" href="#">여행후기게시판</a> 
-                            <a class="dropdown-item" href="#">추천글 모음 ...?</a>
                         </div>
                     </li>
                     <li class="nav-item"><a href="/SIST2_Travel/service/list.do" class="nav-link">서비스</a></li>
@@ -113,13 +119,13 @@
                             <a class="dropdown-item" href="#">투어/입장권</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">기타</a></li>
+                    
+                
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown04"
                                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="/SIST2_Travel/mypage/profile.do">개인정보 조회</a>
-                            <a class="dropdown-item" href="#">내 여행 일정 조회</a>
+                            <a class="dropdown-item" href="/SIST2_Travel/mypage/travelplan.do">내 여행 일정 조회</a>
                             <a class="dropdown-item" href="/SIST2_Travel/mypage/basket.do">장바구니</a>
                             <a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">결제 및 예약 내역</a>
                         </div>
@@ -155,7 +161,7 @@
 <%--                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>--%>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
                                 <a class="dropdown-item" href="#">개인정보 조회</a>
-                                <a class="dropdown-item" href="#">내 여행 일정 조회</a>
+                                <a class="dropdown-item" href="/SIST2_Travel/mypage/travelplan.do">내 여행 일정 조회</a>
                                 <a class="dropdown-item" href="#">장바구니</a>
                                 <a class="dropdown-item" href="#">결제내역</a>
                                 <a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">예약 내역</a>
@@ -175,7 +181,7 @@
 
 </section>
 <%@ include file="/inc/init.jsp" %>
-
+</div>
 <script src="<%=request.getContextPath()%>/asset/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/asset/js/popper.js"></script>
 <script src="<%=request.getContextPath()%>/asset/js/bootstrap.min.js"></script>

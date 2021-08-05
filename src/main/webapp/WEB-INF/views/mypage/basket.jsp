@@ -14,7 +14,7 @@
 
 <style>
 .main-section {
-	width: 800px;
+	width: 1100px;
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
@@ -44,7 +44,7 @@
 
 			<c:if test="${list.size() ==0 }">
 				<tr>
-					<td colspan="8">게시물이 없습니다.</td>
+					<td colspan="8" style="text-align: center; font-weight: bold;">게시물이 없습니다.</td>
 				</tr>
 			</c:if>
 			<c:if test="${not empty id }">
@@ -64,6 +64,9 @@
 									<button id="payment" type="submit" >결제하기</button>
 									<input type="hidden" name="reservationseq"	value="${dto.basketseq }" />
 									<input type="hidden" name="tourseq"	value="${dto.tourseq }" />
+									<input type="hidden" name="tourname"	value="${dto.tourname }" />
+									<input type="hidden" name="membername"	value="${dto.membername }" />
+									<input type="hidden" name="tourprice"	value="${dto.tourprice }" />
 								</form>
 							</c:if>
 						</td> 
