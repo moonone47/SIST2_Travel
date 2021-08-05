@@ -374,15 +374,17 @@
 	z-index: 1;
 	padding: 0px;
 }
+
 #detailbtns {
-	position: absolute;
-	top: 109px;
-	left: 75px;
-	background-color: #FFF;
-	width: 770px;
-	height: 42px;
-	z-index: 4;
+    position: absolute;
+    top: 206px;
+    left: 99px;
+    background-color: #FFF;
+    width: 670px;
+    height: 42px;
+    z-index: 55;
 }
+
 
 #addplan {
 	position: absolute;
