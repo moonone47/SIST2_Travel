@@ -59,11 +59,14 @@ public class planscd extends HttpServlet {
 		for (int i = 0; i < datelists.length; i++) {
 			datelist.add(datelists[i]);
 		}
-
+		System.out.println(datelist);
 
 		String rdate = req.getParameter("rdate");
 		//2.tblPlan2 -> rdate select해오기
 		//
+		
+
+		
 		PlaceDAO dao = new PlaceDAO();
 
 		//todo: 로그인 구현 되면 id ->session에서 가져오기

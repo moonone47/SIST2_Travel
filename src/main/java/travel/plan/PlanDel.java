@@ -54,7 +54,7 @@ public class PlanDel extends HttpServlet {
 			datelist.add(datelists[i]);
 		}
 
-
+		
 
 		req.setAttribute("list", list); //planadd.jsp에서 일정 리스트 용
 		req.setAttribute("city", city); //도시 좌표
