@@ -58,7 +58,7 @@
 }
 
 #category li .category_bg {
-    background: url(/SIST2_Travel/asset/images/places_category3.png) no-repeat;
+    background: url('/SIST2_Travel/asset/images/places_category3.png') no-repeat;
 }
 
 #category li .bank {
@@ -543,10 +543,4 @@ option.avatar {
 #schedulelist .active2 {
     background-color: red
 }
-
-
-#planlist > div:nth-child(2) > div > div.d-flex.w-100.justify-content-between > h5 {
-	font-size: 30px;
-}
-
 
