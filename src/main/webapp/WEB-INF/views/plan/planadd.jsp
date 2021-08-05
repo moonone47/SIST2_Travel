@@ -65,8 +65,8 @@
     z-index: 999;
     position: absolute;
     left: 456px;
-    height: 100vh;
-    top: 5px;
+    height: 103vh;
+    top: -36px;
     background: #fff;
     -ms-overflow-style: none;
 }
@@ -264,7 +264,7 @@
             width: 931px;
             height: 1335px;
             position: absolute;
-            top: -194px;
+            top: -133px;
             left: 793px;
             /* border: 1px solid red; */
             z-index: 1;
