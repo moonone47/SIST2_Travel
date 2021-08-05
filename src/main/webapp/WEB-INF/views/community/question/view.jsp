@@ -194,7 +194,6 @@
 		</div>
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
 	<script>
 		$("#btnRecommend").click(function() {
 			if (confirm("해당 글을 추천하시겠습니까?")) {
