@@ -36,7 +36,7 @@
 
         #xdetail {
             position: absolute;
-            left: 670px;
+            left: 520px;
             top: 12px;
             z-index: 2000;
             font-size: 12px;
@@ -56,45 +56,42 @@
              height: 1145px;
              background: #fff;
          } */
-       #menu_wrap {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    box-sizing: border-box;
-    width: 312px;
-    z-index: 999;
-    position: absolute;
-    left: 456px;
-    height: 100vh;
-    top: 5px;
-    background: #fff;
-    -ms-overflow-style: none;
-}
+        #menu_wrap {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            box-sizing: border-box;
+            width: 325px;
+            z-index: 999;
+            position: absolute;
+            left: 486px;
+            height: 1530px;
+            top: 10px;
+            background: rgba(255,255,255, 0.85);
+            -ms-overflow-style: none;
+        }
 
         #menu_wrap::-webkit-scrollbar {
             display: none;
         }
 
-.city_name {
-    margin-left: 3px;
-    padding: 0;
-    border: 1px solid black;
-    font: inherit;
-    box-sizing: border-box;
-    width: 311px;
-    height: 44px;
-    background: #529AD9;
-    line-height: 50px;
-    color: #fff;
-    padding-left: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 9px;
-    position: relative;
-    left: -2px;
-}
+        .city_name {
+            margin-left: 3px;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            box-sizing: border-box;
+            width: 300px;
+            height: 50px;
+            background: #1a7ad9;
+            line-height: 50px;
+            color: #fff;
+            padding-left: 10px;
+            font-size: 15px;
+            font-weight: bold;
+        }
 
         .search {
             box-sizing: border-box;
@@ -107,12 +104,11 @@
             /*background-position: 300px 4px;*/
         }
 
-       #category {
-    background: #f7f7f7;
-    display: flex;
-    margin-left: 5px;
-    margin-top: 5px;
-}
+        #category {
+            background: #f7f7f7;
+            display: flex;
+            margin-left: 5px;
+        }
 
         #category li {
             width: 100%;
@@ -202,35 +198,38 @@
             width: 100%;
         }
 
-       #planlist {
-    position: absolute;
-    top: 0px;
-    left: 149px;
-    bottom: 0;
-    width: 299px;
-    height: 100vh;
-    margin: 1px 0 27px 8px;
-    padding: 7px;
-    overflow-y: auto;
-    background: #e8e8e8;
-    z-index: 1;
-    font-size: 12px;
-}
+        #planlist {
+            position: absolute;
+            top: 0px;
+            left: 180px;
+            bottom: 0;
+            width: 300px;
+            height: 1530px;
+            margin: 10px 0 30px 10px;
+            padding: 7px;
+            overflow-y: auto;
+            background: rgba(255,255,255, 0.85);
+            z-index: 1;
+            font-size: 12px;
+            /* border: 1px solid red; */
+        }
 
-      #schedule {
-    position: absolute;
-    top: 0px;
-    left: -16px;
-    bottom: 0;
-    width: 175px;
-    height: 100vh;
-    margin: 0px 0 0 0px;
-    padding: 0px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-    font-size: 13px;
-}
+        #schedule {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0;
+            width: 200px;
+            height: 1284px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 13px;
+
+            /* border: 1px solid red; */
+        }
 
         #my_form {
             border: 1px solid #DDD;
@@ -259,35 +258,33 @@
             margin-bottom: 10px;
         }
 
-      #on_city_close_btn {
-    width: 42px;
-    height: 42px;
-    position: relative;
-    top: -50px;
-    right: -257px;
-    background: url(/SIST2_Travel/asset/images/city_close_btn.png);
-    cursor: pointer;
-    border-radius: 0px 8px 8px 0px;
-}
+        #on_city_close_btn {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: url(/SIST2_Travel/asset/images/city_close_btn.png);
+            cursor: pointer;
+        }
 
-       #on_city_open_btn {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 6px;
-    left: 457px;
-    background: url(/SIST2_Travel/asset/images/city_open_btn.png);
-    cursor: pointer;
-    z-index: 99;
-    border-radius: 0px 6px 7px 2px;
-}
+        #on_city_open_btn {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            left: 600px;
+            background: url(/SIST2_Travel/asset/images/city_open_btn.png);
+            cursor: pointer;
+            z-index: 99;
+        }
 
         #detail-box {
             width: 931px;
-            height: 1335px;
+            height: 1530px;
             position: absolute;
-            top: -100px;
-            left: 695px;
+            top: -110px;
+            left: 805px;
             /* border: 1px solid red; */
             z-index: 1;
             padding: 0px;
@@ -380,7 +377,7 @@
             height: 100%;
             background: #203341;
             overflow-y: auto;
-            max-height: 1183px;
+            max-height: 983px;
         }
 
         #show_all_day {
@@ -501,18 +498,19 @@
 <body onload="script();">
 <%--<body>--%>
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden; left: 450px;"></div>
+    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
-        <div class="sticky-top" style="position: static;">
+        <div id="on_city_close_btn"></div>
+        <div class="sticky-top">
             <div class="city_name">${city.name}
                 <div id="on_city_close_btn"></div>
             </div>
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
-                           value="${city.name}">
+                           value="서울 여행">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
                             class="fa fa-search"></i></button>
                     <%--            <input title="Search" value="" type="submit" class="button">--%>
@@ -555,7 +553,7 @@
                 style="-webkit-transform:scale(0.85);"
                 src=''
                 frameborder='0'
-                scrolling='no'>
+                scrolling='yes'>
             <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
             <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
         </iframe>
@@ -759,7 +757,7 @@
                 </li>
             </ul>
 
-            <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
+            <ul id="cat_menu" style="max-height: 1183px;" data-year="2021">
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
 
                 <c:forEach items="${datelist}" var="list" varStatus="status">
@@ -778,7 +776,7 @@
 		                            </div>
 		                            <div class="fl cat_date_right_box">
 		                                    <%--day of week--%>
-		                                <div class="cat_right_weekday">목요일</div>
+		                                <div class="cat_right_weekday"></div>
 		                                <div class="cat_right_city">${city.name}</div>
 		                            </div>
 		                        </span>
@@ -997,7 +995,8 @@
     <script>
         window.onload = function () {
             $('#all').trigger("click");
-            $('.textbox').val(${city.name});
+            $('.textbox').val("${city.name}");
+            $('#button-addon1').trigger("click");
         }
         // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
