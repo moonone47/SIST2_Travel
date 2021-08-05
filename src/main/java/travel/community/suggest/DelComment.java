@@ -15,9 +15,8 @@ public class DelComment extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		/*
-		 * CheckMember cm = new CheckMember(); cm.check(req, resp);
-		 */
+		  CheckMember cm = new CheckMember(); 
+		  cm.check(req,resp);
 
 		String suggestcommentseq = req.getParameter("suggestcommentseq"); // 삭제할 댓글번호
 		String suggestseq = req.getParameter("suggestseq");  // 보고있던 부모글 번호

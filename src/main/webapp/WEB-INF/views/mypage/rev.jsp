@@ -14,7 +14,7 @@
 
 <style>
 .main-section {
-	width: 800px;
+	width: 1100px;
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
@@ -61,7 +61,7 @@
 						<td>${dto.ispay }<c:if test="${dto.ispay eq '미결제' }">
 								<form method="POST"
 									action="/SIST2_Travel/mypage/pay.do?reservationseq=${dto.reservationseq}	">
-									<button id="payment" type="submit" >결제하기</button>
+									<button id="payment" type="submit" style="font-size: 15px">결제하기</button>
 									<input type="hidden" name="reservationseq"
 										value="${dto.reservationseq }" />
 								</form>

@@ -21,9 +21,13 @@ public class BasketPay extends HttpServlet {
 		
 		String basketseq = req.getParameter("basketseq");
 		String tourseq = req.getParameter("tourseq");
+		String tourname = req.getParameter("tourname");
+		String tourprice = req.getParameter("tourprice");
 		
 		req.setAttribute("basketseq", basketseq);
 		req.setAttribute("tourseq", tourseq);
+		req.setAttribute("tourprice", tourprice);
+		req.setAttribute("tourname", tourname);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/basketpay.jsp");
 		dispatcher.forward(req, resp);

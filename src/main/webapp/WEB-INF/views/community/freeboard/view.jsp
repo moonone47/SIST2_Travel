@@ -13,12 +13,12 @@
 #container {
 	width: 1100px;
 	margin: 0px auto 50px auto;
-	border: 1px solid red;
+
 }
 
 .list {
-	width: 750px;
-	height: 500px;
+	width: 900px;
+
 	margin: 20px auto;
 }
 
@@ -35,7 +35,7 @@
 	text-align: left;
 }
 
-.table #subject td:nth-child(1) {
+.table #subject td:nth-child(2) {
 	text-align: left;
 }
 
@@ -43,9 +43,6 @@
 	width: 120px;
 }
 
-.table td:nth-child(2) {
-	width: 400px;
-}
 
 #comment {
 	width: 750px;
@@ -90,7 +87,7 @@
 	<section class="main-section">
 		<div id="container">
 			<h1>
-				Board <small>view</small>
+				자유게시판 <small>글 보기</small>
 			</h1>
 
 			<div class="list">
@@ -106,7 +103,6 @@
 						<td>${dto.regdate}</td>
 						<th>조회수</th>
 						<td>${dto.viewcnt}</td>
-
 					</tr>
 					<tr id="subject">
 						<th>제목</th>
@@ -119,6 +115,8 @@
 						<td colspan="3">${dto.content}</td>
 					</tr>
 				</table>
+				
+				
 			</div>
 			<div class="list">
 				<div class="btns">
