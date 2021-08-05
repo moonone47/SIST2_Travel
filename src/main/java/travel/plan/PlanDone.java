@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/plan/plandone.do")
 public class PlanDone extends HttpServlet {
@@ -72,13 +73,23 @@ public class PlanDone extends HttpServlet {
             dao.removeAll(planseq[i]);
         }
         
+        resp.setCharacterEncoding("UTF-8"); 
         
+        PrintWriter writer = resp.getWriter();
+        writer.print("<html>");
+        writer.print("<head>");
+        writer.print("<meta charset='utf-8'>");
+        writer.print("</head>");
+        writer.print("<body>");
+        writer.print("<script>");
+        writer.print("alert('일정 등록이 완료되었습니다.');");
+        writer.print("location.href='/SIST2_Travel/index.do';");
+        writer.print("</script>");
+        writer.print("</html>");
+        
+        writer.close();
 /*
- for(day){
-	for(){
-	 day1
-	}
-}
+
 
 //todo: 전체 일정 추가로 변경
 1 2 3
@@ -89,8 +100,8 @@ public class PlanDone extends HttpServlet {
  */
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plandone.jsp");
-        dispatcher.forward(req, resp);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plandone.jsp");
+//        dispatcher.forward(req, resp);
     }
 
 }
