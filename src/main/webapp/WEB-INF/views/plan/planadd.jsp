@@ -778,7 +778,6 @@
 		                            </div>
 		                            <div class="fl cat_date_right_box">
 		                                    <%--day of week--%>
-		                                <div class="cat_right_weekday">목요일</div>
 		                                <div class="cat_right_city">${city.name}</div>
 		                            </div>
 		                        </span>
