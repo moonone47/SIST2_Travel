@@ -70,7 +70,7 @@ width: 1000px;
 						<td>
 						
 								<form method="get" action="/SIST2_Travel/service/servicecancel.do">
-				<button type = "submit" id = "btnCancel">의뢰 취소하기</button>
+				<button type = "submit" id = "btnCancel" class="btn btn-primary">의뢰 취소하기</button>
 				<input type="hidden" name="serviceseq" value="${dto.serviceseq }" />
 				</form>
 
@@ -85,7 +85,6 @@ width: 1000px;
 
 
 
-	<%@ include file="/inc/init.jsp"%>
 	<%@ include file="/inc/footer.jsp"%>
 	<script>
 		 $("#btnCancel").click(function() {

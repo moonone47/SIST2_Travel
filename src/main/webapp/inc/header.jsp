@@ -40,7 +40,7 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col">
-                <a class="navbar-brand" href="index.html">TP<span>여행
+                <a class="navbar-brand" href="/SIST2_Travel/index.do">TP<span>여행
 							병아리들을 위한 여행계획사이트 티피</span></a>
             </div>
 <!--             <div class="col d-flex justify-content-end">
@@ -183,9 +183,8 @@
 
     </nav>
     <!-- END nav -->
-
+    <%@ include file="/inc/init.jsp" %>
 </section>
-<%@ include file="/inc/init.jsp" %>
 </div>
 <script src="<%=request.getContextPath()%>/asset/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/asset/js/popper.js"></script>
