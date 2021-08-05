@@ -751,45 +751,46 @@
 
             <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
-                <c:forEach items="${datelist}" var="list" varStatus="status">
-				<%--여기는 어떤 걸 보여주는 기능인가요--%>
-	                <c:if test="${status.count==1}">
-	                	<li data="${status.count}" data-date="08.05" data-day_week="4" class="on">
-	                </c:if>
-	                <c:if test="${status.count!=1}">
-	                	<li data="${status.count}" data-date="08.05" data-day_week="4">
-	                </c:if>
-	                    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-	                            <%--                        <div onclick="javascript:document.form.submit();">--%>
-	                        <span onClick="$(this).closest('form').submit();">
-	                            <div class="fl cat_date_left_box">
-	                                <div class="cat_left_day">DAY${status.count}</div>
-	                                <div class="cat_left_date">${list}</div>
-	                            </div>
-	                            <div class="fl cat_date_right_box">
-	                                    <%--day of week--%>
-	                                <div class="cat_right_weekday">목요일</div>
-	                                <div class="cat_right_city">${city.name}</div>
-	                            </div>
-	                        </span>
-	                        <div class="clear"></div>
 
-	                        <input type="hidden" name="city" value="${city}">
-	                        <input type="hidden" name="cityname" value="${city.name}">
-	                        <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
-	                        <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
-	                        <input type="hidden" name="Explain" value="${city.explain}">
-	                        <input type="hidden" name="Cityseq" value="${city.cityseq}">
-	                        <input type="hidden" name="planname" value="${citydto.name}">
-	                        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-	                        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-	                        <input type="hidden" name="willshare" value="${citydto.willshare}">
-	                        <input type="hidden" name="rdate" id="rdate" value="${list}">
-                 </c:forEach>
-                 <c:forEach items="${datelist}" var="list" varStatus="status">
-                     <input type="hidden" name="datelist" value="${list}">
-                 </c:forEach>
-                    </form>
+                <c:forEach items="${datelist}" var="list" varStatus="status">
+                <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
+                    <c:if test="${status.count==1}">
+                    <li data="${status.count}" data-date="08.05" data-day_week="4" class="on">
+                        </c:if>
+                        <c:if test="${status.count!=1}">
+                    <li data="${status.count}" data-date="08.05" data-day_week="4">
+                        </c:if>
+                            <%--                        <div onclick="javascript:document.form.submit();">--%>
+                        <span onClick="$(this).closest('form').submit();">
+		                            <div class="fl cat_date_left_box">
+		                                <div class="cat_left_day">DAY${status.count}</div>
+		                                <div class="cat_left_date">${list}</div>
+		                            </div>
+		                            <div class="fl cat_date_right_box">
+		                                    <%--day of week--%>
+		                                <div class="cat_right_weekday">목요일</div>
+		                                <div class="cat_right_city">${city.name}</div>
+		                            </div>
+		                        </span>
+                        <div class="clear"></div>
+
+                        <input type="hidden" name="city" value="${city}">
+                        <input type="hidden" name="cityname" value="${city.name}">
+                        <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
+                        <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
+                        <input type="hidden" name="Explain" value="${city.explain}">
+                        <input type="hidden" name="Cityseq" value="${city.cityseq}">
+                        <input type="hidden" name="planname" value="${citydto.name}">
+                        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                        <input type="hidden" name="willshare" value="${citydto.willshare}">
+                        <input type="hidden" name="rdate" id="rdate" value="${list}">
+
+                        <c:forEach items="${datelist}" var="list" varStatus="status">
+                        	<input type="hidden" name="datelist" value="${list}">
+                        </c:forEach>
+                </form>
+                </c:forEach>
             </ul>
             <ul id="cat_add_box"
                 style="width: 160px; background: rgb(32, 51, 65); color: rgb(255, 255, 255); height: 823px;">
