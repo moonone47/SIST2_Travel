@@ -89,7 +89,7 @@
                             class="nav-link dropdown-toggle" href="#" id="dropdown04"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일정계획</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#">새로운 일정</a>                        
+                            <a class="dropdown-item" href="/SIST2_Travel/plan/plan.do">새로운 일정</a>                        
                         </div>
                     </li>
                     <li class="nav-item"><a href="/SIST2_Travel/management/travelplan.do" class="nav-link">여행관리</a></li>

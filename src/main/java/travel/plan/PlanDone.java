@@ -1,14 +1,15 @@
 package travel.plan;
 
 
-import javax.servlet.RequestDispatcher;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @WebServlet("/plan/plandone.do")
 public class PlanDone extends HttpServlet {
@@ -88,9 +89,19 @@ public class PlanDone extends HttpServlet {
 // -> day1 날짜 버튼(plandone.update())-> day2
  */
 
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plandone.jsp");
-        dispatcher.forward(req, resp);
+        PrintWriter writer = resp.getWriter();
+        writer.print("<html>");
+        writer.print("<head>");
+        writer.print("<meta charset='utf-8'>");
+        writer.print("</head>");
+        writer.print("<body>");
+        writer.print("<script>");
+        writer.print("alert('일정 등록 완료.');");
+        writer.print("location.href='/index.do';");
+        writer.print("</script>");
+        writer.print("</html>");
+        
+        
     }
 
 }

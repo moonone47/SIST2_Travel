@@ -499,7 +499,7 @@
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
-                           value="서울 여행">
+                           value="${city.name}">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
                             class="fa fa-search"></i></button>
                     <%--            <input title="Search" value="" type="submit" class="button">--%>
@@ -622,14 +622,17 @@
 </div>
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
-<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
 
     <div class="plan sortable" id="planlist">
         <%-------------------------------일정 등록 완료------------------------%>
         <div>
             <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
                 <c:forEach items="${list}" var="dto" varStatus="status">
-                    <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+                    <input type="hidden" name="planseq" value="${dto.plan2seq}">
+
+
+                    <input type="hidden" name="seq" value="${status.count}">
+                </c:forEach>
                     <input type="hidden" name="cityname" value="${city.name}">
                     <input type="hidden" name="cityX" value="${city.cityX}">
                     <input type="hidden" name="cityY" value="${city.cityY}">
@@ -639,19 +642,16 @@
                     <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
                     <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
                     <input type="hidden" name="willshare" value="${citydto.willshare}">
-
                     <c:forEach items="${datelist}" var="list">
                         <input type="hidden" name="datelist" value="${list}">
                     </c:forEach>
-                    <input type="hidden" name="planseq" value="${dto.plan2seq}">
-                    <input type="hidden" name="seq" value="${status.count}">
-                </c:forEach>
                 <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
             </form>
         </div>
         <%--------------------------------------------------------------------%>
 
         <c:forEach items="${list}" var="dto" varStatus="status">
+<form  method="POST" action="/SIST2_Travel/plan/plandel.do">
 
             <div class="list-group">
                 <div class="list-group-item list-group-item-action">
@@ -681,13 +681,13 @@
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
                 <input type="hidden" name="seq" value="${status.count}">
             </div>
-        </c:forEach>
-    </div>
     <c:forEach items="${datelist}" var="list">
         <input type="hidden" name="datelist" value="${list}">
     </c:forEach>
 
 </form>
+        </c:forEach>
+    </div>
 
 
 <%---------------------------------일정---------------------------------%>
@@ -736,6 +736,7 @@
         <%--        </a>--%>
     </form>
     <%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+
     <div id="schedulelist" class="list-group" name="scd">
         <%--바뀐 레이7웃--%>
         <div class="fl">
@@ -820,40 +821,95 @@
 
 
     </div>
-    <c:forEach items="${datelist}" var="list" varStatus="status">
-    <div id="schedulelist" class="list-group">
-        <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-<%--            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">--%>
+<%--    <&--<c:forEach items="${datelist}" var="list" varStatus="status">--&>--%>
 
-                <%--            <div class="d-flex w-100 align-items-center justify-content-between">--%>
-                <%--                <strong class="mb-1">${"Day"} ${status.count}</strong>--%>
-                <%--                <small>${list}</small>--%>
-                <%--            </div>--%>
-<%--            <div class="col-10 mb-1 small">${city.name}</div>--%>
-            <!-- </a> -->
-            <input type="hidden" name="city" value="${city}">
+<%--    origin--%>
+<%--    <div id="schedulelist" class="list-group">--%>
+<%--        <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">--%>
+<%--                &lt;%&ndash;            바뀐 레이7웃&ndash;%&gt;--%>
+<%--            <div class="fl">--%>
+<%--                <ul id="pn_title_box">--%>
+<%--                    <li data="pn_date">--%>
+<%--                        <div class="full_date_info fl">08.5~08.6</div>--%>
+<%--                            &lt;%&ndash;                <div class="fl day_edit_start_btn">EDIT</div>&ndash;%&gt;--%>
+<%--                        <div class="clear"></div>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--                <ul id="cat_menu" style="max-height: 983px;" data-year="2021">--%>
+<%--                    <li id="show_all_day" data="show_all_day">전체 일정 보기</li>--%>
+<%--                    <c:forEach items="${datelist}" var="list" varStatus="status">--%>
+<%--                        <c:if test="${status.count==1}">--%>
+<%--                            <span onClick="javascript:this.form.submit();">>--%>
+<%--                                <li data="${status.count}" data-date="08.05" data-day_week="4" class="on" onclick="my_form.submit();">--%>
+<%--                            </span>--%>
+<%--                        </c:if>--%>
+<%--                        <c:if test="${status.count!=1}">--%>
+<%--                            	<li data="${status.count}" data-date="08.05" data-day_week="4">--%>
+<%--                        </c:if>--%>
 
-            <input type="hidden" name="cityname" value="${city.name}">
-            <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
-            <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
-            <input type="hidden" name="Explain" value="${city.explain}">
-            <input type="hidden" name="Cityseq" value="${city.cityseq}">
+<%--                        <div class="fl cat_date_left_box">--%>
+<%--                            <div class="cat_left_day">DAY${status.count}</div>--%>
+<%--                            <div class="cat_left_date">${list}</div>--%>
+<%--                        </div>--%>
+<%--                        <div class="fl cat_date_right_box">--%>
+<%--                                &lt;%&ndash;                        day of week&ndash;%&gt;--%>
+<%--                            <div class="cat_right_weekday">목요일</div>--%>
+<%--                            <div class="cat_right_city">${city.name}</div>--%>
+<%--                        </div>--%>
+<%--                        <div class="clear"></div>--%>
+<%--                        </li>--%>
+<%--                    </c:forEach>--%>
+<%--                </ul>--%>
+<%--                <ul id="cat_add_box"--%>
+<%--                    style="width: 160px; background: rgb(32, 51, 65); color: rgb(255, 255, 255); height: 823px;">--%>
+<%--                    <li style="padding-top:15px;">--%>
+<%--                            &lt;%&ndash;                <div style="width:124px;height:32px;line-height:32px;border:solid 1px #fff;text-align:center;margin:0 auto;cursor:pointer;">&ndash;%&gt;--%>
+<%--                            &lt;%&ndash;                    DAY 추가&ndash;%&gt;--%>
+<%--                            &lt;%&ndash;                </div>&ndash;%&gt;--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--                <ul id="pn_date_controll_box">--%>
+<%--                    <li data="con_date">--%>
+<%--                        <div style="text-align:center;border-top:solid #fff 1px;margin-top:10px;padding-top:15px;width:100%;">--%>
+<%--                            <div style="margin:0 auto;text-align:center;font-size:15px;">--%>
+<%--                                <img src="/res/img/workspace/new/cat_tuto_icon.png"--%>
+<%--                                     style="vertical-align:middle;margin-right:5px;"> 이용방법--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--                &lt;%&ndash;            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">&ndash;%&gt;--%>
+
+<%--                &lt;%&ndash;            <div class="d-flex w-100 align-items-center justify-content-between">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                <strong class="mb-1">${"Day"} ${status.count}</strong>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                <small>${list}</small>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;            </div>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;            <div class="col-10 mb-1 small">${city.name}</div>&ndash;%&gt;--%>
+<%--            <!-- </a> -->--%>
+<%--            <input type="hidden" name="city" value="${city}">--%>
+
+<%--            <input type="hidden" name="cityname" value="${city.name}">--%>
+<%--            <input id="currX" type="hidden" name="cityX" value="${city.cityX}">--%>
+<%--            <input id="currY" type="hidden" name="cityY" value="${city.cityY}">--%>
+<%--            <input type="hidden" name="Explain" value="${city.explain}">--%>
+<%--            <input type="hidden" name="Cityseq" value="${city.cityseq}">--%>
 
 
-            <input type="hidden" name="planname" value="${citydto.name}">
-            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-            <input type="hidden" name="willshare" value="${citydto.willshare}">
+<%--            <input type="hidden" name="planname" value="${citydto.name}">--%>
+<%--            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">--%>
+<%--            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">--%>
+<%--            <input type="hidden" name="willshare" value="${citydto.willshare}">--%>
 
-                <%--            <input type="text" name="rdate" value="">--%>
-            <input type="hidden" name="rdate" id="rdate" value="${list}">
-            <c:forEach items="${datelist}" var="list" varStatus="status">
-                <input type="hidden" name="datelist" value="${list}">
-            </c:forEach>
-        </form>
-        </c:forEach>
+<%--                &lt;%&ndash;            <input type="text" name="rdate" value="">&ndash;%&gt;--%>
+<%--            <input type="hidden" name="rdate" id="rdate" value="${list}">--%>
+<%--            <c:forEach items="${datelist}" var="list" varStatus="status">--%>
+<%--                <input type="hidden" name="datelist" value="${list}">--%>
+<%--            </c:forEach>--%>
+<%--        </form>--%>
+<%--        </c:forEach>--%>
 
-    </div>
+<%--    </div>--%>
 
     <%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
@@ -1361,7 +1417,7 @@
         var polyline = new kakao.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
             strokeWeight: 5, // 선의 두께 입니다
-            strokeColor: '#FFAE00', // 선의 색깔입니다 #FFAE00
+            strokeColor: '#4384D9', // 선의 색깔입니다 #FFAE00
             strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
             strokeStyle: 'solid' // 선의 스타일입니다
         });
