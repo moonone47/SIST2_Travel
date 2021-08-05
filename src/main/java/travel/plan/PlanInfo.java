@@ -44,11 +44,13 @@ public class PlanInfo extends HttpServlet {
 			}
 		}
 
-		int planseq = dao.add(citydto);
-
-
-
 		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("id");
+		int planseq = dao.add(citydto, userId);
+
+
+
+		
 		session.setAttribute("planseq", planseq);
 
 		

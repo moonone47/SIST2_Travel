@@ -239,7 +239,6 @@ table {
 
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
 	<script>
 		<c:if test="${map.isSearch == 'y'}">
 		//상태 복원 

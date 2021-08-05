@@ -32,7 +32,7 @@ public class TravelPlan extends HttpServlet {
 		
 		TravelPlanDAO dao = new TravelPlanDAO();
 		
-		ArrayList<TravelPlanDTO> list = dao.getlist("3" , category); // 3에 id 넣자
+		ArrayList<TravelPlanDTO> list = dao.getlist(id , category); // 3에 id 넣자
 		
 		
 		for(TravelPlanDTO dto: list) {			

@@ -45,7 +45,7 @@ public class PlanInfoDAO {
 //    private String id;
 //    private String cityseq;
 
-    public int add(PlanInfoDTO dto) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
+    public int add(PlanInfoDTO dto, String memberid) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
 
         try{
             String sql = "insert into tblPlan (planseq, status, name, daystarttravel, dayendtravel, willshare," +
@@ -61,7 +61,7 @@ public class PlanInfoDAO {
             pstat.setString(5, dto.getWillshare());//willshare
             pstat.setString(6, "0");//wish
             pstat.setString(7, "");//theme
-            pstat.setString(8, "4");//id
+            pstat.setString(8, memberid);//id
             pstat.setString(9, dto.getCityseq());
 
             pstat.executeUpdate();

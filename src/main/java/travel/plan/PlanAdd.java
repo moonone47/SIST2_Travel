@@ -43,7 +43,7 @@ public class PlanAdd extends HttpServlet {
 
 		HttpSession session = req.getSession();
 //		todo: 구현
-//		String userId = (String) session.getAttribute("id");
+		String userId = (String) session.getAttribute("id");
 //		String userId = req.getParameter("userid");
 //		String planNum = req.getParameter("planNum");
 //		String isDone = req.getParameter("isDone");
@@ -73,7 +73,7 @@ public class PlanAdd extends HttpServlet {
 		dto.setY(y);
 		dto.setRdate(rdate);
 
-		result = dao.add(dto);
+		result = dao.add(dto, userId);
 
 		}
 		
@@ -86,7 +86,7 @@ public class PlanAdd extends HttpServlet {
 //		ArrayList<PlanDTO> list = new ArrayList<PlanDTO>();
 		//ArrayList<PlaceDTO> list = dao.getList(4); //where memberid == 4
 		
-		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
+		ArrayList<PlaceDTO> list = dao.getList(rdate, userId); //string
 
 		CityDTO city = new CityDTO();
 
