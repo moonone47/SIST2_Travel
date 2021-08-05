@@ -61,9 +61,10 @@
 						<td>${dto.ispay }<c:if test="${dto.ispay eq '미결제' }">
 								<form method="POST"
 									action="/SIST2_Travel/mypage/pay.do?reservationseq=${dto.reservationseq}	">
-									<button id="payment" type="submit" class="btn btn-primary" style="font-size: 15px">결제하기</button>
-									<input type="hidden" name="reservationseq"
-										value="${dto.reservationseq }" />
+									<button id="payment" type="submit" style="font-size: 15px">결제하기</button>
+									<input type="hidden" name="reservationseq"	value="${dto.reservationseq }" />
+									<input type="hidden" name="tourname"	value="${dto.tourname }" />
+									<input type="hidden" name="tourprice"	value="${dto.tourprice }" />
 								</form>
 							</c:if>
 						</td>
@@ -72,7 +73,7 @@
 						<td><c:if test="${dto.iscancel eq 'n' }">
 								<form method="get"
 									action="/SIST2_Travel/mypage/revcancel.do?reservationseq=${dto.reservationseq}">
-									<button type="submit" id="btnCancel" class="btn btn-primary" onclick="cancel()">예약 취소하기</button>
+									<button type="submit" id="btnCancel" onclick="cancel()">예약 취소하기</button>
 									<input type="hidden" name="reservationseq"
 										value="${dto.reservationseq }" />
 								</form>
