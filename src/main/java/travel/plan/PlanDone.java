@@ -1,7 +1,6 @@
 package travel.plan;
 
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/plan/plandone.do")
 public class PlanDone extends HttpServlet {
@@ -71,26 +71,35 @@ public class PlanDone extends HttpServlet {
             
             dao.removeAll(planseq[i]);
         }
+
+		resp.setCharacterEncoding("UTF-8"); 
+	
+        PrintWriter writer = resp.getWriter();
+        writer.print("<html>");
+        writer.print("<head>");
+        writer.print("<meta charset='utf-8'>");
+        writer.print("</head>");
+        writer.print("<body>");
+        writer.print("<script>");
+        writer.print("alert('Complete.');");
+        writer.print("location.href='/SIST2_Travel/index.do';");
+        writer.print("</script>");
+        writer.print("</html>");
         
-        
-/*
- for(day){
-	for(){
-	 day1
-	}
-}
+        writer.close();
+
 
 //todo: 전체 일정 추가로 변경
-1 2 3
-1 -> 순서 다 바꿔 놓음,() -> palndone을 들리게끔 -> 2일차 일정 짜고 순서바꾸고 -> ///
+//1 2 3
+//1 -> 순서 다 바꿔 놓음,() -> palndone을 들리게끔 -> 2일차 일정 짜고 순서바꾸고 -> ///
 //일정등록 -> 하루치 day1 , day2 -> for하나더해서 전체 일정을 등록하도록...
 //for문 -> 1day 클릭하는 함수를 불러오고 리스트 받고
 // -> day1 날짜 버튼(plandone.update())-> day2
- */
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plandone.jsp");
-        dispatcher.forward(req, resp);
+
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/plan/plandone.jsp");
+//        dispatcher.forward(req, resp);
     }
 
 }

@@ -58,7 +58,7 @@
 }
 
 #category li .category_bg {
-    background: url('/SIST2_Travel/asset/images/places_category3.png') no-repeat;
+    background: url(/SIST2_Travel/asset/images/places_category3.png) no-repeat;
 }
 
 #category li .bank {
