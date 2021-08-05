@@ -30,14 +30,14 @@ public class TravelPlanDAO {
 		try {
 			String where = "";
 			if(category == null || category.equals("") || category.equals("ing")) {
-				where = "where id=3 and(dayendtravel > sysdate) order by daystarttravel desc";
-				//where = String.format("where id=%s and (dayendtravel > sysdate)", id);
+				//where = "where id=3 and(dayendtravel > sysdate) order by daystarttravel desc";
+				where = String.format("where id=%s and (dayendtravel > sysdate) order by daystarttravel desc", id);
 			} else if(category.equals("end")) {
-				where = "where id=3 and(dayendtravel < sysdate) order by daystarttravel desc";
-				//where = String.format("where id=%s and (dayendtravel < sysdate)", id);
+				//where = "where id=3 and(dayendtravel < sysdate) order by daystarttravel desc";
+				where = String.format("where id=%s and (dayendtravel < sysdate) order by daystarttravel desc", id);
 			} else if(category.equals("wish")) {
-				where = " where wisherid=3 order by daystarttravel desc";
-				//where = String.format("where wisherid = %s", id);
+				//where = " where wisherid=3 order by daystarttravel desc";
+				where = String.format("where wisherid = %s order by daystarttravel desc", id);
 				
 			}
 			
