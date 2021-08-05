@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -92,20 +93,26 @@
     left: -2px;
 }
         .search {
-            box-sizing: border-box;
-            width: 300px;
-            height: 31px;
-            border: solid #c8c8ca 1px;
-            padding-left: 5px;
-            font-family: 'nanum';
-            /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
-            /*background-position: 300px 4px;*/
-        }
-       #category {
+    box-sizing: border-box;
+    width: 286px;
+    height: 31px;
+    border: solid #c8c8ca 1px;
+    padding-left: 5px;
+    font-family: 'nanum';
+    /* background: url(/res/img/common/gnb/search_icon.png) no-repeat; */
+    /* background-position: 300px 4px; */
+    position: relative;
+    left: 11px;
+}
+     #category {
     background: #f7f7f7;
     display: flex;
     margin-left: 5px;
     margin-top: 5px;
+    position: relative;
+    left: -3px;
+    width: 308px;
+    top: -1px;
 }
         #category li {
             width: 100%;
@@ -121,16 +128,18 @@
             width: 82px;
             height: 75px;
         }
-        #keyword {
-            box-sizing: border-box;
-            width: 300px;
-            height: 31px;
-            border: solid #c8c8ca 1px;
-            padding-left: 5px;
-            font-family: 'nanum';
-            /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
-            /*background-position: 300px 4px;*/
-        }
+       #keyword {
+    box-sizing: border-box;
+    width: 302px;
+    height: 31px;
+    border: solid #c8c8ca 1px;
+    padding-left: 5px;
+    font-family: 'nanum';
+    /* background: url(/res/img/common/gnb/search_icon.png) no-repeat; */
+    /* background-position: 300px 4px; */
+    position: relative;
+    left: -12px;
+}
         /*#placesList > .item > .info{*/
         /*    font-size: 20px;*/
         /*}*/
@@ -455,6 +464,11 @@
         .list-group{
             overflow: hidden;
         }
+       .fa-search {
+       position: relative;
+    right: 10px;
+    top: 3px;
+       }
     </style>
 </head>
 
@@ -713,9 +727,11 @@
     <div id="schedulelist" class="list-group" name="scd">
         <%--바뀐 레이7웃--%>
         <div class="fl">
-            <ul id="pn_title_box">
-                <li data="pn_date">
-                    <div class="full_date_info fl">08.5~08.6</div>
+            <ul id="pn_title_box" >
+                <li data="pn_date" >
+                	<c:set var = "startday" value="${citydto.daystarttravel}" />
+                	<c:set var = "endday" value="${citydto.dayendtravel}" />
+                    <div class="full_date_info fl" >${fn:substring(startday,5,10)} ~${fn:substring(endday,5,10)}</div>
                     <%--<div class="fl day_edit_start_btn">EDIT</div>--%>
                     <div class="clear"></div>
                 </li>
