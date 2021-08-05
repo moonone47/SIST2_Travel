@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -60,6 +62,10 @@ public class planscd extends HttpServlet {
 			datelist.add(datelists[i]);
 		}
 
+		
+		
+		
+		
 
 		String rdate = req.getParameter("rdate");
 		//2.tblPlan2 -> rdate select해오기
@@ -68,7 +74,13 @@ public class planscd extends HttpServlet {
 
 		//todo: 로그인 구현 되면 id ->session에서 가져오기
 
-		ArrayList<PlaceDTO> list = dao.getList(rdate, "4"); //string
+		
+		HttpSession session = req.getSession();
+		
+		String id =  (String)session.getAttribute("id");
+		
+		
+		ArrayList<PlaceDTO> list = dao.getList(rdate, id); //string
 
 		req.setAttribute("list", list); //planadd.jsp에서 일정 리스트 용
 		req.setAttribute("city", city); //도시 좌표
