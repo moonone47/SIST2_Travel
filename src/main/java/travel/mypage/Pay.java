@@ -23,8 +23,12 @@ public class Pay extends HttpServlet {
 		cm.check(req,resp);
 		
 		String reservationseq = req.getParameter("reservationseq");
+		String tourname = req.getParameter("tourname");
+		String tourprice = req.getParameter("tourprice");
 		
 		req.setAttribute("reservationseq", reservationseq);
+		req.setAttribute("tourname", tourname);
+		req.setAttribute("tourprice", tourprice);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/pay.jsp");

@@ -122,7 +122,6 @@ width:82%;
 
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
 <%@ include file="/inc/footer.jsp" %>
 	<script>
 		

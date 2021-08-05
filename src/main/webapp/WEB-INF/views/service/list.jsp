@@ -85,7 +85,6 @@ width: 1000px;
 
 
 
-	<%@ include file="/inc/init.jsp"%>
 	<%@ include file="/inc/footer.jsp"%>
 	<script>
 		 $("#btnCancel").click(function() {

@@ -18,6 +18,18 @@
 	margin: 35px auto;
 	padding-bottom: 300px;
 }
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+	text-align: center;
+}
+
+.table td {
+	text-align: center;
+}
 </style>
 
 </head>
@@ -30,7 +42,7 @@
 			장바구니 내역 <small>List</small>
 		</h1>
 
-		<table class="table table-bordered">
+		<table class="table table-bordered align-middle">
 			<tr>
 				<th>장바구니 번호</th>
 				<th>투어/티켓 이름</th>
@@ -61,7 +73,7 @@
 						<c:if test="${dto.ispay eq '미결제' }">
 								<form method="POST"
 									action="/SIST2_Travel/mypage/basketpay.do?basketseq=${dto.basketseq}	">
-									<button id="payment" type="submit" >결제하기</button>
+									<button id="payment" type="submit"  class="btn btn-primary form-control">결제하기</button>
 									<input type="hidden" name="reservationseq"	value="${dto.basketseq }" />
 									<input type="hidden" name="tourseq"	value="${dto.tourseq }" />
 									<input type="hidden" name="tourname"	value="${dto.tourname }" />
@@ -75,7 +87,7 @@
 						<td>
 								<form method="get"
 									action="/SIST2_Travel/mypage/basketdel.do?basketseq=${dto.basketseq}">
-									<button type="submit" id="btnDel" onclick="del()">장바구니 삭제</button>
+									<button type="submit" id="btnDel" class="btn btn-warning form-control" onclick="del()" >장바구니 삭제</button>
 									<input type="hidden" name="basketseq"
 										value="${dto.basketseq }" />
 								</form>
@@ -93,7 +105,6 @@
 
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
 	<%@ include file="/inc/footer.jsp"%>
 	<script>
 	
