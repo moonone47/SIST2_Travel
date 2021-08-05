@@ -194,11 +194,11 @@ public class ManagementDAO {
 			}			
 			
 			
-			for(ManagementDTO dto : list) {				
-				System.out.println(dto.getRdate());
-				System.out.println(dto.getAddress_name());
-				System.out.println(dto.getPlace_name());;
-			}
+			/*
+			 * for(ManagementDTO dto : list) { System.out.println(dto.getRdate());
+			 * System.out.println(dto.getAddress_name());
+			 * System.out.println(dto.getPlace_name());; }
+			 */
 			
 			
 			
@@ -229,7 +229,7 @@ public class ManagementDAO {
 		            pstat.setString(10, dto.getX());
 		            pstat.setString(11, dto.getY());
 		            pstat.setString(12, dto.getSeq());    
-		            pstat.setString(13, "3");
+		            pstat.setString(13, id);
 		            pstat.setDate(14, sqlDate);
 		            
 		            pstat.executeUpdate();
@@ -308,7 +308,7 @@ public class ManagementDAO {
 	           String sql3 = "select * from tblPlan2 where memberid= ? order by rdate asc, seq asc"; 
 
 	            pstat = conn.prepareStatement(sql3);
-	            pstat.setString(1, "3");
+	            pstat.setString(1, id);
 	            
 	            rs = pstat.executeQuery(); //복붙
 
@@ -373,7 +373,7 @@ public class ManagementDAO {
 	public void del(String id) {
 		try {
 			
-			String sql = "delete from tblPlan2 where memberid=" + "3";
+			String sql = "delete from tblPlan2 where memberid=" + id;
 			
 			stat = conn.createStatement();
 			

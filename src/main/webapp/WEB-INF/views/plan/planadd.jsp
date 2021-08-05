@@ -66,10 +66,10 @@
             width: 325px;
             z-index: 999;
             position: absolute;
-            left: 600px;
-            height: 1137px;
-            top: 5px;
-            background: #fff;
+            left: 486px;
+            height: 1530px;
+            top: 10px;
+            background: rgba(255,255,255, 0.85);
             -ms-overflow-style: none;
         }
 
@@ -201,14 +201,14 @@
         #planlist {
             position: absolute;
             top: 0px;
-            left: 300px;
+            left: 180px;
             bottom: 0;
             width: 300px;
-            height: auto;
+            height: 1530px;
             margin: 10px 0 30px 10px;
             padding: 7px;
             overflow-y: auto;
-            background: white;
+            background: rgba(255,255,255, 0.85);
             z-index: 1;
             font-size: 12px;
             /* border: 1px solid red; */
@@ -281,10 +281,10 @@
 
         #detail-box {
             width: 931px;
-            height: 1335px;
+            height: 1530px;
             position: absolute;
-            top: -194px;
-            left: 793px;
+            top: -110px;
+            left: 805px;
             /* border: 1px solid red; */
             z-index: 1;
             padding: 0px;
@@ -550,7 +550,7 @@
         <iframe id='detail'
                 name=naver onload="naver.scrollTo(40,100);"
                 class="embed-responsive embed-responsive-16by9"
-                style="-webkit-transform:scale(0.7);"
+                style="-webkit-transform:scale(0.85);"
                 src=''
                 frameborder='0'
                 scrolling='no'>
@@ -757,7 +757,7 @@
                 </li>
             </ul>
 
-            <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
+            <ul id="cat_menu" style="max-height: 1183px;" data-year="2021">
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
 
                 <c:forEach items="${datelist}" var="list" varStatus="status">
@@ -776,7 +776,7 @@
 		                            </div>
 		                            <div class="fl cat_date_right_box">
 		                                    <%--day of week--%>
-		                                <div class="cat_right_weekday">목요일</div>
+		                                <div class="cat_right_weekday"></div>
 		                                <div class="cat_right_city">${city.name}</div>
 		                            </div>
 		                        </span>

@@ -25,7 +25,7 @@ public class PlaceDAO {
         }
     }
 
-    public int add(PlaceDTO dto) {
+    public int add(PlaceDTO dto, String userId) {
         try {
             String sql = "insert into tblPlan2(plan2seq, address_name, category_group_code, category_group_name, " +
                     "category_name, id, phone, place_name, place_url, road_address_name, x, y, seq, memberid, rdate)" +
@@ -45,7 +45,7 @@ public class PlaceDAO {
             pstat.setString(10, dto.getX());
             pstat.setString(11, dto.getY());
             pstat.setInt(12, 1);              //pstat.setInt(12, 1);
-            pstat.setInt(13, 4);
+            pstat.setString(13, userId);
             pstat.setString(14, dto.getRdate());
             return pstat.executeUpdate();
 
@@ -169,14 +169,14 @@ public class PlaceDAO {
 //
 //        return null;
 //    }
-    public ArrayList<PlaceDTO> getList(int id) {
+    public ArrayList<PlaceDTO> getList(String userId) {
         try {
 
             String sql = "select * from tblPlan2 where memberid=?"; // todo:일정번호로 바꿔야함
 
             pstat = conn.prepareStatement(sql);
 
-            pstat.setInt(1, id);
+            pstat.setString(1, userId);
 
             rs = pstat.executeQuery(); //복붙
 
@@ -372,7 +372,7 @@ public void addAD5(PlaceDTO dto, String tblplanseq, String memberid) {
         pstat.setString(12, dto.getSeq());
         pstat.setString(13, dto.getPlace_url());
         pstat.setString(14, tblplanseq);
-        pstat.setString(15, "4"); // todo: 로그인 구현시 memberid로 바꾸기
+        pstat.setString(15, memberid); // todo: 로그인 구현시 memberid로 바꾸기
 
         pstat.executeUpdate();
 
@@ -408,7 +408,7 @@ public void addAD5(PlaceDTO dto, String tblplanseq, String memberid) {
             pstat.setString(12, dto.getSeq());
             pstat.setString(13, dto.getPlace_url());
             pstat.setString(14, tblplanseq);
-            pstat.setString(15, "4"); // todo: 로그인 구현시 memberid로 바꾸기
+            pstat.setString(15, memberid); // todo: 로그인 구현시 memberid로 바꾸기
 
             pstat.executeUpdate();
 
@@ -487,7 +487,7 @@ ID	VARCHAR2(50 BYTE)*/
             pstat.setString(12, dto.getSeq());
             pstat.setString(13, dto.getPlace_url());
             pstat.setString(14, tblplanseq);
-            pstat.setString(15, "4"); // todo: 로그인 구현시 memberid로 바꾸기
+            pstat.setString(15, memberid); // todo: 로그인 구현시 memberid로 바꾸기
 
             pstat.executeUpdate();
 

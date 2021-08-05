@@ -183,7 +183,7 @@
 
     </nav>
     <!-- END nav -->
-
+    <%@ include file="/inc/init.jsp" %>
 </section>
 </div>
 <script src="<%=request.getContextPath()%>/asset/js/jquery.min.js"></script>
