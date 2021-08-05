@@ -517,7 +517,7 @@
                 style="-webkit-transform:scale(0.85);"
                 src=''
                 frameborder='0'
-                scrolling='no'>
+                scrolling='yes'>
             <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
             <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
         </iframe>
@@ -959,6 +959,8 @@
     <script>
         window.onload = function () {
             $('#all').trigger("click");
+            $('.textbox').val("${city.name}");
+            $('#button-addon1').trigger("click");
         }
         // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
