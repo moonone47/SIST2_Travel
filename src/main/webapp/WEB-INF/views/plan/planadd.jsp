@@ -36,7 +36,7 @@
 
         #xdetail {
             position: absolute;
-            left: 520px;
+            left: 670px;
             top: 12px;
             z-index: 2000;
             font-size: 12px;
@@ -286,8 +286,8 @@
             width: 931px;
             height: 1335px;
             position: absolute;
-            top: -194px;
-            left: 793px;
+            top: -100px;
+            left: 695px;
             /* border: 1px solid red; */
             z-index: 1;
             padding: 0px;
