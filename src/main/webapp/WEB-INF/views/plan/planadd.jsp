@@ -377,7 +377,7 @@
             height: 100%;
             background: #203341;
             overflow-y: auto;
-            max-height: 983px;
+            max-height: 1183px;
         }
 
         #show_all_day {
@@ -480,12 +480,23 @@
             color: #b3b3b3;
             text-align: left !important;
         }
+        body {
+            overflow: hidden; /* Hide scrollbars */
+            overflow-y: hidden; /* Hide vertical scrollbar */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+        iframe {
+            overflow: hidden;
+        }
+        .list-group{
+            overflow: hidden;
+        }
     </style>
 </head>
 
 <%-------------------------------- 카테고리 -----------------------------------%>
 <body onload="script();">
-
+<%--<body>--%>
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
     <%--    100vh--%>
@@ -499,7 +510,7 @@
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
-                           value="${city.name }">
+                           value="${city.name}">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
                             class="fa fa-search"></i></button>
                     <%--            <input title="Search" value="" type="submit" class="button">--%>
@@ -542,7 +553,7 @@
                 style="-webkit-transform:scale(0.7);"
                 src=''
                 frameborder='0'
-                scrolling='yes'>
+                scrolling='no'>
             <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
             <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
         </iframe>
@@ -629,8 +640,6 @@
         <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
             <c:forEach items="${list}" var="dto" varStatus="status">
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
-
-
                 <input type="hidden" name="seq" value="${status.count}">
             </c:forEach>
             <input type="hidden" name="cityname" value="${city.name}">
@@ -986,20 +995,23 @@
     <script>
         window.onload = function () {
             $('#all').trigger("click");
+            $('.textbox').val(${city.name});
         }
         // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
             contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
             markers = [], // 마커를 담을 배열입니다
             currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
+        // $( document ).ready(function() {
+        //     // Handler for .ready() called.
+        // });
 
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
-                center: new kakao.maps.LatLng(${city.cityY}, ${city.cityX}), // 지도의 중심좌표   ${city.cityX}
+                center: new kakao.maps.LatLng(${city.cityY}, ${city.cityX}), // 지도의 중심좌표
                 level: 7 // 지도의 확대 레벨
-
             };
-
+        console.log('${city.cityY}, ${city.cityX}');
         // 지도를 생성합니다
         var map = new kakao.maps.Map(mapContainer, mapOption);
 
@@ -1417,7 +1429,7 @@
         var polyline = new kakao.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
             strokeWeight: 5, // 선의 두께 입니다
-            strokeColor: '#FFAE00', // 선의 색깔입니다 #FFAE00
+            strokeColor: '#4384D9', // 선의 색깔입니다 #FFAE00
             strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
             strokeStyle: 'solid' // 선의 스타일입니다
         });
