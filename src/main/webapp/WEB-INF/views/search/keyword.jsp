@@ -13,8 +13,8 @@
 
 
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/plan.css" type="text/css"/>
-    <%-- <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>--%>
+<%--    <link rel="stylesheet" href="<%= request.getContextPath() %>/asset/css/plan.css" type="text/css"/>--%>
+     <link rel="stylesheet" href="/SIST2_Travel/asset/css/plan.css" type="text/css"/>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -66,7 +66,9 @@
         body > div.container > div{
             margin-bottom: 200px;
         }
-
+        #menu_wrap > div:nth-child(3) > span{
+            position:absolute;
+        }
 
     </style>
 </head>
@@ -98,12 +100,12 @@
         <div class="option"></div>
         <hr>
             <div class="option">
-                <div>
+                <span class="mine">
                     <form onsubmit="searchPlaces(); return false;">
                         키워드 : <input type="text" value="서울 여행" id="keyword" size="15" class="form-control">
                         <button type="submit" class="btn btn-info">검색하기</button>
                     </form>
-                </div>
+                </span>
             </div>
             <hr>
             <ul id="placesList"></ul>
@@ -111,14 +113,14 @@
         </div>
     </div>
 
-<iframe id='detail'
-        class="embed-responsive embed-responsive-16by9 "
-        src=''
-        frameborder='0'
-        scrolling='yes'
-        style='width: 800px;'>
-    <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-</iframe>
+<%--<iframe id='detail'--%>
+<%--        class="embed-responsive embed-responsive-16by9 "--%>
+<%--        src=''--%>
+<%--        frameborder='0'--%>
+<%--        scrolling='yes'--%>
+<%--        style='width: 800px;'>--%>
+<%--    <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->--%>
+<%--</iframe>--%>
 
     <script>
         $("#placesList").click(function () {

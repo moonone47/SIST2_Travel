@@ -27,11 +27,11 @@
 }
 
 .table th:nth-child(5) {
-	width: 60px;
+	width: 70px;
 }
 
 .table th:nth-child(6) {
-	width: 60px;
+	width: 70px;
 }
 
 .table td:nth-child(5) {
@@ -122,6 +122,11 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+#label-danger{
+	background-color: tomato;
+    color: white;
+
+}
 </style>
 
 </head>
@@ -169,10 +174,10 @@ table {
 						href="/SIST2_Travel/community/question/view.do?questionseq=${dto.questionseq}&column=${map.column }&search=${map.search}">${dto.subject}</a>
 
 						<c:if test="${dto.ccnt > 0}">
-							<span class="badge"> ${dto.ccnt } </span>
+							<span class="badge" style="color: black"> (${dto.ccnt }) </span>
 
 						</c:if> <c:if test="${dto.isnew < (1 / 12 ) }">
-							<span class="label label-danger">new </span>
+							<span class="label" id="label-danger">new </span>
 						</c:if></td>
 					<td>${dto.name}</td>
 					<td>${dto.regdate}</td>
@@ -215,7 +220,7 @@ table {
 
 				</select> <input type="text" name="search" id="search" class="form-control"
 					required placeholder="검색어를 입력하세요." /> <input type="submit"
-					value="검색하기" class="btn btn-default" />
+					value="검색하기" class="btn btn-default" style="border: 1px solid black; " />
 			</form>
 		</div>
 
@@ -228,13 +233,12 @@ table {
 
 			<!-- <button type="button" class="btn btn-default"
 				onclick="location.reload();">새로고침</button> -->
-			<button type="button" class="btn btn-default"
+			<button type="button" class="btn btn-default" style="border: 1px solid black; "
 				onclick="location.href='/SIST2_Travel/community/question/list.do';">새로고침</button>
 		</div>
 
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
 	<script>
 		<c:if test="${map.isSearch == 'y'}">
 		//상태 복원 

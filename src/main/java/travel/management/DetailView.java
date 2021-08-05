@@ -23,14 +23,14 @@ public class DetailView extends HttpServlet {
 
 		String planseq = req.getParameter("planseq");
 		
-		System.out.println(planseq);
+		//System.out.println(planseq);
 		HttpSession session = req.getSession();
 		
 		String id = (String)session.getAttribute("id");
 		
 		ManagementDAO dao = new ManagementDAO();			
 			
-		ArrayList<ManagementDTO> list = dao.getdetail(planseq, "3"); // id로 나중에 바꾸기
+		ArrayList<ManagementDTO> list = dao.getdetail(planseq, id); // id로 나중에 바꾸기
 	
 
 		

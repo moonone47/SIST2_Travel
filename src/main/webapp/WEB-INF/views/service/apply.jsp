@@ -85,7 +85,7 @@
 
 			<div class="btns">
 				<button type="submit" id="apply" class="btn btn-primary">의뢰 신청하기</button>
-				<button type="button" class="btn btn-default"
+				<button type="button" class="btn btn-default" style="border: 1px solid black; float: right"
 					onclick="location.href='/SIST2_Travel/service/list.do';">돌아가기</button>
 			</div>
 		
@@ -93,7 +93,6 @@
 
 	</section>
 
-	<%@ include file="/inc/init.jsp"%>
    <%@ include file="/inc/footer.jsp"%> 
 	<script>
 	$("#apply").click(function() {

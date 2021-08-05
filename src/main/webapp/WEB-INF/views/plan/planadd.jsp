@@ -26,14 +26,13 @@
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
     <style>
-        #xdetail2 {
+         #xdetail2 {
             position: absolute;
             left: 1500px;
             top: 40px;
             z-index: 2000;
             font-size: 50px;
         }
-
         #xdetail {
             position: absolute;
             left: 520px;
@@ -41,7 +40,6 @@
             z-index: 2000;
             font-size: 12px;
         }
-
         /*  #menu_wrap {
              margin: 0;
              padding: 0;
@@ -72,11 +70,9 @@
     background: #fff;
     -ms-overflow-style: none;
 }
-
         #menu_wrap::-webkit-scrollbar {
             display: none;
         }
-
 .city_name {
     margin-left: 3px;
     padding: 0;
@@ -95,7 +91,6 @@
     position: relative;
     left: -2px;
 }
-
         .search {
             box-sizing: border-box;
             width: 300px;
@@ -106,19 +101,16 @@
             /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
             /*background-position: 300px 4px;*/
         }
-
        #category {
     background: #f7f7f7;
     display: flex;
     margin-left: 5px;
     margin-top: 5px;
 }
-
         #category li {
             width: 100%;
             text-align: center;
         }
-
         #placesList > li > span {
             cursor: pointer;
             margin: 0;
@@ -129,7 +121,6 @@
             width: 82px;
             height: 75px;
         }
-
         #keyword {
             box-sizing: border-box;
             width: 300px;
@@ -140,7 +131,6 @@
             /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
             /*background-position: 300px 4px;*/
         }
-
         /*#placesList > .item > .info{*/
         /*    font-size: 20px;*/
         /*}*/
@@ -174,24 +164,19 @@
             top: -37px;
             width: 35px;
         }
-
         #category li {
             font-size: 16px;
             font-weight: bold;
         }
-
-
         #schedule > form > a {
             background-color: #203341;
             border-color: #4383D9;
             margin-bottom: 20px;
         }
-
         .list-group-item {
             /* background-color: #A2D4F2; */
             background-color: #fff;
         }
-
         .btn-primary {
             position: relative;
             color: #fff;
@@ -201,7 +186,6 @@
             margin: 0px 0px;
             width: 100%;
         }
-
        #planlist {
     position: absolute;
     top: 0px;
@@ -216,7 +200,6 @@
     z-index: 1;
     font-size: 12px;
 }
-
       #schedule {
     position: absolute;
     top: 0px;
@@ -231,7 +214,6 @@
     z-index: 1;
     font-size: 13px;
 }
-
         #my_form {
             border: 1px solid #DDD;
             border-radius: 5%;
@@ -251,14 +233,12 @@
             background: #203341;
             border-bottom: solid 1px #1a7ad9; */
         }
-
         #complete {
             width: 200;
             background-color: #529AD9;
             border-color: #203341;
             margin-bottom: 10px;
         }
-
       #on_city_close_btn {
     width: 42px;
     height: 42px;
@@ -269,7 +249,6 @@
     cursor: pointer;
     border-radius: 0px 8px 8px 0px;
 }
-
        #on_city_open_btn {
     width: 40px;
     height: 40px;
@@ -281,7 +260,6 @@
     z-index: 99;
     border-radius: 0px 6px 7px 2px;
 }
-
         #detail-box {
             width: 931px;
             height: 1335px;
@@ -292,7 +270,6 @@
             z-index: 1;
             padding: 0px;
         }
-
         .fl {
             margin: 0;
             padding: 0;
@@ -302,7 +279,6 @@
             box-sizing: border-box;
             float: left;
         }
-
         #pn_title_box {
             margin: 0;
             padding: 0;
@@ -315,7 +291,6 @@
             /*height: 100%;*/
             background: #203341;
         }
-
         #pn_title_box li {
             list-style: none;
             margin: 0;
@@ -333,7 +308,6 @@
             font-size: 12px;
             cursor: pointer;
         }
-
         .full_date_info, .fl {
             list-style: none;
             color: #fff;
@@ -348,7 +322,6 @@
             float: left;
             margin-left: 15px;
         }
-
         .day_edit_start_btn {
             list-style: none;
             color: #fff;
@@ -367,7 +340,6 @@
             padding-left: 18px;
             line-height: 15px;
         }
-
         #cat_menu {
             margin: 0;
             padding: 0;
@@ -382,7 +354,6 @@
             overflow-y: auto;
             max-height: 1183px;
         }
-
         #show_all_day {
             list-style: none;
             margin: 0;
@@ -400,7 +371,6 @@
             border-bottom: solid 1px #374854;
             cursor: pointer;
         }
-
         #cat_menu > li.on {
             list-style: none;
             margin: 0;
@@ -417,7 +387,6 @@
             background: #1a7ad9;
             border-bottom: solid 1px #1a7ad9;
         }
-
         #cat_menu li .cat_date_left_box {
             list-style: none;
             color: #fff;
@@ -433,14 +402,12 @@
             margin-top: 20px;
             margin-left: 18px;
         }
-
         #cat_menu {
             width: 160px;
             height: 100%;
             background: #203341;
             overflow-y: auto;
         }
-
         #cat_menu li {
             width: 100%;
             height: 70px;
@@ -451,34 +418,28 @@
             font-size: 12px;
             cursor: pointer;
         }
-
         #cat_menu li .cat_date_left_box {
             margin-top: 20px;
             margin-left: 18px;
         }
-
         #cat_menu li .cat_left_day {
             color: #fff;
             font-size: 17px;
             font-weight: bold;
             margin-bottom: 5px;
         }
-
         #cat_menu li .cat_left_date {
             color: #49b2e9;
             font-size: 11px;
         }
-
         #cat_menu li .cat_date_right_box {
             margin-top: 20px;
             margin-left: 5px;
         }
-
         #cat_menu li .cat_right_weekday {
             margin-bottom: 7px;
             text-align: left !important;
         }
-
         #cat_menu li .cat_right_city {
             color: #b3b3b3;
             text-align: left !important;
@@ -505,6 +466,7 @@
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
+        <div id="on_city_close_btn"></div>
         <div class="sticky-top" style="position: static;">
             <div class="city_name">${city.name}
                 <div id="on_city_close_btn"></div>
@@ -512,7 +474,7 @@
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
-                           value="${city.name}">
+                           value="서울 여행">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
                             class="fa fa-search"></i></button>
                     <%--            <input title="Search" value="" type="submit" class="button">--%>
@@ -552,10 +514,10 @@
         <iframe id='detail'
                 name=naver onload="naver.scrollTo(40,100);"
                 class="embed-responsive embed-responsive-16by9"
-                style="-webkit-transform:scale(0.7);"
+                style="-webkit-transform:scale(0.85);"
                 src=''
                 frameborder='0'
-                scrolling='no'>
+                scrolling='yes'>
             <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
             <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
         </iframe>
@@ -759,7 +721,7 @@
                 </li>
             </ul>
 
-            <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
+            <ul id="cat_menu" style="max-height: 1183px;" data-year="2021">
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
 
                 <c:forEach items="${datelist}" var="list" varStatus="status">
@@ -778,7 +740,7 @@
 		                            </div>
 		                            <div class="fl cat_date_right_box">
 		                                    <%--day of week--%>
-		                                <div class="cat_right_weekday">목요일</div>
+		                                <div class="cat_right_weekday"></div>
 		                                <div class="cat_right_city">${city.name}</div>
 		                            </div>
 		                        </span>
@@ -997,7 +959,8 @@
     <script>
         window.onload = function () {
             $('#all').trigger("click");
-            $('.textbox').val(${city.name});
+            $('.textbox').val("${city.name}");
+            $('#button-addon1').trigger("click");
         }
         // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),

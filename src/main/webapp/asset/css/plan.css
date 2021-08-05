@@ -349,13 +349,12 @@
 }
 /* 상세 페이지 */
 #detail {
-	position: absolute;
-/*     top: 0px;
-    left: 1000px; */
-    bottom: 0;
+    position: absolute;
+    top: 5px;
+    left: -110px;
     width: 931px;
     height: 100%;
-  /*  margin: 10px 0 30px 10px; */
+    /* margin: 10px 0 30px 10px; */
     padding: 5px;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.7);
@@ -368,26 +367,28 @@
 	width:931px;
 	height:1335px;
 	position: absolute;
-	top: -195px;
-    left: 780px;
+	top: -175px;
+    left: 540px;
 	/* border: 1px solid red; */
 	z-index: 1;
 	padding: 0px;
 }
+
 #detailbtns {
-	position: absolute;
-	top: 202px;
-	left: 155px;
-	background-color: #FFF;
-	width: 620px;
-	height: 42px;
-	z-index: 4;
+    position: absolute;
+    top: 130px;
+    left: -37px;
+    background-color: #FFF;
+    width: 770px;
+    height: 42px;
+    z-index: 55;
 }
+
 
 #addplan {
 	position: absolute;
 	top: -3px;
-	left: 13px;
+	left: 40px;
 	bottom: 0;
 	width: 100px;
 	height: 100px;
@@ -414,7 +415,7 @@
 #addWish {
 	position: absolute;
 	top: -3px;
-	left: 113px;
+	left: 135px;
 	bottom: 0;
 	width: 100px;
 	height: 100px;
