@@ -19,28 +19,44 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <%--    <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">--%>
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
     <style>
-         #xdetail2{
+        #xdetail2 {
             position: absolute;
             left: 1500px;
             top: 40px;
             z-index: 2000;
-            font-size:50px;
+            font-size: 50px;
         }
-        #xdetail{
+
+        #xdetail {
             position: absolute;
             left: 520px;
             top: 12px;
             z-index: 2000;
-            font-size:12px;
+            font-size: 12px;
         }
 
-       /*  #menu_wrap {
+        /*  #menu_wrap {
+             margin: 0;
+             padding: 0;
+             border: 0;
+             font-size: 100%;
+             font: inherit;
+             box-sizing: border-box;
+             width: 325px;
+             z-index: 999;
+             position: absolute;
+             left: 700px;
+             height: 1145px;
+             background: #fff;
+         } */
+        #menu_wrap {
             margin: 0;
             padding: 0;
             border: 0;
@@ -50,29 +66,16 @@
             width: 325px;
             z-index: 999;
             position: absolute;
-            left: 700px;
-            height: 1145px;
+            left: 600px;
+            height: 1137px;
+            top: 5px;
             background: #fff;
-        } */
-        #menu_wrap {
-		    margin: 0;
-		    padding: 0;
-		    border: 0;
-		    font-size: 100%;
-		    font: inherit;
-		    box-sizing: border-box;
-		    width: 325px;
-		    z-index: 999;
-		    position: absolute;
-		    left: 600px;
-		    height: 1137px;
-		    top: 5px;
-		    background: #fff;
             -ms-overflow-style: none;
-	   }
-         #menu_wrap::-webkit-scrollbar{
-             display:none;
-         }
+        }
+
+        #menu_wrap::-webkit-scrollbar {
+            display: none;
+        }
 
         .city_name {
             margin-left: 3px;
@@ -137,7 +140,7 @@
         /*#placesList > .item > .info{*/
         /*    font-size: 20px;*/
         /*}*/
-        #button-addon1{
+        #button-addon1 {
             box-sizing: border-box;
             margin: 0;
             font-family: inherit;
@@ -154,10 +157,10 @@
             font-size: 1rem;
             line-height: 1.5;
             border-radius: .25rem;
-            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
             font-weight: 400;
             text-decoration: none;
-            color: #007bff!important;
+            color: #007bff !important;
             position: relative;
             z-index: 2;
             cursor: pointer;
@@ -167,121 +170,316 @@
             top: -37px;
             width: 35px;
         }
-        #category li{
+
+        #category li {
             font-size: 16px;
             font-weight: bold;
         }
-        
-             
-   #schedule > form > a {
-    background-color:#203341;
-    border-color: #4383D9;
-    margin-bottom: 20px;
-}
-	
-	.list-group-item {
-		/* background-color: #A2D4F2; */
-		background-color: #fff;
-	}
-	
-.btn-primary {
-	position: relative;
-    color: #fff;
-    background-color: #529AD9;
-    border-color: #fff;
-    z-index: 2;
-    margin: 0px 0px;
-    width: 100%;
-}
 
-#planlist {
-    position: absolute;
-    top: 0px;
-    left: 300px;
-    bottom: 0;
-    width: 300px;
-    height: auto;
-    margin: 10px 0 30px 10px;
-    padding: 7px;
-    overflow-y: auto;
-    background: white;
-    z-index: 1;
-    font-size: 12px;
-    /* border: 1px solid red; */
-}
 
-#schedule {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0;
-    width: 300px;
-    height: 463px;
-    margin: 10px 0 30px 10px;
-    padding: 5px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-    font-size: 13px;
-    /* border: 1px solid red; */
-}
+        #schedule > form > a {
+            background-color: #203341;
+            border-color: #4383D9;
+            margin-bottom: 20px;
+        }
 
-#my_form {
-	border: 1px solid #DDD;
-	border-radius: 5%; 
-	color: #black;
-	/* list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    box-sizing: border-box;
-    width: 100%;
-    height: 70px;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-    cursor: pointer;
-    background: #203341;
-    border-bottom: solid 1px #1a7ad9; */
-}
-        
-   #complete {
-   	width: 200;
-   	background-color: #529AD9;
-   	border-color: #203341;
- 	margin-bottom: 10px;
-   }
-   
-   #on_city_close_btn {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: url(/SIST2_Travel/asset/images/city_close_btn.png);
-    cursor: pointer;
-}
-    #on_city_open_btn {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    left: 600px;
-    background: url(/SIST2_Travel/asset/images/city_open_btn.png);
-    cursor: pointer;
-    z-index: 99;
-}
-#detail-box {
-    width: 931px;
-    height: 1335px;
-    position: absolute;
-    top: -194px;
-    left: 793px;
-    /* border: 1px solid red; */
-    z-index: 1;
-    padding: 0px;
-}
+        .list-group-item {
+            /* background-color: #A2D4F2; */
+            background-color: #fff;
+        }
+
+        .btn-primary {
+            position: relative;
+            color: #fff;
+            background-color: #529AD9;
+            border-color: #fff;
+            z-index: 2;
+            margin: 0px 0px;
+            width: 100%;
+        }
+
+        #planlist {
+            position: absolute;
+            top: 0px;
+            left: 300px;
+            bottom: 0;
+            width: 300px;
+            height: auto;
+            margin: 10px 0 30px 10px;
+            padding: 7px;
+            overflow-y: auto;
+            background: white;
+            z-index: 1;
+            font-size: 12px;
+            /* border: 1px solid red; */
+        }
+
+        #schedule {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0;
+            width: 200px;
+            height: 1284px;
+            margin: 10px 0 30px 10px;
+            padding: 5px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            font-size: 13px;
+
+            /* border: 1px solid red; */
+        }
+
+        #my_form {
+            border: 1px solid #DDD;
+            border-radius: 5%;
+            color: #black;
+            /* list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            box-sizing: border-box;
+            width: 100%;
+            height: 70px;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+            background: #203341;
+            border-bottom: solid 1px #1a7ad9; */
+        }
+
+        #complete {
+            width: 200;
+            background-color: #529AD9;
+            border-color: #203341;
+            margin-bottom: 10px;
+        }
+
+        #on_city_close_btn {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: url(/SIST2_Travel/asset/images/city_close_btn.png);
+            cursor: pointer;
+        }
+
+        #on_city_open_btn {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            left: 600px;
+            background: url(/SIST2_Travel/asset/images/city_open_btn.png);
+            cursor: pointer;
+            z-index: 99;
+        }
+
+        #detail-box {
+            width: 931px;
+            height: 1335px;
+            position: absolute;
+            top: -194px;
+            left: 793px;
+            /* border: 1px solid red; */
+            z-index: 1;
+            padding: 0px;
+        }
+
+        .fl {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        #pn_title_box {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            list-style: none;
+            box-sizing: border-box;
+            width: 160px;
+            /*height: 100%;*/
+            background: #203341;
+        }
+
+        #pn_title_box li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background: #203341;
+            color: #fff;
+            text-align: center;
+            border-bottom: solid 1px #374854;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .full_date_info, .fl {
+            list-style: none;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            box-sizing: border-box;
+            float: left;
+            margin-left: 15px;
+        }
+
+        .day_edit_start_btn {
+            list-style: none;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            box-sizing: border-box;
+            float: left;
+            margin-top: 18px;
+            margin-left: 10px;
+            background: url('이미지') no-repeat;
+            padding-left: 18px;
+            line-height: 15px;
+        }
+
+        #cat_menu {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            list-style: none;
+            box-sizing: border-box;
+            width: 160px;
+            height: 100%;
+            background: #203341;
+            overflow-y: auto;
+            max-height: 983px;
+        }
+
+        #show_all_day {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            box-sizing: border-box;
+            line-height: 70px;
+            font-size: 15px !important;
+            width: 100%;
+            height: 70px;
+            background: #203341;
+            color: #fff;
+            text-align: center;
+            border-bottom: solid 1px #374854;
+            cursor: pointer;
+        }
+
+        #cat_menu > li.on {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            box-sizing: border-box;
+            width: 100%;
+            height: 70px;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+            background: #1a7ad9;
+            border-bottom: solid 1px #1a7ad9;
+        }
+
+        #cat_menu li .cat_date_left_box {
+            list-style: none;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            box-sizing: border-box;
+            float: left;
+            margin-top: 20px;
+            margin-left: 18px;
+        }
+
+        #cat_menu {
+            width: 160px;
+            height: 100%;
+            background: #203341;
+            overflow-y: auto;
+        }
+
+        #cat_menu li {
+            width: 100%;
+            height: 70px;
+            background: #203341;
+            color: #fff;
+            text-align: center;
+            border-bottom: solid 1px #374854;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        #cat_menu li .cat_date_left_box {
+            margin-top: 20px;
+            margin-left: 18px;
+        }
+
+        #cat_menu li .cat_left_day {
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        #cat_menu li .cat_left_date {
+            color: #49b2e9;
+            font-size: 11px;
+        }
+
+        #cat_menu li .cat_date_right_box {
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+
+        #cat_menu li .cat_right_weekday {
+            margin-bottom: 7px;
+            text-align: left !important;
+        }
+
+        #cat_menu li .cat_right_city {
+            color: #b3b3b3;
+            text-align: left !important;
+        }
     </style>
 </head>
 
@@ -293,14 +491,17 @@
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
-    <div id="on_city_close_btn"></div>
+        <div id="on_city_close_btn"></div>
         <div class="sticky-top">
-            <div class="city_name">${city.name} <div id="on_city_close_btn"></div></div>
+            <div class="city_name">${city.name}
+                <div id="on_city_close_btn"></div>
+            </div>
             <div class="search">
                 <form onsubmit="searchPlaces2(); return false;">
                     <input type="text" class="textbox form-control" placeholder="키워드를 입력하세요." id="keyword"
                            value="서울 여행">
-                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
                     <%--            <input title="Search" value="" type="submit" class="button">--%>
                 </form>
             </div>
@@ -330,125 +531,131 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
-     <div id="on_city_open_btn"></div>
+    <div id="on_city_open_btn"></div>
     <!--------------------------------------     상세 페이지   ---------------------------->
     <div id="detail-box" style="display:none;">
-    
-   <!-- -->
-	    <iframe id='detail' 
-			    name=naver onload="naver.scrollTo(40,100);"
-			    class="embed-responsive embed-responsive-16by9"
-			    style="-webkit-transform:scale(0.7);"
-	            src=''
-	            frameborder='0'
-	            scrolling='yes'>
-	        <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
-	        <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
-	    </iframe>
-	    
-	    <div id="detailbtns" >
-	    <button id="xdetail" type="button"  >
-	   	<img id="xdetailimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM3OC4zMDIgMzc4LjMwMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzc4LjMwMiAzNzguMzAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIzNzguMzAyLDI4LjI4NCAzNTAuMDE3LDAgMTg5LjE1MSwxNjAuODY3IDI4LjI4NCwwIDAsMjguMjg0IDE2MC44NjYsMTg5LjE1MSAwLDM1MC4wMTggDQoJMjguMjg0LDM3OC4zMDIgMTg5LjE1MSwyMTcuNDM2IDM1MC4wMTcsMzc4LjMwMiAzNzguMzAyLDM1MC4wMTggMjE3LjQzNSwxODkuMTUxICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
-	    창 닫기</button>
-		        <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
-	    <div id="addplan" class="noshow" >
-	        <form method="POST" action="/SIST2_Travel/plan/planadd.do">
-<!-- 	            <span><img src=""></span>
-	            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-	                 class="bi bi-check-lg" viewBox="0 0 16 16">
-	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-	            </svg> -->
-	            <input type="hidden" id="address_name" name="address_name" value="">
-	            <input type="hidden" id="category_group_code" name="category_group_code" value="">
-	            <input type="hidden" id="category_group_name" name="category_group_name" value="">
-	            <input type="hidden" id="category_name" name="category_name" value="">
-	            <input type="hidden" id="id" name="id" value="">
-	            <input type="hidden" id="phone" name="phone" value="">
-	            <input type="hidden" id="place_name" name="place_name" value="">
-	            <input type="hidden" id="place_url" name="place_url" value="">
-	            <input type="hidden" id="road_address_name" name="road_address_name" value="">
-	            <input type="hidden" id="x" name="x" value="">
-	            <input type="hidden" id="y" name="y" value="">
-	
-	            <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
-	
-	            <input type="hidden" name="cityname" value="${city.name}">
-	            <input type="hidden" name="cityX" value="${city.cityX}">
-	            <input type="hidden" name="cityY" value="${city.cityY}">
-	            <input type="hidden" name="Explain" value="${city.explain}">
-	            <input type="hidden" name="Cityseq" value="${city.cityseq}">
-	
-	
-	            <input type="hidden" name="planname" value="${citydto.name}">
-	            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-	            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-	            <input type="hidden" name="willshare" value="${citydto.willshare}">
-	
-	
-	            <c:forEach items="${datelist}" var="list">
-	                <input type="hidden" name="datelist" value="${list}">
-	            </c:forEach>
-	
-	            <button id="addplanbtn" type="submit" >
-	            <img id="addplanimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5NSA0OTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5NSA0OTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNCRERCRkY7IiBwb2ludHM9IjIyNy41LDM3OS4xMzMgMjI3LjUsMjY3LjUgMTE1Ljg2NSwyNjcuNSAxMTUuODY1LDIyNy41IDIyNy41LDIyNy41IDIyNy41LDExNS44NjcgDQoJCTI0Ny41LDExNS44NjcgMjQ3LjUsMCAwLDAgMCw0OTUgMjQ3LjUsNDk1IDI0Ny41LDM3OS4xMzMgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiM5QkM5RkY7IiBwb2ludHM9IjI0Ny41LDAgMjQ3LjUsMTE1Ljg2NyAyNjcuNSwxMTUuODY3IDI2Ny41LDIyNy41IDM3OS4xMzUsMjI3LjUgMzc5LjEzNSwyNjcuNSAyNjcuNSwyNjcuNSANCgkJMjY3LjUsMzc5LjEzMyAyNDcuNSwzNzkuMTMzIDI0Ny41LDQ5NSA0OTUsNDk1IDQ5NSwwIAkiLz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIyMjcuNSwyMjcuNSAxMTUuODY1LDIyNy41IDExNS44NjUsMjY3LjUgMjI3LjUsMjY3LjUgMjI3LjUsMzc5LjEzMyAyNjcuNSwzNzkuMTMzIA0KCQkyNjcuNSwyNjcuNSAzNzkuMTM1LDI2Ny41IDM3OS4xMzUsMjI3LjUgMjY3LjUsMjI3LjUgMjY3LjUsMTE1Ljg2NyAyMjcuNSwxMTUuODY3IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
-	            일정 추가</button>
-	        </form>
-	        </div>
-	    
-	
-	    <%-------------------------- 찜추가 ----------------------------%>
-	    <div id="addWish" class="noshow">
-	        <!-- <a href="!#">
-	            <span><img src=""></span>
-	            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
-	                 viewBox="0 0 16 16">
-	                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-	            </svg>
-	        </a> -->
-	            <button type="button" id="addWishbtn">
-	            <img id="addwishimg" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUwMS4yOCA1MDEuMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwMS4yOCA1MDEuMjg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkNEMDA7IiBwb2ludHM9IjUwMS4yOCwxOTQuMzcgMzM1LjI2LDE1OS4zMyAyNTAuNjQsMTIuMjcgMjUwLjY0LDQxOS43NyA0MDUuNTQsNDg5LjAxIDM4Ny41NiwzMjAuMjkgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkRBNDQ7IiBwb2ludHM9IjE2Ni4wMiwxNTkuMzMgMCwxOTQuMzcgMTEzLjcyLDMyMC4yOSA5NS43NCw0ODkuMDEgMjUwLjY0LDQxOS43NyAyNTAuNjQsMTIuMjcgCSIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
-	            찜 추가</button>
-	    </div>
-	</div>
-	</div>
-	
+
+        <!-- -->
+        <iframe id='detail'
+                name=naver onload="naver.scrollTo(40,100);"
+                class="embed-responsive embed-responsive-16by9"
+                style="-webkit-transform:scale(0.7);"
+                src=''
+                frameborder='0'
+                scrolling='yes'>
+            <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
+            <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
+        </iframe>
+
+        <div id="detailbtns">
+            <button id="xdetail" type="button">
+                <img id="xdetailimg"
+                     src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM3OC4zMDIgMzc4LjMwMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzc4LjMwMiAzNzguMzAyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIzNzguMzAyLDI4LjI4NCAzNTAuMDE3LDAgMTg5LjE1MSwxNjAuODY3IDI4LjI4NCwwIDAsMjguMjg0IDE2MC44NjYsMTg5LjE1MSAwLDM1MC4wMTggDQoJMjguMjg0LDM3OC4zMDIgMTg5LjE1MSwyMTcuNDM2IDM1MC4wMTcsMzc4LjMwMiAzNzguMzAyLDM1MC4wMTggMjE3LjQzNSwxODkuMTUxICIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo="/>
+                창 닫기
+            </button>
+            <%---------------------- 일정추가  rdate + 전체 일정 dto 추가----------------------------%>
+            <div id="addplan" class="noshow">
+                <form method="POST" action="/SIST2_Travel/plan/planadd.do">
+                    <!-- 	            <span><img src=""></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-check-lg" viewBox="0 0 16 16">
+                                        <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                                    </svg> -->
+                    <input type="hidden" id="address_name" name="address_name" value="">
+                    <input type="hidden" id="category_group_code" name="category_group_code" value="">
+                    <input type="hidden" id="category_group_name" name="category_group_name" value="">
+                    <input type="hidden" id="category_name" name="category_name" value="">
+                    <input type="hidden" id="id" name="id" value="">
+                    <input type="hidden" id="phone" name="phone" value="">
+                    <input type="hidden" id="place_name" name="place_name" value="">
+                    <input type="hidden" id="place_url" name="place_url" value="">
+                    <input type="hidden" id="road_address_name" name="road_address_name" value="">
+                    <input type="hidden" id="x" name="x" value="">
+                    <input type="hidden" id="y" name="y" value="">
+
+                    <input type="hidden" id="rdateadd" name="rdate" value="${rdate}">
+
+                    <input type="hidden" name="cityname" value="${city.name}">
+                    <input type="hidden" name="cityX" value="${city.cityX}">
+                    <input type="hidden" name="cityY" value="${city.cityY}">
+                    <input type="hidden" name="Explain" value="${city.explain}">
+                    <input type="hidden" name="Cityseq" value="${city.cityseq}">
+
+
+                    <input type="hidden" name="planname" value="${citydto.name}">
+                    <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                    <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                    <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+
+                    <c:forEach items="${datelist}" var="list">
+                        <input type="hidden" name="datelist" value="${list}">
+                    </c:forEach>
+
+                    <button id="addplanbtn" type="submit">
+                        <img id="addplanimg"
+                             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5NSA0OTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5NSA0OTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNCRERCRkY7IiBwb2ludHM9IjIyNy41LDM3OS4xMzMgMjI3LjUsMjY3LjUgMTE1Ljg2NSwyNjcuNSAxMTUuODY1LDIyNy41IDIyNy41LDIyNy41IDIyNy41LDExNS44NjcgDQoJCTI0Ny41LDExNS44NjcgMjQ3LjUsMCAwLDAgMCw0OTUgMjQ3LjUsNDk1IDI0Ny41LDM3OS4xMzMgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiM5QkM5RkY7IiBwb2ludHM9IjI0Ny41LDAgMjQ3LjUsMTE1Ljg2NyAyNjcuNSwxMTUuODY3IDI2Ny41LDIyNy41IDM3OS4xMzUsMjI3LjUgMzc5LjEzNSwyNjcuNSAyNjcuNSwyNjcuNSANCgkJMjY3LjUsMzc5LjEzMyAyNDcuNSwzNzkuMTMzIDI0Ny41LDQ5NSA0OTUsNDk1IDQ5NSwwIAkiLz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojMjQ4OEZGOyIgcG9pbnRzPSIyMjcuNSwyMjcuNSAxMTUuODY1LDIyNy41IDExNS44NjUsMjY3LjUgMjI3LjUsMjY3LjUgMjI3LjUsMzc5LjEzMyAyNjcuNSwzNzkuMTMzIA0KCQkyNjcuNSwyNjcuNSAzNzkuMTM1LDI2Ny41IDM3OS4xMzUsMjI3LjUgMjY3LjUsMjI3LjUgMjY3LjUsMTE1Ljg2NyAyMjcuNSwxMTUuODY3IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K"/>
+                        일정 추가
+                    </button>
+                </form>
+            </div>
+
+
+            <%-------------------------- 찜추가 ----------------------------%>
+            <div id="addWish" class="noshow">
+                <!-- <a href="!#">
+                    <span><img src=""></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                         viewBox="0 0 16 16">
+                        <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                    </svg>
+                </a> -->
+                <button type="button" id="addWishbtn">
+                    <img id="addwishimg"
+                         src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUwMS4yOCA1MDEuMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwMS4yOCA1MDEuMjg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkNEMDA7IiBwb2ludHM9IjUwMS4yOCwxOTQuMzcgMzM1LjI2LDE1OS4zMyAyNTAuNjQsMTIuMjcgMjUwLjY0LDQxOS43NyA0MDUuNTQsNDg5LjAxIDM4Ny41NiwzMjAuMjkgCSIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkRBNDQ7IiBwb2ludHM9IjE2Ni4wMiwxNTkuMzMgMCwxOTQuMzcgMTEzLjcyLDMyMC4yOSA5NS43NCw0ODkuMDEgMjUwLjY0LDQxOS43NyAyNTAuNjQsMTIuMjcgCSIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo="/>
+                    찜 추가
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
 <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
-    
-    <div class="plan sortable" id="planlist">   		
-		<%-------------------------------일정 등록 완료------------------------%>
-		<div>
-			<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">	
-		    	<c:forEach items="${list}" var="dto" varStatus="status">
-			        <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-			        <input type="hidden" name="cityname" value="${city.name}">
-			        <input type="hidden" name="cityX" value="${city.cityX}">
-			        <input type="hidden" name="cityY" value="${city.cityY}">
-			        <input type="hidden" name="Explain" value="${city.explain}">
-			        <input type="hidden" name="Cityseq" value="${city.cityseq}">			
-			        <input type="hidden" name="planname" value="${citydto.name}">
-			        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-			        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-			        <input type="hidden" name="willshare" value="${citydto.willshare}">
-			
-			        <c:forEach items="${datelist}" var="list">
-		          		<input type="hidden" name="datelist" value="${list}">
-		        	</c:forEach>		        	
-		        	<input type="hidden" name="planseq" value="${dto.plan2seq}">
-		        	<input type="hidden" name="seq" value="${status.count}">
-		    	</c:forEach>
-		    	<input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
-			</form>
-		</div>
-	<%--------------------------------------------------------------------%>
-	
+
+    <div class="plan sortable" id="planlist">
+        <%-------------------------------일정 등록 완료------------------------%>
+        <div>
+            <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
+                <c:forEach items="${list}" var="dto" varStatus="status">
+                    <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+                    <input type="hidden" name="cityname" value="${city.name}">
+                    <input type="hidden" name="cityX" value="${city.cityX}">
+                    <input type="hidden" name="cityY" value="${city.cityY}">
+                    <input type="hidden" name="Explain" value="${city.explain}">
+                    <input type="hidden" name="Cityseq" value="${city.cityseq}">
+                    <input type="hidden" name="planname" value="${citydto.name}">
+                    <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                    <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                    <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+                    <c:forEach items="${datelist}" var="list">
+                        <input type="hidden" name="datelist" value="${list}">
+                    </c:forEach>
+                    <input type="hidden" name="planseq" value="${dto.plan2seq}">
+                    <input type="hidden" name="seq" value="${status.count}">
+                </c:forEach>
+                <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
+            </form>
+        </div>
+        <%--------------------------------------------------------------------%>
+
         <c:forEach items="${list}" var="dto" varStatus="status">
 
             <div class="list-group">
                 <div class="list-group-item list-group-item-action">
-                    <div id="seqname">${status.index}</div>                   
+                    <div id="seqname">${status.index}</div>
                     <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
                         <h5 class="mb-1" style="font-size: 16px; font-weight: bold;">${dto.place_name}</h5>
                         <small class="text-muted">${dto.category_group_name}</small>
@@ -469,7 +676,7 @@
                     <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
                     <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-                    <%--<input type="hidden" name="datelist" value="${datelist}">--%>
+                        <%--<input type="hidden" name="datelist" value="${datelist}">--%>
                 </div>
                 <input type="hidden" name="planseq" value="${dto.plan2seq}">
                 <input type="hidden" name="seq" value="${status.count}">
@@ -486,58 +693,108 @@
 <%---------------------------------일정---------------------------------%>
 <div id="schedule" class="list-group list-group-flush border-bottom scrollarea">
     <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
-        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-            <div class="w-100 align-items-center justify-content-between">
-                <strong class="mb-1">전체 일정</strong>
-                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>
 
-                <label for="from">From</label>
-                <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">
-                <br>
-                <label for="to">to</label>
-                <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">
+        <%--        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">--%>
+        <%--            <div class="w-100 align-items-center justify-content-between">--%>
+        <%--                <strong class="mb-1">전체 일정</strong>--%>
+        <%--                <div>일정 이름: <input type="text" id="name" name="name" autocomplete="off" value="${citydto.name}"></div>--%>
 
-            </div>
-            <div class="w-100 align-items-center justify-content-between">
-                <fieldset>
-                    <select style="width:200px;" name="cityseq">
-                        <c:forEach items='${citys}' var="citys">
-                            <option value="${city.name}">${citys.name}</option>
-                        </c:forEach>
-                    </select>
-                </fieldset>
+        <%--                <label for="from">From</label>--%>
+        <%--                <input type="text" id="from" name="daystarttravel" value="${citydto.daystarttravel}">--%>
+        <%--                <br>--%>
+        <%--                <label for="to">to</label>--%>
+        <%--                <input type="text" id="to" name="dayendtravel" value="${citydto.dayendtravel}">--%>
 
-            </div>
-            <div class="col-10 mb-1 small">공유여부:
+        <%--            </div>--%>
+        <%--            <div class="w-100 align-items-center justify-content-between">--%>
+        <%--                <fieldset>--%>
+        <%--                    <select style="width:200px;" name="cityseq">--%>
+        <%--                        <c:forEach items='${citys}' var="citys">--%>
+        <%--                            <option value="${city.name}">${citys.name}</option>--%>
+        <%--                        </c:forEach>--%>
+        <%--                    </select>--%>
+        <%--                </fieldset>--%>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"
-                           checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        공유함
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        공유안함
-                    </label>
-                </div>
-            </div>
-            <input type="submit" value="일정 설정 완료">
-        </a>
+        <%--            </div>--%>
+        <%--            <div class="col-10 mb-1 small">공유여부:--%>
+
+        <%--                <div class="form-check">--%>
+        <%--                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault1" value="y"--%>
+        <%--                           checked>--%>
+        <%--                    <label class="form-check-label" for="flexRadioDefault1">--%>
+        <%--                        공유함--%>
+        <%--                    </label>--%>
+        <%--                </div>--%>
+        <%--                <div class="form-check">--%>
+        <%--                    <input class="form-check-input" type="radio" name="willshare" id="flexRadioDefault2" value="n">--%>
+        <%--                    <label class="form-check-label" for="flexRadioDefault2">--%>
+        <%--                        공유안함--%>
+        <%--                    </label>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--            <input type="submit" value="일정 설정 완료">--%>
+        <%--        </a>--%>
     </form>
     <%--    ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ전체일정ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ--%>
+    <div class="fl">
+        <ul id="pn_title_box">
+            <li data="pn_date">
+                <div class="full_date_info fl">08.5~08.6</div>
+                <div class="fl day_edit_start_btn">EDIT</div>
+                <div class="clear"></div>
+            </li>
+        </ul>
+        <ul id="cat_menu" style="max-height: 983px;" data-year="2021">
+            <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
+            <c:forEach items="${datelist}" var="list" varStatus="status">
+                <c:if test="${status.count==1}">
+                    <li data="${status.count}" data-date="08.05" data-day_week="4" class="on">
+                </c:if>
+                <c:if test="${status.count!=1}">
+                    <li data="${status.count}" data-date="08.05" data-day_week="4">
+                </c:if>
+                    <div class="fl cat_date_left_box">
+                        <div class="cat_left_day">DAY${status.count}</div>
+                        <div class="cat_left_date">${list}</div>
+                    </div>
+                    <div class="fl cat_date_right_box">
+<%--                        day of week--%>
+                        <div class="cat_right_weekday">목요일</div>
+                        <div class="cat_right_city">${city.name}</div>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            </c:forEach>
+        </ul>
+        <ul id="cat_add_box"
+            style="width: 160px; background: rgb(32, 51, 65); color: rgb(255, 255, 255); height: 823px;">
+            <li style="padding-top:15px;">
+<%--                <div style="width:124px;height:32px;line-height:32px;border:solid 1px #fff;text-align:center;margin:0 auto;cursor:pointer;">--%>
+<%--                    DAY 추가--%>
+<%--                </div>--%>
+            </li>
+        </ul>
+        <ul id="pn_date_controll_box">
+            <li data="con_date">
+                <div style="text-align:center;border-top:solid #fff 1px;margin-top:10px;padding-top:15px;width:100%;">
+                    <div style="margin:0 auto;text-align:center;font-size:15px;">
+                        <img src="/res/img/workspace/new/cat_tuto_icon.png"
+                             style="vertical-align:middle;margin-right:5px;"> 이용방법
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
     <c:forEach items="${datelist}" var="list" varStatus="status">
     <div id="schedulelist" class="list-group">
         <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">
+<%--            <input type="submit" value="${'Day'} ${status.count} ${list}" class="btn btn-primary">--%>
 
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <strong class="mb-1">${"Day"} ${status.count}</strong>
-                <small>${list}</small>
-            </div>
-            <div class="col-10 mb-1 small">${city.name}</div>
+                <%--            <div class="d-flex w-100 align-items-center justify-content-between">--%>
+                <%--                <strong class="mb-1">${"Day"} ${status.count}</strong>--%>
+                <%--                <small>${list}</small>--%>
+                <%--            </div>--%>
+<%--            <div class="col-10 mb-1 small">${city.name}</div>--%>
             <!-- </a> -->
             <input type="hidden" name="city" value="${city}">
 
@@ -565,22 +822,22 @@
 
     <%--------------------------------------------------JS----------------------------------------------------------%>
     <script>
-    $("#placesList").click(function () {
-        $("#detail").show();
-        $("#detail-box").show();
-        $("#xdetail").show();
-        $("#addplanbtn").show();
-        $("#addWishbtn").show();
-        $("#detailbtns").show();
-    });
-    $("#xdetail").click(function () {
-    	$("#detail-box").hide();
-        $("#detail").hide();
-        $("#xdetail").hide();
-        $("#addplanbtn").hide();
-        $("#addWishbtn").hide();
-        $("#detailbtns").hide();
-    });
+        $("#placesList").click(function () {
+            $("#detail").show();
+            $("#detail-box").show();
+            $("#xdetail").show();
+            $("#addplanbtn").show();
+            $("#addWishbtn").show();
+            $("#detailbtns").show();
+        });
+        $("#xdetail").click(function () {
+            $("#detail-box").hide();
+            $("#detail").hide();
+            $("#xdetail").hide();
+            $("#addplanbtn").hide();
+            $("#addWishbtn").hide();
+            $("#detailbtns").hide();
+        });
 
     </script>
     <script>
@@ -1151,18 +1408,19 @@
             });
 
         }
-        $('#menu_wrap').on('click','#on_city_close_btn',function(){
-            $('#menu_wrap').hide("slide", { direction: "left" }, 200);
+
+        $('#menu_wrap').on('click', '#on_city_close_btn', function () {
+            $('#menu_wrap').hide("slide", {direction: "left"}, 200);
             deleteMarkers(0);
-        	map_resize(1);
+            map_resize(1);
         });
-        $('#on_city_open_btn').click(function(){
-            $('#menu_wrap').show("slide", { direction: "left" }, 200);
-        	$('#cat_menu li.on').click();
+        $('#on_city_open_btn').click(function () {
+            $('#menu_wrap').show("slide", {direction: "left"}, 200);
+            $('#cat_menu li.on').click();
         });
-	
-        $('.item').click(function(){
-        	$('#detail').show();
+
+        $('.item').click(function () {
+            $('#detail').show();
         })
 
     </script>
