@@ -10,6 +10,31 @@
     <%@ include file="/inc/asset.jsp" %>
     <!-- <script src="/SIST2_Travel/jsp/js/cookie.js"></script> 쿠키파일 경로 맞추기  -->
     <style>
+    
+    	.btn_login {
+    		margin-top: 20px;
+    		margin-bottom: 20px;
+    		background-color: #529AD9;
+    		color: white;
+    		border-color: #529AD9;
+    		width: 420px;
+    	}
+    
+    	.login_menu {
+    		margin-top: 10px;
+    	}
+    	
+    	#input_id {
+    		margin-bottom: 2px; 
+    	}
+    	
+    	#content {
+    		border: 1px solid #CCC;
+    		padding: 20px 20px;
+    		border-radius: 4%;
+    	}
+    
+    
     </style>
 </head>
 <body>

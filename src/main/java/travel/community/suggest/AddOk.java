@@ -14,9 +14,8 @@ public class AddOk extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		/*
-		 * CheckMember cm = new CheckMember(); cm.check(req, resp);
-		 */
+		  CheckMember cm = new CheckMember(); 
+		  cm.check(req,resp);
 	
 		req.setCharacterEncoding("UTF-8");
 
