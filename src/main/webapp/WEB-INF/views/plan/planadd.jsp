@@ -26,14 +26,13 @@
     <%--    <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>--%>
     <%--    <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">--%>
     <style>
-        #xdetail2 {
+         #xdetail2 {
             position: absolute;
             left: 1500px;
             top: 40px;
             z-index: 2000;
             font-size: 50px;
         }
-
         #xdetail {
             position: absolute;
             left: 520px;
@@ -41,7 +40,6 @@
             z-index: 2000;
             font-size: 12px;
         }
-
         /*  #menu_wrap {
              margin: 0;
              padding: 0;
@@ -56,43 +54,43 @@
              height: 1145px;
              background: #fff;
          } */
-        #menu_wrap {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            box-sizing: border-box;
-            width: 325px;
-            z-index: 999;
-            position: absolute;
-            left: 486px;
-            height: 1530px;
-            top: 10px;
-            background: rgba(255,255,255, 0.85);
-            -ms-overflow-style: none;
-        }
-
+       #menu_wrap {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    box-sizing: border-box;
+    width: 312px;
+    z-index: 999;
+    position: absolute;
+    left: 456px;
+    height: 100vh;
+    top: 5px;
+    background: #fff;
+    -ms-overflow-style: none;
+}
         #menu_wrap::-webkit-scrollbar {
             display: none;
         }
-
-        .city_name {
-            margin-left: 3px;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            box-sizing: border-box;
-            width: 300px;
-            height: 50px;
-            background: #1a7ad9;
-            line-height: 50px;
-            color: #fff;
-            padding-left: 10px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-
+.city_name {
+    margin-left: 3px;
+    padding: 0;
+    border: 1px solid black;
+    font: inherit;
+    box-sizing: border-box;
+    width: 311px;
+    height: 44px;
+    background: #529AD9;
+    line-height: 50px;
+    color: #fff;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 9px;
+    position: relative;
+    left: -2px;
+}
         .search {
             box-sizing: border-box;
             width: 300px;
@@ -103,18 +101,16 @@
             /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
             /*background-position: 300px 4px;*/
         }
-
-        #category {
-            background: #f7f7f7;
-            display: flex;
-            margin-left: 5px;
-        }
-
+       #category {
+    background: #f7f7f7;
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+}
         #category li {
             width: 100%;
             text-align: center;
         }
-
         #placesList > li > span {
             cursor: pointer;
             margin: 0;
@@ -125,7 +121,6 @@
             width: 82px;
             height: 75px;
         }
-
         #keyword {
             box-sizing: border-box;
             width: 300px;
@@ -136,7 +131,6 @@
             /*background: url('/res/img/common/gnb/search_icon.png') no-repeat;*/
             /*background-position: 300px 4px;*/
         }
-
         /*#placesList > .item > .info{*/
         /*    font-size: 20px;*/
         /*}*/
@@ -170,24 +164,19 @@
             top: -37px;
             width: 35px;
         }
-
         #category li {
             font-size: 16px;
             font-weight: bold;
         }
-
-
         #schedule > form > a {
             background-color: #203341;
             border-color: #4383D9;
             margin-bottom: 20px;
         }
-
         .list-group-item {
             /* background-color: #A2D4F2; */
             background-color: #fff;
         }
-
         .btn-primary {
             position: relative;
             color: #fff;
@@ -197,40 +186,34 @@
             margin: 0px 0px;
             width: 100%;
         }
-
-        #planlist {
-            position: absolute;
-            top: 0px;
-            left: 180px;
-            bottom: 0;
-            width: 300px;
-            height: 1530px;
-            margin: 10px 0 30px 10px;
-            padding: 7px;
-            overflow-y: auto;
-            background: rgba(255,255,255, 0.85);
-            z-index: 1;
-            font-size: 12px;
-            /* border: 1px solid red; */
-        }
-
-        #schedule {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            bottom: 0;
-            width: 200px;
-            height: 1284px;
-            margin: 10px 0 30px 10px;
-            padding: 5px;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-            font-size: 13px;
-
-            /* border: 1px solid red; */
-        }
-
+       #planlist {
+    position: absolute;
+    top: 0px;
+    left: 149px;
+    bottom: 0;
+    width: 299px;
+    height: 100vh;
+    margin: 1px 0 27px 8px;
+    padding: 7px;
+    overflow-y: auto;
+    background: #e8e8e8;
+    z-index: 1;
+    font-size: 12px;
+}
+      #schedule {
+    position: absolute;
+    top: 0px;
+    left: -16px;
+    bottom: 0;
+    width: 175px;
+    height: 100vh;
+    margin: 0px 0 0 0px;
+    padding: 0px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size: 13px;
+}
         #my_form {
             border: 1px solid #DDD;
             border-radius: 5%;
@@ -250,46 +233,43 @@
             background: #203341;
             border-bottom: solid 1px #1a7ad9; */
         }
-
         #complete {
             width: 200;
             background-color: #529AD9;
             border-color: #203341;
             margin-bottom: 10px;
         }
-
-        #on_city_close_btn {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: url(/SIST2_Travel/asset/images/city_close_btn.png);
-            cursor: pointer;
-        }
-
-        #on_city_open_btn {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 10px;
-            left: 600px;
-            background: url(/SIST2_Travel/asset/images/city_open_btn.png);
-            cursor: pointer;
-            z-index: 99;
-        }
-
+      #on_city_close_btn {
+    width: 42px;
+    height: 42px;
+    position: relative;
+    top: -50px;
+    right: -257px;
+    background: url(/SIST2_Travel/asset/images/city_close_btn.png);
+    cursor: pointer;
+    border-radius: 0px 8px 8px 0px;
+}
+       #on_city_open_btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 6px;
+    left: 457px;
+    background: url(/SIST2_Travel/asset/images/city_open_btn.png);
+    cursor: pointer;
+    z-index: 99;
+    border-radius: 0px 6px 7px 2px;
+}
         #detail-box {
             width: 931px;
-            height: 1530px;
+            height: 1335px;
             position: absolute;
-            top: -110px;
-            left: 805px;
+            top: -194px;
+            left: 793px;
             /* border: 1px solid red; */
             z-index: 1;
             padding: 0px;
         }
-
         .fl {
             margin: 0;
             padding: 0;
@@ -299,7 +279,6 @@
             box-sizing: border-box;
             float: left;
         }
-
         #pn_title_box {
             margin: 0;
             padding: 0;
@@ -312,7 +291,6 @@
             /*height: 100%;*/
             background: #203341;
         }
-
         #pn_title_box li {
             list-style: none;
             margin: 0;
@@ -330,7 +308,6 @@
             font-size: 12px;
             cursor: pointer;
         }
-
         .full_date_info, .fl {
             list-style: none;
             color: #fff;
@@ -345,7 +322,6 @@
             float: left;
             margin-left: 15px;
         }
-
         .day_edit_start_btn {
             list-style: none;
             color: #fff;
@@ -364,7 +340,6 @@
             padding-left: 18px;
             line-height: 15px;
         }
-
         #cat_menu {
             margin: 0;
             padding: 0;
@@ -377,9 +352,8 @@
             height: 100%;
             background: #203341;
             overflow-y: auto;
-            max-height: 983px;
+            max-height: 1183px;
         }
-
         #show_all_day {
             list-style: none;
             margin: 0;
@@ -397,7 +371,6 @@
             border-bottom: solid 1px #374854;
             cursor: pointer;
         }
-
         #cat_menu > li.on {
             list-style: none;
             margin: 0;
@@ -414,7 +387,6 @@
             background: #1a7ad9;
             border-bottom: solid 1px #1a7ad9;
         }
-
         #cat_menu li .cat_date_left_box {
             list-style: none;
             color: #fff;
@@ -430,14 +402,12 @@
             margin-top: 20px;
             margin-left: 18px;
         }
-
         #cat_menu {
             width: 160px;
             height: 100%;
             background: #203341;
             overflow-y: auto;
         }
-
         #cat_menu li {
             width: 100%;
             height: 70px;
@@ -448,34 +418,28 @@
             font-size: 12px;
             cursor: pointer;
         }
-
         #cat_menu li .cat_date_left_box {
             margin-top: 20px;
             margin-left: 18px;
         }
-
         #cat_menu li .cat_left_day {
             color: #fff;
             font-size: 17px;
             font-weight: bold;
             margin-bottom: 5px;
         }
-
         #cat_menu li .cat_left_date {
             color: #49b2e9;
             font-size: 11px;
         }
-
         #cat_menu li .cat_date_right_box {
             margin-top: 20px;
             margin-left: 5px;
         }
-
         #cat_menu li .cat_right_weekday {
             margin-bottom: 7px;
             text-align: left !important;
         }
-
         #cat_menu li .cat_right_city {
             color: #b3b3b3;
             text-align: left !important;
@@ -498,12 +462,12 @@
 <body onload="script();">
 <%--<body>--%>
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden; left: 450px;"></div>
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
         <div id="on_city_close_btn"></div>
-        <div class="sticky-top">
+        <div class="sticky-top" style="position: static;">
             <div class="city_name">${city.name}
                 <div id="on_city_close_btn"></div>
             </div>
