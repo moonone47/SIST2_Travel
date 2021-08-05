@@ -67,7 +67,7 @@
             z-index: 999;
             position: absolute;
             left: 600px;
-            height: 1290px;
+            height: 1137px;
             top: 5px;
             background: #fff;
             -ms-overflow-style: none;
@@ -480,18 +480,14 @@
             color: #b3b3b3;
             text-align: left !important;
         }
-
-        body {
-            overflow: hidden;
-        }
     </style>
 </head>
 
 <%-------------------------------- 카테고리 -----------------------------------%>
-<body scroll="no" onload="script();">
+<body onload="script();">
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:1vh;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
     <%--    100vh--%>
 
     <div id="menu_wrap" class="bg_white">
@@ -546,8 +542,7 @@
                 style="-webkit-transform:scale(0.7);"
                 src=''
                 frameborder='0'
-        <%--                scrolling='yes'--%>
-        >
+                scrolling='yes'>
             <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
             <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
         </iframe>
@@ -627,68 +622,72 @@
 </div>
 
 <%----------------------------- 추가된 일정 리스트 ----------------------------%>
+<form id="getlist" method="POST" action="/SIST2_Travel/plan/plandel.do">
 
-<div class="plan sortable" id="planlist">
-    <%-------------------------------일정 등록 완료------------------------%>
-    <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
-        <c:forEach items="${list}" var="dto" varStatus="status">
-            <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-            <input type="hidden" name="cityname" value="${city.name}">
-            <input type="hidden" name="cityX" value="${city.cityX}">
-            <input type="hidden" name="cityY" value="${city.cityY}">
-            <input type="hidden" name="Explain" value="${city.explain}">
-            <input type="hidden" name="Cityseq" value="${city.cityseq}">
-            <input type="hidden" name="planname" value="${citydto.name}">
-            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-            <input type="hidden" name="willshare" value="${citydto.willshare}">
+    <div class="plan sortable" id="planlist">
+        <%-------------------------------일정 등록 완료------------------------%>
+        <div>
+            <form id="getlist" method="POST" action="/SIST2_Travel/plan/plandone.do">
+                <c:forEach items="${list}" var="dto" varStatus="status">
+                    <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+                    <input type="hidden" name="cityname" value="${city.name}">
+                    <input type="hidden" name="cityX" value="${city.cityX}">
+                    <input type="hidden" name="cityY" value="${city.cityY}">
+                    <input type="hidden" name="Explain" value="${city.explain}">
+                    <input type="hidden" name="Cityseq" value="${city.cityseq}">
+                    <input type="hidden" name="planname" value="${citydto.name}">
+                    <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                    <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                    <input type="hidden" name="willshare" value="${citydto.willshare}">
 
-            <c:forEach items="${datelist}" var="list">
-                <input type="hidden" name="datelist" value="${list}">
-            </c:forEach>
-            <input type="hidden" name="planseq" value="${dto.plan2seq}">
-            <input type="hidden" name="seq" value="${status.count}">
-        </c:forEach>
-        <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
-    </form>
-    <%--------------------------------------------------------------------%>
-    <c:forEach items="${list}" var="dto" varStatus="status">
-    <form id="dellist" method="POST" action="/SIST2_Travel/plan/plandel.do">
-        <div  class="list-group">
-            <div class="list-group-item list-group-item-action">
-                <div id="seqname">${status.index}</div>
-                <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
-                    <h5 class="mb-1" style="font-size: 16px; font-weight: bold;">${dto.place_name}</h5>
-                    <small class="text-muted">${dto.category_group_name}</small>
-                </div>
-                <p class="mb-1">${dto.address_name}</p>
-                <button type="submit" class="close" aria-label="Close" style="float:right;">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-            </div>
-
-            <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
-            <input type="hidden" name="cityname" value="${city.name}">
-            <input type="hidden" name="cityX" value="${city.cityX}">
-            <input type="hidden" name="cityY" value="${city.cityY}">
-            <input type="hidden" name="Explain" value="${city.explain}">
-            <input type="hidden" name="Cityseq" value="${city.cityseq}">
-            <input type="hidden" name="planname" value="${citydto.name}">
-            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-            <input type="hidden" name="willshare" value="${citydto.willshare}">\
+                    <c:forEach items="${datelist}" var="list">
+                        <input type="hidden" name="datelist" value="${list}">
+                    </c:forEach>
+                    <input type="hidden" name="planseq" value="${dto.plan2seq}">
+                    <input type="hidden" name="seq" value="${status.count}">
+                </c:forEach>
+                <input class="btn btn-primary" type="submit" value="일정 등록 완료" id="complete">
+            </form>
         </div>
-        <input type="hidden" name="planseq" value="${dto.plan2seq}">
-        <input type="hidden" name="seq" value="${status.count}">
-    </form>
-</div>
-</c:forEach>
-<c:forEach items="${datelist}" var="list">
-    <input type="hidden" name="datelist" value="${list}">
-</c:forEach>
-</form>
+        <%--------------------------------------------------------------------%>
 
-</div>
+        <c:forEach items="${list}" var="dto" varStatus="status">
+
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action">
+                    <div id="seqname">${status.index}</div>
+                    <div class="d-flex w-100 justify-content-between" data-seq="${status.index}">
+                        <h5 class="mb-1" style="font-size: 16px; font-weight: bold;">${dto.place_name}</h5>
+                        <small class="text-muted">${dto.category_group_name}</small>
+                    </div>
+                    <p class="mb-1">${dto.address_name}</p>
+                    <button type="submit" class="close" aria-label="Close" style="float:right;">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+
+                    <input type="hidden" name="plan2seq" value="${dto.plan2seq}">
+                    <input type="hidden" name="cityname" value="${city.name}">
+                    <input type="hidden" name="cityX" value="${city.cityX}">
+                    <input type="hidden" name="cityY" value="${city.cityY}">
+                    <input type="hidden" name="Explain" value="${city.explain}">
+                    <input type="hidden" name="Cityseq" value="${city.cityseq}">
+                    <input type="hidden" name="planname" value="${citydto.name}">
+                    <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                    <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                    <input type="hidden" name="willshare" value="${citydto.willshare}">
+
+                        <%--<input type="hidden" name="datelist" value="${datelist}">--%>
+                </div>
+                <input type="hidden" name="planseq" value="${dto.plan2seq}">
+                <input type="hidden" name="seq" value="${status.count}">
+            </div>
+        </c:forEach>
+    </div>
+    <c:forEach items="${datelist}" var="list">
+        <input type="hidden" name="datelist" value="${list}">
+    </c:forEach>
+
+</form>
 
 
 <%---------------------------------일정---------------------------------%>
@@ -754,15 +753,15 @@
                 <li id="show_all_day" data="show_all_day">전체 일정 보기</li>
 
                 <c:forEach items="${datelist}" var="list" varStatus="status">
-                    <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
-                        <c:if test="${status.count==1}">
-                        <li data="${status.count}" data-date="08.05" data-day_week="4" class="on">
-                            </c:if>
-                            <c:if test="${status.count!=1}">
-                        <li data="${status.count}" data-date="08.05" data-day_week="4">
-                            </c:if>
-                                <%--                        <div onclick="javascript:document.form.submit();">--%>
-                            <span onClick="$(this).closest('form').submit();">
+                <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
+                    <c:if test="${status.count==1}">
+                    <li data="${status.count}" data-date="08.05" data-day_week="4" class="on">
+                        </c:if>
+                        <c:if test="${status.count!=1}">
+                    <li data="${status.count}" data-date="08.05" data-day_week="4">
+                        </c:if>
+                            <%--                        <div onclick="javascript:document.form.submit();">--%>
+                        <span onClick="$(this).closest('form').submit();">
 		                            <div class="fl cat_date_left_box">
 		                                <div class="cat_left_day">DAY${status.count}</div>
 		                                <div class="cat_left_date">${list}</div>
@@ -773,24 +772,24 @@
 		                                <div class="cat_right_city">${city.name}</div>
 		                            </div>
 		                        </span>
-                            <div class="clear"></div>
+                        <div class="clear"></div>
 
-                            <input type="hidden" name="city" value="${city}">
-                            <input type="hidden" name="cityname" value="${city.name}">
-                            <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
-                            <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
-                            <input type="hidden" name="Explain" value="${city.explain}">
-                            <input type="hidden" name="Cityseq" value="${city.cityseq}">
-                            <input type="hidden" name="planname" value="${citydto.name}">
-                            <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
-                            <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
-                            <input type="hidden" name="willshare" value="${citydto.willshare}">
-                            <input type="hidden" name="rdate" id="rdate" value="${list}">
+                        <input type="hidden" name="city" value="${city}">
+                        <input type="hidden" name="cityname" value="${city.name}">
+                        <input id="currX" type="hidden" name="cityX" value="${city.cityX}">
+                        <input id="currY" type="hidden" name="cityY" value="${city.cityY}">
+                        <input type="hidden" name="Explain" value="${city.explain}">
+                        <input type="hidden" name="Cityseq" value="${city.cityseq}">
+                        <input type="hidden" name="planname" value="${citydto.name}">
+                        <input type="hidden" name="dayendtravel" value="${citydto.dayendtravel}">
+                        <input type="hidden" name="daystarttravel" value="${citydto.daystarttravel}">
+                        <input type="hidden" name="willshare" value="${citydto.willshare}">
+                        <input type="hidden" name="rdate" id="rdate" value="${list}">
 
-                            <c:forEach items="${datelist}" var="list" varStatus="status">
-                            <input type="hidden" name="datelist" value="${list}">
-                            </c:forEach>
-                    </form>
+                        <c:forEach items="${datelist}" var="list" varStatus="status">
+                        	<input type="hidden" name="datelist" value="${list}">
+                        </c:forEach>
+                </form>
                 </c:forEach>
             </ul>
             <ul id="cat_add_box"
@@ -946,130 +945,130 @@
         }
 
         ////////////////////////////////키워드 검색 시작
-        // searchPlaces2();
-        //
-        // function searchPlaces2() {
-        //
-        //     var keyword = document.getElementById('keyword').value;
-        //
-        //     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        //         alert('키워드를 입력해주세요!');
-        //         return false;
-        //     }
-        //
-        //     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-        //     ps.keywordSearch(keyword, placesSearchCB2);
-        // }
-        //
-        // function placesSearchCB2(data, status, pagination) {
-        //     if (status === kakao.maps.services.Status.OK) {
-        //
-        //         // 정상적으로 검색이 완료됐으면
-        //         // 검색 목록과 마커를 표출합니다
-        //         displayPlaces2(data);
-        //
-        //         // 페이지 번호를 표출합니다
-        //         displayPagination(pagination);
-        //
-        //     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-        //
-        //         alert('검색 결과가 존재하지 않습니다.');
-        //         return;
-        //
-        //     } else if (status === kakao.maps.services.Status.ERROR) {
-        //
-        //         alert('검색 결과 중 오류가 발생했습니다.');
-        //         return;
-        //
-        //     }
-        // }
-        //
-        // function displayPlaces2(places) {
-        //
-        //     var listEl = document.getElementById('placesList'),
-        //         menuEl = document.getElementById('menu_wrap'),
-        //         fragment = document.createDocumentFragment(),
-        //         bounds = new kakao.maps.LatLngBounds(),
-        //         listStr = '';
-        //
-        //     // 검색 결과 목록에 추가된 항목들을 제거합니다
-        //     removeAllChildNods(listEl);
-        //
-        //     // 지도에 표시되고 있는 마커를 제거합니다
-        //     removeMarker();
-        //
-        //     for (var i = 0; i < places.length; i++) {
-        //
-        //         // 마커를 생성하고 지도에 표시합니다
-        //         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-        //             marker = addMarker(placePosition, i),
-        //             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-        //
-        //         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        //         // LatLngBounds 객체에 좌표를 추가합니다
-        //         bounds.extend(placePosition);
-        //
-        //         // 마커와 검색결과 항목에 mouseover 했을때
-        //         // 해당 장소에 인포윈도우에 장소명을 표시합니다
-        //         // mouseout 했을 때는 인포윈도우를 닫습니다
-        //         (function (marker, title) {
-        //             kakao.maps.event.addListener(marker, 'mouseover', function () {
-        //                 displayInfowindow(marker, title);
-        //             });
-        //
-        //             kakao.maps.event.addListener(marker, 'mouseout', function () {
-        //                 infowindow.close();
-        //             });
-        //
-        //             itemEl.onmouseover = function () {
-        //                 displayInfowindow(marker, title);
-        //             };
-        //
-        //             itemEl.onmouseout = function () {
-        //                 infowindow.close();
-        //             };
-        //         })(marker, places[i].place_name);
-        //
-        //         fragment.appendChild(itemEl);
-        //     }
-        //
-        //     // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
-        //     listEl.appendChild(fragment);
-        //     menuEl.scrollTop = 0;
-        //
-        //     // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        //     map.setBounds(bounds);
-        // }
-        //
-        // function displayPagination(pagination) {
-        //     var paginationEl = document.getElementById('pagination'),
-        //         fragment = document.createDocumentFragment(),
-        //         i;
-        //
-        //     // 기존에 추가된 페이지번호를 삭제합니다
-        //     while (paginationEl.hasChildNodes()) {
-        //         paginationEl.removeChild(paginationEl.lastChild);
-        //     }
-        //
-        //     for (i = 1; i <= pagination.last; i++) {
-        //         var el = document.createElement('a');
-        //         el.href = "#";
-        //         el.innerHTML = i;
-        //
-        //         if (i === pagination.current) {
-        //             el.className = 'on';
-        //         } else {
-        //             el.onclick = (function (i) {
-        //                 return function () {
-        //                     pagination.gotoPage(i);
-        //                 }
-        //             })(i);
-        //         }
-        //
-        //         fragment.appendChild(el);
-        //     }
-        //     paginationEl.appendChild(fragment);
-        // }
+        searchPlaces2();
+
+        function searchPlaces2() {
+
+            var keyword = document.getElementById('keyword').value;
+
+            if (!keyword.replace(/^\s+|\s+$/g, '')) {
+                alert('키워드를 입력해주세요!');
+                return false;
+            }
+
+            // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+            ps.keywordSearch(keyword, placesSearchCB2);
+        }
+
+        function placesSearchCB2(data, status, pagination) {
+            if (status === kakao.maps.services.Status.OK) {
+
+                // 정상적으로 검색이 완료됐으면
+                // 검색 목록과 마커를 표출합니다
+                displayPlaces2(data);
+
+                // 페이지 번호를 표출합니다
+                displayPagination(pagination);
+
+            } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+                alert('검색 결과가 존재하지 않습니다.');
+                return;
+
+            } else if (status === kakao.maps.services.Status.ERROR) {
+
+                alert('검색 결과 중 오류가 발생했습니다.');
+                return;
+
+            }
+        }
+
+        function displayPlaces2(places) {
+
+            var listEl = document.getElementById('placesList'),
+                menuEl = document.getElementById('menu_wrap'),
+                fragment = document.createDocumentFragment(),
+                bounds = new kakao.maps.LatLngBounds(),
+                listStr = '';
+
+            // 검색 결과 목록에 추가된 항목들을 제거합니다
+            removeAllChildNods(listEl);
+
+            // 지도에 표시되고 있는 마커를 제거합니다
+            removeMarker();
+
+            for (var i = 0; i < places.length; i++) {
+
+                // 마커를 생성하고 지도에 표시합니다
+                var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+                    marker = addMarker(placePosition, i),
+                    itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+                // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                // LatLngBounds 객체에 좌표를 추가합니다
+                bounds.extend(placePosition);
+
+                // 마커와 검색결과 항목에 mouseover 했을때
+                // 해당 장소에 인포윈도우에 장소명을 표시합니다
+                // mouseout 했을 때는 인포윈도우를 닫습니다
+                (function (marker, title) {
+                    kakao.maps.event.addListener(marker, 'mouseover', function () {
+                        displayInfowindow(marker, title);
+                    });
+
+                    kakao.maps.event.addListener(marker, 'mouseout', function () {
+                        infowindow.close();
+                    });
+
+                    itemEl.onmouseover = function () {
+                        displayInfowindow(marker, title);
+                    };
+
+                    itemEl.onmouseout = function () {
+                        infowindow.close();
+                    };
+                })(marker, places[i].place_name);
+
+                fragment.appendChild(itemEl);
+            }
+
+            // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+            listEl.appendChild(fragment);
+            menuEl.scrollTop = 0;
+
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+            map.setBounds(bounds);
+        }
+
+        function displayPagination(pagination) {
+            var paginationEl = document.getElementById('pagination'),
+                fragment = document.createDocumentFragment(),
+                i;
+
+            // 기존에 추가된 페이지번호를 삭제합니다
+            while (paginationEl.hasChildNodes()) {
+                paginationEl.removeChild(paginationEl.lastChild);
+            }
+
+            for (i = 1; i <= pagination.last; i++) {
+                var el = document.createElement('a');
+                el.href = "#";
+                el.innerHTML = i;
+
+                if (i === pagination.current) {
+                    el.className = 'on';
+                } else {
+                    el.onclick = (function (i) {
+                        return function () {
+                            pagination.gotoPage(i);
+                        }
+                    })(i);
+                }
+
+                fragment.appendChild(el);
+            }
+            paginationEl.appendChild(fragment);
+        }
 
         //////////////////////////////////////////키워드 검색 끝
         // 카테고리 검색을 요청하는 함수입니다
@@ -1330,7 +1329,7 @@
         var polyline = new kakao.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
             strokeWeight: 5, // 선의 두께 입니다
-            strokeColor: '#4384D9', // 선의 색깔입니다 #FFAE00
+            strokeColor: '#FFAE00', // 선의 색깔입니다 #FFAE00
             strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
             strokeStyle: 'solid' // 선의 스타일입니다
         });
