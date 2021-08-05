@@ -72,6 +72,8 @@ public class PlanDone extends HttpServlet {
             dao.removeAll(planseq[i]);
         }
 
+		resp.setCharacterEncoding("UTF-8"); 
+	
         PrintWriter writer = resp.getWriter();
         writer.print("<html>");
         writer.print("<head>");
