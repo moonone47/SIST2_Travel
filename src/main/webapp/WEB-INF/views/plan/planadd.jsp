@@ -552,10 +552,10 @@
         <iframe id='detail'
                 name=naver onload="naver.scrollTo(40,100);"
                 class="embed-responsive embed-responsive-16by9"
-                style="-webkit-transform:scale(0.7);"
+                style="-webkit-transform:scale(0.85);"
                 src=''
                 frameborder='0'
-                scrolling='no'>
+                scrolling='yes'>
             <!--  onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">-->
             <%--        <button id="xdetail2" type="button" class="btn-close" aria-label="Close">X</button>--%>
         </iframe>
