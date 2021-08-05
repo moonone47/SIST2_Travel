@@ -428,14 +428,13 @@
             left: 0px;
             bottom: 0;
             width: 300px;
-            height: 500px;
+            height: 440px;
             margin: 10px 0 30px 10px;
             padding: 5px;
             overflow-y: auto;
             background: rgba(255, 255, 255, 0.7);
             z-index: 1;
             font-size: 12px;
-            /* border: 1px solid red; */
         }
 
         /*도시선택*/
@@ -596,7 +595,8 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group" 
                 		name="willshare" id="willshare" style="margin-bottom:10px;">            		
                     <input type="radio" class="btn-check" name="willshare" id="btnradio1" autocomplete="off" value="y" checked>
-                    <label class="btn btn-outline-warning" for="btnradio1" style="margin-bottom:10px;">공유함</label>
+                    <label class="btn btn-outline-warning" for="btnradio1" style="margin-bottom:10px; width: 86px;
+    border-radius: 5px 0px 0px 4px;">공유함</label>
 
                     <input type="radio" class="btn-check" name="willshare" id="btnradio2" autocomplete="off" value="y">
                     <label class="btn btn-outline-warning" for="btnradio2" style="margin-bottom:10px;">공유안함</label>
