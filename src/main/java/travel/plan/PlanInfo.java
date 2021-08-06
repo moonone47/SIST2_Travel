@@ -29,6 +29,9 @@ public class PlanInfo extends HttpServlet {
 		String startday = req.getParameter("daystarttravel");
 		String endday = req.getParameter("dayendtravel");
 
+		System.out.println(startday);
+		System.out.println(endday);
+		
 		citydto.setCityseq(req.getParameter("cityseq")); //13번으로 고정됨.
 		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
 		citydto.setDayendtravel(req.getParameter("dayendtravel"));
@@ -48,7 +51,7 @@ public class PlanInfo extends HttpServlet {
 		String userId = (String) session.getAttribute("id");
 		int planseq = dao.add(citydto, userId);
 
-
+		System.out.println(planseq);
 
 		
 		session.setAttribute("planseq", planseq);

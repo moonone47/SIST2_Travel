@@ -53,6 +53,52 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+
+.caption {
+	color:#555555;
+}
+.page_right{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    box-sizing: border-box;
+    float: left;
+    width: 348px;
+    position: relative;
+}
+.right_scroll_box{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+.map_box{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    box-sizing: border-box;
+    width: 100%;
+    height: 305px;
+    border-bottom: 1px solid #ff9320;
+    border-top: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+
 </style>
 
 </head>
@@ -80,8 +126,8 @@
 							<div class="caption">
 								<h3>${dto.name}</h3>
 								<p>
-									도시 : ${dto.cityname}<br>
-									여행기간 : ${dto.daystarttravel} ~ ${dto.dayendtravel} <br>
+									${dto.cityname}<br>
+									<small>${dto.daystarttravel} ~ ${dto.dayendtravel}</small> <br>
 									찜 횟수 : ${dto.wish}
 
 								</p>

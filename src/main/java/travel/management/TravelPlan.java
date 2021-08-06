@@ -38,6 +38,11 @@ public class TravelPlan extends HttpServlet {
 		dao.del(id);// 중복 방지
 		ArrayList<ManagementDTO> list = dao.getlist(id); // 3에 id 넣자	
 			
+		for(ManagementDTO dto : list) {
+			dto.setDayendtravel(dto.getDayendtravel().substring(0,10));
+			dto.setDaystarttravel(dto.getDaystarttravel().substring(0,10));
+		}
+		
 		req.setAttribute("list", list);
 
 		
