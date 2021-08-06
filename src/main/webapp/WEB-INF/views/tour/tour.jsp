@@ -23,15 +23,29 @@
             }
         }
 
-        body > section.main-section > {
+        /*body > section.main-section > {*/
+        /*    display: flex;*/
+        /*}*/
+
+        /*body > section.main-section > div {*/
+        /*    flex: 1 1 auto;*/
+        /*    width: 700px;*/
+        /*    align-content: center;*/
+        /*}*/
+        /*body > section > div > div > div > div > div{*/
+        /*    width: 500px;*/
+        /*}*/
+        body > section > div > div{
             display: flex;
         }
+        body > section > div > div > div{
+            width: 500px;
+            /*margin-left:200px;*/
 
-        body > section.main-section > div {
-            flex: 1 1 auto;
-            width: 700px;
-            align-content: center;
+            /*display: flex;*/
+            flex: 1 1;
         }
+
 
         body > section.main-section > div div > div > div > div > div > div > small {
             font-size: 22px;
@@ -64,6 +78,7 @@
 <%--private String tourprice;--%>
 <%--private String img;--%>
 <section class="main-section">
+    투어 예약
     <c:forEach items="${dto}" var="dto">
         <div class="album py-5 bg-light">
             <div class="container">

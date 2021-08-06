@@ -220,7 +220,7 @@ form > .button:hover {
     display: block;
     float: left;
     text-align: center;
-    min-width: 46px;
+    /*min-width: 46px;*/
 }
 
 .logged_btn_box {
@@ -667,7 +667,7 @@ body > section.main-section > div.page.silver.logged_box > div > a > div > div >
     width: 640px;
     height: 138px;
     border-radius: 3px;
-    background: url('/res/img/component/bg/bgb_60.png') repeat;
+    background: url('https://www.earthtory.com/res/img/component/bg/bgb_60.png') repeat;
     margin: 0 auto;
     margin-top: 60px;
     padding: 20px;
@@ -681,7 +681,7 @@ body > section.main-section > div.page.silver.logged_box > div > a > div > div >
     border: none;
     font-size: 20px;
     color: #b3b3b3;
-    background: url('/res/img/area/area_search_ico.gif') no-repeat white;
+    background: url('https://www.earthtory.com/res/img/area/area_search_ico.gif') no-repeat white;
     background-position: center right;
     margin-bottom: 10px;
 }
@@ -769,7 +769,7 @@ body > section.main-section > div.page.silver.logged_box > div > a > div > div >
 .logged_line {
     float: left;
     width: 1px;
-    height: 30px;
+    height: 55px;
     background: #dbdbdb;
     margin-left: 10px;
     margin-right: 10px;
@@ -1442,19 +1442,19 @@ body > section.main-section > div.page.silver.logged_box > div > a > div > div >
 }
 
 .plan_list .pn_list_copy_icon {
-    background: url('/res/img/mypage/plan/pn_list_copy_icon.png') no-repeat 0px 2px;
+    background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_spot_icon.png') no-repeat 0px 2px;
     padding-left: 15px;
     margin-left: 10px;
 }
 
 .plan_list .pn_list_view_icon {
-    background: url('/res/img/mypage/plan/pn_list_view_icon.png') no-repeat 0px 3.5px;
+    background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_view_icon.png') no-repeat 0px 3.5px;
     padding-left: 21px;
     margin-left: 10px;
 }
 
 .plan_list .pn_list_spot_icon {
-    background: url('/res/img/mypage/plan/pn_list_spot_icon.png') no-repeat 0px 1px;
+    background: url('https://www.earthtory.com/res/img/mypage/plan/pn_list_copy_icon.png') no-repeat 0px 1px;
     padding-left: 17px;
 }
 
