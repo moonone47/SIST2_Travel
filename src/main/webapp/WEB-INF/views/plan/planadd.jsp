@@ -981,7 +981,15 @@
             $('#all').trigger("click");
             $('.textbox').val("${city.name}");
             $('#button-addon1').trigger("click");
-
+            var cnt=0;
+            for(let i=0; i<$('.cat_left_date').size(); i++){
+                if($('#list_'+i).hasClass("on")){
+                    cnt++;
+                }
+            }
+            if(cnt == 0){
+                $('#list_1').addClass("on");
+            }
             // $('#list_1').trigger("click"); // 여기서 클릭 이벤트는 발생하는데 planscd로는 안넘어감.
 
             // $('#my_form > li').trigger("click");
@@ -995,7 +1003,6 @@
         <%--        $('#my_form > li').removeClass("on");--%>
         <%--    }--%>
         <%--    for(let i=0; i<$('.cat_left_date').size(); i++){--%>
-        <%--        console.log("'#date_'+i");--%>
         <%--        if($('#date_'+i).text() == ${rdate}){--%>
         <%--            $('#date_'+i).parent("li").addClass("on");--%>
         <%--        }--%>
