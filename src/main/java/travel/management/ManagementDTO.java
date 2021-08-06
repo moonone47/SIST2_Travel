@@ -20,6 +20,7 @@ public class ManagementDTO {
 	private String cityX;
 	private String cityY;
 	
+	
 		
 	public String getCityX() {
 		return cityX;

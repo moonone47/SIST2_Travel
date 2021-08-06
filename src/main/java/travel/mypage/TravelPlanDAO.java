@@ -72,6 +72,7 @@ public class TravelPlanDAO {
 					dto.setDayendtravel(rs.getString("dayendtravel"));
 					dto.setWish(rs.getString("wish"));
 					dto.setPlanseq(rs.getString("planseq"));
+					dto.setWriternick(rs.getString("nick"));
 					list.add(dto);
 				}
 				return list;

@@ -44,6 +44,7 @@ public class TravelPlan extends HttpServlet {
 		
 		
 		
+		
 		req.setAttribute("list", list);
 		req.setAttribute("category", category);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/travelplan.jsp?category=" + category);
