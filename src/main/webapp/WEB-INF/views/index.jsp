@@ -226,46 +226,46 @@
             <div class="story_list"><a href="/ko/tip/view?srl=524" class="story_box big">
                 <div class="story_imgbox">
                     <div class="story_cnt"></div>
-                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1401758930.jpg" alt="" class="story_img"
+                    <img src="http://img.earthtory.com/img/city_images/312/jeju_1425527621.jpg" alt="" class="story_img"
                          onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
-                <div class="story_title">방콕에서의 달달한 하루</div>
-                <div class="story_desc">방콕에서 단 하루만 머문다면, 어디부터 가야 할까? 방콕 하루 꼬박 여행.</div>
+                <div class="story_title">제주도에서의 기차 여행</div>
+                <div class="story_desc">제주도에서 단 하루만 머문다면, 어디부터 가야 할까? 에코랜드 제주 테마파크.</div>
             </a><a href="/ko/tip/view?srl=1201" class="story_box">
                 <div class="story_imgbox">
                     <div class="story_cnt"></div>
-                    <img src="http://img.earthtory.com/img/nt_img/cover/74/74_1409026663.jpg" alt="" class="story_img"
+                    <img src="http://img.earthtory.com/img/place_img/311/7682_0_et.jpg" alt="" class="story_img"
                          onerror="this.src='http://img.earthtory.com/img/mb_img/74/74_1429243176.jpg';"></div>
-                <div class="story_title">체코, 프라하의 베스트 명소</div>
-                <div class="story_desc">프라하에서 빼놓을 수 없는 명소들을 미리 둘러보기!</div>
+                <div class="story_title">부산의 핫플, 분위기갑 칵테일바</div>
+                <div class="story_desc">부산에서 빼놓을 수 없는 핫플들을 미리 둘러보기!</div>
             </a><a href="/ko/tip/view?srl=336" class="story_box">
                 <div class="story_imgbox">
                     <div class="story_cnt"></div>
-                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1400492225.jpg" alt="" class="story_img"
+                    <img src="http://tong.visitkorea.or.kr/cms/resource/43/772243_image2_1.jpg" alt="" class="story_img"
                          onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
-                <div class="story_title">축제의 도시 멜버른</div>
-                <div class="story_desc">축제가 끊이지 않은 도시, 멜버른의 시기별 다양한 축제와 이벤트 속으로 ...</div>
+                <div class="story_title">서울근교, 양평 중원폭포</div>
+                <div class="story_desc">서울 근교에서 여름에 더위를 피해 가볼만한 곳! ...</div>
             </a><a href="/ko/tip/view?srl=453" class="story_box">
                 <div class="story_imgbox">
                     <div class="story_cnt">12</div>
-                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1401265474.jpg" alt="" class="story_img"
+                    <img src="http://tong.visitkorea.or.kr/cms/resource/76/1977576_image2_1.jpg" alt="" class="story_img"
                          onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
-                <div class="story_title">낮보다 화려한 홍콩의 밤</div>
-                <div class="story_desc">야행성 여행자들을 위한 도시 홍콩. 밤에만 볼 수 있는 아주 특별한 풍경! ...</div>
+                <div class="story_title">강릉의 정동진 해돋이 공원</div>
+                <div class="story_desc">강릉에서만 볼 수 있는 아주 특별한 광경! ...</div>
             </a><a href="/ko/tip/view?srl=378" class="story_box">
                 <div class="story_imgbox">
                     <div class="story_cnt"></div>
-                    <img src="http://img.earthtory.com/img/nt_img/cover/73/73_1403172007.jpg" alt="" class="story_img"
+                    <img src="http://pix4.agoda.net/hotelimages/517/517379/517379_15061114090029270278.jpg?s=312x" alt="" class="story_img"
                          onerror="this.src='http://img.earthtory.com/img/mb_img/73/73_1409209705.JPG';"></div>
-                <div class="story_title">스페인 타블라오 탐방기</div>
-                <div class="story_desc">카르멘의 나라, 플라멩코 만끽하기!</div>
+                <div class="story_title">서울 호캉스여행!</div>
+                <div class="story_desc">신규 오픈한 골든 서울 호텔, 최고의 객실 전망!  </div>
             </a><a href="/ko/tip/view?srl=528" class="story_box big">
                 <div class="story_imgbox">
                     <div class="story_cnt"></div>
-                    <img src="http://img.earthtory.com/img/place_img_user/74/common/test_1437361860.jpg" alt=""
+                    <img src="http://tong.visitkorea.or.kr/cms/resource/92/1023292_image2_1.jpg" alt=""
                          class="story_img"
                          onerror="this.src='http://img.earthtory.com/img/mb_img/74/74_1429243176.jpg';"></div>
-                <div class="story_title">홍콩에서 디저트 먹방!!</div>
-                <div class="story_desc">홍콩의 디저트 맛집 체크리스트! 빼먹지말자! 홍콩의 디저트!!</div>
+                <div class="story_title">경주 요석궁에서 한정식 식사!!</div>
+                <div class="story_desc">경주의 한식 맛집 체크리스트! 빼먹지말자!!</div>
             </a>
                 <div class="clear"></div>
             </div>
