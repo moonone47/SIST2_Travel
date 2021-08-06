@@ -13,8 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import travel.management.ManagementDTO;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/plan/between.do")
 public class Between extends HttpServlet {
@@ -23,6 +22,11 @@ public class Between extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String planseq = req.getParameter("planseq");
+		
+		
+		HttpSession session = req.getSession();
+		
+		session.setAttribute("planseq", planseq);
 		
 		
 		PlanInfoDAO dao = new PlanInfoDAO();

@@ -367,14 +367,14 @@
 .page_right {
 	margin: 0;
 	padding: 0;
-	border: 1px solid blue;
-
-	/* float: left; */
+	border: 0;
+	float: left;
 	width: 348px;
 	position: absoulte;
-	height: 100vh;
-/* 	top: -3057px;
-	left: 547px; */
+	
+	top: 0px;
+	left: 0px; 
+	
 }
 
 .right_scroll_box {
@@ -387,7 +387,7 @@
 	
 	width: 348px;
 	
-	margin-left: 198px;
+	margin-left: 0px;
 	height: 500px;
 }
 
@@ -406,7 +406,7 @@
 	background: white;
 /* 	overflow: hidden; */
 	position: sticky;
-	top: 100px;
+	top: 0px;
 }
 
 .wrap_page_show{
@@ -420,7 +420,8 @@
     position: relative;
     margin-top: 30px;
     padding-bottom: 60px;
-    display: block;
+    display: flex;
+    justify-content: space-between;
 }
 
 </style>
@@ -453,10 +454,14 @@
 				<div class="plan_mnu_line"></div>
 				<div class="plan_mnu">지도</div>
 				<div class="plan_mnu_line"></div>
-				<div class="plan_mnu" data-id="3">댓글</div>
+				<div class="plan_mnu" >댓글</div>
+				<div class="plan_mnu_line"></div>
+				<div class="plan_mnu" style="color:#DD5C61;" onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y';">수정하기</div>
+				<div class="plan_mnu_line"></div>
+				<div class="plan_mnu" style="color:#7178D5;" onclick="location.href='/SIST2_Travel/management/back.do';" >돌아가기</div>
 			</div>
 
-			<br> <br> <br>
+			
 
 			<div class="wrap_page_show">
 			<div class="page_left">
@@ -507,14 +512,8 @@
 						</c:forEach>
 					</c:forEach>
 				</div>
-				<button class="btn btn-primary"
-					onclick="location.href='/SIST2_Travel/plan/between.do?planseq=${plan.planseq}&isedit=y';">수정하기
-				</button>
-				<button class="btn btn-default"
-					onclick="location.href='/SIST2_Travel/management/back.do';">돌아가기
-				</button>
+				
 			</div>
-		<div style="clear: both;"></div>
 		<div class="page_right">
 			<div class="right_scroll_box"
 				style="position: sticky; width: 348px; top: 100px; ">
@@ -525,6 +524,9 @@
 				</div>
 			</div>
 		</div>
+		<div style="clear: both;"></div>
+		
+		
 		</div>
 		
 	</div>
