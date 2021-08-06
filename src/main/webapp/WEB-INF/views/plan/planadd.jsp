@@ -754,7 +754,7 @@
                         <li id="list_${status.count} data="${status.count}" class="my_form" data-date="08.05" data-day_week="4">
                             </c:if>
                                 <%--                        <div onclick="javascript:document.form.submit();">--%>
-                            <span onClick="$(this).closest('form').submit();">
+                            <span onclick="$(this).closest('form').submit();">
 		                            <div class="fl cat_date_left_box">
 		                                <div class="cat_left_day">DAY${status.count}</div>
 		                                <div id="date_${status.count}" class="cat_left_date">${list}</div>
