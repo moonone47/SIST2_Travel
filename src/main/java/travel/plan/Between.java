@@ -33,6 +33,8 @@ public class Between extends HttpServlet {
 		String isedit = req.getParameter("isedit");
 		ArrayList<String> datelist = new ArrayList<String>();
 		
+		
+		
 		citydto.setDaystarttravel(citydto.getDaystarttravel().substring(0,11));
 		citydto.setDayendtravel(citydto.getDayendtravel().substring(0,11));
 		

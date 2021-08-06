@@ -35,7 +35,7 @@ public class Between extends HttpServlet {
 		
 		ManagementDTO plan = dao.list(planseq);
 		
-		System.out.println(plan.getDaystarttravel());
+		//System.out.println(plan.getDaystarttravel());
 		
 		//System.out.println(list.get(1).getPlace_name());
 		// 끝 - 시작 = ( 날짜 + 1 )  -> 날짜 ArrayList 만들기
@@ -43,8 +43,8 @@ public class Between extends HttpServlet {
 		String daystarttravel = plan.getDaystarttravel();
 		String dayendtravel = plan.getDayendtravel();	
 		
-		System.out.println(daystarttravel);
-		System.out.println(dayendtravel);
+		//System.out.println(daystarttravel);
+		//System.out.println(dayendtravel);
 		
 		//날짜 계산 -> 
 		ArrayList<String> datelist = new ArrayList<String>();
@@ -68,7 +68,7 @@ public class Between extends HttpServlet {
 		// 연산결과 -950400000. long type 으로 return 된다.
 		long calDate = SecondDate.getTime() -FirstDate.getTime(); 
 		
-		System.out.println(calDate);
+		//System.out.println(calDate);
 		// Date.getTime() 은 해당날짜를 기준으로1970년 00:00:00 부터 몇 초가 흘렀는지를 반환해준다.
 		// 이제 24*60*60*1000(각 시간값에 따른 차이점) 을 나눠주면 일수가 나온다.
 		long calDateDays = (calDate  + (24*60*60*1000) ) / (24*60*60*1000);
@@ -77,7 +77,6 @@ public class Between extends HttpServlet {
 
 		int cal = (int)calDateDays;
 		
-		System.out.println(cal);
 		
 		//20210803
 		Calendar date = Calendar.getInstance(); //yyyy-mm-dd
@@ -94,8 +93,19 @@ public class Between extends HttpServlet {
 			date.add(Calendar.DATE, 1);			
 		}	
 		
-		System.out.println(datelist.size());
+		plan.setDayendtravel(plan.getDayendtravel().substring(0,10));
+		plan.setDaystarttravel(plan.getDaystarttravel().substring(0,10));
 		
+		for(ManagementDTO dto : list) {
+			dto.setRdate(dto.getRdate().substring(0,10));
+		}
+		
+		//System.out.println(list.get(0).getRdate());
+		//System.out.println(datelist.get(0));
+		
+		String nick = plan.getWriternick();
+		
+		req.setAttribute("nick", nick);
 		req.setAttribute("plan", plan);
 		req.setAttribute("list", list);
 		req.setAttribute("datelist", datelist);
