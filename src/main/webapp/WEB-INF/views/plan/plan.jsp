@@ -488,6 +488,60 @@
 
     /*    end select*/
 
+        /*select {*/
+        /*    -webkit-appearance: none;*/
+        /*    -moz-appearance: none;*/
+        /*    -ms-appearance: none;*/
+        /*    appearance: none;*/
+        /*    outline: 0;*/
+        /*    box-shadow: none;*/
+        /*    border: 0 !important;*/
+        /*    background: #2c3e50;*/
+        /*    background-image: none;*/
+        /*}*/
+        /*!* Remove IE arrow *!*/
+        /*select::-ms-expand {*/
+        /*    display: none;*/
+        /*}*/
+        /*!* Custom Select *!*/
+        /*.select {*/
+        /*    position: relative;*/
+        /*    display: flex;*/
+        /*    width: 20em;*/
+        /*    height: 3em;*/
+        /*    line-height: 3;*/
+        /*    background: #2c3e50;*/
+        /*    overflow: hidden;*/
+        /*    border-radius: .25em;*/
+        /*}*/
+        /*!*select {*!*/
+        /*!*    flex: 1;*!*/
+        /*!*    padding: 0 .5em;*!*/
+        /*!*    color: #fff;*!*/
+        /*!*    cursor: pointer;*!*/
+        /*!*}*!*/
+        /*!* Arrow *!*/
+        /*.select::after {*/
+        /*    content: '\25BC';*/
+        /*    position: absolute;*/
+        /*    top: 0;*/
+        /*    right: 0;*/
+        /*    padding: 0 1em;*/
+        /*    background: #34495e;*/
+        /*    cursor: pointer;*/
+        /*    pointer-events: none;*/
+        /*    -webkit-transition: .25s all ease;*/
+        /*    -o-transition: .25s all ease;*/
+        /*    transition: .25s all ease;*/
+        /*}*/
+        /*!* Transition *!*/
+        /*.select:hover::after {*/
+        /*    color: #f39c12;*/
+        /*}*/
+        #schedule > form > a > div:nth-child(2){
+            margin-bottom: 10px;
+        }
+
     </style>
     
 <%-- 하늘색 > 초록색
@@ -564,7 +618,7 @@
                 </div>
                 <div class="w-100 align-items-center justify-content-between" >
                 <h2>도시를 선택하세요</h2>
-                    <fieldset>
+                    <div class="selectxxxx">
 <%--                        <div class="dropdown" style="width:200px; margin:20px auto;">--%>
 <%--                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">--%>
 <%--                                <ins>도시를 선택하세요</ins>--%>
@@ -578,12 +632,13 @@
 <%--                                </label>--%>
 <%--                            </div>--%>
 <%--                        </div>--%>
-                        <select style="width:200px;" name="cityseq" class="form-control form-select-lg mb-3" >
+<%--                        <select style="width:200px;" name="cityseq" class="form-control form-select-lg mb-3" >--%>
+                        <select style="width:245px;" name="cityseq" class="btn btn-light dropdown-toggle " >
                             <c:forEach items='${citys}' var="citys">
                                 <option value="${citys.cityseq}">${citys.name}</option>
                             </c:forEach>
                         </select>
-                    </fieldset>
+                    </div>
                 </div>
                 
 <%--

@@ -18,7 +18,9 @@
           href="<%=request.getContextPath()%>/asset/css/style.css">
 
 <style>
-
+    #ftco-nav > ul > li.nav-item.active > a{
+        margin-left: 150px;
+    }
 </style>
 	
 
@@ -74,14 +76,14 @@
                 <span class="fa fa-bars"></span> Menu
             </button>
             <!-- 검색 -->
-            <form action="#" class="searchform order-lg-last">
-                <div class="form-group d-flex">
-                    <input type="text" class="form-control pl-3" placeholder="Search">
-                    <button type="submit" placeholder="도시/장소를 찾아보세요." class="form-control search">
-                        <span class="fa fa-search"></span>
-                    </button>
-                </div>
-            </form>
+<%--            <form action="#" class="searchform order-lg-last">--%>
+<%--                <div class="form-group d-flex">--%>
+<%--                    <input type="text" class="form-control pl-3" placeholder="Search">--%>
+<%--                    <button type="submit" placeholder="도시/장소를 찾아보세요." class="form-control search">--%>
+<%--                        <span class="fa fa-search"></span>--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+<%--            </form>--%>
             <!-- 메뉴 -->
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav mr-auto">
@@ -119,7 +121,16 @@
                             <%-- 메뉴만 만들어 놓죠ㅎㅅㅎ  넵 ^.^--%>
                             <a class="dropdown-item" href="#">항공권</a> 
                             <a class="dropdown-item" href="#">숙소</a> 
-                            <a class="dropdown-item" href="#">투어/입장권</a>
+                            <a class="dropdown-item" href="/SIST2_Travel/tour/tour.do">투어</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04_"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">검색</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <%-- 메뉴만 만들어 놓죠ㅎㅅㅎ  넵 ^.^--%>
+                            <a class="dropdown-item" href="/SIST2_Travel/search/weather.do">날씨 검색</a>
+                            <a class="dropdown-item" href="/SIST2_Travel/search/keyword.do">키워드 검색</a>
                         </div>
                     </li>
 
@@ -133,8 +144,9 @@
                             <a class="dropdown-item" href="/SIST2_Travel/mypage/rev.do">결제 및 예약 내역</a>
                         </div>
                     </li>
-                    
-                    <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
+
+<%--                    관리자는 삭제..--%>
+                    <li class="nav-item"><a href="#" class="nav-link"></a></li>
 <%--                    <c:if test="${not empty id }">--%>
 <%--                        <div style="color: white;">이름 : ${name }(id : ${id})</div>--%>
 
