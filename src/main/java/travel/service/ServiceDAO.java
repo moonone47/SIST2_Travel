@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 import travel.DBUtil;
 
+/**
+ * 여행 의뢰 서비스 DAO 
+ * @author 이준희
+ *
+ */
 public class ServiceDAO {
 
 	private Connection conn;
@@ -24,6 +29,11 @@ public class ServiceDAO {
 		}
 	}
 
+	/**
+	 * 해당 id의 여행 의뢰 목록 가져오기 
+	 * @param id
+	 * @return 여행 의뢰 정보가 담긴 list 
+	 */
 	public ArrayList<ServiceDTO> list(String id) {
 		try {
 			String sql = " select s.*, (select name from tblmember where id = s.id) as name from tblservice s where id = ?";
@@ -57,7 +67,12 @@ public class ServiceDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+ 
+	/**
+	 * 여행 의뢰 취소 메소드 
+	 * @param serviceseq
+	 * @return delete 성공 여부 1, 0 
+	 */
 	public int cancel(String serviceseq) {
 		try {
 			
@@ -92,6 +107,11 @@ public class ServiceDAO {
 		
 	}
 
+	/**
+	 * 여행 의뢰 추가  메소드 
+	 * @param dto
+	 * @return insert 성공 여부 1, 0 
+	 */
 	public int add(ServiceDTO dto) {
 		try {
 			String sql = "insert into tblservice (serviceseq, travelspot,daystarttravel, dayendtravel, purpose, numberpeople, id) values (seqservice.nextval, ?,?,?,?,?,?)";

@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 게시글 수정 확인 서블릿 
+ * @author 이준희
+ *
+ */
 @WebServlet("/community/question/editok.do")
 public class EditOk extends HttpServlet {
 

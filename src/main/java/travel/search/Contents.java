@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 콘텐츠 서블릿 
+ * @author 이준희
+ *
+ */
 @WebServlet("/search/content.do")
 public class Contents extends HttpServlet {
 

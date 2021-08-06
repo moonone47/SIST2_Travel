@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 게시글 추가 서블릿
+ * @author 이준희
+ *
+ */
 @WebServlet("/community/question/add.do")
 public class Add extends HttpServlet {
 

@@ -8,6 +8,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
 
+/**
+ * 일정 검색 DAO 
+ * @author 이준희
+ *
+ */
 public class SearchPlanDAO {
     private Connection conn;
     private Statement stat;
@@ -23,7 +28,11 @@ public class SearchPlanDAO {
         }
     }
 
-
+    /**
+     * 일정 테이블에서 id 목록 가져온 후 일정 정보 리스트 가져오는 메소드 
+     * @param word
+     * @return 일정 정보가 담긴 list 
+     */
     public LinkedList<SearchPlanDTO> getAll(String word) {
 
         try {

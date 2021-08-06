@@ -9,7 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 질문게시판 답글 추가
+ * @author 이준희
+ *
+ */
 @WebServlet("/community/question/addrecommcnt.do")
 public class AddRecommcnt extends HttpServlet {
 

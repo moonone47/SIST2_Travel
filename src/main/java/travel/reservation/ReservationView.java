@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 예약 상세보기 서블릿 
+ * @author 이준희
+ *
+ */
 @WebServlet("/mypage/revview.do")
 public class ReservationView extends HttpServlet {
 

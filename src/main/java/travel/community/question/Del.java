@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * 질문 게시판 삭제 클래스 
+ * 질문 게시판 삭제 서블릿 
  * @author 이준희
  *
  */

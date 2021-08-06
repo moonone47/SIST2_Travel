@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 게시글에 달린 댓글 삭제 서블릿 
+ * @author 이준희
+ *
+ */
 @WebServlet("/community/question/delcomment.do")
 public class DelComment extends HttpServlet {
 
