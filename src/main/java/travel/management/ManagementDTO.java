@@ -17,7 +17,22 @@ public class ManagementDTO {
 	
 	private String writernick;
 	
+	private String cityX;
+	private String cityY;
+	
 		
+	public String getCityX() {
+		return cityX;
+	}
+	public void setCityX(String cityX) {
+		this.cityX = cityX;
+	}
+	public String getCityY() {
+		return cityY;
+	}
+	public void setCityY(String cityY) {
+		this.cityY = cityY;
+	}
 	//----------------- 세부 일정 tblPlan2	
     private String address_name;   
     private String category_group_name;  
@@ -29,10 +44,16 @@ public class ManagementDTO {
     private String seq;
     private String memberid;
     private String rdate; // 일정 날짜
-
+    private String category_group_code;
 	
 	
 	
+	public String getCategory_group_code() {
+		return category_group_code;
+	}
+	public void setCategory_group_code(String category_group_code) {
+		this.category_group_code = category_group_code;
+	}
 	public String getAddress_name() {
 		return address_name;
 	}

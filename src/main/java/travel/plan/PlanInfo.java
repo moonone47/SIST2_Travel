@@ -29,6 +29,7 @@ public class PlanInfo extends HttpServlet {
       String startday = req.getParameter("daystarttravel");
       String endday = req.getParameter("dayendtravel");
 
+<<<<<<< HEAD
       System.out.println(startday);
       System.out.println(endday);
       
@@ -37,6 +38,16 @@ public class PlanInfo extends HttpServlet {
       citydto.setDayendtravel(req.getParameter("dayendtravel"));
       citydto.setName(req.getParameter("name"));
       //dto.setPlanseq(req.getParameter("planseq"));
+=======
+		System.out.println(startday);
+		System.out.println(endday);
+		
+		citydto.setCityseq(req.getParameter("cityseq")); //13번으로 고정됨.
+		citydto.setDaystarttravel(req.getParameter("daystarttravel"));
+		citydto.setDayendtravel(req.getParameter("dayendtravel"));
+		citydto.setName(req.getParameter("name"));
+		//dto.setPlanseq(req.getParameter("planseq"));
+>>>>>>> 28ec9b5faea09fad60b3d0e9ba8673f04e3fb671
 
 
       if(req.getParameter("willshare") != null) {
@@ -51,10 +62,14 @@ public class PlanInfo extends HttpServlet {
       String userId = (String) session.getAttribute("id");
       int planseq = dao.add(citydto, userId);
 
+<<<<<<< HEAD
       System.out.println(planseq);
 
       
       session.setAttribute("planseq", planseq);
+=======
+		System.out.println(planseq);
+>>>>>>> 28ec9b5faea09fad60b3d0e9ba8673f04e3fb671
 
       
       resp.sendRedirect("/SIST2_Travel/plan/between.do?planseq=" + planseq+"&isedit=n");

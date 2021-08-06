@@ -116,7 +116,7 @@ public class ManagementDAO {
 				dto.setRdate(rs.getString("plandate"));
 				
 				dto.setCategory_group_name("관광명소");
-				
+				dto.setCategory_group_code("AT4");
 				
 				list.add(dto);
 			}
@@ -152,7 +152,7 @@ public class ManagementDAO {
 				dto.setMemberid(rs.getString("id"));
 				dto.setRdate(rs.getString("plandate"));
 				dto.setCategory_group_name("음식점");
-				
+				dto.setCategory_group_code("FD6");
 				
 				list.add(dto);
 			}
@@ -189,7 +189,7 @@ public class ManagementDAO {
 				dto.setMemberid(rs.getString("id"));
 				dto.setRdate(rs.getString("plandate"));
 				dto.setCategory_group_name("숙박");
-
+				dto.setCategory_group_code("AD5");
 				list.add(dto);
 			}			
 			
@@ -218,7 +218,7 @@ public class ManagementDAO {
 		       	            
 		            //15
 		            pstat.setString(1, dto.getAddress_name());
-		            pstat.setString(2, "");
+		            pstat.setString(2, dto.getCategory_group_code());
 		            pstat.setString(3, dto.getCategory_group_name());
 		            pstat.setString(4, "");
 		            pstat.setString(5, dto.getId());
@@ -358,7 +358,9 @@ public class ManagementDAO {
 				dto.setDayendtravel(rs.getString("dayendtravel"));
 				dto.setWish(rs.getString("wish"));
 				dto.setPlanseq(rs.getString("planseq"));
-				
+				dto.setWriternick(rs.getString("nick"));
+				dto.setCityX(rs.getString("cityX"));
+				dto.setCityY(rs.getString("cityY"));
 			}
 			return dto;
 		} catch (Exception e) {
