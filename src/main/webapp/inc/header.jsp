@@ -63,6 +63,16 @@
                     </p>
                 </div>
             </div> -->
+            <div class="col d-flex justify-content-end" style="margin-bottom: 5px;">
+                    <c:if test="${empty id}">
+	                    <button type="button" class="btn btn-warning form-control" style="width: 90px;"
+	                            onclick="location.href='/SIST2_Travel/login/login.do';">로그인
+	                    </button>
+	                    <button type="button" class="btn btn-primary form-control" style="width:110px;"
+	                            onclick="location.href='/SIST2_Travel/login/signup.do';">회원가입
+	                    </button>
+                    </c:if>
+             </div>
         </div>
     </div>
 
@@ -162,14 +172,14 @@
 <%--                        </div>--%>
 <%--                    </c:if>--%>
 
-                    <c:if test="${empty id}">
+<%--                     <c:if test="${empty id}">
 	                    <button type="button" class="btn btn-warning form-control"
 	                            onclick="location.href='/SIST2_Travel/login/login.do';">로그인
 	                    </button>
 	                    <button type="button" class="btn btn-primary form-control"
 	                            onclick="location.href='/SIST2_Travel/login/signup.do';">회원가입
 	                    </button>
-                    </c:if>
+                    </c:if> --%>
 
                     <c:if test="${not empty id}">
                         <li class="nav-item dropdown">
