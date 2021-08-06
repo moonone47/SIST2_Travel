@@ -11,9 +11,37 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet("/community/event/list.do") //여기 event 맞아요? 엥 왜지/??
+/**
+ * 모든 글 목록을 가져오는 클래스
+ */
+@WebServlet("/community/event/list.do")
 public class List extends HttpServlet {
-
+	/**
+	 * column과 search, isSearch를 가져와 map에 담고 페이징에 필요한 변수를 선언후 pagebar를 생성한다. 페이징 작업 이후 dao.list(map)을 호출하여 모든 목록을 가져온 뒤
+	 * <script, <를 replace하고 \r\n을 <br>로 바꾸는 작업과 search중일때 style을 추가하여 검색어를 부각시키는 작업을 진행한다.
+	 * String column	getParameter로 column을 가져온다.
+	 * String search	getParameter로 search를 가져온다.
+	 * String isSearch	검색중인지 확인하기 위한 변수
+	 * HashMap<String, String> map	column, search, isSearch를 저장하기 위한 컬렉션
+	 * int nowPage	페이징 처리를 위한 현재 페이지 번호
+	 * int totalCount	페이징 처리를 위한 총 게시물 수
+	 * int pageSize	페이징 처리를 위한 한 페이지당 출력할 게시물 수
+	 * int totalPage	페이징 처리를 위한 총 페이지 수
+	 * int begin	페이징 처리를 위한 가져올 게시물 시작 위치
+	 * int end	페이징 처리를 위한 가져올 게시물 끝 위치
+	 * int n	페이지바 제작을 위한 변수
+	 * int loop	페이지바 제작을 위한 변수
+	 * int blockSize	페이지바 제작을 위한 변수
+	 * String page	getParamter로 현재 page를 가져온다.
+	 * EventDAO dao	Event 테이블의 DB 작업을 위한 DAO 객체
+	 * String pagebar	pagebar를 만들기 위한 변수
+	 * ArrayList<EventDTO> list	map의 조건에 해당하는 게시물들을 받는 변수
+	 * HttpSession session	새로고침에 의한 조회수 증가를 방지하기 위해 read라는 티켓을 설정하는 변수
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

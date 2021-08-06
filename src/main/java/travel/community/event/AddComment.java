@@ -9,8 +9,25 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * 댓글쓰기를 클릭할때 호출되는 클래스
+ */
 @WebServlet("/community/event/addcomment.do")
 public class AddComment extends HttpServlet {
+    /**
+     * 로그인 여부를 확인하고 pseq, content를 받아와서 addComment를 호출하여 dto를 insert하고 성공하면 view로, 실패하면 alert과 함께 뒤로 보내진다.
+     * CheckMember cm	로그인 여부를 확인하는 변수
+     * String pseq	getParameter로  pseq를 가져온다.
+     * String content	getParameter로 content를 가져온다.
+     * EventDAO dao	이벤트 게시판 DB 작업을 위한 DAO 객체 생성
+     * CommentDTO dto	댓글 정보를 저장하기 위한 DTO 객체 생성
+     * HttpSession session	id를 얻기 위해 세션을 생성하는 변수
+     * int result	댓글 insert 작업 결과를 저장하는 변수
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

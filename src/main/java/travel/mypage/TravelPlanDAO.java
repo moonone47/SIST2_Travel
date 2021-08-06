@@ -1,21 +1,29 @@
 package travel.mypage;
 
+import travel.DBUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import travel.DBUtil;
-
+/**
+ * TravelPlan의 DB작업을 위한 DAO 클래스
+ * TravelPlanDAO	DB연결을 위한 생성자
+ * ArrayList<TravelPlanDTO> getlist(String id, String category)	vwPlanWish테이블에서 id와 category에 해당하는 정보를 select하여 ArrayList<TravelPlanDTO>로 반환한다.
+ * int del(String planseq)	tblPlan에서 planseq에 해당하는 컬럼을 삭제한다.
+ */
 public class TravelPlanDAO {
 
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
-	
-	
+
+	/**
+	 *  DB 연결을 위한 생성자이다.
+	 */
 	public TravelPlanDAO() {
 		try {
 			conn = DBUtil.open();
@@ -24,7 +32,12 @@ public class TravelPlanDAO {
 		}
 	}
 
-
+	/**
+	 * vwPlanWish테이블에서 id와 category에 해당하는 정보를 select하여 ArrayList<TravelPlanDTO>로 반환한다.
+	 * @param id where절의 조건으로 사용될 변수이다.
+	 * @param category where절의 조건으로 사용될 변수이다.
+	 * @return vwPlanWish 테이블에서 where절의 조건을 만족하는 정보를 select*하여 TravelPlanDTO에 저장하고, list.add를 완료한 ArrayList<TravelPlanDTO>를 반환한다.
+	 */
 	public ArrayList<TravelPlanDTO> getlist(String id, String category) {
 	
 		try {
@@ -72,6 +85,7 @@ public class TravelPlanDAO {
 					dto.setDayendtravel(rs.getString("dayendtravel"));
 					dto.setWish(rs.getString("wish"));
 					dto.setPlanseq(rs.getString("planseq"));
+					dto.setWriternick(rs.getString("nick"));
 					list.add(dto);
 				}
 				return list;
@@ -85,7 +99,11 @@ public class TravelPlanDAO {
 		return null;
 	}
 
-
+	/**
+	 * tblPlan에서 planseq에 해당하는 컬럼을 삭제한다.
+	 * @param planseq 삭제할 일정 번호이다.
+	 * @return delete 작업 결과를 반환한다.
+	 */
 	public int del(String planseq) {
 		
 		try {

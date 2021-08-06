@@ -1,21 +1,34 @@
 package travel.mypage;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import travel.community.question.CheckMember;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import travel.community.question.CheckMember;
-
+/**
+ * 결제 완료를 처리하기 위한 메소드
+ */
 @WebServlet("/mypage/basketpayok.do")
 public class BasketPayOk extends HttpServlet {
 
+	/**
+	 * 사용자 로그인 여부를 확인한 뒤 basketseq, tourseq를 가져오고 세션에서 id를 가져와 dao.insertrev(tourseq, id)로 결제상태를 y로 바꾸고 dao.del(basketseq)로 장바구니에 있는 품목을 삭제한다.
+	 * CheckMember cm	사용자의 로그인 여부를 확인한다.
+	 * String basketseq	getParameter로 basketseq를 저장한다.
+	 * String tourseq	getParameter로 tourseq를 저장한다.
+	 * Httpsession session	세션을 가져오기위해 생성한다.
+	 * String id	세션에서 id를 가져온다.
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -1,6 +1,19 @@
 package travel.mypage;
 
-
+/**
+ * 장바구니 정보를 저장하기 위한 BasketDTO 클래스
+ * private String basketseq;	tblBasket을 식별하기 위한 Primary Key이다.
+ * private String id;	사용자의 id를 저장한다.
+ * private String tourseq;	Foreign key를 저장한다.
+ * private String validdate;	유효기간을 저장한다.
+ * private String membername	회원의 이름을 저장한다.
+ * private String tourname	투어의 이름을 저장한다.
+ * private String use	사용처의 이름을 저장한다.
+ * private String tourprice	투어의 가격을 저장한다.
+ * private String ispay	결제 여부를 저장한다.
+ * private String img	투어 이미지의 주소를 저장한다.
+ * private String detail	투어의 상세 설명을 저장한다.
+ */
 public class BasketDTO {
 
 	private String basketseq;

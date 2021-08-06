@@ -8,9 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 글 삭제 버튼을 눌렀을때 호출되는 클래스
+ */
 @WebServlet("/community/event/del.do")
 public class Del extends HttpServlet {
-
+	/**
+	 * 로그인 여부를 확인하고 seq를 받아와서 del.jsp에게 전달한다.
+	 * CheckMember cm	로그인 여부를 확인하기 위한 변수
+	 * String seq	getParameter로 seq를 가져온다.
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -109,6 +109,7 @@ public class Between extends HttpServlet {
 		req.setAttribute("plan", plan);
 		req.setAttribute("list", list);
 		req.setAttribute("datelist", datelist);
+		req.setAttribute("cal", cal);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/management/detailview.jsp");
 		dispatcher.forward(req, resp);
