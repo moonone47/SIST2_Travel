@@ -337,7 +337,7 @@
     <div class="page silver">
         <div class="wrap">
             <div class="page_title">
-                어스토리에서 여행을 시작하세요!		</div>
+                TP에서 여행을 시작하세요!		</div>
             <div class="clear"></div>
             <div class="intro_list">
                 <div class="intro_box" onclick="location.href='/ko/area';">

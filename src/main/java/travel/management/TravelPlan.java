@@ -29,10 +29,7 @@ public class TravelPlan extends HttpServlet {
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id"); 
 		
-		String name = req.getParameter("name");
-		String daystarttravel = req.getParameter("daystarttravel");
-		String dayendtravel = req.getParameter("dayendtravel");
-		String cityname = req.getParameter("cityname");		
+
 		
 		ManagementDAO dao = new ManagementDAO();
 		dao.del(id);// 중복 방지
@@ -42,6 +39,9 @@ public class TravelPlan extends HttpServlet {
 			dto.setDayendtravel(dto.getDayendtravel().substring(0,10));
 			dto.setDaystarttravel(dto.getDaystarttravel().substring(0,10));
 		}
+		
+		
+		
 		
 		req.setAttribute("list", list);
 
