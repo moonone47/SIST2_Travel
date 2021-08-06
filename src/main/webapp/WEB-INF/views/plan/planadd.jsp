@@ -731,7 +731,7 @@
                 <li data="pn_date" >
                 	<c:set var = "startday" value="${citydto.daystarttravel}" />
                 	<c:set var = "endday" value="${citydto.dayendtravel}" />
-                    <div class="full_date_info fl" >${fn:substring(startday,5,10)} ~${fn:substring(endday,5,10)}</div>
+                    <div class="full_date_info fl" >${fn:substring(startday,5,10)} ~ ${fn:substring(endday,5,10)}</div>
                     <%--<div class="fl day_edit_start_btn">EDIT</div>--%>
                     <div class="clear"></div>
                 </li>
@@ -743,7 +743,7 @@
                 <c:forEach items="${datelist}" var="list" varStatus="status">
                     <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
                         <c:if test="${status.count==1}">
-                        <li data="${status.count}" data-date="08.05" data-day_week="4" class="on">
+                        <li data="${status.count}" data-date="08.05" data-day_week="4" class="on" >
                             </c:if>
                             <c:if test="${status.count!=1}">
                         <li data="${status.count}" data-date="08.05" data-day_week="4">
