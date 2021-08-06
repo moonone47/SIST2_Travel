@@ -453,6 +453,10 @@
             color: #b3b3b3;
             text-align: left !important;
         }
+         #cat_menu li.on {
+             background: #1a7ad9;
+             border-bottom: solid 1px #1a7ad9;
+         }
         body {
             overflow: hidden; /* Hide scrollbars */
             overflow-y: hidden; /* Hide vertical scrollbar */
@@ -743,10 +747,10 @@
                 <c:forEach items="${datelist}" var="list" varStatus="status">
                     <form id="my_form" method="POST" action="/SIST2_Travel/plan/planscd.do">
                         <c:if test="${status.count==1}">
-                        <li data="${status.count}" data-date="08.05" data-day_week="4" class="on" >
+                        <li id="list_${status.count}" data="${status.count}" data-date="08.05" data-day_week="4" class="on my_form" >
                             </c:if>
                             <c:if test="${status.count!=1}">
-                        <li data="${status.count}" data-date="08.05" data-day_week="4">
+                        <li id="list_${status.count} data="${status.count}" class="my_form" data-date="08.05" data-day_week="4">
                             </c:if>
                                 <%--                        <div onclick="javascript:document.form.submit();">--%>
                             <span onClick="$(this).closest('form').submit();">
@@ -977,7 +981,15 @@
             $('#all').trigger("click");
             $('.textbox').val("${city.name}");
             $('#button-addon1').trigger("click");
+            $('#list_1').trigger("click"); // 여기서 클릭 이벤트는 발생하는데 planscd로는 안넘어감.
+
+            // $('#my_form > li').trigger("click");
+            // $('#my_form > li').addClass("on");
         }
+        $(".my_form").click(function () {
+            $("#my_form  li").removeClass("on")
+            $(this).addClass("on");
+        });
         // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
         var placeOverlay = new kakao.maps.CustomOverlay({zIndex: 1}),
             contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다

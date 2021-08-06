@@ -17,7 +17,7 @@ public class Index extends HttpServlet {
 
 		
 		HttpSession session = req.getSession();
-		session.setAttribute("id", "1");
+//		session.setAttribute("id", "1");
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
 		dispatcher.forward(req, resp);
 	}
