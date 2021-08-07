@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 게시글 수정 jsp 호출 서블릿
+ * @author 김정은
+ *
+ */
 @WebServlet("/community/freeboard/edit.do")
 public class Edit extends HttpServlet {
 

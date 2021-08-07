@@ -7,7 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import travel.DBUtil;
-
+/**
+ * 댓글 DB 질의 처리 클래스
+ * @author 김정은
+ *
+ */
 public class FreeBoardCommentDAO {
 
 	private Connection conn;
@@ -15,7 +19,10 @@ public class FreeBoardCommentDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	
+	/**
+	 * FreeBoardCommentDAO 클래스 생성자 메소드
+	 * 
+	 */
 	public FreeBoardCommentDAO() {
 		try {
 			conn = DBUtil.open();
@@ -24,7 +31,12 @@ public class FreeBoardCommentDAO {
 		}
 	}
 
+	/**
+	 * 댓글 추가로 insert 질의를 수행하는 메소드
+	 * @param dto
+	 * @return int 질의가 실행된 레코드 개수를 반환
 
+	 */
 	public int add(FreeBoardCommentDTO dto) {
 
 		try {
@@ -45,7 +57,11 @@ public class FreeBoardCommentDAO {
 
 
 
-
+	/**
+	 * 댓글 리스트 조회로 select 질의를 수행하는 메소드
+	 * @param freeboardseq
+	 * @return ArrayList<FreeBoardCommentDTO> 질의 결과를 반환
+	 */
 	public ArrayList<FreeBoardCommentDTO> getlist(String freeboardseq) {
 		try {
 			
@@ -74,7 +90,10 @@ public class FreeBoardCommentDAO {
 		return null;
 	}
 
-
+	/**
+	 * 댓글 삭제로 delete 질의를 수행하는 메소드
+	 * @param freecommentseq
+	 */
 	public void del(String freecommentseq) {
 		
 		try {		
