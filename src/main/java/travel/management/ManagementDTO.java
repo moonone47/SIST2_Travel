@@ -1,5 +1,22 @@
 package travel.management;
 
+/**
+ * Management DB의 정보를 저장하기 위한 DTO 클래스
+ * String planseq	planseq를 저장한다
+ * String status	status를 저장한다
+ * String name	name을 저장한다
+ * String daystarttravel	daystarttravel를 저장한다
+ * String dayendtravel	dayendtravel를 저장한다
+ * String willshare	willshare를 저장한다
+ * String wish	wish를 저장한다
+ * String theme	theme를 저장한다
+ * String id	id를 저장한다
+ * String cityseq	cityseq를 저장한다
+ * String cityname	cityname를 저장한다
+ * String writernick	writernick를 저장한다
+ * String cityX	cityX를 저장한다
+ * String cityY	cityY를 저장한다
+ */
 public class ManagementDTO {
 
 	//---------일정 조회  tblPlan
