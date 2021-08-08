@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 댓글 삭제 서블릿
+ * @author 김정은
+ *
+ */
 @WebServlet("/community/freeboard/commentdel.do")
 public class CommentDel extends HttpServlet {
 

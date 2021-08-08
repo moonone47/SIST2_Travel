@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * 예약 취소 서블릿 
+ * 해당 reservationseq를 가진 예약 목록을 취소해주는 서블릿 
  * @author 이준희
  *
  */

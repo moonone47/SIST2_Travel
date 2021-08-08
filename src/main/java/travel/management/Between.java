@@ -1,12 +1,5 @@
 package travel.management;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +7,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
+/**
+ * 여행 일정을 클릭했을때 detailview.jsp로 가기 전 중간 페이지를 넣어 새로고침과 뒤로가기에 대응하는 클래스
+ */
 @WebServlet("/management/between.do")
 public class Between extends HttpServlet {
 
+	/**
+	 * dao.list(planseq)를 호출하여 ManagementDTO를 저장하고 날짜 계산을 위한 변수를 생성한 뒤 처음 날짜와 끝 날짜의 날짜를 datelist에 저장하고 저장된 모든 정모를 detailview.jsp에 전달한다.
+	 * String planseq	getPrameter로 planseq를 받아온다.
+	 * ManagementDAO dao	Management DB작업을 위한 DAO 객체
+	 * HttpSession session	세션에서 id를 받아오기 위한 변수
+	 * String id	id를 저장하는 변수
+	 * Arraylist<ManagementDTO> list	ManagementDTO 정보들을 가지고 있는 컬렉션
+	 * ManagementDTO plan	planseq에 해당하는 정보를 담은 DTO 객체
+	 * String daystarttravel	여행 시작 날짜를 저장하는 변수
+	 * String dayendtravl	여행 종료 날짜를 저장하는 변수
+	 * Date FirstDate	날짜 계산을 위한 임시변수
+	 * Date SecondDate	날짜 계산을 위한 임시 변수
+	 * long calDate	두 날짜 사이의 차이를 long으로 저장
+	 * long calDateDays	두 날짜 사이의 차이를 일로 변환하여 저장
+	 * int cal	calDateDays를 (int)형으로 바꾸고 Math.abs를 적용
+	 * Calendar date	Calendar 객체로 날짜를 저장하기 위한 변수
+	 * ArrayList<String> datelist	시작날짜와 끝 날짜 사이의 리스트를 문자열로 저장.
+	 * String nick	글 쓴 사람의 닉네임을 받아오는 변수
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

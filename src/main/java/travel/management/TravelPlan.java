@@ -1,12 +1,5 @@
 package travel.management;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.ArrayList;
 
+/**
+ * 여행 계획을 클릭했을 때 호출되는 클래스
+ */
 @WebServlet("/management/travelplan.do")
 public class TravelPlan extends HttpServlet {
 
-	
-
+	/**
+	 * 세션에서 id를 받아와 중복 방지를 위해 tblPlan2에서 id에 해당하는컬럼을 삭제 후 dao.getlist(id)로 명소, 식당, 숙박 테이블에서 데이터를 list로 받아 온 뒤 dto 정보를 후처리 한 뒤  travlplan.jsp로 전달한다.
+	 * HttpSession session	id를 받아오기 위 한 세션 변수
+	 * String id	id를 저장하는 변수
+	 * ManagementDAO dao	DB작업을 위한 DAO 객체 생성
+	 * ArrayList<ManagementDTO> list	DB의 select 결과를 담아 DTO 에 저장하는 컬렉션
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

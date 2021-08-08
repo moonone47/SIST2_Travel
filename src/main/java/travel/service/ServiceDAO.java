@@ -69,7 +69,7 @@ public class ServiceDAO {
 	}
  
 	/**
-	 * 여행 의뢰 취소 메소드 
+	 * 입력받은 serviceseq 레코드 여행 의뢰 취소 메소드 
 	 * @param serviceseq
 	 * @return delete 성공 여부 1, 0 
 	 */
@@ -108,9 +108,9 @@ public class ServiceDAO {
 	}
 
 	/**
-	 * 여행 의뢰 추가  메소드 
+	 * 넘겨받은 dto정보를 tblService에 insert 해주는 메소드 
 	 * @param dto
-	 * @return insert 성공 여부 1, 0 
+	 * @return insert 성공 여부 1 or 0 
 	 */
 	public int add(ServiceDTO dto) {
 		try {

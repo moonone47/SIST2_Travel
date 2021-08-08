@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 투어 예약 리스트 조회 서블릿
+ * @author 김정은
+ *
+ */
 @WebServlet("/reservation/tourlist.do")
 public class TourList extends HttpServlet {
 

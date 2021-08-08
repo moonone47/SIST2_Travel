@@ -1,6 +1,10 @@
 package travel.spot;
 
-
+/**
+ * tblSights 데이터 저장 클래스
+ * @author 김정은
+ *
+ */
 public class SightDTO {
 //    sightseq name explain address image grade wish theme sightx sighty plandate budget seq url planseq id
     private String sightsSeq;

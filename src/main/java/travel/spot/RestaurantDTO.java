@@ -1,6 +1,10 @@
 package travel.spot;
 
-
+/**
+ * tblRestaurant 데이터 저장 클래스
+ * @author 김정은
+ *
+ */
 public class RestaurantDTO {
 //    restaurantseq name explain address image grade wish theme restaurantx restauranty plandate budget seq url planseq id
     private String restaurantSeq;

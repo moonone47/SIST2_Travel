@@ -19,6 +19,9 @@ public class SearchPlanDAO {
     private PreparedStatement pstat;
     private ResultSet rs;
 
+    /**
+     * DB와 연결해줄 생성자 
+     */
     public SearchPlanDAO() {
 
         try {

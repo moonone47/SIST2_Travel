@@ -17,7 +17,10 @@ public class ReservationDAO {
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
-
+	
+	/**
+	 * DB연결을 위한 생성자 
+	 */
 	public ReservationDAO() {
 		try {
 			conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");

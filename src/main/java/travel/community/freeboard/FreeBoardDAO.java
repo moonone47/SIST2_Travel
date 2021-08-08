@@ -8,7 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import travel.DBUtil;
-
+/**
+ * 게시글 DB 질의 처리 클래스
+ * @author 김정은
+ *
+ */
 public class FreeBoardDAO {
 
 	private Connection conn;
@@ -16,7 +20,9 @@ public class FreeBoardDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	
+	/**
+	 * FreeBoardDAO 클래스 생성자 메소드
+	 */
 	public FreeBoardDAO() {
 		try {
 			conn = DBUtil.open();
@@ -25,7 +31,11 @@ public class FreeBoardDAO {
 		}
 	}
 	
-	
+	/**
+	 * 게시물 추가로  insert 질의를 수행하는 메소드
+	 * @param dto
+	 * @return int 질의가 실행된 레코드 개수를 반환
+	 */
 	public int add(FreeBoardDTO dto) {
 
 		try {
@@ -44,7 +54,11 @@ public class FreeBoardDAO {
 		return 0;
 	}
 
-
+	/**
+	 * 게시글 조회로 select 질의를 수행하는 메소드
+	 * @param HashMap<String,String>map 검색대상,검색어를 담은 Hashmap
+	 * @return ArrayList<FreeBoardDTO> 질의 결과를 반환
+	 */
 	public ArrayList<FreeBoardDTO> getlist(HashMap<String, String> map) {
 		
 		try {
@@ -92,7 +106,11 @@ public class FreeBoardDAO {
 		return null;
 	}
 
-
+	/**
+	 * view 및 update에서 게시글 정보 조회를 위해 select 질의를 수행하는 메소드
+	 * @param freeboardseq
+	 * @return FreeBoardDTO 질의 결과를 반환
+	 */
 	public FreeBoardDTO getlist(String freeboardseq) {
 
 		try {
@@ -123,7 +141,11 @@ public class FreeBoardDAO {
 		return null;
 	}
 
-
+	/**
+	 * 게시글 수정으로 update 질의를 수행하는 메소드
+	 * @param dto
+	 * @return int 질의가 실행된 레코드 개수를 반환
+	 */
 	public int update(FreeBoardDTO dto) {
 		try {
 			String sql = "update tblFreeBoard set subject = ?, content = ? where freeboardseq=?";
@@ -140,7 +162,11 @@ public class FreeBoardDAO {
 		return 0;
 	}
 
-
+	/**
+	 * 게시글 삭제로 delete 질의를 수행하는 메소드
+	 * @param freeboardseq
+	 * @return int 질의가 실행된 레코드 개수를 반환
+	 */
 	public int delete(String freeboardseq) {
 		try {		
 			String sql = "delete from tblFreeBoard where freeboardseq = ?";
@@ -157,7 +183,10 @@ public class FreeBoardDAO {
 		return 0;
 	}
 
-
+	/**
+	 * 조회수 증가로 update질의를 수행하는 메소드
+	 * @param freeboardseq
+	 */
 	public void updateViewcnt(String freeboardseq) {
 
 		try {
@@ -172,7 +201,12 @@ public class FreeBoardDAO {
 		
 	}
 	
-public int getTotalCount(HashMap<String, String> map) {
+	/**
+	 * 총 게시글 개수 구하는 메소드
+	 * @param HashMap<String,String>map 검색대상,검색어를 담은 Hashmapp
+	 * @return int 질의 결과인 count(*)를 반환 
+	 */
+	public int getTotalCount(HashMap<String, String> map) {
 		
 		try {
 			

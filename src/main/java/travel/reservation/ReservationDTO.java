@@ -1,7 +1,7 @@
 package travel.reservation;
 
 /**
- * 예약내역 DTO
+ * 예약내역에 필요한 매개변수들을 담을 DTO
  * @author 이준희
  *
  */

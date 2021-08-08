@@ -1,5 +1,9 @@
 package travel.tour;
-
+/**
+ * tblTour 데이터 저장 클래스
+ * @author 김정은
+ *
+ */
 public class TourDTO {
     //    TOURSEQ   NUMBER         not null
 //    NAME      VARCHAR2(100)  not null,

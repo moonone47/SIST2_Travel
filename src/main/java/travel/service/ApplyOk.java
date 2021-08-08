@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import travel.community.question.CheckMember;
 
 /**
- * 여행 의뢰 확인 서블릿 
+ * 여행 의뢰 신청 jsp에서 보내진 정보들을 받아 추가해주는 서블릿 
  * @author 이준희
  *
  */

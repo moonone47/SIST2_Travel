@@ -11,12 +11,18 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
 
+/**
+ * 찜 목록 DB 작업을 위한 DAO 클래스
+ */
 public class WishDAO {
     private Connection conn;
     private Statement stat;
     private PreparedStatement pstat;
     private ResultSet rs;
 
+    /**
+     * DB 저장을 위한 생성자
+     */
     public WishDAO() {
         try {
             conn = DBUtil.open();
@@ -26,6 +32,10 @@ public class WishDAO {
         }
     }
 
+    /**
+     * tblRestaurant 테이블에서 select * 값을 LinkedList<RestaurantDTO>로 반환하는 메소드
+     * @return select * 정보를 LinkedList<RestaurantDTO>로 반환한다.
+     */
     public LinkedList<RestaurantDTO> getAllRestaurant() {
         try {
             String sql = "select * from tblRestaurant";
@@ -60,6 +70,10 @@ public class WishDAO {
         return null;
     }
 
+    /**
+     * tblRooms 테이블에서 select *한 결과를 LinkedList<RoomDTO> list에 add한 결과를 반환하는 메소드
+     * @return select *의 결과를 LinkedList<RoomDTO>로 반환한다.
+     */
     public LinkedList<RoomDTO> getAllRoom() {
         try {
             String sql = "select * from tblRooms";
@@ -94,7 +108,10 @@ public class WishDAO {
 
     }
 
-
+    /**
+     * tblSights 테이블에서 select *한 정보를 LinkedList<SightDTO> list에 add한 결과를 반환한다.
+     * @return select *의 결과를 저장한 LinkedList<SightDTO> 를 반환한다.
+     */
     public LinkedList<SightDTO> getAllSight() {
         try {
             String sql = "select * from tblSights";
