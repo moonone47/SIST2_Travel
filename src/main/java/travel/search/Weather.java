@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 날씨 검색 서블릿 
+ * 날씨 검색 페이지 서블릿 
  * @author 이준희
  *
  */
