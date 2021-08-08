@@ -12,9 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 회원 로그인 성공여부 확인 클래스
- * @author 이준희
- *
+ * @author 문지원
+ * 로그인 실행을 처리하는 클래스
+
+	String id	getParameter로 id를 가져온다
+	String pw	getParameter로 pw를 가져온다
+	String auto	getParameter로 autoId를 가져온다
+	MemberDAO dao	DB작업을 위한 DAO 객체
+	MemberDTO dto	DB 결과를 저장하기 위한 DTO 객체
+	MemberDTO result	DB에서 회원정보를 받아온다.
+
  */
 
 @WebServlet("/login/loginok.do")
@@ -23,7 +30,7 @@ public class LoginOk extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		// 로그인 확인 창
-		String id = req.getParameter("ide");
+		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		String auto = req.getParameter("autoId");
 		

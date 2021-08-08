@@ -12,6 +12,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author 문지원
+ * 게시글 목록을 보여주는 클래스
+
+	String column	getParameter로 column을 가져온다
+	String search	getParameter로 search를 가져온다
+	String isSearch	검색중인지 확인하기 위한 변수
+	HashMap<String, String> map	column, search, isSearch를 저장하기 위한 컬렉션
+	int nowPage	페이징 처리를 위한 현재 페이지 번호
+	int totalCount	페이징 처리를 위한 총 게시물 수
+	int pageSize	페이징 처리를 위한 한 페이지당 출력할 게시물 수
+	int begin	페이징 처리를 위한 가져올 게시물 시작 위치
+	int end	페이징 처리를 위한 가져올 게시물 끝 위치
+	int n	페이지바 제작을 위한 변수
+	int loop	페이지바 제작을 위한 변수
+	int blockSize	페이지바 제작을 위한 변수
+	String page	getParameter로 현재 페이지를 가져온다
+	BoardDAO dao	suggest 테이블의 DB작업을 위한 DAO 객체
+	String pagebar	pagebar를 만들기 위한 변수
+	ArrayList<BoardDTO> list	map의 조건에 해당하는 게시물들을 받는 변수
+	HttpSession session	새로고침에 의한 조회수 증가를 방지하기 위해 read라는 티켓을 설정하는 변수
+
+ */
 @WebServlet("/community/suggest/list.do")
 public class List extends HttpServlet {
 
@@ -27,13 +50,8 @@ public class List extends HttpServlet {
 	}
 
 	private void doPostGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		  CheckMember cm = new CheckMember(); 
-		  cm.check(req,resp);
 		 
-		
-
+	
 		String column = req.getParameter("column");
 		String search = req.getParameter("search");
 	
@@ -68,6 +86,11 @@ public class List extends HttpServlet {
 		} else {
 			nowPage = Integer.parseInt(page);
 		}
+		
+		//nowPage > 지금 보게될 페이지 번호
+		//1page -> where rnum between 1 and 10
+		//2page -> where rnum between 11 and 20
+		//3page -> where rnum between 21 and 30
 
 		begin = ((nowPage - 1) * pageSize) + 1;
 		end = begin + pageSize - 1;
@@ -76,10 +99,12 @@ public class List extends HttpServlet {
 
 		map.put("begin", begin + "");
 		map.put("end", end + "");
-
+		
+		//총 게시물 수 알아내기
 		totalCount = dao.getTotalCount(map);
 		// System.out.println(totalCount);
-
+		
+		//총 게시물 수 알아내기 
 		totalPage = (int) Math.ceil((double) totalCount / pageSize);
 		
 

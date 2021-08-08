@@ -1,5 +1,23 @@
 package travel.community.suggest;
 
+/**
+ * @author 문지원
+ * suggest 테이블의 정보를 저장하기 위한 DTO 클래스
+ *
+	private String suggestseq	suggestseq를 저장한다
+	private String subject		subject를 저장한다
+	private String content		content를 저장한다
+	private String viewcnt		viewcnt를 저장한다
+	private String recommcnt	recommcnt를 저장한다
+	private int thread			thread를 저장한다
+	private int depth			depth를 저장한다
+	private String regdate		regdate를 저장한다
+	private String id			id를 저장한다
+	private String name			name를 저장한다
+	private String isnew		isnew를 저장한다
+	private String ccnt			ccnt를 저장한다
+
+ */
 public class BoardDTO {
 		
 		private String suggestseq;

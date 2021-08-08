@@ -8,6 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author 문지원
+ * id를 찾는 클래스
+	
+	MemberDAO dao	DB작업을 위한 DAO 객체
+	MemberDTO dto	DB 결과를 저장하기 위한 DTO 객체
+	String result	result 값이 null이면 id 찾는 페이지로 보낸다. null이 아니면 id를 보여준다. 
+ */
 @WebServlet("/login/findidok.do")
 public class FindIdOk extends HttpServlet {
 

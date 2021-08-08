@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+/**
+ * @author 문지원
+ * pw를 찾는 버튼을 눌렀을 때 작업할 클래스
+ */
 @WebServlet("/login/findpw.do")
 public class FindPw extends HttpServlet {
 

@@ -1,22 +1,23 @@
 package travel.login;
 
 /**
- * 회원 정보 DTO
- * @author 이준희 
- *
+ * @author 문지원
+ * 회원의 DTO 클래스 
+
+	private String id		id를 저장한다.
+	private String pw		pw를 저장한다.
+	private String name		name를 저장한다.
+	private String nick		nick를 저장한다.
+	private String email	email를 저장한다.
+	private String phone	phone를 저장한다.
+	private String zip		zip를 저장한다.
+	private String address	address를 저장한다.
+	private String lv		lv를 저장한다.
+	private String birthday	birthday를 저장한다.
+	private String gender	gender를 저장한다.
+
  */
 
-//ID       NOT NULL VARCHAR2(50)  
-//PW       NOT NULL VARCHAR2(100) 
-//NAME     NOT NULL VARCHAR2(50)  
-//NICK     NOT NULL VARCHAR2(50)  
-//EMAIL    NOT NULL VARCHAR2(200) 
-//PHONE    NOT NULL VARCHAR2(50)  
-//ZIP      NOT NULL VARCHAR2(50)  
-//ADDRESS  NOT NULL VARCHAR2(500) 
-//LV       NOT NULL NUMBER        
-//BIRTHDAY NOT NULL DATE          
-//GENDER   NOT NULL VARCHAR2(10)  
 public class MemberDTO {
 
 	private String id;

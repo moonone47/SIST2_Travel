@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 /**
- * 회원 로그인 페이지오픈 클래스
- * @author 이준희 
- *
+ * @author 문지원 
+ * 로그인버튼을 눌렀을 때 작업할 클래스
  */
 
 @WebServlet("/login/login.do")

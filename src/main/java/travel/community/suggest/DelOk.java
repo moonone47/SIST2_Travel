@@ -10,6 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author 문지원
+ * 글 삭제를 진행하는 클래스 
+
+	String suggestseq	getParameter로 suggestseq를 가져온다
+	BoardDAO dao		suggest 테이블의 DB 작업을 위한 DAO 객체 생성
+	HttpSession session	세션 생성을 위한 변수
+	int result			delete 작업 결과를 저장하는 변수
+
+ */
 @WebServlet("/community/suggest/delok.do")
 public class DelOk extends HttpServlet {
 

@@ -11,14 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author 문지원
+ * 게시글 내용을 보여주는 클래스
+
+	String suggestseq	getParameter로 suggestseq를 가져온다
+	HttpSession session	티켓을 가져오기 위한 session 변수
+	BoardDTO dto	suggest 테이블의 DB 작업을 위한 DAO 객체
+	String subject	제목에 태그 사용을 replace 하여 XXS 공격을 방지한다. 
+	String content	내용에 태그 사용을 replace 하여 XXS 공격을 방지한다. 
+	ArrayList<CommentDTO> clist	현재 글 번호에 해당하는 모든 댓글을 저장하기 위한 변수
+
+ */
+
 @WebServlet("/community/suggest/view.do")
 public class View extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		  CheckMember cm = new CheckMember(); 
-		  cm.check(req,resp);
 		
 		String suggestseq = req.getParameter("suggestseq");
 		
@@ -27,7 +37,6 @@ public class View extends HttpServlet {
 		HttpSession session = req.getSession(); 
 		
 		if(session.getAttribute("read") != null && session.getAttribute("read").toString().equals("n")){
-
 			// 조회수 증가하기 (내가 읽은것도 포함 )
 			dao.updateReadCount(suggestseq);
 
@@ -47,7 +56,7 @@ public class View extends HttpServlet {
 		
 		ArrayList<CommentDTO> clist = dao.listcomment(suggestseq);
 
-		
+	
 		content = content.replace("\r", "<br>");
 		dto.setContent(content);		
 		

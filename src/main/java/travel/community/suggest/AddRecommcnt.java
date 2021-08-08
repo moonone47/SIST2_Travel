@@ -10,6 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author 문지원
+ * 추천을 눌렀을때 호출되는 클래스
+ * 
+	String suggestseq 	getParameter로 suggestseq를 가져온다
+	BoardDAO dao 		Suggest 테이블의 DB작업을 위한 DAO 객체
+	int result 			추천 insert 작업 결과를 저장하는 변수
+	PrintWriter writer 	result가 1이 아니면 alert이 뜨고 직전 페이지로 보낸다.
+ */
 @WebServlet("/community/suggest/addrecommcnt.do")
 public class AddRecommcnt extends HttpServlet {
 
