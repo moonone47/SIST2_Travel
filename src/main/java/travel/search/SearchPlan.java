@@ -8,11 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * 일정 검색 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/search/searchplan.do")
 public class SearchPlan extends HttpServlet {
     @Override

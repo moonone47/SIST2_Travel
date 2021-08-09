@@ -8,11 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-/**
- * 투어 예약 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/tour/booktour.do")
 public class BookTour extends HttpServlet {
     @Override

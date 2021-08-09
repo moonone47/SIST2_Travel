@@ -9,13 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 
-/**
- * @author 문지원
- * 회원가입을 눌렀을때 실행되는 클래스
-
-	MemberDAO dao 	DB작업을 위한 DAO 객체
-	LinkedList<String> dto	모든 id정보를 가져오기 위한 변수
- */
 @WebServlet("/login/signup.do")
 public class SignUp extends HttpServlet {
 

@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 로그아웃을 눌렀을 때 실행되는 클래스
- * @author 문지원
-
-	HttpSession session	세션생성을 위한 변수
+ * 회원 로그아웃 클래스
+ * @author 이준희
+ *
  */
 
 @WebServlet("/login/logout.do")

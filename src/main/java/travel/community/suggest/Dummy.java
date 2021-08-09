@@ -4,20 +4,6 @@ import java.sql.PreparedStatement;
 import java.util.Random;
 import travel.DBUtil;
 
-/**
- * @author 문지원
- * 게시글 데이터를 만들기 위한 데이터
-
-	String[] id				id를 담은 배열
-	String[] subject		제목을 담은 배열
-	String content			게시글 내용을 담은 배열
-	int thread				thread값을 저장 
-	Random rnd				랜덤으로 배열에 값을 생성한다.
-	Connection conn			DB접속을 돕는 conn 객체 생성
-	PreparedStatement stat	sql 구문을 실행한다.
-	String sql				tblsuggestBoard에 값을 insert하는 sql 구문
-
- */
 public class Dummy {
 	public static void main(String[] args) {
 		

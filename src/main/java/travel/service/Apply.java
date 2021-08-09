@@ -9,11 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * 여행 의뢰 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/service/apply.do")
 public class Apply extends HttpServlet {
 

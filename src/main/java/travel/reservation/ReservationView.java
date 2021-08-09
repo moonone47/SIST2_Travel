@@ -8,11 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/**
- * 넘어온 tourseq에 해당하는 예약 상세정보를 불러오는 서블릿 
- * @author 이준희
- *
- */
+
 @WebServlet("/mypage/revview.do")
 public class ReservationView extends HttpServlet {
 

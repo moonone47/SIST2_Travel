@@ -7,20 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
-/**
- * 투어 DB 처리 클래스
- * @author 김정은
- *
- */
+
 public class TourDAO {
     private Connection conn;
     private Statement stat;
     private PreparedStatement pstat;
     private ResultSet rs;
 
-    /**
-     * TourDAO() 생성자 메소드
-     */
+
     public TourDAO() {
         try {
             conn = DBUtil.open();
@@ -28,10 +22,7 @@ public class TourDAO {
             e.printStackTrace();
         }
     }
-    /**
-     * 투어 리스트 조회 메소드
-     * @return LinkedList<TourDTO> 질의 결과를 반환
-     */
+    
     public LinkedList<TourDTO> getList() {
         try{
             String sql = "select * from tblTour";

@@ -6,6 +6,7 @@ package travel.community.question;
  *
  */
 
+
 public class BoardDTO {
 	private String questionseq;
 	private String subject;

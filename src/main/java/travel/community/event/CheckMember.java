@@ -5,17 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
-/**
- * 로그인 여부를 확인하기 위한 클래스
- */
 public class CheckMember {
-    /**
-     * 세션의 id를 가져와 null 혹은 ""이면 alert 띄운 뒤 index로 보낸다.
-     * HttpSession session	세션에 저장된 id를 불러오기 위해 세션을 생성한다.
-     * PrintWriter writer	id가 null || “”이면 writer로 alert후 index페이지로 보낸다.
-     * @param req
-     * @param resp
-     */
     public void check(HttpServletRequest req, HttpServletResponse resp) {
         try{
             HttpSession session = req.getSession();

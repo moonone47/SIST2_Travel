@@ -8,11 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/**
- * 예약 상세 페이지 호출 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/reservation/tourview.do")
 public class TourView extends HttpServlet {
 

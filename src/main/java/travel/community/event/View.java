@@ -1,5 +1,9 @@
 package travel.community.event;
 
+import travel.community.event.CommentDTO;
+import travel.community.event.EventDAO;
+import travel.community.event.EventDTO;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,28 +14,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * 글을 선택하면 상세 글 보기를 위해 호출되는 클래스다.
- */
 @WebServlet("/community/event/view.do")
 public class View extends HttpServlet {
-	/**
-	 * seq, column, search를 가져와 dao.get(dto)를 호출하여 dto에 해당하는 정보를 가져온다. read 티켓을 확인후 조회수를 1 증가시키고, 가져온 dto의 contenet와 subject의 후처리를 진행한다.
-	 * XSS공격을 방지하기위해 <script와 <를 replace하고 가독성을위해 \r\n을 <br>로, search중일때는 style을 추가하여 검색어를 부각시킨다.
-	 * HttpSession session	read 티켓을 가져오기 위한 session 변수
-	 * String seq	getParameter로 seq를 가져온다.
-	 * String column	getParameter로 column을 가져온다.
-	 * String search	getParameter로 search를 가져온다.
-	 * EventDAO dao	Event 테이블의 DB 작업을 위한 DAO 객체
-	 * EventDTO dto	Event 테이블의 DB 작업 결과 저장을 위한 DTO 개ㅑㄱ체
-	 * String subject	dto에 저장된 subject를 가져와 XSS공격을 방지하기 위해 <script 와 <를 replace하고 \r\n을 <br>로 replace하고 search중일때 style을 추가하여 부각시킨다.
-	 * String content	dto에 저장된 content를 가져와 XSS공격을 방지하기 위해 <script 와 <를 replace하고 \r\n을 <br>로 replace하고 search중일때 style을 추가하여 부각시킨다.
-	 * ArrayList<CommentDTO> clist	seq(현재 글번호)에 해당하는 모든 댓글을 저장하기 위한 변수
-	 * @param req
-	 * @param resp
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

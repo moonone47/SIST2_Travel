@@ -8,24 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * @author 문지원
- 글쓰기 완료 처리를 위한 클래스
-
-	CheckMember cm 		로그인한 멤버인지 확인하는 변수
-	String subject 		getParameter로 subject를 가져온다.
-	String content 		getParameter로 content를 가져온다.
-	BoardDAO dao 		Suggest 테이블의 DB 작업을 위한 DAO 객체
-	BoardDTO dto 		Suggest 테이블의 DB 작업 결과를 저장하기 위한 DTO 객체
-	String reply 		getParameter로 reply를 가져온다
-	int thread `		답글이 없으면  dao.getMaxThread로 thread의 최대값을 저장한다. 답글이 있으면 parentThread -1을 저장한다.
-	int depth 			답글이 없으면 0으로 지정한다 답글이 있으면 parentDepth +1을 저장한다.
-	int parentThread 	답글이 없을때 getParameter로 thread를 가져온다
-	int parentDepth  	답글이 없을때 getParameter로 depth를 가져온다
-	int previousThread 	이전 새 글의 thread 공식
-	int result 			게시글 insert 작업 결과를 저장하는 변수
-
- */
 @WebServlet("/community/suggest/addok.do")
 public class AddOk extends HttpServlet {
 

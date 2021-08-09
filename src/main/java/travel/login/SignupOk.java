@@ -8,25 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
-
-/**
- * @author 문지원
- * 회원가입을 작업하는 클래스
-
-	MemberDAO dao	DB작업을 위한 DAO 객체
-	MemberDTO dto	DB 결과를 저장하기 위한 DTO 객체
-	String year	getParameter로 yy를 가져온다 
-	String month	getParameter로 mm을 가져온다
-	String day	getParameter로 dd를 가져온다
-	String add1	getParameter로 add1을 가져온다
-	String add2	getParameter로 add2를 가져온다
-	String add3	getParameter로 add3를 가져온다
-	String Address	add1, add2, add3을 합쳐서 저장한다.
-	int result	insert 작업결과를 저장하는 변수
-	PrintWriter writer	result != null이면, alret을 띄우고 index로 보낸다. 그 외의 경우 alert을 띄우고 회원가입으로 보낸다
-
- */
 @WebServlet("/login/signupok.do")
 public class SignupOk extends HttpServlet {
 
@@ -37,23 +18,45 @@ public class SignupOk extends HttpServlet {
 
         MemberDAO dao = new MemberDAO();
         MemberDTO dto = new MemberDTO();
+//        String year = req.getParameter("yy");
+//        String month = req.getParameter("mm");
+//        String day = req.getParameter("dd");
+//        String add1 = req.getParameter("add1");
+//        String add2 = req.getParameter("add2");
+//        String add3 = req.getParameter("add3");
+//        String Address = add1+add2+add3;
+//        System.out.println(add1);
+//        System.out.println(add2);
+//        System.out.println(add3);
+//        System.out.println("----------");
+////
+//        System.out.println(req.getParameter("id"));
+//        System.out.println(req.getParameter("pw"));
+//        System.out.println(req.getParameter("name"));
+//        System.out.println(req.getParameter("nick")); //null
+//
+//        System.out.println(year+month+day);
+//        System.out.println(req.getParameter("email"));
+//        System.out.println(req.getParameter("gender"));
+//        System.out.println(req.getParameter("phone"));
+//        System.out.println(req.getParameter("zip"));
+//        System.out.println(req.getParameter(Address));  //null
 
+//
+//        id pwsd1 name nick yy mm dd genderemail mobile
         dto.setId(req.getParameter("id"));
         dto.setPw(req.getParameter("pw"));
         dto.setName(req.getParameter("name"));
         dto.setNick(req.getParameter("nick"));
-        
-        
         String year = req.getParameter("yy");
         String month = req.getParameter("mm");
         String day = req.getParameter("dd");
-        
         dto.setBirthday(year + month + day);
+
         dto.setEmail(req.getParameter("email"));
         dto.setGender(req.getParameter("gender"));
         dto.setPhone(req.getParameter("phone"));
         dto.setLv("1");
-        
 //        String Address = req.getParameter("add1") + req.getParameter("add2") + req.getParameter("add3");
         String add1 = req.getParameter("add1");
         String add2 = req.getParameter("add2");

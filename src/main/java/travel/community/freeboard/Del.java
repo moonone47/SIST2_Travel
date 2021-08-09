@@ -8,11 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/**
- * 게시글 삭제 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/community/freeboard/delete.do")
 public class Del extends HttpServlet {
 
