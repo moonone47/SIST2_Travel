@@ -8,11 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-/**
- * 메인 화면 호출 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/index.do")
 public class Index extends HttpServlet {
 
@@ -21,7 +17,7 @@ public class Index extends HttpServlet {
 
 		
 		HttpSession session = req.getSession();
-//		session.setAttribute("id", "1");
+		session.setAttribute("id", "1");
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
 		dispatcher.forward(req, resp);
 	}

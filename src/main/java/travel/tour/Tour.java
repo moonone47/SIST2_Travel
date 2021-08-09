@@ -8,11 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
-/**
- * 투어 목록 조회 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/tour/tour.do")
 public class Tour extends HttpServlet {
 

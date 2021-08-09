@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-/**
- * 게시글 조회 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/community/freeboard/view.do")
 public class View extends HttpServlet {
 

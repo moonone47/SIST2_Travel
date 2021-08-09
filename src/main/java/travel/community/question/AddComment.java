@@ -9,11 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-/**
- * 댓글 추가 서블릿 
- * @author 이준희
- *
- */
+
 @WebServlet("/community/question/addcomment.do")
 public class AddComment extends HttpServlet {
 

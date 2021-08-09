@@ -6,14 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * @author 문지원
- * 로그인 여부를 확인하기 위한 클래스
-
-	HttpSession session	세션에 저장된 id를 불러오기 위해 세션을 생성한다.
-	PrintWriter writer	id가 null이거나 빈문자열이면 alert을 띄우고 index로 보낸다
-
- */
 public class CheckMember {
 
 	public void check(HttpServletRequest req, HttpServletResponse resp) {

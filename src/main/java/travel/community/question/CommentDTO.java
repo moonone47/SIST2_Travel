@@ -1,10 +1,5 @@
 package travel.community.question;
 
-/**
- * 댓글 DTO 
- * @author 이준희
- *
- */
 public class CommentDTO {
 
 	private String questioncommentseq;

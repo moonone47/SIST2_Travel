@@ -1,17 +1,5 @@
 package travel.community.suggest;
 
-/**
- * @author 문지원
- * 댓글 정보를 저장하기 위한 DTO 클래스
- 
-	private String suggestCommentSeq	suggestCommentSeq를 저장한다
-	private String id					id를 저장한다
-	private String content				content를 저장한다
-	private String regdate				regdate를 저장한다
-	private String suggestseq			suggestseq를 저장한다
-	private String name					name를 저장한다
- 
- */
 public class CommentDTO {
 	
 	private String suggestCommentSeq;

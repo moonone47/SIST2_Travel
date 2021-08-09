@@ -7,11 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/**
- * 게시글 수정 데이터 처리 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/community/freeboard/editok.do")
 public class EditOk extends HttpServlet {
 

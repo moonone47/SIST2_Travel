@@ -10,23 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * @author 문지원
- * 댓글달기를 눌렀을때 호출되는 클래스
-	 
-	 	CheckMember cm 		로그인한 멤버인지 확인하는 변수
-		String suggestseq 	getParameter로 suggestseq를 가져온다
-		String content 		getParameter content를 가져온다
-		BoardDAO dao 		건의 게시판 DB 작업을 위한 DAO 객체 생성
-		CommentDTO dto 		댓글 정보를 저장하기 위한 DTO 객체 생성
-		int result 			댓글 insert 작업 결과를 저장하는 변수
-		PrintWriter writer 	result 값이 1이 아니면 alert으로 실패 창을 띄운다
- */
-
 @WebServlet("/community/suggest/addcomment.do")
 public class AddComment extends HttpServlet {
 
-		
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -53,6 +39,7 @@ public class AddComment extends HttpServlet {
 		if(result == 1) {
 			resp.sendRedirect("/SIST2_Travel/community/suggest/view.do?suggestseq=" + suggestseq);
 		} else {
+
 			resp.setCharacterEncoding("UTF-8"); 
 
 			PrintWriter writer = resp.getWriter();
@@ -66,6 +53,7 @@ public class AddComment extends HttpServlet {
 			writer.print("</html>");
 
 			writer.close();
+
 		}
 
 	}//doGet

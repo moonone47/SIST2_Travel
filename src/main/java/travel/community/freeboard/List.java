@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-/**
- * 게시판 리스트 조회 서블릿
- * @author 김정은
- *
- */
+
 @WebServlet("/community/freeboard/list.do")
 public class List extends HttpServlet {
 

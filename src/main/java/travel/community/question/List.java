@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-/**
- * 게시글 목록 서블릿 
- * @author 이준희
- *
- */
+
 @WebServlet("/community/question/list.do")
 public class List extends HttpServlet {
 

@@ -10,11 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * 질문게시판 게시글 추가 확인 
- * @author 이준희
- *
- */
 @WebServlet("/community/question/addok.do")
 public class AddOk extends HttpServlet {
 

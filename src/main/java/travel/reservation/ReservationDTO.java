@@ -1,7 +1,15 @@
 package travel.reservation;
 
+//RESERVATIONSEQ NOT NULL NUMBER        
+//ISCANCEL       NOT NULL VARCHAR2(50)  
+//TOURSEQ        NOT NULL NUMBER        
+//TOURNAME       NOT NULL VARCHAR2(100) 
+//MEMBERNAME              VARCHAR2(50)  
+//USE            NOT NULL VARCHAR2(300) 
+//VALIDDATE      NOT NULL DATE          
+//TOURPRICE      NOT NULL NUMBER        
 /**
- * 예약내역에 필요한 매개변수들을 담을 DTO
+ * 예약내역 DTO
  * @author 이준희
  *
  */

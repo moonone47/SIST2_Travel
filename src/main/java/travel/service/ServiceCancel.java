@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import travel.reservation.ReservationDAO;
-/**
- * 여행 의뢰 취소 서블릿 
- * @author 이준희
- *
- */
+
 @WebServlet("/service/servicecancel.do")
 public class ServiceCancel extends HttpServlet {
 

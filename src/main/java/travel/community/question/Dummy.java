@@ -5,11 +5,6 @@ import java.sql.PreparedStatement;
 import java.util.Random;
 import travel.DBUtil;
 
-/**
- * 게시글 더미 작성 서블릿 
- * @author 이준희
- *
- */
 public class Dummy {
 	public static void main(String[] args) {
 		

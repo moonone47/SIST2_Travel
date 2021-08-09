@@ -76,9 +76,9 @@
 
             <span id="autoTxt"></span>
             <div class="login_menu">
-                <a id="idsearch" href="/SIST2_Travel/login/findid.do" target="_self">아이디
+                <a id="idsearch" href="/SIST2_Travel/login/findpw.do" target="_self">아이디
                     찾기</a> <span class="bar">|</span> <a id="pwsearch"
-                                                         href="/SIST2_Travel/login/findpw.do" target="_self">비밀번호
+                                                         href="/SIST2_Travel/login/findid.do" target="_self">비밀번호
 				찾기</a> <span
                     class="bar">|</span> <a id="join" href="/SIST2_Travel/login/signup.do"
                                             target="_self">회원가입</a>

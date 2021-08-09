@@ -1,10 +1,5 @@
 package travel.spot;
 
-/**
- * tblRooms 데이터 저장 클래스
- * @author 김정은
- *
- */
 public class RoomDTO {
     //    roomseq name explain address image grade wish theme roomsx roomsy plandate budget seq url planseq id
     private String roomsSeq;

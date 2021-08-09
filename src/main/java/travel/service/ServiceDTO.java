@@ -2,7 +2,6 @@ package travel.service;
 
 /*
  * 서비스 DTO 
- * tblService 속성들 
  * @author 이준희
  * */
 public class ServiceDTO {

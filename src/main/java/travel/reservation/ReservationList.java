@@ -14,11 +14,6 @@ import javax.servlet.http.HttpSession;
 import travel.community.question.BoardDTO;
 import travel.community.question.CheckMember;
 
-/**
- * 해당 id를 가진 예약 목록을 가져오는 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/mypage/rev.do")
 public class ReservationList extends HttpServlet {
 

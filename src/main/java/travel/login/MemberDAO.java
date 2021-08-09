@@ -9,10 +9,11 @@ import java.sql.Statement;
 import java.util.LinkedList;
 
 /**
- * DB 연결을 위한 생성자
- * @author 문지원
+ * 회원 정보 DAO
+ * @author 이준희 
  *
  */
+
 public class MemberDAO {
 
 	private Connection conn;
@@ -32,7 +33,7 @@ public class MemberDAO {
 
 	/**
 	 * DB에서 회원정보 가지고 오는 메소드
-	 * @author 문지원
+	 *
 	 * @param dto
 	 * @return 회원 id, name
 	 */
@@ -51,11 +52,13 @@ public class MemberDAO {
 
 				//인증티켓 발급 
 				result.setId(rs.getString("id"));
-				result.setLv(rs.getString("lv"));
+				result.setPw(rs.getString("lv"));
 				result.setName(rs.getString("name"));
 
 				return result;
+
 			}
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,19 +66,28 @@ public class MemberDAO {
 
 		return null;
 	}
-	
-	/**
-	 * @author 문지원
-	 * tblmember 테이블에 회원 가입 항목 컬럼을 insert한다.
-	 */
+
 	public int signup(MemberDTO dto) {
 
+
 		try {
+//			dto.setId(req.getParameter("id"));
+//			dto.setPw(req.getParameter("pwsd1"));
+//			dto.setName(req.getParameter("name"));
+//			dto.setNick(req.getParameter("nick"));
+//			String year = req.getParameter("year");
+//			String month = req.getParameter("month");
+//			String day = req.getParameter("day");
+//			dto.setBirthday(year+month+day);
+//
+//			dto.setEmail(req.getParameter("email"));
+//			dto.setGender("gender");
+//			dto.setPhone(req.getParameter("mobile"));
 
 			String sql = "insert into tblmember values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			pstat = conn.prepareStatement(sql);
-
+//			id pw name nic email phone zip address lv birthday gender
 			pstat.setString(1, dto.getId());
 			pstat.setString(2, dto.getPw());
 			pstat.setString(3, dto.getName());
@@ -95,13 +107,7 @@ public class MemberDAO {
 
 		return 0;
 	}
-	
-	/**
-	 * @author 문지원
-	 * tblmember 테이블에 회원 가입 항목 컬럼을 insert한다.
-	 * 
-	 * @return id
-	 */
+
 	public String findId(MemberDTO dto) {
 		String id = null;
 		try{
@@ -116,19 +122,12 @@ public class MemberDAO {
 		    	id = rs.getString("id");
 			}
 		    return id;
-		    
 		}catch(Exception e){
 		    e.printStackTrace();
 		}
 		return null;
 	}
 
-	/**
-	 * @author 문지원
-	 * tblmember 테이블에서 name과 email을 조건으로 pw를 select하고 pw값을 반환한다.
-	 * 
-	 * @return pw
-	 */
 	public String findPw(MemberDTO dto) {
 		String pw = null;
 		try{
@@ -143,25 +142,17 @@ public class MemberDAO {
 				pw = rs.getString("pw");
 			}
 			return pw;
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return null;
 	}
 
-	/**
-	 * @author 문지원
-	 * tblmember 테이블에서 id를 select하여 LinkedList에 add 하여 반환한다.
-	 * 
-	 * @returrn list
-	 */
 	public LinkedList<String> getAllId() {
 		try{
 		    String sql = "select id from tblmember";
 		    stat = conn.createStatement();
 		    rs = stat.executeQuery(sql);
-		    
 			LinkedList<String> list = new LinkedList<String>();
 		    while(rs.next()){
 		    	list.add(rs.getString("id"));

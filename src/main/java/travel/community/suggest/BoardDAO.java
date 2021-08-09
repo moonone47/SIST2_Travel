@@ -9,31 +9,6 @@ import java.util.HashMap;
 
 import travel.DBUtil;
 
-/**
- * @author 문지원
- * suggest 테이블의 DB작업을 위한 클래스
-
-	BoardDAO		DB연결을 위한 생성자 
-	int add(BoardDTO dto)		dto정보를 tblSuggestBoard에 insert한다.
-	 ArrayList<BoardDTO> list( HashMap<String, String> map)		map에 저장된 정보로 vwsuggestBoard 테이블에 where 절 조건으로 저장하고, 쿼리를 실행 후에 글 번호 cnt를 반환한다.
-	BoardDTO get(String suggestseq)		tblsuggestBoard에서 suggestseq에 해당하는 글 내용을 BoardDTO에 저장한 뒤에 반환한다.
-	int del(String suggestseq)		tblsuggestBoard에서 suggestseq에 해당하는 글을 delete하고 작업 결과를 반환한다.
-	void updateReadCount(String suggestseq)		tblsuggestBoard에서 suggestseq에 해당하는 글의 조회수를 1 증가시킨다. 
-	int edit(BoardDTO dto)		BoardDTO에 저장된 정보로 tblsuggestBoard를 update한다
-	ArrayList<CommentDTO> listcomment(String suggestseq)		tblsuggestComment에 suggestseq를 서브쿼리를 이용하여 댓글 목록을 CommentDTO에 담고, ArrayList에 add하여 반환
-	int delComment(String suggestcommentseq)		tblsuggestcomment에서 suggestcommentseq에 해당하는 댓글을 delete하고 결과값을 반환한다.
-	void delAllComment(String suggestseq)		tblsuggestcomment에서 suggestseq가 seq인 모든 댓글을 delete한다.
-	int getMaxThread()		tblsuggestBoard의 max(thread) 값을 반환한다.
-	void updateThread(int parentThread, int previousThread)		tblsuggestBoard의 parentThread와 previousThread 사이에 있는 thread 값을 update한다. 
-	int getTotalCount(HashMap<String, String> map)		map에 저장된 정보로 vwsuggestBoard에 wherer절의 조건으로 저장하고, 쿼리를 실행 후 글번호를 반환한다.  
-	int updateRecommcnt(String suggestseq)		tblsuggestBoard의 테이블에 suggestseq를 조건으로 추천수를 1증가시키고 결과값을 반환한다.
- */
-
-
-/**
- * @author 문지원
- *
- */
 public class BoardDAO {
 	private Connection conn;
 	private Statement stat;
@@ -51,11 +26,6 @@ public class BoardDAO {
 
 	
 	//게시글 추가 메소드
-	/**
-	 * dto정보를 tblSuggestBoard에 insert한다.
-	 * @param dto
-	 * @return insert의 결과값을 반환한다
-	 */
 	public int add(BoardDTO dto) {
 		try {
 			String sql = "insert into tblsuggestBoard (suggestseq , subject, content, viewcnt, recommcnt, thread, depth, regdate, id ) "
@@ -78,13 +48,7 @@ public class BoardDAO {
 		return 0;
 	}
 
-	
-	/**
-	 * map에 저장된 정보로 vwsuggestBoard 테이블에 where 절 조건으로 저장하고, 
-	 * 쿼리를 실행 후에 글 번호 cnt를 반환한다.
-	 * @param map
-	 * @return 글 번호 반환
-	 */
+	//게시글 리스트 메소드
 	public ArrayList<BoardDTO> list( HashMap<String, String> map) {
 		try {
 
@@ -135,11 +99,7 @@ public class BoardDAO {
 	}
 
 	
-	/**
-	 * tblsuggestBoard에서 suggestseq에 해당하는 글 내용을 BoardDTO에 저장한 뒤에 반환한다.
-	 * @param suggestseq
-	 * @return 글 번호에 해당하는 정보를 BoardDTO로 반환한다.
-	 */
+	//게시글 뷰 메소드
 	public BoardDTO get(String suggestseq) {
 		try {
 
@@ -174,12 +134,7 @@ public class BoardDAO {
 	}
 
 	
-	
-	/**
-	 * tblsuggestBoard에서 suggestseq에 해당하는 글 내용을 BoardDTO에 저장한 뒤에 반환한다.
-	 * @param suggestseq
-	 * @return delete의 결과값을 반환한다
-	 */
+	//게시글 삭제 메소드
 	public int del(String suggestseq) {
 
 		try {
@@ -197,11 +152,7 @@ public class BoardDAO {
 	}
 
 	
-	
-	/**
-	 * tblsuggestBoard에서 suggestseq에 해당하는 글의 조회수를 1 증가시킨다. 
-	 * @param suggestseq
-	 */
+	//게시글 조회수 증가 메소드
 	public void updateReadCount(String suggestseq) {
 		try {
 
@@ -218,12 +169,7 @@ public class BoardDAO {
 	}
 
 
-	
-	/**
-	 * BoardDTO에 저장된 정보로 tblsuggestBoard를 update한다
-	 * @param dto
-	 * @return update의 결과값을 반환한다.
-	 */
+	//게시글 수정 증가 메소드
 	public int edit(BoardDTO dto) {
 		try {
 			String sql = "update tblsuggestBoard set subject =?, content = ? where suggestseq = ?";
@@ -243,13 +189,7 @@ public class BoardDAO {
 	}
 
 	
-	
-	/**
-	 * tblsuggestComment에 suggestseq를 서브쿼리를 이용하여 댓글 목록을 CommentDTO에 담고, 
-	 * ArrayList에 add하여 반환
-	 * @param suggestseq
-	 * @return clist를 반환한다.
-	 */
+	//게시글에 달린 댓글 리스트 메소드
 	public ArrayList<CommentDTO> listcomment(String suggestseq) {
 		try {
 			String sql = "select c.*,(select name from tblMember where id=c.id) as name "
@@ -288,12 +228,7 @@ public class BoardDAO {
 	}
 
 
-	
-	/**
-	 * 
-	 * @param dto
-	 * @return
-	 */
+	//게시글에 댓글 추가 메소드
 	public int addComment(CommentDTO dto) {
 
 		try {
@@ -314,11 +249,7 @@ public class BoardDAO {
 	}
 
 
-	/**
-	 * tblsuggestcomment에서 suggestcommentseq에 해당하는 댓글을 delete하고 결과값을 반환한다.
-	 * @param suggestcommentseq
-	 * @return delete의 결과값을 반환한다.
-	 */
+	//게시글에 댓글 삭제 메소드
 	public int delComment(String suggestcommentseq) {
 		try {
 			String sql = "delete from tblsuggestcomment where suggestcommentseq =?";
@@ -338,11 +269,7 @@ public class BoardDAO {
 	}
 
 
-	
-	/**
-	 * tblsuggestcomment에서 suggestseq가 seq인 모든 댓글을 delete한다.
-	 * @param suggestseq
-	 */
+	//게시글 삭제시 참조 중인 댓글 삭제 메소드
 	public void delAllComment(String suggestseq) {
 		try {
 			String sql = "delete from tblsuggestcomment where suggestseq = ?";
@@ -359,15 +286,12 @@ public class BoardDAO {
 		}
 	}
 
-	/**
-	 * tblsuggestBoard의 max(thread) 값을 반환한다.
-	 * @return select nvl(max(thread), 0) + 1000 의 값을 반환한다.
-	 */
+
 	public int getMaxThread() {
 
 		try {
 
-			String sql = "select nvl(max(thread),0) + 1000 as thread from tblsuggestBoard";
+			String sql = "select nvl(max(thread),0) + 1000 as thread from tblsuggest";
 
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -381,15 +305,10 @@ public class BoardDAO {
 		return 0;
 	}
 
-	/**
-	 * tblsuggestBoard의 parentThread와 previousThread 사이에 있는 thread 값을 update한다. 
-     * @param parentThread 답변글의 부모 글의 thread
-     * @param previousThread 이전 새글의 thread
-	 */
 	public void updateThread(int parentThread, int previousThread) {
 		try {
 
-			String sql = "update tblsuggestBoard set thread = thread -1 where thread > ? and thread < ?";
+			String sql = "update tblsuggest set thread = thread -1 where thread > ? and thread < ?";
 			pstat = conn.prepareStatement(sql);
 
 			pstat.setInt(1, previousThread);
@@ -403,12 +322,6 @@ public class BoardDAO {
 
 	}
 
-    /**
-     * map의 isSearch, column, search 정보를 where절의 조건으로 걸고, 
-     * tblSuggesrBoard에서 select count(*)의 값을 반환한다.
-     * @param map isSearch, column, search 정보를 갖는 컬렉션이다.
-     * @return select count(*)인 총 게시물의 갯수를 반환한다.
-     */
 	public int getTotalCount(HashMap<String, String> map) {
 		try {
 			String where = "";
@@ -423,7 +336,7 @@ public class BoardDAO {
 				// sql 구문에 적용한다.
 			}
 
-			String sql = String.format("select count(*) as cnt from vwsuggestBoard %s", where);
+			String sql = String.format("select count(*) as cnt from tblsuggestBoard %s", where);
 
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
@@ -437,15 +350,11 @@ public class BoardDAO {
 		return 0;
 	}
 
-    /**
-     * tblsuggestBoard의 테이블에 suggestseq를 조건으로 추천수를 1증가시키고 결과값을 반환한다.
-     * @param suggestseq 
-     */
 	public int updateRecommcnt(String suggestseq) {
 		
 		try {
 
-			String sql = "update tblsuggestBaord set recommcnt = recommcnt + 1 where suggestseq = ?";
+			String sql = "update tblsuggest set recommcnt = recommcnt + 1 where suggestseq = ?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, suggestseq);
 
