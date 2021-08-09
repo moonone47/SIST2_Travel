@@ -30,7 +30,7 @@ public class LoginOk extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		// 로그인 확인 창
-		String id = req.getParameter("id");
+		String id = req.getParameter("ide");
 		String pw = req.getParameter("pw");
 		String auto = req.getParameter("autoId");
 		
@@ -60,3 +60,4 @@ public class LoginOk extends HttpServlet{
 		dispatcher.forward(req, resp);
 	}
 }
+
