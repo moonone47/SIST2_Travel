@@ -5,12 +5,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-/**
- * 로그인 확인 여부 체크 서블릿 
- * 
- * @author 이준희
- *
- */
+
 public class CheckMember {
 
 	public void check(HttpServletRequest req, HttpServletResponse resp) {

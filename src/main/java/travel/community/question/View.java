@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-/**
- * 게시글 상세보기 서블릿 
- * @author 이준희
- *
- */
+
 @WebServlet("/community/question/view.do")
 public class View extends HttpServlet {
 

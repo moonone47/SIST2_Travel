@@ -10,11 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 
-/**
- * 일정 검색 확인 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/search/searchplanok.do")
 public class SearchPlanOk extends HttpServlet {
 

@@ -7,11 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import travel.DBUtil;
-/**
- * 예약 DAO 서블릿 
- * @author 이준희
- *
- */
+
 public class ReservationDAO {
 	private Connection conn;
 	private Statement stat;
@@ -27,11 +23,6 @@ public class ReservationDAO {
 		}
 	}
 
-	/**
-	 * 해당 id를 가진 예약 내역 가져오는 메소드 
-	 * @param id
-	 * @return 예약 정보가 담긴 list 
-	 */
 	public ArrayList<ReservationDTO> list(String id) {
 		try {
 			
@@ -68,12 +59,7 @@ public class ReservationDAO {
 		
 		return null;
 	}
-	
-	/**
-	 * 해당 tourseq를 가진 tour 정보 가져오는 메소드 
-	 * @param tourseq
-	 * @return tour 정보가 담긴 dto 
-	 */
+
 	public ReservationDTO get(String tourseq) {
 		try {
 			String sql = "select * from tbltour where tourseq = ?";
@@ -104,11 +90,7 @@ public class ReservationDAO {
 	}
 
 	
-	/**
-	 * 예약 취소 메소드 
-	 * @param reservationseq
-	 * @return update 성공 여부 1, 0 
-	 */
+
 	public int cancel(String reservationseq) {
 		
 		try {

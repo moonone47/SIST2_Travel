@@ -12,11 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import travel.community.question.CheckMember;
 
-/**
- * 여행 의뢰 확인 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/service/applyok.do")
 public class ApplyOk extends HttpServlet {
 

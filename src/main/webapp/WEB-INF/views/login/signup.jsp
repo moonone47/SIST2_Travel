@@ -8,15 +8,19 @@
     <title>네이버 : 회원가입</title>
     <%@ include file="/inc/asset.jsp" %>
     <!-- <link rel="stylesheet" href="/SIST2_Travel/login/new_main.css"> -->
-
 </head>
+<style>
+	#content > form > div {
+		margin-bottom: 20px; 
+	}
+</style>
 <body>
 <%@ include file="/inc/header.jsp" %>
 <!-- header -->
 
 <div id="header">
-    <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img
-            src="/SIST2_Travel/asset/images/NAVER_CI_Green.png" id="logo"></a>
+    <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><!-- <img
+            src="/SIST2_Travel/asset/images/NAVER_CI_Green.png" id="logo"> --></a>
 </div>
 
 
@@ -27,7 +31,7 @@
     <div id="content">
         <form method="POST" action="/SIST2_Travel/login/signupok.do">
             <!-- ID -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title">
                     <label for="id">아이디</label>
                 </h3>
@@ -36,11 +40,11 @@
                         <span class="step_url">아이디를 입력하세요</span>
                     </span>
                 <span class="error_next_box"></span>
-                <span><button type="button" class="btn btn-primary" id="idcheck">아이디 중복 검사</button></span>
+                <span ><button type="button" class="btn btn-primary" id="idcheck">아이디 중복 검사</button></span>
             </div>
 
             <!-- PW1 -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                 <span class="box int_pass">
                         <input type="text" id="pswd1" name="pw" class="int" maxlength="20">
@@ -52,7 +56,7 @@
             </div>
 
             <!-- PW2 -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                 <span class="box int_pass_check">
                         <input type="text" id="pswd2" class="int" maxlength="20">
@@ -62,7 +66,7 @@
             </div>
 
             <!-- NAME -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="name">이름</label></h3>
                 <span class="box int_name">
                         <input type="text" id="name" name="name" class="int" maxlength="20">
@@ -70,7 +74,7 @@
                 <span class="error_next_box"></span>
             </div>
             <!-- NAME -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="nick">별명</label></h3>
                 <span class="box int_name">
                         <input type="text" id="nick" name="nick" class="int" maxlength="20">
@@ -79,7 +83,7 @@
             </div>
 
             <!-- BIRTH -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="yy">생년월일</label></h3>
 
                 <div id="bir_wrap">
@@ -123,7 +127,7 @@
             </div>
 
             <!-- GENDER -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="gender">성별</label></h3>
                 <span class="box">
                         <select id="gender" class="sel" name="gender">
@@ -136,7 +140,7 @@
             </div>
 
             <!-- EMAIL -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional"></span></label></h3>
                 <span class="box int_email">
                         <input type="text" id="email" name="email" class="int" maxlength="100" placeholder="">
@@ -145,7 +149,7 @@
             </div>
 
             <!-- MOBILE -->
-            <div>
+            <div class="contents">
                 <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                 <span class="box int_mobile">
                         <input type="tel" id="mobile" class="int" name="phone" maxlength="16"
@@ -155,8 +159,8 @@
             </div>
 
 
-            <%--                    우편번호 --%>
-            <div>
+            <%-- 우편번호 --%>
+            <div class="contents">
 
                 <input type="text" id="sample3_postcode" name="zip" placeholder="우편번호" class="intxx">
                 <input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기" class="intxx"><br>

@@ -8,31 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * 글 작성을 완료하기 위한 메소드
- */
 @WebServlet("/community/event/addok.do")
 public class AddOk extends HttpServlet {
-	/**
-	 * subject, content를 가져온 뒤 답글의 여부에 따라 thread, depth, prarentThread, prarentDepth값을 설정하고, 답글이 있으면 updateThread를 호출하여 각 ParentThread와 previousThread 사이에 있는 Thread의 값을 -1 해준다. 답글이 없으면 maxThread로 Thread의 최대값을 가지고 온다.<br>
-	 * 모든 설정이 완료되면 dao.add(dto)를 호출하여 새로운 글을 insert한다.
-	 * String subject	getParameter로 subject를 가져온다.
-	 * String content	getParameter로 content를 가져온다.
-	 * EventDAO dao	Event 테이블의 DB 작업을 위한 DAO 객체
-	 * EventDTO dto	Event 테이블의 DB 작업 결과를 저장하기 위한 DTO 객체
-	 * HttpSession session	id를 가져오기 위해 세션을 생성한다.
-	 * String reply	getParameter로 reply를 가져온다.
-	 * int thred	답글이 없으면 dao.MaxThread로 thread의 최대값을 저장한다.
-	 * 답글이 있으면 parentThread -1을 저장한다.
-	 * int depth	답글이 없으면 0dmfh wlwjdgksek.
-	 * 답글이 있으면 parentDepth +1을 저장한다..
-	 * int parentThread	답글이 없을때 getParameter로 thread값을 가져온다.
-	 * int parentDepth	답글이 없을때 getParameter로 depth를 가져온다.
-	 * @param req
-	 * @param resp
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

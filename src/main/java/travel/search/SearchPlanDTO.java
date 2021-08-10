@@ -1,10 +1,5 @@
 package travel.search;
 
-/**
- * 일정 검색 DTO 
- * @author 이준희
- *
- */
 public class SearchPlanDTO {
     //    planseq status t.name daystarttravel dayendtravel willshare wish theme id t.cityseq t2.name t2.cityy t2.cityx
     private String planseq;

@@ -1,35 +1,25 @@
 package travel.management;
 
-import travel.DBUtil;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.ResultSet;import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Management의 DB작업을 위한 DAO 클래스
- * ManagementDAO()	DB 연결을 위한 생성자
- * ArrayList<ManagementDTO> getlist(String id)	id를 받아 vwTravlePlan에서 select한 결과를 dto에 담고, ArrayList<ManagementDTO>에 add하여 작업 완료 후 list를 반환한다.
- * ArrayList<ManagementDTO> getdetail(String planseq, String id)	tblSight, tblRestaurant, tblRooms(명소, 식당, 숙박)테이블에서 planseq를 이용하여 select된 값을 ArrayList<ManagementDTO>에 저장하고 tblPlan2에 id를 이용하여 insert 작업을 완료 한 뒤 list를 반환한다.
- * ArrayList<ManagementDTO> get(String tbl, String planseq)	tbl 테이블에서 planseq에 해당하는 정보를 select * 한 결과를 ArrayList,ManagementDTO>로 반환한다.
- * ArrayList<ManagementDTO> getDetailList(String id)	tblplan2 테이블에서 id 조건의 select * 결과 값을 ArrayList<ManagementDTO>로 반환한다.
- * ManagementDTO list(String planseq)	vwTravelPlan테이블의 planseq를 조건으로 검색하여 ManagementDTO에 저장하여 반환한다.
- * void del(String id)	tblPlan2에서 id에 해당하는 컬럼을 삭제하는 메소드
- */
+import travel.DBUtil;
+import travel.mypage.TravelPlanDTO;
+import travel.plan.PlaceDTO;
+
 public class ManagementDAO {
 
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
-
-	/**
-	 * DB 연결을 위한 생성자
-	 */
+	
+	
 	public ManagementDAO() {
 		try {
 			conn = DBUtil.open();
@@ -38,11 +28,7 @@ public class ManagementDAO {
 		}
 	}
 
-	/**
-	 * id를 받아 vwTravlePlan에서 select한 결과를 dto에 담고, ArrayList<ManagementDTO>에 add하여 작업 완료 후 list를 반환한다.
-	 * @param id where절의 조건으로 사용될 id
-	 * @return select * 정보를 담고있는 ManagementDTO의 ArrayList컬렉션을 반환
-	 */
+
 	public ArrayList<ManagementDTO> getlist(String id) {
 		try {
 		
@@ -89,13 +75,7 @@ public class ManagementDAO {
 				tblPlan2에 id로 select * from tblPlan2 where id = id order by rdate, seq ; 
 				날짜별로 정리되고, seq별로 정리가 된 ArrayList
 			  */
-
-	/**
-	 * tblSight, tblRestaurant, tblRooms(명소, 식당, 숙박)테이블에서 planseq를 이용하여 select된 값을 ArrayList<ManagementDTO>에 저장하고 tblPlan2에 id를 이용하여 insert 작업을 완료 한 뒤 list를 반환한다.
-	 * @param planseq 명소, 식당, 숙박테이블에서 where절에 사용 될 변수
-	 * @param id tblPlan2 insert에서 id에 넣을 변수
-	 * @return 명소, 식당, 숙박 테이블등의 정보를 담고 있는 ArrayList<ManagementDTO>를 반환한다.
-	 */
+			  
 	public ArrayList<ManagementDTO> getdetail(String planseq, String id) {
 		
 		try {
@@ -262,12 +242,7 @@ public class ManagementDAO {
 		return null;
 	}
 
-	/**
-	 * tbl 테이블에서 planseq에 해당하는 정보를 select * 한 결과를 ArrayList,ManagementDTO>로 반환한다.
-	 * @param tbl from에 해당하는 테이블을 지정하는 변수
-	 * @param planseq tbl 테이블의 조건으로 사용될 변수
-	 * @return select * 의 결과 값을 ArrayList<ManagementDTO>로 반환한다.
-	 */
+
 	private ArrayList<ManagementDTO> get(String tbl, String planseq) {
 		
 		try {
@@ -325,11 +300,7 @@ public class ManagementDAO {
 		return null;
 	}
 
-	/**
-	 * tblplan2 테이블에서 id 조건의 select * 결과 값을 ArrayList<ManagementDTO>로 반환한다.
-	 * @param id tblPlan2의 where 조건에 사용될 변수
-	 * @return stblPlan2의 select * 결과를 저장하고 있는 ArrayList<ManagementDTO>를 반환한다.
-	 */
+
 	public ArrayList<ManagementDTO> getDetailList(String id) {
 		try {
 			ArrayList<ManagementDTO> dlist = new ArrayList<ManagementDTO>();
@@ -367,11 +338,7 @@ public class ManagementDAO {
 		return null;
 	}
 
-	/**
-	 * vwTravelPlan테이블의 planseq를 조건으로 검색하여 ManagementDTO에 저장하여 반환한다.
-	 * @param planseq  vwTravelPlan의 검색 조건
-	 * @return select *의 결과를 저장하는 ManagementDTO를 반환한다.
-	 */
+
 	public ManagementDTO list(String planseq) {
 		
 		try {
@@ -404,10 +371,7 @@ public class ManagementDAO {
 		return null;
 	}
 
-	/**
-	 * tblPlan2에서 id에 해당하는 컬럼을 삭제하는 메소드
-	 * @param id 컬럼 삭제를 원하는 where절의 조건
-	 */
+
 	public void del(String id) {
 		try {
 			

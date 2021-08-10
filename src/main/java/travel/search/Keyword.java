@@ -8,11 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * 키워드 검색 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/search/keyword.do")
 public class Keyword extends HttpServlet {
 

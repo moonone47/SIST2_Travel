@@ -9,11 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * 게시글 수정 서블릿 
- * @author 이준희
- *
- */
 @WebServlet("/community/question/edit.do")
 public class Edit extends HttpServlet {
 

@@ -1,23 +1,5 @@
 package travel.community.event;
 
-/**
- * Event table의 정보를 저장하기 위한 DTO 클래스
- * String seq	seq를 저장한다.
- * String id	id 를 저장한다.
- * String subject	subject 를 저장한다.
- * String content	content 를 저장한다.
- * String regdate	regdate 를 저장한다.
- * String readcount	readcount 를 저장한다.
- * String recommCnt	recommCnt 를 저장한다.
- * String startDate	startDate 를 저장한다.
- * String endDate	endDate 를 저장한다.
- * String announceDate	announceDate 를 저장한다.
- * int thread	thread 를 저장한다.
- * int depth	depth 를 저장한다.
- * String name	name 을 저장한다.
- * String isnew	isnew 를 저장한다.
- * String ccnt	ccnt 를 저장한다.
- */
 public class EventDTO {
     private String seq;
     private String id;
