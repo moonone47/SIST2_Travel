@@ -18,8 +18,9 @@ public class CityDAO {
 
  	public CityDAO() {
         try {
-        	conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");
+            conn = DBUtil.open();
         } catch (Exception e) {
+            System.out.println("CityDAO.CityDAO()");
             e.printStackTrace();
         }
     }
@@ -37,7 +38,7 @@ public class CityDAO {
                 CityDTO dto = new CityDTO();
                 dto.setCityseq(rs.getString("Cityseq"));
                 dto.setName(rs.getString("name"));
-                dto.setExplain(rs.getString("explain"));
+                dto.setExplain(rs.getString("Explain"));
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
 
@@ -45,6 +46,7 @@ public class CityDAO {
             }
             return citys;
         } catch (Exception e) {
+            System.out.println("CityDAO.list()");
             e.printStackTrace();
         }
         return null;
@@ -64,13 +66,14 @@ public class CityDAO {
 
                 dto.setCityseq(rs.getString("Cityseq"));
                 dto.setName(rs.getString("name"));
-                dto.setExplain(rs.getString("explain"));
+                dto.setExplain(rs.getString("Explain"));
                 dto.setCityX(rs.getString("cityX"));
                 dto.setCityY(rs.getString("cityY"));
             }
            return dto;
 
         } catch (Exception e) {
+            System.out.println("CityDAO.getCity()");
             e.printStackTrace();
         }
 

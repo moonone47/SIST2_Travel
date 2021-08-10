@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class PlanInfoDAO {
     private Connection conn;
@@ -16,8 +15,9 @@ public class PlanInfoDAO {
 
     public PlanInfoDAO() {
         try {
-        	conn = DBUtil.open("183.100.233.88", "sist2_travel", "java1234");
+            conn = DBUtil.open();
         } catch (Exception e) {
+            System.out.println("PlanInfoDAO.PlanINfoDAO()");
             e.printStackTrace();
         }
     }
@@ -44,10 +44,10 @@ public class PlanInfoDAO {
 //    private String theme;
 //    private String id;
 //    private String cityseq;
+    
+    public int add(PlanInfoDTO dto) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
 
-    public int add(PlanInfoDTO dto, String memberid) { //일정 설정 완료(plan.jsp) -> 음식점 명소 planseq 참조
-
-        try{
+       try{
             String sql = "insert into tblPlan (planseq, status, name, daystarttravel, dayendtravel, willshare," +
                     "wish, theme, id, cityseq) values (seqPlan.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -61,70 +61,32 @@ public class PlanInfoDAO {
             pstat.setString(5, dto.getWillshare());//willshare
             pstat.setString(6, "0");//wish
             pstat.setString(7, "");//theme
-            pstat.setString(8, memberid);//id
+            pstat.setString(8, "1");//id
             pstat.setString(9, dto.getCityseq());
 
             pstat.executeUpdate();
             //정처기 로킹이게 걸릴거같은데 병행제어 -> 트랜잭션의 원자성을 보장한다.
 
-            sql = "select max(planseq) as planseq from tblPlan";
+           sql = "select max(planseq) as planseq from tblPlan";
             stat = conn.createStatement();
             rs = stat.executeQuery(sql);
-            int planseq = -1;
-            if(rs.next()){
+			int planseq = -1;	
+			if(rs.next()){
                 planseq = rs.getInt("planseq");
             } else{
-
+//                System.out.println("planseq없음");
+                        
             }
-            return planseq;
+			return planseq;
+			
 
 
-
-        }catch(Exception e){
+	       }catch(Exception e){
+            System.out.println("PlanInfoDTO.add()");
             e.printStackTrace();
         }
         return -1;
     }
-
-//  private String name;
-//  private String daystarttravel;
-//  private String dayendtravel;
-//  private String willshare;
-//  private String wish;
-//  private String theme;
-//  private String id;
-//  private String cityseq;
-    
-    
-	public PlanInfoDTO getlist(String planseq) {
-		try {
-			String sql = "select * from tblPlan where planseq = ?"; // todo:일정번호로 바꿔야함
-	
-	        pstat = conn.prepareStatement(sql);
-	        pstat.setString(1, planseq);
-	
-	        rs = pstat.executeQuery(); //복붙
-
-	
-	        PlanInfoDTO dto = new PlanInfoDTO();
-	        if(rs.next()) {
-	        	dto.setPlanseq(rs.getString("planseq"));
-	        	dto.setName(rs.getString("name"));
-	        	dto.setDaystarttravel(rs.getString("daystarttravel"));
-	        	dto.setDayendtravel(rs.getString("dayendtravel"));
-	        	dto.setWillshare(rs.getString("willshare"));
-	        	dto.setTheme(rs.getString("theme"));
-	        	dto.setId(rs.getString("id"));
-				dto.setCityseq(rs.getString("cityseq"));
-
-	        }//end while
-	
-	        return dto;
-		} catch (Exception e) {
-        e.printStackTrace();
-    }
-    return null;
-	}
 
 
 }

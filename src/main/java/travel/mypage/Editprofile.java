@@ -14,15 +14,8 @@ public class Editprofile extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		
-		
-		//String id = req.getParameter("id");
-		String id = "1";
-		
-		MypageDAO dao = new MypageDAO();
-		MypageDTO dto = dao.get(id);
-		
-		req.setAttribute("dto", dto);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/editprofile.jsp");
 		dispatcher.forward(req, resp);

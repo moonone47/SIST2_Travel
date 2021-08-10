@@ -18,7 +18,6 @@ public class Plan extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		CityDAO dao = new CityDAO();
-		
 		CityDTO dto = new CityDTO();
 
 		ArrayList<CityDTO> citys = dao.list();
@@ -30,9 +29,6 @@ public class Plan extends HttpServlet {
 	}
 
 }
-
-
-
 
 
 
@@ -59,35 +55,7 @@ public class Plan extends HttpServlet {
 //	-> 임시 테이블에 있는 사용자의 레코드는 다 삭제 delete all where id = id;
 //관리자는... 모르게쏙
 
-//2021-07-30
-
-// 남은 거
-// - 날짜 선택하면 javascript 클릭 이벤트로, class = rdate들의 값을 클릭된 객체의 날짜로 넣어준다.
-// -
-
-// - 새로고침 할 때마다, 이중 submit 막기 < 월요일에 선생님에게 여쭤볼 것
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//과부화
 
 
 

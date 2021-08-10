@@ -16,7 +16,7 @@ public class CommentOk extends HttpServlet {
 
 		//Commentok.java
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/clubboard/addok.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/clubboard/commentok.jsp");
 		dispatcher.forward(req, resp);
 	}
 

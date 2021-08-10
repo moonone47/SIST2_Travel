@@ -67,7 +67,7 @@
         }
 
         #category li .category_bg {
-            background: url(/SIST2_Travel/asset/images/places_category3.png) no-repeat;
+            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
         }
 
         #category li .bank {
@@ -79,7 +79,7 @@
         }
 
         #category li .pharmacy {
-            background-position: -10px -70px;
+            background-position: -10px -72px;
         }
 
         #category li .oil {
@@ -428,13 +428,14 @@
             left: 0px;
             bottom: 0;
             width: 300px;
-            height: 440px;
+            height: 500px;
             margin: 10px 0 30px 10px;
             padding: 5px;
             overflow-y: auto;
             background: rgba(255, 255, 255, 0.7);
             z-index: 1;
             font-size: 12px;
+            /* border: 1px solid red; */
         }
 
         /*도시선택*/
@@ -523,15 +524,15 @@
 	                전체
 	            </li>
 	            <li id="AD5" data-order="2">
-	                <span class="category_bg pharmacy"></span>
+	                <span class="category_bg store"></span>
 	                숙박시설
 	            </li>
 	            <li id="AT4" data-order="3">
-	                <span class="category_bg oil"></span>
+	                <span class="category_bg store"></span>
 	                관광명소
 	            </li>
 	            <li id="FD6" data-order="4">
-	                <span class="category_bg cafe"></span>
+	                <span class="category_bg store"></span>
 	                음식점
 	            </li>
 	        </ul>
@@ -547,7 +548,7 @@
 	<!-- 전체일정 선택 -->
     <div id="schedule" class="list-group list-group-info border-bottom" >  
         <form method="POST" action="/SIST2_Travel/plan/planinfo.do">
-            <a href="#"  class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+            <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
                 <div class="w-100 align-items-center justify-content-between">
                     <strong class="mb-1">전체 일정</strong>
                     <div>일정 이름: <input class="form-control" type="text" id="name" name="name" autocomplete="off" style="margin-bottom:10px;"></div>
@@ -595,8 +596,7 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group" 
                 		name="willshare" id="willshare" style="margin-bottom:10px;">            		
                     <input type="radio" class="btn-check" name="willshare" id="btnradio1" autocomplete="off" value="y" checked>
-                    <label class="btn btn-outline-warning" for="btnradio1" style="margin-bottom:10px; width: 86px;
-    border-radius: 5px 0px 0px 4px;">공유함</label>
+                    <label class="btn btn-outline-warning" for="btnradio1" style="margin-bottom:10px;">공유함</label>
 
                     <input type="radio" class="btn-check" name="willshare" id="btnradio2" autocomplete="off" value="y">
                     <label class="btn btn-outline-warning" for="btnradio2" style="margin-bottom:10px;">공유안함</label>
@@ -701,13 +701,13 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
 	                    });
 	
 	            function getDate(element) {
-	                var regdate;
+	                var date;
 	                try {
-	                    regdate = $.datepicker.parseDate(dateFormat, element.value);
+	                    date = $.datepicker.parseDate(dateFormat, element.value);
 	                } catch (error) {
-	                    regdate = null;
+	                    date = null;
 	                }
-	                return regdate;
+	                return date;
 	            }
 	        });
 	    </script>
@@ -802,12 +802,17 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
 
         // 지도에 마커를 표출하는 함수입니다
         function displayPlaces(places) {
+            // console.log(currCategory);
+            // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
+            // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
             var order = document.getElementById(currCategory).getAttribute('data-order');
+
             var listEl = document.getElementById('placesList'),
                 menuEl = document.getElementById('menu_wrap'),
                 fragment = document.createDocumentFragment(),
                 bounds = new kakao.maps.LatLngBounds(),
                 listStr = '';
+
             removeAllChildNods(listEl);
             removeMarker();
             for (var i = 0; i < places.length; i++) {
@@ -818,6 +823,8 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
                 var url = places[i].place_url;
                 // 마커를 생성하고 지도에 표시합니다
                 var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
+
+
                 bounds.extend(placePosition);
                 (function (marker,
                            address_name,
@@ -949,7 +956,7 @@ plan.jsp에서 일정 정보를 planinfo.java에게 전달 planinfo.java에서 �
 
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         function addMarker(position, order) {
-            var imageSrc = '/SIST2_Travel/asset/images/places_category3.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                 imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                 imgOptions = {
                     spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기

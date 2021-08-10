@@ -21,13 +21,5 @@ public class Checkpwok extends HttpServlet {
 		dispatcher.forward(req, resp);
 
 	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/checkpwok.jsp");
-		dispatcher.forward(req, resp);
-
-	}
 
 }
