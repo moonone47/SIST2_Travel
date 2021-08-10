@@ -23,7 +23,7 @@ String subject 제목을 저장하는 변수
 String content 내용을 저장하는 변수
 FreeBoardCommentDAO cdao 댓글 DB작업을 담당하는 dao 객체
 FreeBoardCommentDTO cdto 댓글 데이터 전송에 쓰이는 dto 객체
-ArrayList<FreeBoardCommentDTO> clist dao.getlist() 메소드의 반환값을 담을 객체.  댓글 정보를 갖고있다.
+{@code ArrayList<FreeBoardCommentDTO> clist dao.getlist() 메소드의 반환값을 담을 객체.  댓글 정보를 갖고있다.}
 RequestDispatcher dispatcher 데이터를 forward 하기 위한 dispatcher 변수
 
 

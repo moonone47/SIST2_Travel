@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * TravelPlan의 DB작업을 위한 DAO 클래스
  * TravelPlanDAO	DB연결을 위한 생성자
- * ArrayList<TravelPlanDTO> getlist(String id, String category)	vwPlanWish테이블에서 id와 category에 해당하는 정보를 select하여 ArrayList<TravelPlanDTO>로 반환한다.
+ * {@code ArrayList<TravelPlanDTO> getlist(String id, String category)	vwPlanWish테이블에서 id와 category에 해당하는 정보를 select하여 ArrayList<TravelPlanDTO>로 반환한다.}
  * int del(String planseq)	tblPlan에서 planseq에 해당하는 컬럼을 삭제한다.
  */
 public class TravelPlanDAO {
@@ -33,10 +33,11 @@ public class TravelPlanDAO {
 	}
 
 	/**
-	 * vwPlanWish테이블에서 id와 category에 해당하는 정보를 select하여 ArrayList<TravelPlanDTO>로 반환한다.
+	 * 
+	 * {@code vwPlanWish테이블에서 id와 category에 해당하는 정보를 select하여 ArrayList\<TravelPlanDTO\>로 반환한다.}
 	 * @param id where절의 조건으로 사용될 변수이다.
-	 * @param category where절의 조건으로 사용될 변수이다.
-	 * @return vwPlanWish 테이블에서 where절의 조건을 만족하는 정보를 select*하여 TravelPlanDTO에 저장하고, list.add를 완료한 ArrayList<TravelPlanDTO>를 반환한다.
+	 * @param category category where절의 조건으로 사용될 변수이다.
+	 * @return {@code ArrayList{@code<TravelPlanDTO>} vwPlanWish 테이블에서 where절의 조건을 만족하는 정보를 select*하여 TravelPlanDTO에 저장하고, list.add를 완료한 ArrayList\<TravelPlanDTO\>를 반환한다.}
 	 */
 	public ArrayList<TravelPlanDTO> getlist(String id, String category) {
 	

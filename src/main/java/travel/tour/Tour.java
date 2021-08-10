@@ -11,7 +11,7 @@ import java.util.LinkedList;
 /**
  * 투어 목록 조회 서블릿
  * @author 김정은
- *LinkedList<TourDTO> dto DTO 담을 LinkedList 
+ * {@code LinkedList<TourDTO> dto DTO 담을 LinkedList} 
 TourDAO dao TourDAO 클래스 객체로 만드는 변수 
 TourDTO dto TourDTO 클래스 객체로 만드는 변수 
 

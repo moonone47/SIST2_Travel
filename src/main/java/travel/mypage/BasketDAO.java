@@ -11,9 +11,9 @@ import java.util.ArrayList;
 /**
  * Basket table의 DB작업을 위한 DAO클래스
  * 메소드	BasketDAO	DB와의 연결을 위한 생성자
- * ArrayList<BasketDTO> list(String id)	vwbasket 테이블에서 basketDTO 해당 id정보를 가져온다.
+ * {@code ArrayList\<BasketDTO\> list(String id)	vwbasket 테이블에서 basketDTO 해당 id정보를 가져온다.
  * int del(String basketseq)	해당 seq의 basket정보를 tblbasket에서 삭제한다.
- * int insertrev(String tourseq, String id)	해당 tourseq의 정보와 id정보를 가지고 tblreservation에 예약정보를 추가한다.
+ * int insertrev(String tourseq, String id)	해당 tourseq의 정보와 id정보를 가지고 tblreservation에 예약정보를 추가한다.}
  */
 public class BasketDAO {
 
@@ -36,7 +36,7 @@ public class BasketDAO {
     /**
      * vwbasket 테이블에서 id를 조건으로 걸어 select * 된 정보를 BasketDTO에 담고, list.add한 최종 list를 반환한다.
      * @param id 장바구니의 식별자 역할을 하는 id
-     * @return 장바구니에 있는 모든 정보를 담고있는 ArrayList<BasketDTO>를 반환한다.
+     * @return {@code list 장바구니에 있는 모든 정보를 담고있는 ArrayList<BasketDTO>를 반환한다.}
      */
     public ArrayList<BasketDTO> list(String id) {
 

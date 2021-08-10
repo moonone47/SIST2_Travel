@@ -60,7 +60,7 @@ public class BoardDAO {
 
 	/**
 	 * 질문게시판 게시글 리스트 메소드
-	 * @param 검색 조건이 담긴 HashMap 
+	 * @param map 검색 조건이 담긴 HashMap 
 	 * @return 검색 조건에 따른 결과가 담긴 ArrayList 
 	 */
 
@@ -180,7 +180,6 @@ public class BoardDAO {
 	 * 질문게시판 게시글 조회수 증가 메소드
 	 * 
 	 * @param questionseq 게시글 번호
-	 * @return result 1, 0
 	 */
 	public void updateReadCount(String questionseq) {
 		try {
@@ -224,8 +223,8 @@ public class BoardDAO {
 	/**
 	 * 질문게시판 게시글에 달린 댓글 리스트 메소드
 	 * 
-	 * @param 게시글 번호
-	 * @return clist
+	 * @param questionseq 게시글 번호
+	 * @return listcomment 댓글리스트 반환
 	 */
 	public ArrayList<CommentDTO> listcomment(String questionseq) {
 		try {
@@ -316,8 +315,8 @@ public class BoardDAO {
 	/**
 	 * 질문게시판 게시글 삭제시 참조 중인 댓글 삭제 메소드
 	 * 
-	 * @param questionseq
-	 * @return 1, 0
+	 * @param questionseq 삭제 번호
+	 * 
 	 */
 
 	public void delAllComment(String questionseq) {

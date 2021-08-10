@@ -1,6 +1,13 @@
 package travel.community.clubboard;
+/**
+ * test
+ * @author HR
+ *
+ */
 public class ClubBoardCommentDTO {
-
+/**
+ * test
+ */
 	private String travelclubcommentseq;
 	private String regdate;
 	private String content;

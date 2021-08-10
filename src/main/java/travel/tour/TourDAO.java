@@ -30,7 +30,7 @@ public class TourDAO {
     }
     /**
      * 투어 리스트 조회 메소드
-     * @return LinkedList<TourDTO> 질의 결과를 반환
+     * @return getList() 질의 결과를 반환
      */
     public LinkedList<TourDTO> getList() {
         try{

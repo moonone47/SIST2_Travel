@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
+ * {@code
  * Event table의 DB작업을 위한 클래스
  * EventDAO	DB 연결을 위한 생성자
  * ArrayList<EventDTO> list(HashMap<String, String> map)	mpa에 저장된 정보로 vwEventBoard 테이블에 where절의 조건으로 저장하고, 쿼리를 실행후 list에 저장하여 반환한다.
@@ -25,6 +26,7 @@ import java.util.HashMap;
  * ArrayList<CommentDTO> listComment(String seq)	tblEventComment에 seq(부모글 번호)를 서브쿼리를 이용하여 댓글 목록을 CommentDTO에 담고, ArrayList에 add하여 반환한다.
  * int delComment(String seq)	tblEventComment에서seq에 해당하는 댓글을 delete하고 결과값을 반환한다.
  * void delAllComment(String seq)	tblEventComment에서 pseq(부모글 번호)가 seq인 모든 댓글을 delete한다.
+ * }
  */
 public class EventDAO {
     private Connection conn;

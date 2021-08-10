@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+/**
+ * 
+ * @author HR
+ *
+ */
 @WebServlet("/login/findid.do")
 public class FindId extends HttpServlet {
 

@@ -33,8 +33,8 @@ public class WishDAO {
     }
 
     /**
-     * tblRestaurant 테이블에서 select * 값을 LinkedList<RestaurantDTO>로 반환하는 메소드
-     * @return select * 정보를 LinkedList<RestaurantDTO>로 반환한다.
+     * tblRestaurant {{@code 테이블에서 select * 값을 LinkedList\<RestaurantDTO\>로 반환하는 메소드}
+     * @return {@code select * 정보를 LinkedList\<RestaurantDTO\>로 반환한다.}
      */
     public LinkedList<RestaurantDTO> getAllRestaurant() {
         try {
@@ -71,8 +71,8 @@ public class WishDAO {
     }
 
     /**
-     * tblRooms 테이블에서 select *한 결과를 LinkedList<RoomDTO> list에 add한 결과를 반환하는 메소드
-     * @return select *의 결과를 LinkedList<RoomDTO>로 반환한다.
+     * tblRooms {@code 테이블에서 select *한 결과를 LinkedList\<RoomDTO\> list에 add한 결과를 반환하는 메소드}
+     * @return {@code select *의 결과를 LinkedList\<RoomDTO\>로 반환한다.}
      */
     public LinkedList<RoomDTO> getAllRoom() {
         try {
@@ -109,8 +109,8 @@ public class WishDAO {
     }
 
     /**
-     * tblSights 테이블에서 select *한 정보를 LinkedList<SightDTO> list에 add한 결과를 반환한다.
-     * @return select *의 결과를 저장한 LinkedList<SightDTO> 를 반환한다.
+     * tblSights {@code 테이블에서 select *한 정보를 LinkedList\<SightDTO\> list에 add한 결과를 반환한다.}
+     * @return {@code LinkedList<SightDTO> select *의 결과를 저장한 LinkedList\<SightDTO\> 를 반환한다.}
      */
     public LinkedList<SightDTO> getAllSight() {
         try {

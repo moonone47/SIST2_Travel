@@ -15,7 +15,7 @@ import travel.DBUtil;
  *private PreparedStatementsql 질의 실행을 위한 객체
  *private ResultSet sql 질의 실행 후 반환되는 객체
 String sql sql문 저장 변수
-ArrayList<FreeBoardCommentDTO> list while문을 돌며 생성되는 dto객체를 담는 ArrayList 객체
+{@code ArrayList<FreeBoardCommentDTO> list while문을 돌며 생성되는 dto객체를 담는 ArrayList 객체}
 FreeBoardCommentDTO dto select문의 반환값인 ResultSet객체의 인자값을 옮겨담기 위한 dto 객체
 
 
@@ -68,7 +68,7 @@ public class FreeBoardCommentDAO {
 	/**
 	 * 댓글 리스트 조회로 select 질의를 수행하는 메소드
 	 * @param freeboardseq
-	 * @return ArrayList<FreeBoardCommentDTO> 질의 결과를 반환
+	 * @return {@code ArrayList<FreeBoardCommentDTO> 질의 결과를 반환}
 	 */
 	public ArrayList<FreeBoardCommentDTO> getlist(String freeboardseq) {
 		try {
