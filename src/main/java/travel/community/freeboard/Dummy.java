@@ -8,6 +8,15 @@ import travel.DBUtil;
 /**
  * 더미 데이터 생성 서블릿
  * @author 김정은
+ * String[] id id 배열 변수
+ * String[] subject 제목 배열 변수
+ * String content 내용 변수
+ * Random rnd 난수 생성 객체
+ * Connection conn statement 객체 생성을 위한 Connection 객체
+ * PreparedStatement stat sql 질의 실행을 위한 객체
+ * String sql sql문 저장 변수
+
+
  *
  */
 public class Dummy {

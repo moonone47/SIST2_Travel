@@ -11,7 +11,17 @@ import travel.DBUtil;
 /**
  * 게시글 DB 질의 처리 클래스
  * @author 김정은
- *
+ *private Connection conn
+statement 객체 생성을 위한 Connection 객체
+Statement stat sql 질의 실행을 위한 객체
+PreparedStatement pstat sql 질의 실행을 위한 객체
+ResultSet rs sql 질의 실행 후 반환되는 객체
+String sql sql문 저장 변수
+String where 조건에 따라 다른 where절을 저장하기 위한 변수
+ArrayList<FreeBoardDTO> list  while문을 돌며 생성되는 dto객체를 담는 ArrayList 객체
+FreeBoardDTO dto select문의 반환값인 ResultSet객체의 인자값을 옮겨담기 위한 dto 객체
+
+
  */
 public class FreeBoardDAO {
 

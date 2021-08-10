@@ -10,7 +10,15 @@ import travel.DBUtil;
 /**
  * 댓글 DB 질의 처리 클래스
  * @author 김정은
- *
+ *private Connection statement 객체 생성을 위한 Connection 객체
+ *private Statement  sql 질의 실행을 위한 객체
+ *private PreparedStatementsql 질의 실행을 위한 객체
+ *private ResultSet sql 질의 실행 후 반환되는 객체
+String sql sql문 저장 변수
+ArrayList<FreeBoardCommentDTO> list while문을 돌며 생성되는 dto객체를 담는 ArrayList 객체
+FreeBoardCommentDTO dto select문의 반환값인 ResultSet객체의 인자값을 옮겨담기 위한 dto 객체
+
+
  */
 public class FreeBoardCommentDAO {
 

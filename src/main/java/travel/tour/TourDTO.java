@@ -2,7 +2,14 @@ package travel.tour;
 /**
  * tblTour 데이터 저장 클래스
  * @author 김정은
- *
+ *String tourseq tblTour의 seq
+String name 이름
+String validdate 사용기간
+String use 사용처
+String tourprice 투어가격
+String img 이미지 url
+
+
  */
 public class TourDTO {
     //    TOURSEQ   NUMBER         not null

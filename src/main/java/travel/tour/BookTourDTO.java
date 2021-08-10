@@ -2,7 +2,17 @@ package travel.tour;
 /**
  * tblBookTour 데이터 저장 클래스
  * @author 김정은
- *
+ *String seq tblBookTour의 seq
+String id 멤버 id
+String name 이름
+String regdate 날짜
+String personnel 인원
+String contact 연락처 
+String email 이메일
+String moredetail 추가내용
+String tourseq tbltour의 seq 
+
+
  */
 public class BookTourDTO {
     private String seq;

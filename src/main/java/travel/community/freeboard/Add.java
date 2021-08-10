@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 게시글 작성 jsp 호출하는 서블릿
  * @author 김정은
- *
+ *RequestDispatcher dispatcher  데이터를 forward 하기 위한 dispatcher 변수
+
+
  */
 @WebServlet("/community/freeboard/add.do")
 public class Add extends HttpServlet {

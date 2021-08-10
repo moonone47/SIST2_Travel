@@ -39,9 +39,7 @@
 	text-align: left;
 }
 
-.table #content th {
-	width: 120px;
-}
+
 
 
 #comment {

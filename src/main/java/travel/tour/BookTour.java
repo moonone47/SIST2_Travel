@@ -11,7 +11,11 @@ import java.io.PrintWriter;
 /**
  * 투어 예약 서블릿
  * @author 김정은
- *
+ *String id 사용자 id 
+BookTourDAO dao BookTourDAO 클래스 객체로 만드는 변수 
+BookTourDTO dto BookTourDTO 클래스 객체로 만드는 변수 
+
+
  */
 @WebServlet("/tour/booktour.do")
 public class BookTour extends HttpServlet {

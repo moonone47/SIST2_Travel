@@ -14,7 +14,28 @@ import javax.servlet.http.HttpSession;
 /**
  * 게시판 리스트 조회 서블릿
  * @author 김정은
- *
+ *String column 검색 대상 저장 변수
+String search 검색어 저장 변수
+String isSearch 검색여부 저장 변수
+HashMap<String, String> map 검색대상,검색어를 저장하는 map 객체
+FreeBoardDAO dao DB작업을 담당하는 dao 객체
+int nowPage 현재 페이지 번호를 저장하는 변수
+int totalCount 총 게시물 수를 저장하는 변수
+int pageSize 한 페이지당 출력할 게시물 수를 저장하는 변수
+int totalPage 총 페이지 수를 저장하는 변수
+int begin 가져올 게시물 시작 위치를 저장하는 변수
+int end 가져올 게시물 끝 위치를 저장하는 변수
+int n 출력되는 페이지 번호를 저장하는 변수
+int loop  페이지 바 제작에 사용되는 while 루프 변수
+int blockSize 페이지에 들어갈 게시물 개수를 저장하는 변수
+String page jsp에서 넘어온 page 인자값을 저장할 변수
+String pagebar jsp에 추가할 pagebar를 만드는 html 구문을 저장하는 변수
+ArrayList<FreeBoardDTO> list dao.getlist() 메소드의 반환값을 담을 객체. 게시글 정보를 갖고있다.
+String subject 제목을 저장하는 변수
+HttpSession session 사용자 정보 저장 및 조회 용도의 session 객체 
+RequestDispatcher dispatcher 데이터를 forward 하기 위한 dispatcher 변수
+
+
  */
 @WebServlet("/community/freeboard/list.do")
 public class List extends HttpServlet {

@@ -4,6 +4,24 @@ package travel.spot;
  * tblRestaurant 데이터 저장 클래스
  * @author 김정은
  *
+ *String restaurantSeq tblrestaurant 의 PK 
+String name 음식점 이름 
+String explain 음식점 설명
+String address 음식점 주소
+String image 음식점 이미지 url
+String grade 음식점 평점 
+String wish 찜
+String theme 테마
+String restaurantX x좌표
+String restaurantY y좌표
+String plandate 일정날짜
+String budget 예산
+String seq seq
+String url url
+String planseq 여행일정 seq
+String id 멤버 id
+
+
  */
 public class RestaurantDTO {
 //    restaurantseq name explain address image grade wish theme restaurantx restauranty plandate budget seq url planseq id

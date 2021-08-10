@@ -13,7 +13,7 @@
 #container {
 	width: 1100px;
 	margin: 0px auto 50px auto;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
 
 #list {

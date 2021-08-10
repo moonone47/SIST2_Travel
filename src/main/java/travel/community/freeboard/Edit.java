@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 게시글 수정 jsp 호출 서블릿
  * @author 김정은
+ * String freeboardseq 게시글 seq 저장하는 변수
+ * FreeBoardDAO dao DB작업을 담당하는 dao 객체
+ * FreeBoardDTO dto 데이터 전송에 쓰이는 dto 객체
+ * RequestDispatcher dispatcher 데이터를 forward 하기 위한 dispatcher 변수
+
+
  *
  */
 @WebServlet("/community/freeboard/edit.do")

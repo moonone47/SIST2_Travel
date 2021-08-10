@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 게시글 삭제 서블릿
  * @author 김정은
+ * String freeboardseq 게시글 seq 저장하는 변수
+ * FreeBoardDAO dao DB작업을 담당하는 dao 객체
+ * int result 메소드 실행 결과값을 저장하는 변수
+
+
+
  *
  */
 @WebServlet("/community/freeboard/delete.do")
