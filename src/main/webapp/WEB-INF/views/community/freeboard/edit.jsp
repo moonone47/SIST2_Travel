@@ -29,9 +29,10 @@
 	display: table-cell;
 }
 
+.table {text-align: center;}
 .table tr:nth-child(1) th { height: 15px;}
-.table tr:nth-child(2) th { height: 300px;}
-.table tr:nth-child(3) th { height: 20px;}
+.table tr:nth-child(2) th { height: 15px;}
+.table tr:nth-child(3) th { height: 300px;}
 
 
 .table td {
@@ -53,28 +54,32 @@
 		<h1>Board <small>Add</small></h1>
 		
 		<div id="list">
-		<form method="POST" action="/SIST2_Travel/community/freeboard/addok.do">
+		<form method="POST" action="/SIST2_Travel/community/freeboard/editok.do?freeboardseq=${dto.freeboardseq}">
 			<table class="table table-bordered">
 				<tr>
+					<th>글번호</th>
+					<td>${dto.freeboardseq}</td>
+					<th>작성자</th>
+					<td>${dto.id}</td>
+				</tr>
+				<tr>
 					<th>제목</th>
-					<td><input type="text" name="subject" id="subject" class="form-control" required maxlength="66"></td>
+					<td colspan="3"><input type="text" name="subject" id="subject" class="form-control" value="${dto.subject}" required ></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea name="content" id="contents" class="form-control" required></textarea></td>
+					<td colspan="3"><textarea name="content" id="contents" class="form-control" required>${dto.content}</textarea></td>
 				</tr>
 			</table>
-
 			<div class="btns">
-				<button type="submit" class="btn btn-primary">글쓰기</button>
+				<button type="submit" class="btn btn-primary">수정하기</button>
 				<button type="button" class="btn btn-default"
-					onclick="location.href='/SIST2_Travel/community/freeboard/list.do';">돌아가기</button>
+					onclick="location.href='/SIST2_Travel/community/freeboard/view.do?freeboardseq=${dto.freeboardseq}';">돌아가기</button>
 			</div>
 		</form>
 		</div>
 	</div>
 	</section>
-
 
 
 	<%@ include file="/inc/footer.jsp"%>
